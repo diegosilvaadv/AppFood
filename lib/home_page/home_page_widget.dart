@@ -81,7 +81,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(40.0, 0.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                 child: Icon(
                   Icons.list,
                   color: FlutterFlowTheme.of(context).secondaryText,
@@ -208,7 +208,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(50.0, 30.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 30.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -226,7 +226,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(50.0, 28.0, 50.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 28.0, 50.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -292,7 +292,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(50.0, 30.0, 0.0, 10.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 30.0, 0.0, 10.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -324,7 +324,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       ),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(50.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -600,7 +600,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(50.0, 20.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -624,7 +624,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     children: [
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            50.0, 10.0, 0.0, 0.0),
+                            16.0, 10.0, 0.0, 0.0),
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
@@ -802,7 +802,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(50.0, 25.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 25.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -821,7 +821,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(50.0, 10.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 0.0, 0.0),
                     child: FutureBuilder<List<PratosRow>>(
                       future: PratosTable().queryRows(
                         queryFn: (q) => q,
