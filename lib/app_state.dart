@@ -20,11 +20,11 @@ class FFAppState extends ChangeNotifier {
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
     _safeInit(() {
-      _cliente = prefs
-              .getStringList('ff_cliente')
+      _Pedido = prefs
+              .getStringList('ff_Pedido')
               ?.map((x) {
                 try {
-                  return ClienteStruct.fromSerializableMap(jsonDecode(x));
+                  return PedidoStruct.fromSerializableMap(jsonDecode(x));
                 } catch (e) {
                   print("Can't decode persisted data type. Error: $e.");
                   return null;
@@ -32,7 +32,7 @@ class FFAppState extends ChangeNotifier {
               })
               .withoutNulls
               .toList() ??
-          _cliente;
+          _Pedido;
     });
   }
 
@@ -43,45 +43,44 @@ class FFAppState extends ChangeNotifier {
 
   late SharedPreferences prefs;
 
-  List<ClienteStruct> _cliente = [];
-  List<ClienteStruct> get cliente => _cliente;
-  set cliente(List<ClienteStruct> _value) {
-    _cliente = _value;
-    prefs.setStringList(
-        'ff_cliente', _value.map((x) => x.serialize()).toList());
+  List<PedidoStruct> _Pedido = [];
+  List<PedidoStruct> get Pedido => _Pedido;
+  set Pedido(List<PedidoStruct> _value) {
+    _Pedido = _value;
+    prefs.setStringList('ff_Pedido', _value.map((x) => x.serialize()).toList());
   }
 
-  void addToCliente(ClienteStruct _value) {
-    _cliente.add(_value);
+  void addToPedido(PedidoStruct _value) {
+    _Pedido.add(_value);
     prefs.setStringList(
-        'ff_cliente', _cliente.map((x) => x.serialize()).toList());
+        'ff_Pedido', _Pedido.map((x) => x.serialize()).toList());
   }
 
-  void removeFromCliente(ClienteStruct _value) {
-    _cliente.remove(_value);
+  void removeFromPedido(PedidoStruct _value) {
+    _Pedido.remove(_value);
     prefs.setStringList(
-        'ff_cliente', _cliente.map((x) => x.serialize()).toList());
+        'ff_Pedido', _Pedido.map((x) => x.serialize()).toList());
   }
 
-  void removeAtIndexFromCliente(int _index) {
-    _cliente.removeAt(_index);
+  void removeAtIndexFromPedido(int _index) {
+    _Pedido.removeAt(_index);
     prefs.setStringList(
-        'ff_cliente', _cliente.map((x) => x.serialize()).toList());
+        'ff_Pedido', _Pedido.map((x) => x.serialize()).toList());
   }
 
-  void updateClienteAtIndex(
+  void updatePedidoAtIndex(
     int _index,
-    ClienteStruct Function(ClienteStruct) updateFn,
+    PedidoStruct Function(PedidoStruct) updateFn,
   ) {
-    _cliente[_index] = updateFn(_cliente[_index]);
+    _Pedido[_index] = updateFn(_Pedido[_index]);
     prefs.setStringList(
-        'ff_cliente', _cliente.map((x) => x.serialize()).toList());
+        'ff_Pedido', _Pedido.map((x) => x.serialize()).toList());
   }
 
-  void insertAtIndexInCliente(int _index, ClienteStruct _value) {
-    _cliente.insert(_index, _value);
+  void insertAtIndexInPedido(int _index, PedidoStruct _value) {
+    _Pedido.insert(_index, _value);
     prefs.setStringList(
-        'ff_cliente', _cliente.map((x) => x.serialize()).toList());
+        'ff_Pedido', _Pedido.map((x) => x.serialize()).toList());
   }
 }
 
