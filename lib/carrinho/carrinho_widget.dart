@@ -128,7 +128,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               child: Image.network(
                                                 pedidosItem.img,
                                                 width: 80.0,
-                                                height: 80.0,
+                                                height: 100.0,
                                                 fit: BoxFit.fitHeight,
                                               ),
                                             ),
@@ -227,7 +227,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .error,
-                                              size: 20.0,
+                                              size: 25.0,
                                             ),
                                             onPressed: () async {
                                               setState(() {
