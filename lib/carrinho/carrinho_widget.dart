@@ -184,7 +184,11 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                       child: Text(
                                                         'Quantidade${formatNumber(
                                                           FFAppState()
-                                                              .cardNumero,
+                                                              .Pedido
+                                                              .where((e) => e
+                                                                  .hasQuantidade())
+                                                              .toList()
+                                                              .length,
                                                           formatType:
                                                               FormatType.custom,
                                                           format: '0',
@@ -240,12 +244,21 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 FFAppState().Soma = FFAppState()
                                                         .Soma +
                                                     functions.newCustomFunction2(
-                                                        functions
-                                                            .newCustomFunction(
-                                                                pedidosIndex
-                                                                    .toDouble(),
-                                                                FFAppState()
-                                                                    .Soma));
+                                                        functions.newCustomFunction(
+                                                            FFAppState()
+                                                                .Pedido
+                                                                .where((e) => e
+                                                                    .hasPreco())
+                                                                .toList()
+                                                                .length
+                                                                .toDouble(),
+                                                            FFAppState()
+                                                                .Pedido
+                                                                .where((e) => e
+                                                                    .hasQuantidade())
+                                                                .toList()
+                                                                .length
+                                                                .toDouble()));
                                               });
                                             },
                                           ),
