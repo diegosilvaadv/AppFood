@@ -375,9 +375,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                                 border: Border.all(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .warning,
+                                                  color: Color(0xFF13DC0C),
                                                   width: 1.0,
                                                 ),
                                               ),
@@ -414,7 +412,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       BorderRadius.circular(
                                                           5.0),
                                                   border: Border.all(
-                                                    color: Color(0x7EF9CF58),
+                                                    color: Color(0xFF13DC0C),
                                                     width: 1.0,
                                                   ),
                                                 ),
@@ -542,9 +540,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       .primaryBackground,
                                                   shape: BoxShape.circle,
                                                   border: Border.all(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .warning,
+                                                    color: Color(0xFF13DC0C),
                                                     width: 1.0,
                                                   ),
                                                 ),
