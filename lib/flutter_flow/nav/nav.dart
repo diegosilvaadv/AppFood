@@ -50,6 +50,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'HomePage',
           path: '/homePage',
           builder: (context, params) => HomePageWidget(),
+        ),
+        FFRoute(
+          name: 'Comidas',
+          path: '/comidas',
+          builder: (context, params) => ComidasWidget(),
+        ),
+        FFRoute(
+          name: 'Bebidas',
+          path: '/bebidas',
+          builder: (context, params) => BebidasWidget(),
+        ),
+        FFRoute(
+          name: 'Sobremesa',
+          path: '/sobremesa',
+          builder: (context, params) => SobremesaWidget(),
+        ),
+        FFRoute(
+          name: 'Entradas',
+          path: '/entradas',
+          builder: (context, params) => EntradasWidget(),
+        ),
+        FFRoute(
+          name: 'Carrinho',
+          path: '/carrinho',
+          builder: (context, params) => CarrinhoWidget(),
+        ),
+        FFRoute(
+          name: 'buscar',
+          path: '/buscar',
+          builder: (context, params) => BuscarWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

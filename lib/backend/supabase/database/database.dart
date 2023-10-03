@@ -5,5 +5,8 @@ export '../supabase.dart';
 export 'row.dart';
 export 'table.dart';
 
+export 'tables/entradas.dart';
+export 'tables/sobremesa.dart';
+export 'tables/bebidas.dart';
+export 'tables/empromo.dart';
 export 'tables/pratos.dart';
-export 'tables/user_cliente.dart';
