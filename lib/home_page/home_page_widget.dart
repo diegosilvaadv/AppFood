@@ -1,4 +1,3 @@
-import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -604,6 +603,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
                       padding:
@@ -613,26 +614,44 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Card(
-                              clipBehavior: Clip.antiAliasWithSaveLayer,
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              elevation: 4.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 10.0, 10.0, 10.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Text(
-                                      'ENTRADAS',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed(
+                                  'Entradas',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.scale,
+                                      alignment: Alignment.bottomCenter,
                                     ),
-                                  ],
+                                  },
+                                );
+                              },
+                              child: Card(
+                                clipBehavior: Clip.antiAliasWithSaveLayer,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 10.0, 10.0, 10.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Text(
+                                        'ENTRADAS',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -642,9 +661,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                setState(() {
-                                  FFAppState().cliente = [];
-                                });
+                                context.pushNamed(
+                                  'Comidas',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.scale,
+                                      alignment: Alignment.bottomCenter,
+                                    ),
+                                  },
+                                );
                               },
                               child: Card(
                                 clipBehavior: Clip.antiAliasWithSaveLayer,
