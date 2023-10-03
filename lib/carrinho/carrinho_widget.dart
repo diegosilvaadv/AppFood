@@ -234,15 +234,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                         -1.0;
                                               });
                                               setState(() {
-                                                FFAppState().Soma = FFAppState()
-                                                        .Soma +
-                                                    FFAppState()
-                                                        .Pedido
-                                                        .where(
-                                                            (e) => e.hasPreco())
-                                                        .toList()
-                                                        .length
-                                                        .toDouble();
+                                                FFAppState().Soma =
+                                                    FFAppState().Soma +
+                                                        pedidosIndex.toDouble();
                                               });
                                             },
                                           ),
