@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -207,8 +208,12 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                       .error,
                                               size: 20.0,
                                             ),
-                                            onPressed: () {
-                                              print('IconButton pressed ...');
+                                            onPressed: () async {
+                                              setState(() {
+                                                FFAppState()
+                                                    .removeAtIndexFromPedido(
+                                                        pedidosIndex);
+                                              });
                                             },
                                           ),
                                         ],
