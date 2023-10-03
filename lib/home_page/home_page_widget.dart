@@ -201,7 +201,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     alignment: AlignmentDirectional(3.94, 2.72),
                     child: badges.Badge(
                       badgeContent: Text(
-                        FFAppState().cardNumero.toString(),
+                        valueOrDefault<String>(
+                          FFAppState().cardNumero.toString(),
+                          '0',
+                        ),
                         style: FlutterFlowTheme.of(context).titleSmall.override(
                               fontFamily: 'Readex Pro',
                               color: Colors.white,
@@ -240,26 +243,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            setState(() {
-                              FFAppState().cardNumero =
-                                  FFAppState().cardNumero + -1.0;
-                            });
-                          },
-                          child: Text(
-                            'App Food',
-                            style: FlutterFlowTheme.of(context)
-                                .headlineLarge
-                                .override(
-                                  fontFamily: 'Outfit',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
+                        Text(
+                          'App Food',
+                          style: FlutterFlowTheme.of(context)
+                              .headlineLarge
+                              .override(
+                                fontFamily: 'Outfit',
+                                fontWeight: FontWeight.bold,
+                              ),
                         ),
                       ],
                     ),
