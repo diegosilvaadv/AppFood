@@ -39,17 +39,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => HomePageWidget(),
+      errorBuilder: (context, state) => NavBarPage(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => HomePageWidget(),
+          builder: (context, _) => NavBarPage(),
         ),
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
-          builder: (context, params) => HomePageWidget(),
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'HomePage')
+              : HomePageWidget(),
         ),
         FFRoute(
           name: 'Comidas',
@@ -72,14 +74,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => EntradasWidget(),
         ),
         FFRoute(
-          name: 'Carrinho',
-          path: '/carrinho',
-          builder: (context, params) => CarrinhoWidget(),
-        ),
-        FFRoute(
           name: 'buscar',
           path: '/buscar',
           builder: (context, params) => BuscarWidget(),
+        ),
+        FFRoute(
+          name: 'carrinho',
+          path: '/carrinho',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'carrinho')
+              : CarrinhoWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

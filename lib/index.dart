@@ -4,5 +4,5 @@ export '/comidas/comidas_widget.dart' show ComidasWidget;
 export '/bebidas/bebidas_widget.dart' show BebidasWidget;
 export '/sobremesa/sobremesa_widget.dart' show SobremesaWidget;
 export '/entradas/entradas_widget.dart' show EntradasWidget;
-export '/carrinho/carrinho_widget.dart' show CarrinhoWidget;
 export '/buscar/buscar_widget.dart' show BuscarWidget;
+export '/carrinho/carrinho_widget.dart' show CarrinhoWidget;

@@ -551,7 +551,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
               width: double.infinity,
               height: 100.0,
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).primary,
+                color: FlutterFlowTheme.of(context).primaryText,
                 boxShadow: [
                   BoxShadow(
                     blurRadius: 4.0,
@@ -571,7 +571,10 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
                 child: Text(
                   'Checkout (\$137.75)',
-                  style: FlutterFlowTheme.of(context).titleMedium,
+                  style: FlutterFlowTheme.of(context).titleMedium.override(
+                        fontFamily: 'Readex Pro',
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                      ),
                 ),
               ),
             ),
