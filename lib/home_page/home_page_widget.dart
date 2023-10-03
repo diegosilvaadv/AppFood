@@ -240,14 +240,26 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Text(
-                          'App Food',
-                          style: FlutterFlowTheme.of(context)
-                              .headlineLarge
-                              .override(
-                                fontFamily: 'Outfit',
-                                fontWeight: FontWeight.bold,
-                              ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            setState(() {
+                              FFAppState().cardNumero =
+                                  FFAppState().cardNumero + -1.0;
+                            });
+                          },
+                          child: Text(
+                            'App Food',
+                            style: FlutterFlowTheme.of(context)
+                                .headlineLarge
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
                         ),
                       ],
                     ),
