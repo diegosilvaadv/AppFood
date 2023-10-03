@@ -98,7 +98,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       16.0, 8.0, 16.0, 0.0),
                                   child: Container(
                                     width: double.infinity,
-                                    height: 100.0,
+                                    height: 120.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -129,7 +129,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 'https://www.receitas.eduguedes.com.br/wp-content/uploads/2019/05/Edu-Guedes-bolinho-de-carne-seca.jpg',
                                                 width: 80.0,
                                                 height: 80.0,
-                                                fit: BoxFit.fitWidth,
+                                                fit: BoxFit.fitHeight,
                                               ),
                                             ),
                                           ),
@@ -156,76 +156,51 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                                   8.0),
                                                       child: Text(
                                                         pedidosItem.nome,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleLarge,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .titleLarge
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Outfit',
+                                                              fontSize: 18.0,
+                                                            ),
                                                       ),
                                                     ),
                                                   ),
-                                                  Expanded(
+                                                  Text(
+                                                    'R\$ ${formatNumber(
+                                                      pedidosItem.preco,
+                                                      formatType:
+                                                          FormatType.custom,
+                                                      format: 'R\$ ',
+                                                      locale: '',
+                                                    )}',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelMedium,
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 8.0,
+                                                                0.0, 0.0),
                                                     child: Text(
-                                                      'R\$ ${formatNumber(
-                                                        pedidosItem.preco,
+                                                      formatNumber(
+                                                        pedidosItem.quantidade,
                                                         formatType:
                                                             FormatType.custom,
-                                                        format: 'R\$ ',
+                                                        format: '',
                                                         locale: '',
-                                                      )}',
+                                                      ),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
-                                                    ),
-                                                  ),
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  8.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        pedidosItem.quantidade
-                                                            .toString(),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelSmall,
-                                                      ),
+                                                              .labelSmall,
                                                     ),
                                                   ),
                                                 ],
                                               ),
                                             ),
-                                          ),
-                                          FlutterFlowIconButton(
-                                            borderColor: Colors.transparent,
-                                            borderRadius: 30.0,
-                                            borderWidth: 1.0,
-                                            buttonSize: 40.0,
-                                            icon: Icon(
-                                              Icons.edit_outlined,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              size: 20.0,
-                                            ),
-                                            onPressed: () async {
-                                              FFAppState().update(() {
-                                                FFAppState().Soma = FFAppState()
-                                                        .Soma +
-                                                    functions.newCustomFunction2(
-                                                        functions
-                                                            .newCustomFunction(
-                                                                pedidosItem
-                                                                    .preco,
-                                                                pedidosItem
-                                                                    .quantidade));
-                                              });
-                                            },
                                           ),
                                           FlutterFlowIconButton(
                                             borderColor: Colors.transparent,
@@ -287,7 +262,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       Text(
                                         'Total',
                                         style: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .titleLarge,
                                       ),
                                       FlutterFlowIconButton(
                                         borderColor: Colors.transparent,
