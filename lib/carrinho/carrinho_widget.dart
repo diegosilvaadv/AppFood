@@ -1,8 +1,10 @@
 import '/backend/schema/structs/index.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -26,6 +28,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CarrinhoModel());
+
+    _model.textController ??= TextEditingController();
   }
 
   @override
@@ -311,6 +315,152 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                   ),
                                 ],
                               ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 10.0, 10.0, 10.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 8.0, 0.0),
+                                child: TextFormField(
+                                  controller: _model.textController,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'Seu Nome',
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    errorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedErrorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    filled: true,
+                                  ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  validator: _model.textControllerValidator
+                                      .asValidator(context),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 10.0, 10.0, 10.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            FlutterFlowDropDown<String>(
+                              controller: _model.dropDownValueController1 ??=
+                                  FormFieldController<String>(null),
+                              options: ['1', '2', '3', '4', '5'],
+                              onChanged: (val) =>
+                                  setState(() => _model.dropDownValue1 = val),
+                              width: 300.0,
+                              height: 50.0,
+                              textStyle:
+                                  FlutterFlowTheme.of(context).bodyMedium,
+                              hintText: 'Numero da Mesa',
+                              icon: Icon(
+                                Icons.keyboard_arrow_down_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 24.0,
+                              ),
+                              fillColor: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              elevation: 2.0,
+                              borderColor:
+                                  FlutterFlowTheme.of(context).alternate,
+                              borderWidth: 2.0,
+                              borderRadius: 8.0,
+                              margin: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 4.0, 16.0, 4.0),
+                              hidesUnderline: true,
+                              isSearchable: false,
+                              isMultiSelect: false,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 10.0, 10.0, 10.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            FlutterFlowDropDown<String>(
+                              controller: _model.dropDownValueController2 ??=
+                                  FormFieldController<String>(null),
+                              options: [
+                                'Dinheiro',
+                                'Cartão de Debido',
+                                'Cartão de Credito',
+                                'Pix'
+                              ],
+                              onChanged: (val) =>
+                                  setState(() => _model.dropDownValue2 = val),
+                              width: 300.0,
+                              height: 50.0,
+                              textStyle:
+                                  FlutterFlowTheme.of(context).bodyMedium,
+                              hintText: 'Forma de Pagamento',
+                              icon: Icon(
+                                Icons.keyboard_arrow_down_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 24.0,
+                              ),
+                              fillColor: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              elevation: 2.0,
+                              borderColor:
+                                  FlutterFlowTheme.of(context).alternate,
+                              borderWidth: 2.0,
+                              borderRadius: 8.0,
+                              margin: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 4.0, 16.0, 4.0),
+                              hidesUnderline: true,
+                              isSearchable: false,
+                              isMultiSelect: false,
                             ),
                           ],
                         ),
