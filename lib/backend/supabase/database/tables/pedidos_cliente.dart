@@ -24,9 +24,15 @@ class PedidosClienteRow extends SupabaseDataRow {
   String? get nomeCliente => getField<String>('nome_cliente');
   set nomeCliente(String? value) => setField<String>('nome_cliente', value);
 
-  int? get nMesa => getField<int>('n_mesa');
-  set nMesa(int? value) => setField<int>('n_mesa', value);
+  String? get nMesa => getField<String>('n_mesa');
+  set nMesa(String? value) => setField<String>('n_mesa', value);
 
   String? get pagamento => getField<String>('pagamento');
   set pagamento(String? value) => setField<String>('pagamento', value);
+
+  double? get valor => getField<double>('valor');
+  set valor(double? value) => setField<double>('valor', value);
+
+  String? get pedido => getField<String>('pedido');
+  set pedido(String? value) => setField<String>('pedido', value);
 }

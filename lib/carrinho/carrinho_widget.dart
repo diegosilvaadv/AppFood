@@ -1,4 +1,5 @@
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -132,7 +133,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               child: Image.network(
                                                 pedidosItem.img,
                                                 width: 80.0,
-                                                height: 100.0,
+                                                height: 80.0,
                                                 fit: BoxFit.fitHeight,
                                               ),
                                             ),
@@ -389,11 +390,11 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             FlutterFlowDropDown<String>(
-                              controller: _model.dropDownValueController1 ??=
+                              controller: _model.numMesaValueController ??=
                                   FormFieldController<String>(null),
                               options: ['1', '2', '3', '4', '5'],
                               onChanged: (val) =>
-                                  setState(() => _model.dropDownValue1 = val),
+                                  setState(() => _model.numMesaValue = val),
                               width: 300.0,
                               height: 50.0,
                               textStyle:
@@ -428,7 +429,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             FlutterFlowDropDown<String>(
-                              controller: _model.dropDownValueController2 ??=
+                              controller: _model.formaPagValueController ??=
                                   FormFieldController<String>(null),
                               options: [
                                 'Dinheiro',
@@ -437,7 +438,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                 'Pix'
                               ],
                               onChanged: (val) =>
-                                  setState(() => _model.dropDownValue2 = val),
+                                  setState(() => _model.formaPagValue = val),
                               width: 300.0,
                               height: 50.0,
                               textStyle:
@@ -469,36 +470,77 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                   ),
                 ),
               ),
-              Container(
-                width: double.infinity,
-                height: 50.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 4.0,
-                      color: Color(0x320E151B),
-                      offset: Offset(0.0, -2.0),
-                    )
-                  ],
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                alignment: AlignmentDirectional(0.00, 0.00),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'FINALIZAR PEDIDO',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Roboto',
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            fontSize: 22.0,
-                            fontWeight: FontWeight.bold,
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  await PedidosClienteTable().insert({
+                    'nome_cliente': _model.textController.text,
+                    'n_mesa': _model.numMesaValue,
+                    'pagamento': _model.formaPagValue,
+                    'valor': FFAppState()
+                        .Pedido
+                        .where((e) => e.hasPreco())
+                        .toList()
+                        .length
+                        .toDouble(),
+                    'pedido': FFAppState()
+                        .Pedido
+                        .where((e) => e.hasNome())
+                        .toList()
+                        .length
+                        .toString(),
+                  });
+                  await showDialog(
+                    context: context,
+                    builder: (alertDialogContext) {
+                      return AlertDialog(
+                        title: Text('Pedido Finalizado'),
+                        content: Text(
+                            'Aguarde a preparação do Pedido. Muito obrigado! ;)'),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
                           ),
-                    ),
-                  ],
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 50.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 4.0,
+                        color: Color(0x320E151B),
+                        offset: Offset(0.0, -2.0),
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'FINALIZAR PEDIDO',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Roboto',
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

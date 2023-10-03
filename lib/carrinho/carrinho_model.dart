@@ -1,4 +1,5 @@
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -18,12 +19,12 @@ class CarrinhoModel extends FlutterFlowModel<CarrinhoWidget> {
   // State field(s) for TextField widget.
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // State field(s) for DropDown widget.
-  String? dropDownValue1;
-  FormFieldController<String>? dropDownValueController1;
-  // State field(s) for DropDown widget.
-  String? dropDownValue2;
-  FormFieldController<String>? dropDownValueController2;
+  // State field(s) for num_mesa widget.
+  String? numMesaValue;
+  FormFieldController<String>? numMesaValueController;
+  // State field(s) for forma_pag widget.
+  String? formaPagValue;
+  FormFieldController<String>? formaPagValueController;
 
   /// Initialization and disposal methods.
 
