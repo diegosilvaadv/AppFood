@@ -238,6 +238,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                     FFAppState().cardNumero +
                                                         FFAppState()
                                                             .Pedido
+                                                            .where((e) =>
+                                                                e.hasPreco())
+                                                            .toList()
                                                             .length
                                                             .toDouble();
                                               });
