@@ -915,7 +915,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               children: [
                                                 Expanded(
                                                   child: Text(
-                                                    columnPratosRow.descricao!,
+                                                    columnPratosRow.descricao!
+                                                        .maybeHandleOverflow(
+                                                      maxChars: 50,
+                                                      replacement: '…',
+                                                    ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium,
