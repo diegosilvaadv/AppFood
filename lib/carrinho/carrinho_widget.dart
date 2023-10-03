@@ -214,6 +214,11 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                     .removeAtIndexFromPedido(
                                                         pedidosIndex);
                                               });
+                                              setState(() {
+                                                FFAppState().cardNumero =
+                                                    FFAppState().cardNumero +
+                                                        -1.0;
+                                              });
                                             },
                                           ),
                                         ],
