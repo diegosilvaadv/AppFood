@@ -145,26 +145,22 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  8.0),
-                                                      child: Text(
-                                                        pedidosItem.nome,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleLarge
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Outfit',
-                                                              fontSize: 22.0,
-                                                            ),
-                                                      ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 8.0),
+                                                    child: Text(
+                                                      pedidosItem.nome,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleLarge
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Outfit',
+                                                                fontSize: 20.0,
+                                                              ),
                                                     ),
                                                   ),
                                                   Text(
