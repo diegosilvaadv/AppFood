@@ -162,7 +162,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                             .override(
                                                               fontFamily:
                                                                   'Outfit',
-                                                              fontSize: 18.0,
+                                                              fontSize: 20.0,
                                                             ),
                                                       ),
                                                     ),
@@ -177,7 +177,14 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                     )}',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .labelMedium,
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          fontSize: 20.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
                                                   ),
                                                   Padding(
                                                     padding:
@@ -185,13 +192,13 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      formatNumber(
+                                                      'Quantidade: ${formatNumber(
                                                         pedidosItem.quantidade,
                                                         formatType:
                                                             FormatType.custom,
                                                         format: '',
                                                         locale: '',
-                                                      ),
+                                                      )}',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
