@@ -34,6 +34,12 @@ class FFAppState extends ChangeNotifier {
               .toList() ??
           _Pedido;
     });
+    _safeInit(() {
+      _cardNumero = prefs.getDouble('ff_cardNumero') ?? _cardNumero;
+    });
+    _safeInit(() {
+      _Soma = prefs.getDouble('ff_Soma') ?? _Soma;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -81,6 +87,20 @@ class FFAppState extends ChangeNotifier {
     _Pedido.insert(_index, _value);
     prefs.setStringList(
         'ff_Pedido', _Pedido.map((x) => x.serialize()).toList());
+  }
+
+  double _cardNumero = 0.0;
+  double get cardNumero => _cardNumero;
+  set cardNumero(double _value) {
+    _cardNumero = _value;
+    prefs.setDouble('ff_cardNumero', _value);
+  }
+
+  double _Soma = 0.0;
+  double get Soma => _Soma;
+  set Soma(double _value) {
+    _Soma = _value;
+    prefs.setDouble('ff_Soma', _value);
   }
 }
 

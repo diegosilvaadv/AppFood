@@ -201,7 +201,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     alignment: AlignmentDirectional(3.94, 2.72),
                     child: badges.Badge(
                       badgeContent: Text(
-                        '1',
+                        FFAppState().cardNumero.toString(),
                         style: FlutterFlowTheme.of(context).titleSmall.override(
                               fontFamily: 'Readex Pro',
                               color: Colors.white,
@@ -209,7 +209,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       ),
                       showBadge: true,
                       shape: badges.BadgeShape.circle,
-                      badgeColor: FlutterFlowTheme.of(context).primary,
+                      badgeColor: Color(0xFF13DC0C),
                       elevation: 4.0,
                       padding:
                           EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
@@ -575,6 +575,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       preco: carouselEmpromoRow
                                                           .valorNovo,
                                                     ));
+                                                  });
+                                                  setState(() {
+                                                    FFAppState().cardNumero =
+                                                        FFAppState()
+                                                                .cardNumero +
+                                                            1.0;
                                                   });
                                                 },
                                                 child: Material(
