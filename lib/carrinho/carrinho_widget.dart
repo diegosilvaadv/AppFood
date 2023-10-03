@@ -177,7 +177,13 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      'Quantidade${FFAppState().cardNumero.toString()}',
+                                                      'Quantidade${formatNumber(
+                                                        FFAppState().cardNumero,
+                                                        formatType:
+                                                            FormatType.custom,
+                                                        format: '0',
+                                                        locale: '',
+                                                      )}',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -226,7 +232,14 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 FFAppState().cardNumero =
                                                     FFAppState().cardNumero +
                                                         -1.0;
-                                                FFAppState().Soma = 0.0;
+                                              });
+                                              setState(() {
+                                                FFAppState().cardNumero =
+                                                    FFAppState().cardNumero +
+                                                        FFAppState()
+                                                            .Pedido
+                                                            .length
+                                                            .toDouble();
                                               });
                                             },
                                           ),
