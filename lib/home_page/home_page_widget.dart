@@ -200,691 +200,595 @@ class _HomePageWidgetState extends State<HomePageWidget>
         ),
         body: SafeArea(
           top: true,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(50.0, 30.0, 0.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Text(
-                        'App Food',
-                        style:
-                            FlutterFlowTheme.of(context).headlineLarge.override(
-                                  fontFamily: 'Outfit',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                      ),
-                    ],
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(50.0, 30.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          'App Food',
+                          style: FlutterFlowTheme.of(context)
+                              .headlineLarge
+                              .override(
+                                fontFamily: 'Outfit',
+                                fontWeight: FontWeight.bold,
+                              ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(50.0, 28.0, 50.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 8.0, 0.0),
-                          child: TextFormField(
-                            controller: _model.textController,
-                            autofocus: true,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              labelText: 'Pesquisar',
-                              labelStyle:
-                                  FlutterFlowTheme.of(context).labelMedium,
-                              hintStyle:
-                                  FlutterFlowTheme.of(context).labelMedium,
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  width: 0.0,
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(50.0, 28.0, 50.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 0.0, 8.0, 0.0),
+                            child: TextFormField(
+                              controller: _model.textController,
+                              autofocus: true,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                labelText: 'Pesquisar',
+                                labelStyle:
+                                    FlutterFlowTheme.of(context).labelMedium,
+                                hintStyle:
+                                    FlutterFlowTheme.of(context).labelMedium,
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    width: 0.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
                                 ),
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  width: 0.0,
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 0.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
                                 ),
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).error,
-                                  width: 0.0,
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 0.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
                                 ),
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).error,
-                                  width: 0.0,
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 0.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
                                 ),
-                                borderRadius: BorderRadius.circular(20.0),
+                                filled: true,
+                                fillColor: Color(0x0A000000),
+                                prefixIcon: Icon(
+                                  Icons.search,
+                                ),
+                                suffixIcon: Icon(
+                                  Icons.keyboard_double_arrow_right_outlined,
+                                ),
                               ),
-                              filled: true,
-                              fillColor: Color(0x0A000000),
-                              prefixIcon: Icon(
-                                Icons.search,
-                              ),
-                              suffixIcon: Icon(
-                                Icons.keyboard_double_arrow_right_outlined,
-                              ),
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              validator: _model.textControllerValidator
+                                  .asValidator(context),
                             ),
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                            validator: _model.textControllerValidator
-                                .asValidator(context),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(50.0, 30.0, 0.0, 10.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Text(
-                        'EM PROMOÇÃO HOJE!',
-                        style: FlutterFlowTheme.of(context).labelLarge.override(
-                              fontFamily: 'Readex Pro',
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 200.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                      borderRadius: BorderRadius.circular(10.0),
-                      border: Border.all(
-                        color: Color(0x0014181B),
-                      ),
+                      ],
                     ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(50.0, 0.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(
-                            child: FutureBuilder<List<EmpromoRow>>(
-                              future: EmpromoTable().queryRows(
-                                queryFn: (q) => q,
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(50.0, 30.0, 0.0, 10.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          'EM PROMOÇÃO HOJE!',
+                          style: FlutterFlowTheme.of(context)
+                              .labelLarge
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontWeight: FontWeight.bold,
                               ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                          FlutterFlowTheme.of(context).primary,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 200.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                        borderRadius: BorderRadius.circular(10.0),
+                        border: Border.all(
+                          color: Color(0x0014181B),
+                        ),
+                      ),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(50.0, 0.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: FutureBuilder<List<EmpromoRow>>(
+                                future: EmpromoTable().queryRows(
+                                  queryFn: (q) => q,
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  );
-                                }
-                                List<EmpromoRow> carouselEmpromoRowList =
-                                    snapshot.data!;
-                                return Container(
-                                  width: double.infinity,
-                                  height: 250.0,
-                                  child: CarouselSlider.builder(
-                                    itemCount: carouselEmpromoRowList.length,
-                                    itemBuilder: (context, carouselIndex, _) {
-                                      final carouselEmpromoRow =
-                                          carouselEmpromoRowList[carouselIndex];
-                                      return Stack(
-                                        children: [
-                                          Align(
-                                            alignment: AlignmentDirectional(
-                                                -0.51, -0.97),
-                                            child: Container(
-                                              width: 157.0,
-                                              height: 141.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                border: Border.all(
-                                                  color: Color(0xFF13DC0C),
-                                                  width: 1.0,
-                                                ),
-                                              ),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                child: Image.network(
-                                                  carouselEmpromoRow.img!,
-                                                  width: 100.0,
-                                                  height: 100.0,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.88),
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              elevation: 5.0,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(5.0),
-                                              ),
+                                    );
+                                  }
+                                  List<EmpromoRow> carouselEmpromoRowList =
+                                      snapshot.data!;
+                                  return Container(
+                                    width: double.infinity,
+                                    height: 250.0,
+                                    child: CarouselSlider.builder(
+                                      itemCount: carouselEmpromoRowList.length,
+                                      itemBuilder: (context, carouselIndex, _) {
+                                        final carouselEmpromoRow =
+                                            carouselEmpromoRowList[
+                                                carouselIndex];
+                                        return Stack(
+                                          children: [
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -0.51, -0.97),
                                               child: Container(
-                                                width: 178.0,
-                                                height: 76.0,
+                                                width: 157.0,
+                                                height: 141.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryBackground,
+                                                      .secondaryBackground,
                                                   borderRadius:
                                                       BorderRadius.circular(
-                                                          5.0),
+                                                          8.0),
                                                   border: Border.all(
                                                     color: Color(0xFF13DC0C),
                                                     width: 1.0,
                                                   ),
                                                 ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Expanded(
-                                                      child: Padding(
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  child: Image.network(
+                                                    carouselEmpromoRow.img!,
+                                                    width: 100.0,
+                                                    height: 100.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.00, 0.88),
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                elevation: 5.0,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          5.0),
+                                                ),
+                                                child: Container(
+                                                  width: 178.0,
+                                                  height: 76.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFF13DC0C),
+                                                      width: 1.0,
+                                                    ),
+                                                  ),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      6.0,
+                                                                      6.0,
+                                                                      6.0,
+                                                                      6.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                child: Text(
+                                                                  carouselEmpromoRow
+                                                                      .nome!,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    6.0,
-                                                                    6.0,
-                                                                    6.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
                                                                     6.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
                                                           children: [
-                                                            Expanded(
-                                                              child: Text(
-                                                                carouselEmpromoRow
-                                                                    .nome!,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium,
-                                                              ),
+                                                            Text(
+                                                              'De ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    fontSize:
+                                                                        10.0,
+                                                                  ),
+                                                            ),
+                                                            Text(
+                                                              carouselEmpromoRow
+                                                                  .valorAntigo!,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Color(
+                                                                        0xFFA00505),
+                                                                    decoration:
+                                                                        TextDecoration
+                                                                            .lineThrough,
+                                                                  ),
+                                                            ),
+                                                            Text(
+                                                              ' Por ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    fontSize:
+                                                                        10.0,
+                                                                  ),
+                                                            ),
+                                                            Text(
+                                                              carouselEmpromoRow
+                                                                  .valorNovo!,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Color(
+                                                                        0xFF0D820A),
+                                                                    fontSize:
+                                                                        18.0,
+                                                                  ),
                                                             ),
                                                           ],
                                                         ),
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  6.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Text(
-                                                            'De ',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  fontSize:
-                                                                      10.0,
-                                                                ),
-                                                          ),
-                                                          Text(
-                                                            carouselEmpromoRow
-                                                                .valorAntigo!,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  color: Color(
-                                                                      0xFFA00505),
-                                                                  decoration:
-                                                                      TextDecoration
-                                                                          .lineThrough,
-                                                                ),
-                                                          ),
-                                                          Text(
-                                                            ' Por ',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  fontSize:
-                                                                      10.0,
-                                                                ),
-                                                          ),
-                                                          Text(
-                                                            carouselEmpromoRow
-                                                                .valorNovo!,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  color: Color(
-                                                                      0xFF0D820A),
-                                                                  fontSize:
-                                                                      18.0,
-                                                                ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: AlignmentDirectional(
-                                                0.81, 0.21),
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              elevation: 5.0,
-                                              shape: const CircleBorder(),
-                                              child: Container(
-                                                width: 40.0,
-                                                height: 40.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  shape: BoxShape.circle,
-                                                  border: Border.all(
-                                                    color: Color(0xFF13DC0C),
-                                                    width: 1.0,
-                                                  ),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 5.0, 5.0, 5.0),
-                                                  child: Icon(
-                                                    Icons.add,
-                                                    color: Color(0xFF0D820A),
-                                                    size: 30.0,
+                                                    ],
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                    carouselController:
-                                        _model.carouselController ??=
-                                            CarouselController(),
-                                    options: CarouselOptions(
-                                      initialPage: min(
-                                          1, carouselEmpromoRowList.length - 1),
-                                      viewportFraction: 0.5,
-                                      disableCenter: true,
-                                      enlargeCenterPage: true,
-                                      enlargeFactor: 0.25,
-                                      enableInfiniteScroll: true,
-                                      scrollDirection: Axis.horizontal,
-                                      autoPlay: true,
-                                      autoPlayAnimationDuration:
-                                          Duration(milliseconds: 800),
-                                      autoPlayInterval:
-                                          Duration(milliseconds: 4000),
-                                      autoPlayCurve: Curves.linear,
-                                      pauseAutoPlayInFiniteScroll: true,
-                                      onPageChanged: (index, _) =>
-                                          _model.carouselCurrentIndex = index,
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(50.0, 20.0, 0.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Text(
-                        'ESCOLHA POR CATEGORIA',
-                        style: FlutterFlowTheme.of(context).labelLarge.override(
-                              fontFamily: 'Readex Pro',
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(50.0, 10.0, 0.0, 0.0),
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'Entradas',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 500),
-                                    ),
-                                  },
-                                );
-                              },
-                              child: Card(
-                                clipBehavior: Clip.antiAliasWithSaveLayer,
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                elevation: 4.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 10.0, 10.0, 10.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Text(
-                                        'ENTRADAS',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.81, 0.21),
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                elevation: 5.0,
+                                                shape: const CircleBorder(),
+                                                child: Container(
+                                                  width: 40.0,
+                                                  height: 40.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryBackground,
+                                                    shape: BoxShape.circle,
+                                                    border: Border.all(
+                                                      color: Color(0xFF13DC0C),
+                                                      width: 1.0,
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 5.0,
+                                                                5.0, 5.0),
+                                                    child: Icon(
+                                                      Icons.add,
+                                                      color: Color(0xFF0D820A),
+                                                      size: 30.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                      carouselController:
+                                          _model.carouselController ??=
+                                              CarouselController(),
+                                      options: CarouselOptions(
+                                        initialPage: min(1,
+                                            carouselEmpromoRowList.length - 1),
+                                        viewportFraction: 0.5,
+                                        disableCenter: true,
+                                        enlargeCenterPage: true,
+                                        enlargeFactor: 0.25,
+                                        enableInfiniteScroll: true,
+                                        scrollDirection: Axis.horizontal,
+                                        autoPlay: true,
+                                        autoPlayAnimationDuration:
+                                            Duration(milliseconds: 800),
+                                        autoPlayInterval:
+                                            Duration(milliseconds: 4000),
+                                        autoPlayCurve: Curves.linear,
+                                        pauseAutoPlayInFiniteScroll: true,
+                                        onPageChanged: (index, _) =>
+                                            _model.carouselCurrentIndex = index,
                                       ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'Comidas',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 500),
                                     ),
-                                  },
-                                );
-                              },
-                              child: Card(
-                                clipBehavior: Clip.antiAliasWithSaveLayer,
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                elevation: 4.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 10.0, 10.0, 10.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Text(
-                                        'COMIDAS',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'Bebidas',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 500),
-                                    ),
-                                  },
-                                );
-                              },
-                              child: Card(
-                                clipBehavior: Clip.antiAliasWithSaveLayer,
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                elevation: 4.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 10.0, 10.0, 10.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Text(
-                                        'BEBIDAS',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'Sobremesa',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 500),
-                                    ),
-                                  },
-                                );
-                              },
-                              child: Card(
-                                clipBehavior: Clip.antiAliasWithSaveLayer,
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                elevation: 4.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 10.0, 10.0, 10.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Text(
-                                        'SOBREMESA',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                  );
+                                },
                               ),
                             ),
                           ],
                         ),
                       ),
                     ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(50.0, 25.0, 0.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Text(
-                        'PRATOS SELECIONADOS',
-                        style: FlutterFlowTheme.of(context).labelLarge.override(
-                              fontFamily: 'Readex Pro',
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ],
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(50.0, 10.0, 0.0, 0.0),
-                  child: FutureBuilder<List<PratosRow>>(
-                    future: PratosTable().queryRows(
-                      queryFn: (q) => q,
-                      limit: 10,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(50.0, 20.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          'ESCOLHA POR CATEGORIA',
+                          style: FlutterFlowTheme.of(context)
+                              .labelLarge
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontWeight: FontWeight.bold,
                               ),
-                            ),
-                          ),
-                        );
-                      }
-                      List<PratosRow> columnPratosRowList = snapshot.data!;
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: List.generate(columnPratosRowList.length,
-                            (columnIndex) {
-                          final columnPratosRow =
-                              columnPratosRowList[columnIndex];
-                          return Row(
+                        ),
+                      ],
+                    ),
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            50.0, 10.0, 0.0, 0.0),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 20.0, 0.0),
-                                  child: Card(
-                                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    elevation: 4.0,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed(
+                                    'Entradas',
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 500),
+                                      ),
+                                    },
+                                  );
+                                },
+                                child: Card(
+                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  elevation: 4.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 10.0, 10.0, 10.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 5.0, 5.0, 5.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(50.0),
-                                            child: Image.network(
-                                              columnPratosRow.img!,
-                                              width: 50.0,
-                                              height: 50.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
+                                        Text(
+                                          'ENTRADAS',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
                                         ),
-                                        Expanded(
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 10.0, 10.0, 10.0),
-                                            child: Text(
-                                              columnPratosRow.nome!,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                          ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed(
+                                    'Comidas',
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 500),
+                                      ),
+                                    },
+                                  );
+                                },
+                                child: Card(
+                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  elevation: 4.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 10.0, 10.0, 10.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          'COMIDAS',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
                                         ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Text(
-                                              columnPratosRow.valor!,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                          ],
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed(
+                                    'Bebidas',
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 500),
+                                      ),
+                                    },
+                                  );
+                                },
+                                child: Card(
+                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  elevation: 4.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 10.0, 10.0, 10.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          'BEBIDAS',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed(
+                                    'Sobremesa',
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 500),
+                                      ),
+                                    },
+                                  );
+                                },
+                                child: Card(
+                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  elevation: 4.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 10.0, 10.0, 10.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          'SOBREMESA',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
                                         ),
                                       ],
                                     ),
@@ -892,13 +796,132 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 ),
                               ),
                             ],
-                          );
-                        }),
-                      );
-                    },
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(50.0, 25.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          'PRATOS SELECIONADOS',
+                          style: FlutterFlowTheme.of(context)
+                              .labelLarge
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontWeight: FontWeight.bold,
+                              ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(50.0, 10.0, 0.0, 0.0),
+                    child: FutureBuilder<List<PratosRow>>(
+                      future: PratosTable().queryRows(
+                        queryFn: (q) => q,
+                        limit: 10,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+                        List<PratosRow> columnPratosRowList = snapshot.data!;
+                        return Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: List.generate(columnPratosRowList.length,
+                              (columnIndex) {
+                            final columnPratosRow =
+                                columnPratosRowList[columnIndex];
+                            return Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 20.0, 0.0),
+                                    child: Card(
+                                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      elevation: 4.0,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    5.0, 5.0, 5.0, 5.0),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50.0),
+                                              child: Image.network(
+                                                columnPratosRow.img!,
+                                                width: 50.0,
+                                                height: 50.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 10.0, 10.0, 10.0),
+                                              child: Text(
+                                                columnPratosRow.nome!,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                          ),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                columnPratosRow.valor!,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          }),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
