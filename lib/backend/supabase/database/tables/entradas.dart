@@ -23,8 +23,8 @@ class EntradasRow extends SupabaseDataRow {
   String? get nome => getField<String>('nome');
   set nome(String? value) => setField<String>('nome', value);
 
-  String? get valor => getField<String>('valor');
-  set valor(String? value) => setField<String>('valor', value);
+  double? get valor => getField<double>('valor');
+  set valor(double? value) => setField<double>('valor', value);
 
   String? get descricao => getField<String>('descricao');
   set descricao(String? value) => setField<String>('descricao', value);

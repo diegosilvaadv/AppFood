@@ -221,7 +221,7 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                                             ),
                                       ),
                                       Text(
-                                        columnBebidasRow.valor!,
+                                        columnBebidasRow.valor!.toString(),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(

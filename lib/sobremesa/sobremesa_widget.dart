@@ -221,7 +221,7 @@ class _SobremesaWidgetState extends State<SobremesaWidget> {
                                             ),
                                       ),
                                       Text(
-                                        columnSobremesaRow.valor!,
+                                        columnSobremesaRow.valor!.toString(),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(

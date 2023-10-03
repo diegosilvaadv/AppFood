@@ -221,7 +221,7 @@ class _EntradasWidgetState extends State<EntradasWidget> {
                                             ),
                                       ),
                                       Text(
-                                        columnEntradasRow.valor!,
+                                        columnEntradasRow.valor!.toString(),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
