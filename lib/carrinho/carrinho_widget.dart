@@ -308,6 +308,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                     formatNumber(
                                       FFAppState().Soma,
                                       formatType: FormatType.custom,
+                                      currency: '',
                                       format: 'R\$',
                                       locale: '',
                                     ),
