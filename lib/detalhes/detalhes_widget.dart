@@ -289,7 +289,8 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                             FFAppState().addToPedido(PedidoStruct(
                               nome: widget.nome,
                               preco: widget.valor,
-                              quantidade: widget.valor,
+                              quantidade:
+                                  _model.countControllerValue?.toDouble(),
                             ));
                             FFAppState().cardNumero =
                                 FFAppState().cardNumero + 1.0;
