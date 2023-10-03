@@ -91,7 +91,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => DetalhesWidget(
             nome: params.getParam('nome', ParamType.String),
             descricao: params.getParam('descricao', ParamType.String),
-            valor: params.getParam('valor', ParamType.String),
+            valor: params.getParam('valor', ParamType.double),
             img: params.getParam('img', ParamType.String),
           ),
         )

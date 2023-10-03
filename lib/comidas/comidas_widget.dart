@@ -112,8 +112,8 @@ class _ComidasWidgetState extends State<ComidasWidget> {
                                   ParamType.String,
                                 ),
                                 'valor': serializeParam(
-                                  columnPratosRow.valor,
-                                  ParamType.String,
+                                  0.0,
+                                  ParamType.double,
                                 ),
                                 'img': serializeParam(
                                   columnPratosRow.img,
@@ -220,7 +220,7 @@ class _ComidasWidgetState extends State<ComidasWidget> {
                                             ),
                                       ),
                                       Text(
-                                        columnPratosRow.valor!,
+                                        columnPratosRow.valor!.toString(),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(

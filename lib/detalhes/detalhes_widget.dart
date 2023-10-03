@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -24,7 +25,7 @@ class DetalhesWidget extends StatefulWidget {
 
   final String? nome;
   final String? descricao;
-  final String? valor;
+  final double? valor;
   final String? img;
 
   @override
@@ -223,7 +224,7 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                                 style: FlutterFlowTheme.of(context).titleLarge,
                               ),
                               Text(
-                                widget.valor!,
+                                widget.valor!.toString(),
                                 style: FlutterFlowTheme.of(context).titleLarge,
                               ),
                               Padding(
@@ -280,8 +281,15 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                         ],
                       ),
                       FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          setState(() {
+                            FFAppState().addToPedido(PedidoStruct(
+                              nome: widget.nome,
+                              preco: widget.valor?.toString(),
+                            ));
+                            FFAppState().cardNumero =
+                                FFAppState().cardNumero + 1.0;
+                          });
                         },
                         text: 'ADD',
                         options: FFButtonOptions(

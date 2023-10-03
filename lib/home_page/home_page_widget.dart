@@ -863,13 +863,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         columnPratosRow.descricao,
                                         ParamType.String,
                                       ),
-                                      'valor': serializeParam(
-                                        columnPratosRow.valor,
-                                        ParamType.String,
-                                      ),
                                       'img': serializeParam(
                                         columnPratosRow.img,
                                         ParamType.String,
+                                      ),
+                                      'valor': serializeParam(
+                                        0.0,
+                                        ParamType.double,
                                       ),
                                     }.withoutNulls,
                                   );
@@ -979,7 +979,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   ),
                                             ),
                                             Text(
-                                              columnPratosRow.valor!,
+                                              columnPratosRow.valor!.toString(),
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
@@ -988,11 +988,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     color: Color(0xFF0D820A),
                                                     fontSize: 20.0,
                                                   ),
-                                            ),
-                                            Icon(
-                                              Icons.add_circle,
-                                              color: Color(0xFF13DC0C),
-                                              size: 40.0,
                                             ),
                                           ],
                                         ),

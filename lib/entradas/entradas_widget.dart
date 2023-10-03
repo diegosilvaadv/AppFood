@@ -113,8 +113,8 @@ class _EntradasWidgetState extends State<EntradasWidget> {
                                   ParamType.String,
                                 ),
                                 'valor': serializeParam(
-                                  columnEntradasRow.valor,
-                                  ParamType.String,
+                                  0.0,
+                                  ParamType.double,
                                 ),
                                 'img': serializeParam(
                                   columnEntradasRow.img,
