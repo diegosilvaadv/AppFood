@@ -270,6 +270,7 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                                     updateCount: (count) => setState(() =>
                                         _model.countControllerValue = count),
                                     stepSize: 1,
+                                    minimum: 1,
                                     maximum: 10,
                                   ),
                                 ),
@@ -290,7 +291,7 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                               0.0, 0.0, 0.0, 0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
+                          color: Color(0xFF13DC0C),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Readex Pro',
