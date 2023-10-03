@@ -151,7 +151,11 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 8.0),
                                                     child: Text(
-                                                      pedidosItem.nome,
+                                                      pedidosItem.nome
+                                                          .maybeHandleOverflow(
+                                                        maxChars: 20,
+                                                        replacement: '…',
+                                                      ),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -159,7 +163,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
-                                                                fontSize: 20.0,
+                                                                fontSize: 18.0,
                                                               ),
                                                     ),
                                                   ),
