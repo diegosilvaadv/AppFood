@@ -221,8 +221,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               FFAppState().update(() {
                                                 FFAppState().Soma = FFAppState()
                                                         .Soma +
-                                                    functions.newCustomFunction2(
-                                                        functions.newCustomFunction(
+                                                    functions.newCustomFunction2(functions
+                                                        .newCustomFunction(
                                                             FFAppState()
                                                                 .Pedido
                                                                 .where((e) => !e
@@ -231,7 +231,16 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                                 .length
                                                                 .toDouble(),
                                                             FFAppState()
-                                                                .cardNumero));
+                                                                .Pedido
+                                                                .where((e) =>
+                                                                    valueOrDefault<
+                                                                        bool>(
+                                                                      e.hasQuantidade(),
+                                                                      true,
+                                                                    ))
+                                                                .toList()
+                                                                .length
+                                                                .toDouble()));
                                               });
                                             },
                                           ),
