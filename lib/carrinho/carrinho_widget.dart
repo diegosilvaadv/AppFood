@@ -177,7 +177,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      'Quantidade${pedidosItem.hasQuantidade().toString()}',
+                                                      'Quantidade${FFAppState().cardNumero.toString()}',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)

@@ -193,7 +193,7 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
               child: Container(
-                width: MediaQuery.sizeOf(context).width * 1.0,
+                width: MediaQuery.sizeOf(context).width * 0.9,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
                   boxShadow: [
@@ -210,7 +210,7 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                       EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Column(
                         mainAxisSize: MainAxisSize.max,
@@ -219,19 +219,11 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                         children: [
                           Row(
                             mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 formatNumber(
                                   widget.valor,
-                                  formatType: FormatType.custom,
-                                  format: 'R\$',
-                                  locale: '',
-                                ),
-                                style: FlutterFlowTheme.of(context).titleLarge,
-                              ),
-                              Text(
-                                formatNumber(
-                                  FFAppState().Soma,
                                   formatType: FormatType.custom,
                                   format: 'R\$',
                                   locale: '',
@@ -279,26 +271,8 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                                           .titleLarge,
                                     ),
                                     count: _model.countControllerValue ??= 1,
-                                    updateCount: (count) async {
-                                      setState(() =>
-                                          _model.countControllerValue = count);
-                                      setState(() {
-                                        FFAppState().updatePedidoAtIndex(
-                                          _model.countControllerValue!,
-                                          (_) => PedidoStruct(
-                                            preco: valueOrDefault<String>(
-                                              formatNumber(
-                                                widget.valor,
-                                                formatType: FormatType.custom,
-                                                format: 'R\$',
-                                                locale: '',
-                                              ),
-                                              'R\$',
-                                            ),
-                                          ),
-                                        );
-                                      });
-                                    },
+                                    updateCount: (count) => setState(() =>
+                                        _model.countControllerValue = count),
                                     stepSize: 1,
                                     minimum: 1,
                                     maximum: 10,
