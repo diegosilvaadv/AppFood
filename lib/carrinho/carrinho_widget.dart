@@ -483,7 +483,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                     'valor': FFAppState().Soma,
                     'pedido': FFAppState()
                         .Pedido
-                        .where((e) => e.hasPedidos())
+                        .where((e) => e.hasNome())
                         .toList()
                         .length
                         .toString(),
