@@ -164,7 +164,13 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    '\$120.00',
+                                                    formatNumber(
+                                                      pedidosItem.preco,
+                                                      formatType:
+                                                          FormatType.custom,
+                                                      format: 'R\$',
+                                                      locale: '',
+                                                    ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .labelMedium
@@ -172,7 +178,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                           fontFamily:
                                                               'Readex Pro',
                                                           color:
-                                                              Color(0xFF13DC0C),
+                                                              Color(0xFF0D820A),
                                                           fontSize: 20.0,
                                                           fontWeight:
                                                               FontWeight.bold,
