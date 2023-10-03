@@ -236,7 +236,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 8.0, 0.0, 8.0, 0.0),
                             child: TextFormField(
                               controller: _model.textController,
-                              autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Pesquisar',
