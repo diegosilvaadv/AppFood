@@ -73,25 +73,6 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
         ),
       ],
     ),
-    'textOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 120.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
   };
 
   @override
@@ -181,15 +162,6 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                       ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation2']!),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      child: Text(
-                        widget.pedido!,
-                        style: FlutterFlowTheme.of(context).labelMedium,
-                      ).animateOnPageLoad(
-                          animationsMap['textOnPageLoadAnimation3']!),
-                    ),
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -253,8 +225,7 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                             children: [
                               Text(
                                 formatNumber(
-                                  functions.price(widget.valor!,
-                                      _model.countControllerValue!),
+                                  widget.valor,
                                   formatType: FormatType.custom,
                                   format: 'R\$',
                                   locale: '',
