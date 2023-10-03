@@ -23,11 +23,11 @@ class EmpromoRow extends SupabaseDataRow {
   String? get nome => getField<String>('nome');
   set nome(String? value) => setField<String>('nome', value);
 
-  String? get valorAntigo => getField<String>('valor-antigo');
-  set valorAntigo(String? value) => setField<String>('valor-antigo', value);
+  int? get valorAntigo => getField<int>('valor-antigo');
+  set valorAntigo(int? value) => setField<int>('valor-antigo', value);
 
-  String? get valorNovo => getField<String>('valor-novo');
-  set valorNovo(String? value) => setField<String>('valor-novo', value);
+  double? get valorNovo => getField<double>('valor-novo');
+  set valorNovo(double? value) => setField<double>('valor-novo', value);
 
   String? get descricao => getField<String>('descricao');
   set descricao(String? value) => setField<String>('descricao', value);

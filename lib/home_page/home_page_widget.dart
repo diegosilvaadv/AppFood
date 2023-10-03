@@ -1,6 +1,6 @@
-import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -9,6 +9,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
@@ -201,10 +202,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     alignment: AlignmentDirectional(3.94, 2.72),
                     child: badges.Badge(
                       badgeContent: Text(
-                        valueOrDefault<String>(
-                          FFAppState().cardNumero.toString(),
-                          '0',
-                        ),
+                        FFAppState().cardNumero.toString(),
                         style: FlutterFlowTheme.of(context).titleSmall.override(
                               fontFamily: 'Readex Pro',
                               color: Colors.white,
@@ -511,7 +509,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             ),
                                                             Text(
                                                               carouselEmpromoRow
-                                                                  .valorAntigo!,
+                                                                  .valorAntigo!
+                                                                  .toString(),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -539,7 +538,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             ),
                                                             Text(
                                                               carouselEmpromoRow
-                                                                  .valorNovo!,
+                                                                  .valorNovo!
+                                                                  .toString(),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -562,62 +562,29 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             ),
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.81, 0.21),
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  setState(() {
-                                                    FFAppState().addToPedido(
-                                                        PedidoStruct(
-                                                      nome: carouselEmpromoRow
-                                                          .nome,
-                                                      preco: carouselEmpromoRow
-                                                          .valorNovo,
-                                                    ));
-                                                  });
-                                                  setState(() {
-                                                    FFAppState().cardNumero =
-                                                        FFAppState()
-                                                                .cardNumero +
-                                                            1.0;
-                                                  });
-                                                },
-                                                child: Material(
-                                                  color: Colors.transparent,
-                                                  elevation: 5.0,
-                                                  shape: const CircleBorder(),
-                                                  child: Container(
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      shape: BoxShape.circle,
-                                                      border: Border.all(
-                                                        color:
-                                                            Color(0xFF13DC0C),
-                                                        width: 1.0,
-                                                      ),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  5.0,
-                                                                  5.0,
-                                                                  5.0),
-                                                      child: Icon(
-                                                        Icons.add,
-                                                        color:
-                                                            Color(0xFF0D820A),
-                                                        size: 30.0,
-                                                      ),
+                                                  0.03, 0.07),
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                elevation: 5.0,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                child: Container(
+                                                  width: 120.0,
+                                                  height: 41.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    shape: BoxShape.rectangle,
+                                                    border: Border.all(
+                                                      color: Color(0xFF13DC0C),
+                                                      width: 1.0,
                                                     ),
                                                   ),
                                                 ),
@@ -1021,6 +988,90 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .bodyMedium,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  6.0,
+                                                                  0.0,
+                                                                  6.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        width: 130.0,
+                                                        height: 50.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          shape: BoxShape
+                                                              .rectangle,
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .alternate,
+                                                            width: 2.0,
+                                                          ),
+                                                        ),
+                                                        child:
+                                                            FlutterFlowCountController(
+                                                          decrementIconBuilder:
+                                                              (enabled) =>
+                                                                  FaIcon(
+                                                            FontAwesomeIcons
+                                                                .minus,
+                                                            color: enabled
+                                                                ? FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                            size: 20.0,
+                                                          ),
+                                                          incrementIconBuilder:
+                                                              (enabled) =>
+                                                                  FaIcon(
+                                                            FontAwesomeIcons
+                                                                .plus,
+                                                            color: enabled
+                                                                ? FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                            size: 20.0,
+                                                          ),
+                                                          countBuilder:
+                                                              (count) => Text(
+                                                            count.toString(),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleLarge,
+                                                          ),
+                                                          count: _model
+                                                              .countControllerValue ??= 1,
+                                                          updateCount: (count) =>
+                                                              setState(() =>
+                                                                  _model.countControllerValue =
+                                                                      count),
+                                                          stepSize: 1,
+                                                          minimum: 1,
+                                                          maximum: 10,
+                                                        ),
                                                       ),
                                                     ),
                                                   ],

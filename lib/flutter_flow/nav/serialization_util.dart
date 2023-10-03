@@ -224,6 +224,8 @@ dynamic deserializeParam<T>(
             return EmpromoRow(data);
           case PratosRow:
             return PratosRow(data);
+          case PedidosClienteRow:
+            return PedidosClienteRow(data);
           default:
             return null;
         }
