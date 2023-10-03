@@ -10,9 +10,11 @@ class PedidoStruct extends BaseStruct {
     String? nome,
     double? preco,
     double? quantidade,
+    String? img,
   })  : _nome = nome,
         _preco = preco,
-        _quantidade = quantidade;
+        _quantidade = quantidade,
+        _img = img;
 
   // "Nome" field.
   String? _nome;
@@ -34,10 +36,17 @@ class PedidoStruct extends BaseStruct {
   void incrementQuantidade(double amount) => _quantidade = quantidade + amount;
   bool hasQuantidade() => _quantidade != null;
 
+  // "img" field.
+  String? _img;
+  String get img => _img ?? '';
+  set img(String? val) => _img = val;
+  bool hasImg() => _img != null;
+
   static PedidoStruct fromMap(Map<String, dynamic> data) => PedidoStruct(
         nome: data['Nome'] as String?,
         preco: castToType<double>(data['Preco']),
         quantidade: castToType<double>(data['quantidade']),
+        img: data['img'] as String?,
       );
 
   static PedidoStruct? maybeFromMap(dynamic data) =>
@@ -47,6 +56,7 @@ class PedidoStruct extends BaseStruct {
         'Nome': _nome,
         'Preco': _preco,
         'quantidade': _quantidade,
+        'img': _img,
       }.withoutNulls;
 
   @override
@@ -62,6 +72,10 @@ class PedidoStruct extends BaseStruct {
         'quantidade': serializeParam(
           _quantidade,
           ParamType.double,
+        ),
+        'img': serializeParam(
+          _img,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -82,6 +96,11 @@ class PedidoStruct extends BaseStruct {
           ParamType.double,
           false,
         ),
+        img: deserializeParam(
+          data['img'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -92,20 +111,23 @@ class PedidoStruct extends BaseStruct {
     return other is PedidoStruct &&
         nome == other.nome &&
         preco == other.preco &&
-        quantidade == other.quantidade;
+        quantidade == other.quantidade &&
+        img == other.img;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([nome, preco, quantidade]);
+  int get hashCode => const ListEquality().hash([nome, preco, quantidade, img]);
 }
 
 PedidoStruct createPedidoStruct({
   String? nome,
   double? preco,
   double? quantidade,
+  String? img,
 }) =>
     PedidoStruct(
       nome: nome,
       preco: preco,
       quantidade: quantidade,
+      img: img,
     );

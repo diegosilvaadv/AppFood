@@ -120,13 +120,13 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Hero(
-                                            tag: 'ControllerImage',
+                                            tag: pedidosItem.img,
                                             transitionOnUserGestures: true,
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
                                               child: Image.network(
-                                                'https://www.receitas.eduguedes.com.br/wp-content/uploads/2019/05/Edu-Guedes-bolinho-de-carne-seca.jpg',
+                                                pedidosItem.img,
                                                 width: 80.0,
                                                 height: 80.0,
                                                 fit: BoxFit.fitHeight,
@@ -141,7 +141,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment.center,
+                                                    MainAxisAlignment.start,
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
@@ -181,6 +181,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Readex Pro',
+                                                          color:
+                                                              Color(0xFF13DC0C),
                                                           fontSize: 20.0,
                                                           fontWeight:
                                                               FontWeight.bold,
@@ -202,7 +204,12 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelSmall,
+                                                              .labelSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                fontSize: 15.0,
+                                                              ),
                                                     ),
                                                   ),
                                                 ],

@@ -291,6 +291,7 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                               preco: widget.valor,
                               quantidade:
                                   _model.countControllerValue?.toDouble(),
+                              img: widget.img,
                             ));
                             FFAppState().cardNumero =
                                 FFAppState().cardNumero + 1.0;
