@@ -230,7 +230,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     snapshot.data!;
                                 return Container(
                                   width: double.infinity,
-                                  height: 200.0,
+                                  height: 250.0,
                                   child: CarouselSlider.builder(
                                     itemCount: carouselEmpromoRowList.length,
                                     itemBuilder: (context, carouselIndex, _) {
@@ -240,15 +240,29 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         children: [
                                           Align(
                                             alignment: AlignmentDirectional(
-                                                -0.62, -1.43),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.network(
-                                                carouselEmpromoRow.img!,
-                                                width: 159.0,
-                                                height: 159.0,
-                                                fit: BoxFit.cover,
+                                                -0.51, -0.97),
+                                            child: Container(
+                                              width: 148.0,
+                                              height: 141.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                                border: Border.all(
+                                                  width: 1.0,
+                                                ),
+                                              ),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.network(
+                                                  carouselEmpromoRow.img!,
+                                                  width: 100.0,
+                                                  height: 100.0,
+                                                  fit: BoxFit.cover,
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -272,6 +286,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           5.0),
+                                                  border: Border.all(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .warning,
+                                                    width: 1.0,
+                                                  ),
                                                 ),
                                                 child: Column(
                                                   mainAxisSize:
@@ -383,11 +403,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           ),
                                           Align(
                                             alignment: AlignmentDirectional(
-                                                0.94, 0.06),
+                                                0.97, 0.12),
                                             child: Icon(
                                               Icons.add_circle,
-                                              color: Color(0xFF13DC0C),
-                                              size: 30.0,
+                                              color: Color(0xFF0D820A),
+                                              size: 50.0,
                                             ),
                                           ),
                                         ],
