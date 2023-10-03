@@ -544,9 +544,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     ),
                                                               ),
                                                               Text(
-                                                                carouselEmpromoRow
-                                                                    .valorAntigo!
-                                                                    .toString(),
+                                                                formatNumber(
+                                                                  carouselEmpromoRow
+                                                                      .valorAntigo!,
+                                                                  formatType:
+                                                                      FormatType
+                                                                          .custom,
+                                                                  format: 'R\$',
+                                                                  locale: '',
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -573,9 +579,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     ),
                                                               ),
                                                               Text(
-                                                                carouselEmpromoRow
-                                                                    .valorNovo!
-                                                                    .toString(),
+                                                                formatNumber(
+                                                                  carouselEmpromoRow
+                                                                      .valorNovo!,
+                                                                  formatType:
+                                                                      FormatType
+                                                                          .custom,
+                                                                  format: 'R\$',
+                                                                  locale: '',
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
