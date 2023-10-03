@@ -320,6 +320,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                 onTap: () async {
                   setState(() {
                     FFAppState().cardNumero = 0.0;
+                    FFAppState().Soma = 0.0;
                   });
                 },
                 child: Container(

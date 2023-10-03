@@ -200,7 +200,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     alignment: AlignmentDirectional(3.94, 2.72),
                     child: badges.Badge(
                       badgeContent: Text(
-                        FFAppState().cardNumero.toString(),
+                        formatNumber(
+                          FFAppState().cardNumero,
+                          formatType: FormatType.custom,
+                          format: '0',
+                          locale: '',
+                        ),
                         style: FlutterFlowTheme.of(context).titleSmall.override(
                               fontFamily: 'Readex Pro',
                               color: Colors.white,
