@@ -138,82 +138,88 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 0.0, 0.0, 0.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 8.0),
-                                                    child: Text(
-                                                      pedidosItem.nome,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleLarge
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Outfit',
-                                                                fontSize: 20.0,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    formatNumber(
-                                                      pedidosItem.preco,
-                                                      formatType:
-                                                          FormatType.custom,
-                                                      format: 'R\$',
-                                                      locale: '',
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          color:
-                                                              Color(0xFF0D820A),
-                                                          fontSize: 20.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                  ),
-                                                  Flexible(
-                                                    child: Padding(
+                                              child: SingleChildScrollView(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
-                                                                  8.0,
                                                                   0.0,
-                                                                  0.0),
+                                                                  0.0,
+                                                                  8.0),
                                                       child: Text(
-                                                        'Quantidade: ${formatNumber(
-                                                          pedidosItem
-                                                              .quantidade,
-                                                          formatType:
-                                                              FormatType.custom,
-                                                          format: '',
-                                                          locale: '',
-                                                        )}',
+                                                        pedidosItem.nome,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
-                                                            .labelSmall
+                                                            .titleLarge
                                                             .override(
                                                               fontFamily:
-                                                                  'Readex Pro',
-                                                              fontSize: 15.0,
+                                                                  'Outfit',
+                                                              fontSize: 20.0,
                                                             ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ],
+                                                    Text(
+                                                      formatNumber(
+                                                        pedidosItem.preco,
+                                                        formatType:
+                                                            FormatType.custom,
+                                                        format: 'R\$',
+                                                        locale: '',
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            color: Color(
+                                                                0xFF0D820A),
+                                                            fontSize: 20.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                    Flexible(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    8.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          'Quantidade: ${formatNumber(
+                                                            pedidosItem
+                                                                .quantidade,
+                                                            formatType:
+                                                                FormatType
+                                                                    .custom,
+                                                            format: '',
+                                                            locale: '',
+                                                          )}',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                fontSize: 15.0,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           ),

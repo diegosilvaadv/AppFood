@@ -244,6 +244,19 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 10.0, 0.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(50.0),
+                            child: Image.network(
+                              'https://picsum.photos/seed/395/600',
+                              width: 50.0,
+                              height: 50.0,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
                         Text(
                           'App Food',
                           style: FlutterFlowTheme.of(context)
