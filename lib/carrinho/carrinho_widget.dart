@@ -126,7 +126,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
                                               child: Image.network(
-                                                'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/95c8dcbe-3d3f-46a9-9887-43161ef949c5/sleepers-of-the-week-release-date.jpg',
+                                                'https://www.receitas.eduguedes.com.br/wp-content/uploads/2019/05/Edu-Guedes-bolinho-de-carne-seca.jpg',
                                                 width: 80.0,
                                                 height: 80.0,
                                                 fit: BoxFit.fitWidth,
@@ -172,23 +172,29 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                               .labelMedium,
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 8.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      'Quantidade${formatNumber(
-                                                        FFAppState().cardNumero,
-                                                        formatType:
-                                                            FormatType.custom,
-                                                        format: '0',
-                                                        locale: '',
-                                                      )}',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelSmall,
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        'Quantidade${formatNumber(
+                                                          FFAppState()
+                                                              .cardNumero,
+                                                          formatType:
+                                                              FormatType.custom,
+                                                          format: '0',
+                                                          locale: '',
+                                                        )}',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelSmall,
+                                                      ),
                                                     ),
                                                   ),
                                                 ],
