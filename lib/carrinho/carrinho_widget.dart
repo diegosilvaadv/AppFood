@@ -276,7 +276,12 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                     ],
                                   ),
                                   Text(
-                                    '\$137.75',
+                                    formatNumber(
+                                      FFAppState().Soma,
+                                      formatType: FormatType.custom,
+                                      format: 'R\$',
+                                      locale: '',
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .displaySmall,
                                   ),
