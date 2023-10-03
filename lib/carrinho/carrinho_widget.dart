@@ -188,14 +188,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        'Quantidade${formatNumber(
-                                                          pedidosItem
-                                                              .quantidade,
-                                                          formatType:
-                                                              FormatType.custom,
-                                                          format: '0',
-                                                          locale: '',
-                                                        )}',
+                                                        pedidosItem.quantidade
+                                                            .toString(),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -253,6 +247,15 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 FFAppState().cardNumero =
                                                     FFAppState().cardNumero +
                                                         -1.0;
+                                                FFAppState().Soma = FFAppState()
+                                                        .Soma +
+                                                    functions.newCustomFunction2(
+                                                        functions
+                                                            .newCustomFunction(
+                                                                pedidosItem
+                                                                    .preco,
+                                                                pedidosItem
+                                                                    .quantidade));
                                               });
                                             },
                                           ),
