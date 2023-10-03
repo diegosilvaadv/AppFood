@@ -300,9 +300,9 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                                     _model.countControllerValue!.toDouble());
                           });
                         },
-                        text: 'ADD',
+                        text: '+',
                         options: FFButtonOptions(
-                          width: 70.0,
+                          width: 50.0,
                           height: 50.0,
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
@@ -313,6 +313,7 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
+                                    fontSize: 70.0,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(
