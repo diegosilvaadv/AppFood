@@ -317,7 +317,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     width: double.infinity,
                     height: 200.0,
                     decoration: BoxDecoration(
-                      color: Color(0x37FFFFFF),
+                      color: FlutterFlowTheme.of(context).primaryBackground,
                       borderRadius: BorderRadius.circular(10.0),
                       border: Border.all(
                         color: Color(0x0014181B),
@@ -375,6 +375,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                                 border: Border.all(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .warning,
                                                   width: 1.0,
                                                 ),
                                               ),
@@ -411,9 +414,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       BorderRadius.circular(
                                                           5.0),
                                                   border: Border.all(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .warning,
+                                                    color: Color(0x7EF9CF58),
                                                     width: 1.0,
                                                   ),
                                                 ),
@@ -527,11 +528,37 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           ),
                                           Align(
                                             alignment: AlignmentDirectional(
-                                                0.97, 0.12),
-                                            child: Icon(
-                                              Icons.add_circle,
-                                              color: Color(0xFF0D820A),
-                                              size: 50.0,
+                                                0.81, 0.21),
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 5.0,
+                                              shape: const CircleBorder(),
+                                              child: Container(
+                                                width: 40.0,
+                                                height: 40.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .warning,
+                                                    width: 1.0,
+                                                  ),
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 5.0, 5.0, 5.0),
+                                                  child: Icon(
+                                                    Icons.add,
+                                                    color: Color(0xFF0D820A),
+                                                    size: 30.0,
+                                                  ),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                         ],
