@@ -153,7 +153,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                     child: Text(
                                                       pedidosItem.nome
                                                           .maybeHandleOverflow(
-                                                        maxChars: 20,
+                                                        maxChars: 35,
                                                         replacement: '…',
                                                       ),
                                                       style:
