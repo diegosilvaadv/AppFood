@@ -234,16 +234,12 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 FFAppState().Soma = FFAppState()
                                                         .Soma +
                                                     functions.newCustomFunction2(
-                                                        functions.newCustomFunction(
-                                                            FFAppState()
-                                                                .Pedido
-                                                                .where((e) => e
-                                                                    .hasPreco())
-                                                                .toList()
-                                                                .length
-                                                                .toDouble(),
-                                                            FFAppState()
-                                                                .cardNumero));
+                                                        functions
+                                                            .newCustomFunction(
+                                                                pedidosIndex
+                                                                    .toDouble(),
+                                                                FFAppState()
+                                                                    .Soma));
                                               });
                                             },
                                           ),
