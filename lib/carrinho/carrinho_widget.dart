@@ -164,13 +164,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    'R\$ ${formatNumber(
-                                                      pedidosItem.preco,
-                                                      formatType:
-                                                          FormatType.custom,
-                                                      format: 'R\$ ',
-                                                      locale: '',
-                                                    )}',
+                                                    '\$120.00',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .labelMedium
