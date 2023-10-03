@@ -282,9 +282,9 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                         onPressed: () {
                           print('Button pressed ...');
                         },
-                        text: 'Adicionar',
+                        text: 'ADD',
                         options: FFButtonOptions(
-                          width: 130.0,
+                          width: 70.0,
                           height: 50.0,
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
