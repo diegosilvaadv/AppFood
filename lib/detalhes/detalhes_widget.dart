@@ -254,7 +254,7 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                               Text(
                                 formatNumber(
                                   functions.price(widget.valor!,
-                                      FFAppState().Pedido.length),
+                                      _model.countControllerValue!),
                                   formatType: FormatType.custom,
                                   format: 'R\$',
                                   locale: '',
@@ -323,7 +323,6 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                               quantidade:
                                   _model.countControllerValue?.toDouble(),
                               img: widget.img,
-                              pedidos: FFAppState().Pedido,
                             ));
                             FFAppState().cardNumero =
                                 FFAppState().cardNumero + 1.0;
