@@ -17,3 +17,7 @@ double newCustomFunction(
 ) {
   return num1 * num2;
 }
+
+double newCustomFunction2(double valor1) {
+  return valor1 * -1;
+}

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -227,14 +228,22 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 FFAppState()
                                                     .removeAtIndexFromPedido(
                                                         pedidosIndex);
-                                                FFAppState().Soma =
-                                                    FFAppState().Soma +
-                                                        FFAppState().Soma;
-                                              });
-                                              setState(() {
                                                 FFAppState().cardNumero =
                                                     FFAppState().cardNumero +
                                                         -1.0;
+                                                FFAppState().Soma = FFAppState()
+                                                        .Soma +
+                                                    functions.newCustomFunction2(
+                                                        functions.newCustomFunction(
+                                                            FFAppState()
+                                                                .Pedido
+                                                                .where((e) => e
+                                                                    .hasPreco())
+                                                                .toList()
+                                                                .length
+                                                                .toDouble(),
+                                                            FFAppState()
+                                                                .cardNumero));
                                               });
                                             },
                                           ),
