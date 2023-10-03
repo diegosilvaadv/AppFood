@@ -312,7 +312,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
               ),
               Container(
                 width: double.infinity,
-                height: 100.0,
+                height: 50.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryText,
                   boxShadow: [
@@ -322,23 +322,24 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                       offset: Offset(0.0, -2.0),
                     )
                   ],
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(0.0),
-                    bottomRight: Radius.circular(0.0),
-                    topLeft: Radius.circular(12.0),
-                    topRight: Radius.circular(12.0),
-                  ),
+                  borderRadius: BorderRadius.circular(12.0),
                 ),
                 alignment: AlignmentDirectional(0.00, 0.00),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
-                  child: Text(
-                    'FAZER PEDIDO',
-                    style: FlutterFlowTheme.of(context).titleMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                        ),
-                  ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'FINALIZAR PEDIDO',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Roboto',
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                  ],
                 ),
               ),
             ],
