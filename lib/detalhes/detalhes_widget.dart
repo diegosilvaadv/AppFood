@@ -299,6 +299,8 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                                 functions.newCustomFunction(widget.valor!,
                                     _model.countControllerValue!.toDouble());
                           });
+
+                          context.pushNamed('HomePage');
                         },
                         text: '+',
                         options: FFButtonOptions(
