@@ -222,14 +222,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                       ),
                                                     ),
                                                   ),
-                                                  Text(
-                                                    pedidosItem.pedidos.first
-                                                        .hasPedidos()
-                                                        .toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
                                                 ],
                                               ),
                                             ),
