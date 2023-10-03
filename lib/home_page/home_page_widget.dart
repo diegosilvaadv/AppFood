@@ -625,9 +625,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.bottomToTop,
-                                      duration: Duration(milliseconds: 100),
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 1000),
                                     ),
                                   },
                                 );
