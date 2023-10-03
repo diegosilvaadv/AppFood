@@ -88,7 +88,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'detalhes',
           path: '/detalhes',
-          builder: (context, params) => DetalhesWidget(),
+          builder: (context, params) => DetalhesWidget(
+            nome: params.getParam('nome', ParamType.String),
+            descricao: params.getParam('descricao', ParamType.String),
+            valor: params.getParam('valor', ParamType.String),
+            img: params.getParam('img', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
