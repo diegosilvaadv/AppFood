@@ -120,6 +120,10 @@ class _SobremesaWidgetState extends State<SobremesaWidget> {
                                   columnSobremesaRow.img,
                                   ParamType.String,
                                 ),
+                                'pedido': serializeParam(
+                                  columnSobremesaRow.id.toString(),
+                                  ParamType.String,
+                                ),
                               }.withoutNulls,
                             );
                           },

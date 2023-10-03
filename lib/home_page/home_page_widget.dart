@@ -450,6 +450,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   carouselEmpromoRow.img,
                                                   ParamType.String,
                                                 ),
+                                                'pedido': serializeParam(
+                                                  carouselEmpromoRow.id
+                                                      .toString(),
+                                                  ParamType.String,
+                                                ),
                                               }.withoutNulls,
                                             );
                                           },
@@ -954,6 +959,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         columnPratosRow.valor,
                                         ParamType.double,
                                       ),
+                                      'pedido': serializeParam(
+                                        columnPratosRow.id.toString(),
+                                        ParamType.String,
+                                      ),
                                     }.withoutNulls,
                                   );
                                 },
@@ -1035,6 +1044,20 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           maxChars: 40,
                                                           replacement: '…',
                                                         ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Text(
+                                                        columnPratosRow.id
+                                                            .toString()
+                                                            .maybeHandleOverflow(
+                                                              maxChars: 40,
+                                                              replacement: '…',
+                                                            ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)

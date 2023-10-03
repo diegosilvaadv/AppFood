@@ -119,6 +119,10 @@ class _ComidasWidgetState extends State<ComidasWidget> {
                                   columnPratosRow.img,
                                   ParamType.String,
                                 ),
+                                'pedido': serializeParam(
+                                  columnPratosRow.id.toString(),
+                                  ParamType.String,
+                                ),
                               }.withoutNulls,
                             );
                           },

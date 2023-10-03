@@ -222,6 +222,14 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                       ),
                                                     ),
                                                   ),
+                                                  Text(
+                                                    pedidosItem.pedidos.first
+                                                        .hasPedidos()
+                                                        .toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
                                                 ],
                                               ),
                                             ),
@@ -481,7 +489,12 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                     'n_mesa': _model.numMesaValue,
                     'pagamento': _model.formaPagValue,
                     'valor': FFAppState().Soma,
-                    'pedido': '',
+                    'pedido': FFAppState()
+                        .Pedido
+                        .where((e) => e.hasPedidos())
+                        .toList()
+                        .length
+                        .toString(),
                   });
                   await showDialog(
                     context: context,

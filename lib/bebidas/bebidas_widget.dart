@@ -120,6 +120,10 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                                   columnBebidasRow.img,
                                   ParamType.String,
                                 ),
+                                'pedido': serializeParam(
+                                  columnBebidasRow.id.toString(),
+                                  ParamType.String,
+                                ),
                               }.withoutNulls,
                             );
                           },

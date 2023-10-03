@@ -120,6 +120,10 @@ class _EntradasWidgetState extends State<EntradasWidget> {
                                   columnEntradasRow.img,
                                   ParamType.String,
                                 ),
+                                'pedido': serializeParam(
+                                  columnEntradasRow.id.toString(),
+                                  ParamType.String,
+                                ),
                               }.withoutNulls,
                             );
                           },

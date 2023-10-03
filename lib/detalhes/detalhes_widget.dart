@@ -22,12 +22,14 @@ class DetalhesWidget extends StatefulWidget {
     required this.descricao,
     required this.valor,
     required this.img,
+    required this.pedido,
   }) : super(key: key);
 
   final String? nome;
   final String? descricao;
   final double? valor;
   final String? img;
+  final String? pedido;
 
   @override
   _DetalhesWidgetState createState() => _DetalhesWidgetState();
@@ -53,6 +55,25 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
       ],
     ),
     'textOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0.0, 120.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation3': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
@@ -159,6 +180,15 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                         style: FlutterFlowTheme.of(context).labelMedium,
                       ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation2']!),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      child: Text(
+                        widget.pedido!,
+                        style: FlutterFlowTheme.of(context).labelMedium,
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation3']!),
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.max,
@@ -292,6 +322,7 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                               quantidade:
                                   _model.countControllerValue?.toDouble(),
                               img: widget.img,
+                              pedidos: FFAppState().Pedido,
                             ));
                             FFAppState().cardNumero =
                                 FFAppState().cardNumero + 1.0;
