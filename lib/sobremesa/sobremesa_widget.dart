@@ -85,161 +85,166 @@ class _SobremesaWidgetState extends State<SobremesaWidget> {
                   );
                 }
                 List<SobremesaRow> columnSobremesaRowList = snapshot.data!;
-                return Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: List.generate(columnSobremesaRowList.length,
-                      (columnIndex) {
-                    final columnSobremesaRow =
-                        columnSobremesaRowList[columnIndex];
-                    return Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed(
-                            'detalhes',
-                            queryParameters: {
-                              'nome': serializeParam(
-                                columnSobremesaRow.nome,
-                                ParamType.String,
-                              ),
-                              'descricao': serializeParam(
-                                columnSobremesaRow.descricao,
-                                ParamType.String,
-                              ),
-                              'valor': serializeParam(
-                                columnSobremesaRow.valor,
-                                ParamType.String,
-                              ),
-                              'img': serializeParam(
-                                columnSobremesaRow.img,
-                                ParamType.String,
-                              ),
-                            }.withoutNulls,
-                          );
-                        },
-                        child: Card(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          elevation: 4.0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 10.0, 10.0, 10.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        valueOrDefault<String>(
-                                          columnSobremesaRow.img,
-                                          'https://guiadacozinha.com.br/wp-content/uploads/2021/12/cheesecake-frutas-vermelhas.jpg',
+                return SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: List.generate(columnSobremesaRowList.length,
+                        (columnIndex) {
+                      final columnSobremesaRow =
+                          columnSobremesaRowList[columnIndex];
+                      return Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed(
+                              'detalhes',
+                              queryParameters: {
+                                'nome': serializeParam(
+                                  columnSobremesaRow.nome,
+                                  ParamType.String,
+                                ),
+                                'descricao': serializeParam(
+                                  columnSobremesaRow.descricao,
+                                  ParamType.String,
+                                ),
+                                'valor': serializeParam(
+                                  columnSobremesaRow.valor,
+                                  ParamType.String,
+                                ),
+                                'img': serializeParam(
+                                  columnSobremesaRow.img,
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            elevation: 4.0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 10.0, 10.0, 10.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.network(
+                                          valueOrDefault<String>(
+                                            columnSobremesaRow.img,
+                                            'https://guiadacozinha.com.br/wp-content/uploads/2021/12/cheesecake-frutas-vermelhas.jpg',
+                                          ),
+                                          width: 100.0,
+                                          height: 100.0,
+                                          fit: BoxFit.cover,
                                         ),
-                                        width: 100.0,
-                                        height: 100.0,
-                                        fit: BoxFit.cover,
+                                      ),
+                                    ],
+                                  ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          6.0, 6.0, 6.0, 6.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Expanded(
+                                                child: Text(
+                                                  columnSobremesaRow.nome!,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        fontSize: 18.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Expanded(
+                                                child: Text(
+                                                  columnSobremesaRow.descricao!
+                                                      .maybeHandleOverflow(
+                                                    maxChars: 40,
+                                                    replacement: '…',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                  ],
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        6.0, 6.0, 6.0, 6.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Text(
-                                                columnSobremesaRow.nome!,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelLarge
-                                                    .override(
-                                                      fontFamily: 'Readex Pro',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
-                                                      fontSize: 18.0,
-                                                    ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Text(
-                                                columnSobremesaRow.descricao!
-                                                    .maybeHandleOverflow(
-                                                  maxChars: 40,
-                                                  replacement: '…',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
                                   ),
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Text(
-                                      'R\$',
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleLarge
-                                          .override(
-                                            fontFamily: 'Outfit',
-                                            color: Color(0xFF0D820A),
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                    ),
-                                    Text(
-                                      columnSobremesaRow.valor!,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            color: Color(0xFF0D820A),
-                                            fontSize: 20.0,
-                                          ),
-                                    ),
-                                    Icon(
-                                      Icons.add_circle,
-                                      color: Color(0xFF13DC0C),
-                                      size: 40.0,
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Text(
+                                        'R\$',
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .override(
+                                              fontFamily: 'Outfit',
+                                              color: Color(0xFF0D820A),
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
+                                      Text(
+                                        columnSobremesaRow.valor!,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Color(0xFF0D820A),
+                                              fontSize: 20.0,
+                                            ),
+                                      ),
+                                      Icon(
+                                        Icons.add_circle,
+                                        color: Color(0xFF13DC0C),
+                                        size: 40.0,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    );
-                  }),
+                      );
+                    }),
+                  ),
                 );
               },
             ),
