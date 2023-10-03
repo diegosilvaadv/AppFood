@@ -21,3 +21,10 @@ double newCustomFunction(
 double newCustomFunction2(double valor1) {
   return valor1 * -1;
 }
+
+double price(
+  double price,
+  int quantity,
+) {
+  return price * quantity.toDouble();
+}

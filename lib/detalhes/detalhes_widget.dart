@@ -253,7 +253,8 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                             children: [
                               Text(
                                 formatNumber(
-                                  widget.valor,
+                                  functions.price(widget.valor!,
+                                      FFAppState().Pedido.length),
                                   formatType: FormatType.custom,
                                   format: 'R\$',
                                   locale: '',
