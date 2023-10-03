@@ -188,10 +188,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
               ),
               Stack(
                 children: [
-                  Icon(
-                    Icons.local_grocery_store,
-                    color: FlutterFlowTheme.of(context).secondaryText,
-                    size: 24.0,
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
+                    child: Icon(
+                      Icons.local_grocery_store,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 24.0,
+                    ),
                   ),
                   Align(
                     alignment: AlignmentDirectional(3.94, 2.72),
