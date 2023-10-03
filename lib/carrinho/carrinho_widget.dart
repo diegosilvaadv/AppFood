@@ -217,8 +217,22 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                       .secondaryText,
                                               size: 20.0,
                                             ),
-                                            onPressed: () {
-                                              print('IconButton pressed ...');
+                                            onPressed: () async {
+                                              FFAppState().update(() {
+                                                FFAppState().Soma = FFAppState()
+                                                        .Soma +
+                                                    functions.newCustomFunction2(
+                                                        functions.newCustomFunction(
+                                                            FFAppState()
+                                                                .Pedido
+                                                                .where((e) => !e
+                                                                    .hasPreco())
+                                                                .toList()
+                                                                .length
+                                                                .toDouble(),
+                                                            FFAppState()
+                                                                .cardNumero));
+                                              });
                                             },
                                           ),
                                           FlutterFlowIconButton(
