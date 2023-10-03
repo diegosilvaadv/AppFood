@@ -224,7 +224,7 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                                 style: FlutterFlowTheme.of(context).titleLarge,
                               ),
                               Text(
-                                widget.valor!.toString(),
+                                widget.valor.toString(),
                                 style: FlutterFlowTheme.of(context).titleLarge,
                               ),
                               Padding(
