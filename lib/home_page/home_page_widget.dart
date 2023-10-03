@@ -89,9 +89,101 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   size: 24.0,
                 ),
               ),
-              Text(
-                'Olá, Tudo Bem?',
-                style: FlutterFlowTheme.of(context).bodyMedium,
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    if ((Theme.of(context).brightness == Brightness.light) ==
+                        true) {
+                      setDarkModeSetting(context, ThemeMode.dark);
+                      if (animationsMap['containerOnActionTriggerAnimation'] !=
+                          null) {
+                        animationsMap['containerOnActionTriggerAnimation']!
+                            .controller
+                            .forward(from: 0.0);
+                      }
+                    } else {
+                      setDarkModeSetting(context, ThemeMode.light);
+                      if (animationsMap['containerOnActionTriggerAnimation'] !=
+                          null) {
+                        animationsMap['containerOnActionTriggerAnimation']!
+                            .controller
+                            .reverse();
+                      }
+                    }
+                  },
+                  child: Container(
+                    width: 80.0,
+                    height: 40.0,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFF1F4F8),
+                      borderRadius: BorderRadius.circular(20.0),
+                      border: Border.all(
+                        color: Color(0xFFE0E3E7),
+                        width: 1.0,
+                      ),
+                    ),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                      child: Stack(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(-0.90, 0.00),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  6.0, 0.0, 0.0, 0.0),
+                              child: Icon(
+                                Icons.wb_sunny_rounded,
+                                color: Color(0xFF57636C),
+                                size: 24.0,
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(1.00, 0.00),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 6.0, 0.0),
+                              child: Icon(
+                                Icons.mode_night_rounded,
+                                color: Color(0xFF57636C),
+                                size: 24.0,
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(1.00, 0.00),
+                            child: Container(
+                              width: 36.0,
+                              height: 36.0,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 4.0,
+                                    color: Color(0x430B0D0F),
+                                    offset: Offset(0.0, 2.0),
+                                  )
+                                ],
+                                borderRadius: BorderRadius.circular(30.0),
+                                shape: BoxShape.rectangle,
+                              ),
+                            ).animateOnActionTrigger(
+                              animationsMap[
+                                  'containerOnActionTriggerAnimation']!,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
@@ -113,104 +205,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      if ((Theme.of(context).brightness == Brightness.light) ==
-                          true) {
-                        setDarkModeSetting(context, ThemeMode.dark);
-                        if (animationsMap[
-                                'containerOnActionTriggerAnimation'] !=
-                            null) {
-                          animationsMap['containerOnActionTriggerAnimation']!
-                              .controller
-                              .forward(from: 0.0);
-                        }
-                      } else {
-                        setDarkModeSetting(context, ThemeMode.light);
-                        if (animationsMap[
-                                'containerOnActionTriggerAnimation'] !=
-                            null) {
-                          animationsMap['containerOnActionTriggerAnimation']!
-                              .controller
-                              .reverse();
-                        }
-                      }
-                    },
-                    child: Container(
-                      width: 80.0,
-                      height: 40.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF1F4F8),
-                        borderRadius: BorderRadius.circular(20.0),
-                        border: Border.all(
-                          color: Color(0xFFE0E3E7),
-                          width: 1.0,
-                        ),
-                      ),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
-                        child: Stack(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(-0.90, 0.00),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    6.0, 0.0, 0.0, 0.0),
-                                child: Icon(
-                                  Icons.wb_sunny_rounded,
-                                  color: Color(0xFF57636C),
-                                  size: 24.0,
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(1.00, 0.00),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 6.0, 0.0),
-                                child: Icon(
-                                  Icons.mode_night_rounded,
-                                  color: Color(0xFF57636C),
-                                  size: 24.0,
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(1.00, 0.00),
-                              child: Container(
-                                width: 36.0,
-                                height: 36.0,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 4.0,
-                                      color: Color(0x430B0D0F),
-                                      offset: Offset(0.0, 2.0),
-                                    )
-                                  ],
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  shape: BoxShape.rectangle,
-                                ),
-                              ).animateOnActionTrigger(
-                                animationsMap[
-                                    'containerOnActionTriggerAnimation']!,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(50.0, 30.0, 0.0, 0.0),
                   child: Row(
@@ -295,7 +289,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(50.0, 50.0, 0.0, 10.0),
+                      EdgeInsetsDirectional.fromSTEB(50.0, 30.0, 0.0, 10.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -734,7 +728,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'VEJA MAIS',
+                        'PRATOS SELECIONADOS',
                         style: FlutterFlowTheme.of(context).labelLarge.override(
                               fontFamily: 'Readex Pro',
                               color: FlutterFlowTheme.of(context).primaryText,
