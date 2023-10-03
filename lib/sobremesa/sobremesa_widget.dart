@@ -113,7 +113,7 @@ class _SobremesaWidgetState extends State<SobremesaWidget> {
                                   ParamType.String,
                                 ),
                                 'valor': serializeParam(
-                                  0.0,
+                                  columnSobremesaRow.valor,
                                   ParamType.double,
                                 ),
                                 'img': serializeParam(

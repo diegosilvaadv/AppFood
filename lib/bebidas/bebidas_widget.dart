@@ -113,7 +113,7 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                                   ParamType.String,
                                 ),
                                 'valor': serializeParam(
-                                  0.0,
+                                  columnBebidasRow.valor,
                                   ParamType.double,
                                 ),
                                 'img': serializeParam(

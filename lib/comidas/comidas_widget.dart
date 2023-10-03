@@ -112,7 +112,7 @@ class _ComidasWidgetState extends State<ComidasWidget> {
                                   ParamType.String,
                                 ),
                                 'valor': serializeParam(
-                                  0.0,
+                                  columnPratosRow.valor,
                                   ParamType.double,
                                 ),
                                 'img': serializeParam(
