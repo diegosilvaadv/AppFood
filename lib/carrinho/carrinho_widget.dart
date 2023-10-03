@@ -163,7 +163,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                             .override(
                                                               fontFamily:
                                                                   'Outfit',
-                                                              fontSize: 20.0,
+                                                              fontSize: 10.0,
                                                             ),
                                                       ),
                                                     ),
