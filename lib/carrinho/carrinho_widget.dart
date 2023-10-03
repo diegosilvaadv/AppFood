@@ -322,7 +322,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                       offset: Offset(0.0, -2.0),
                     )
                   ],
-                  borderRadius: BorderRadius.circular(12.0),
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
                 alignment: AlignmentDirectional(0.00, 0.00),
                 child: Row(
