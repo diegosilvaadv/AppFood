@@ -1,4 +1,3 @@
-import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -321,9 +320,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                setState(() {
-                                  FFAppState().cliente = [];
-                                });
+                                context.pushNamed('Comidas');
                               },
                               child: Card(
                                 clipBehavior: Clip.antiAliasWithSaveLayer,
