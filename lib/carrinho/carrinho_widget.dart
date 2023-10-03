@@ -234,15 +234,15 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                         -1.0;
                                               });
                                               setState(() {
-                                                FFAppState().cardNumero =
-                                                    FFAppState().cardNumero +
-                                                        FFAppState()
-                                                            .Pedido
-                                                            .where((e) =>
-                                                                e.hasPreco())
-                                                            .toList()
-                                                            .length
-                                                            .toDouble();
+                                                FFAppState().Soma = FFAppState()
+                                                        .Soma +
+                                                    FFAppState()
+                                                        .Pedido
+                                                        .where(
+                                                            (e) => e.hasPreco())
+                                                        .toList()
+                                                        .length
+                                                        .toDouble();
                                               });
                                             },
                                           ),
@@ -319,7 +319,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                 highlightColor: Colors.transparent,
                 onTap: () async {
                   setState(() {
-                    FFAppState().cardNumero = 0.0;
                     FFAppState().Soma = 0.0;
                   });
                 },
