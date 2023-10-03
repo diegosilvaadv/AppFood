@@ -27,6 +27,7 @@ dependencies:
     sdk: flutter
   app_links: 3.4.1
   auto_size_text: 3.0.0
+  badges: 2.0.2
   cached_network_image: 3.2.1
   carousel_slider: 4.2.1
   floating_bottom_navigation_bar: 1.5.2
