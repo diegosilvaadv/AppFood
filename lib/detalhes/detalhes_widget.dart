@@ -193,7 +193,7 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
               child: Container(
-                width: MediaQuery.sizeOf(context).width * 0.9,
+                width: MediaQuery.sizeOf(context).width * 1.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
                   boxShadow: [
@@ -221,11 +221,21 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'R\$ ',
+                                formatNumber(
+                                  widget.valor,
+                                  formatType: FormatType.custom,
+                                  format: 'R\$',
+                                  locale: '',
+                                ),
                                 style: FlutterFlowTheme.of(context).titleLarge,
                               ),
                               Text(
-                                widget.valor.toString(),
+                                formatNumber(
+                                  FFAppState().Soma,
+                                  formatType: FormatType.custom,
+                                  format: 'R\$',
+                                  locale: '',
+                                ),
                                 style: FlutterFlowTheme.of(context).titleLarge,
                               ),
                               Padding(
@@ -269,8 +279,26 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                                           .titleLarge,
                                     ),
                                     count: _model.countControllerValue ??= 1,
-                                    updateCount: (count) => setState(() =>
-                                        _model.countControllerValue = count),
+                                    updateCount: (count) async {
+                                      setState(() =>
+                                          _model.countControllerValue = count);
+                                      setState(() {
+                                        FFAppState().updatePedidoAtIndex(
+                                          _model.countControllerValue!,
+                                          (_) => PedidoStruct(
+                                            preco: valueOrDefault<String>(
+                                              formatNumber(
+                                                widget.valor,
+                                                formatType: FormatType.custom,
+                                                format: 'R\$',
+                                                locale: '',
+                                              ),
+                                              'R\$',
+                                            ),
+                                          ),
+                                        );
+                                      });
+                                    },
                                     stepSize: 1,
                                     minimum: 1,
                                     maximum: 10,
