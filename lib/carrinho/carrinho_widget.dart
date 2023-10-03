@@ -165,7 +165,13 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                   ),
                                                   Expanded(
                                                     child: Text(
-                                                      'R\$ ${pedidosItem.preco}',
+                                                      'R\$ ${formatNumber(
+                                                        pedidosItem.preco,
+                                                        formatType:
+                                                            FormatType.custom,
+                                                        format: 'R\$ ',
+                                                        locale: '',
+                                                      )}',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -183,12 +189,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                                   0.0),
                                                       child: Text(
                                                         'Quantidade${formatNumber(
-                                                          FFAppState()
-                                                              .Pedido
-                                                              .where((e) => e
-                                                                  .hasQuantidade())
-                                                              .toList()
-                                                              .length,
+                                                          pedidosItem
+                                                              .quantidade,
                                                           formatType:
                                                               FormatType.custom,
                                                           format: '0',
@@ -221,26 +223,13 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               FFAppState().update(() {
                                                 FFAppState().Soma = FFAppState()
                                                         .Soma +
-                                                    functions.newCustomFunction2(functions
-                                                        .newCustomFunction(
-                                                            FFAppState()
-                                                                .Pedido
-                                                                .where((e) => !e
-                                                                    .hasPreco())
-                                                                .toList()
-                                                                .length
-                                                                .toDouble(),
-                                                            FFAppState()
-                                                                .Pedido
-                                                                .where((e) =>
-                                                                    valueOrDefault<
-                                                                        bool>(
-                                                                      e.hasQuantidade(),
-                                                                      true,
-                                                                    ))
-                                                                .toList()
-                                                                .length
-                                                                .toDouble()));
+                                                    functions.newCustomFunction2(
+                                                        functions
+                                                            .newCustomFunction(
+                                                                pedidosItem
+                                                                    .preco,
+                                                                pedidosItem
+                                                                    .quantidade));
                                               });
                                             },
                                           ),
@@ -264,24 +253,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 FFAppState().cardNumero =
                                                     FFAppState().cardNumero +
                                                         -1.0;
-                                                FFAppState().Soma = FFAppState()
-                                                        .Soma +
-                                                    functions.newCustomFunction2(
-                                                        functions.newCustomFunction(
-                                                            FFAppState()
-                                                                .Pedido
-                                                                .where((e) => e
-                                                                    .hasPreco())
-                                                                .toList()
-                                                                .length
-                                                                .toDouble(),
-                                                            FFAppState()
-                                                                .Pedido
-                                                                .where((e) => e
-                                                                    .hasQuantidade())
-                                                                .toList()
-                                                                .length
-                                                                .toDouble()));
                                               });
                                             },
                                           ),

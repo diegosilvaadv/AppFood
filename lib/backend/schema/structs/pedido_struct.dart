@@ -8,80 +8,79 @@ import '/flutter_flow/flutter_flow_util.dart';
 class PedidoStruct extends BaseStruct {
   PedidoStruct({
     String? nome,
-    String? preco,
-    PedidoStruct? quantidade,
+    double? preco,
+    double? quantidade,
   })  : _nome = nome,
         _preco = preco,
         _quantidade = quantidade;
 
-  // "nome" field.
+  // "Nome" field.
   String? _nome;
   String get nome => _nome ?? '';
   set nome(String? val) => _nome = val;
   bool hasNome() => _nome != null;
 
-  // "preco" field.
-  String? _preco;
-  String get preco => _preco ?? '';
-  set preco(String? val) => _preco = val;
+  // "Preco" field.
+  double? _preco;
+  double get preco => _preco ?? 0.0;
+  set preco(double? val) => _preco = val;
+  void incrementPreco(double amount) => _preco = preco + amount;
   bool hasPreco() => _preco != null;
 
   // "quantidade" field.
-  PedidoStruct? _quantidade;
-  PedidoStruct get quantidade => _quantidade ?? PedidoStruct();
-  set quantidade(PedidoStruct? val) => _quantidade = val;
-  void updateQuantidade(Function(PedidoStruct) updateFn) =>
-      updateFn(_quantidade ??= PedidoStruct());
+  double? _quantidade;
+  double get quantidade => _quantidade ?? 0.0;
+  set quantidade(double? val) => _quantidade = val;
+  void incrementQuantidade(double amount) => _quantidade = quantidade + amount;
   bool hasQuantidade() => _quantidade != null;
 
   static PedidoStruct fromMap(Map<String, dynamic> data) => PedidoStruct(
-        nome: data['nome'] as String?,
-        preco: data['preco'] as String?,
-        quantidade: PedidoStruct.maybeFromMap(data['quantidade']),
+        nome: data['Nome'] as String?,
+        preco: castToType<double>(data['Preco']),
+        quantidade: castToType<double>(data['quantidade']),
       );
 
   static PedidoStruct? maybeFromMap(dynamic data) =>
       data is Map<String, dynamic> ? PedidoStruct.fromMap(data) : null;
 
   Map<String, dynamic> toMap() => {
-        'nome': _nome,
-        'preco': _preco,
-        'quantidade': _quantidade?.toMap(),
+        'Nome': _nome,
+        'Preco': _preco,
+        'quantidade': _quantidade,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'nome': serializeParam(
+        'Nome': serializeParam(
           _nome,
           ParamType.String,
         ),
-        'preco': serializeParam(
+        'Preco': serializeParam(
           _preco,
-          ParamType.String,
+          ParamType.double,
         ),
         'quantidade': serializeParam(
           _quantidade,
-          ParamType.DataStruct,
+          ParamType.double,
         ),
       }.withoutNulls;
 
   static PedidoStruct fromSerializableMap(Map<String, dynamic> data) =>
       PedidoStruct(
         nome: deserializeParam(
-          data['nome'],
+          data['Nome'],
           ParamType.String,
           false,
         ),
         preco: deserializeParam(
-          data['preco'],
-          ParamType.String,
+          data['Preco'],
+          ParamType.double,
           false,
         ),
-        quantidade: deserializeStructParam(
+        quantidade: deserializeParam(
           data['quantidade'],
-          ParamType.DataStruct,
+          ParamType.double,
           false,
-          structBuilder: PedidoStruct.fromSerializableMap,
         ),
       );
 
@@ -102,11 +101,11 @@ class PedidoStruct extends BaseStruct {
 
 PedidoStruct createPedidoStruct({
   String? nome,
-  String? preco,
-  PedidoStruct? quantidade,
+  double? preco,
+  double? quantidade,
 }) =>
     PedidoStruct(
       nome: nome,
       preco: preco,
-      quantidade: quantidade ?? PedidoStruct(),
+      quantidade: quantidade,
     );
