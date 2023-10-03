@@ -185,44 +185,63 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   ),
                 ),
               ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
-                    child: Icon(
-                      Icons.local_grocery_store,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 24.0,
-                    ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(3.94, 2.72),
-                    child: badges.Badge(
-                      badgeContent: Text(
-                        formatNumber(
-                          FFAppState().cardNumero,
-                          formatType: FormatType.custom,
-                          format: '0',
-                          locale: '',
-                        ),
-                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                              fontFamily: 'Readex Pro',
-                              color: Colors.white,
-                            ),
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.pushNamed(
+                    'carrinho',
+                    extra: <String, dynamic>{
+                      kTransitionInfoKey: TransitionInfo(
+                        hasTransition: true,
+                        transitionType: PageTransitionType.rightToLeft,
                       ),
-                      showBadge: true,
-                      shape: badges.BadgeShape.circle,
-                      badgeColor: Color(0xFF13DC0C),
-                      elevation: 4.0,
+                    },
+                  );
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                      position: badges.BadgePosition.topEnd(),
-                      animationType: badges.BadgeAnimationType.scale,
-                      toAnimate: true,
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
+                      child: Icon(
+                        Icons.local_grocery_store,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 24.0,
+                      ),
                     ),
-                  ),
-                ],
+                    Align(
+                      alignment: AlignmentDirectional(3.94, 2.72),
+                      child: badges.Badge(
+                        badgeContent: Text(
+                          formatNumber(
+                            FFAppState().cardNumero,
+                            formatType: FormatType.custom,
+                            format: '0',
+                            locale: '',
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
+                        ),
+                        showBadge: true,
+                        shape: badges.BadgeShape.circle,
+                        badgeColor: Color(0xFF13DC0C),
+                        elevation: 4.0,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                        position: badges.BadgePosition.topEnd(),
+                        animationType: badges.BadgeAnimationType.scale,
+                        toAnimate: true,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -233,7 +252,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -249,8 +268,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               0.0, 0.0, 10.0, 0.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(50.0),
-                            child: Image.network(
-                              'https://picsum.photos/seed/395/600',
+                            child: Image.asset(
+                              'assets/images/kisspng-catering-food-computer-icons-logo-event-management-catering-5abf487cd18447.7546290415224853728582.png',
                               width: 50.0,
                               height: 50.0,
                               fit: BoxFit.cover,

@@ -30,7 +30,6 @@ dependencies:
   badges: 2.0.2
   cached_network_image: 3.2.1
   carousel_slider: 4.2.1
-  floating_bottom_navigation_bar: 1.5.2
   flutter_animate: 4.1.1+1
   flutter_cache_manager: 3.3.0
   font_awesome_flutter: 10.1.0
