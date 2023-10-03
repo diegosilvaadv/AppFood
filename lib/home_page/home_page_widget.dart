@@ -199,229 +199,69 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         color: Color(0x0014181B),
                       ),
                     ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(50.0, 0.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(
-                            child: FutureBuilder<List<EmpromoRow>>(
-                              future: EmpromoTable().queryRows(
-                                queryFn: (q) => q,
-                              ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                          FlutterFlowTheme.of(context).primary,
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                }
-                                List<EmpromoRow> carouselEmpromoRowList =
-                                    snapshot.data!;
-                                return Container(
-                                  width: double.infinity,
-                                  height: 200.0,
-                                  child: CarouselSlider.builder(
-                                    itemCount: carouselEmpromoRowList.length,
-                                    itemBuilder: (context, carouselIndex, _) {
-                                      final carouselEmpromoRow =
-                                          carouselEmpromoRowList[carouselIndex];
-                                      return Stack(
-                                        children: [
-                                          Align(
-                                            alignment: AlignmentDirectional(
-                                                -0.62, -1.43),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.network(
-                                                carouselEmpromoRow.img!,
-                                                width: 159.0,
-                                                height: 159.0,
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.88),
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              elevation: 5.0,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(5.0),
-                                              ),
-                                              child: Container(
-                                                width: 178.0,
-                                                height: 76.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          5.0),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Expanded(
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    6.0,
-                                                                    6.0,
-                                                                    6.0,
-                                                                    6.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Expanded(
-                                                              child: Text(
-                                                                carouselEmpromoRow
-                                                                    .nome!,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  6.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Text(
-                                                            'De ',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  fontSize:
-                                                                      10.0,
-                                                                ),
-                                                          ),
-                                                          Text(
-                                                            carouselEmpromoRow
-                                                                .valorAntigo!,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  color: Color(
-                                                                      0xFFA00505),
-                                                                  decoration:
-                                                                      TextDecoration
-                                                                          .lineThrough,
-                                                                ),
-                                                          ),
-                                                          Text(
-                                                            ' Por ',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  fontSize:
-                                                                      10.0,
-                                                                ),
-                                                          ),
-                                                          Text(
-                                                            carouselEmpromoRow
-                                                                .valorNovo!,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  color: Color(
-                                                                      0xFF0D820A),
-                                                                  fontSize:
-                                                                      18.0,
-                                                                ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: AlignmentDirectional(
-                                                0.94, 0.06),
-                                            child: Icon(
-                                              Icons.add_circle,
-                                              color: Color(0xFF13DC0C),
-                                              size: 30.0,
-                                            ),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                    carouselController:
-                                        _model.carouselController ??=
-                                            CarouselController(),
-                                    options: CarouselOptions(
-                                      initialPage: min(
-                                          1, carouselEmpromoRowList.length - 1),
-                                      viewportFraction: 0.5,
-                                      disableCenter: true,
-                                      enlargeCenterPage: true,
-                                      enlargeFactor: 0.25,
-                                      enableInfiniteScroll: true,
-                                      scrollDirection: Axis.horizontal,
-                                      autoPlay: true,
-                                      autoPlayAnimationDuration:
-                                          Duration(milliseconds: 800),
-                                      autoPlayInterval:
-                                          Duration(milliseconds: 4000),
-                                      autoPlayCurve: Curves.linear,
-                                      pauseAutoPlayInFiniteScroll: true,
-                                      onPageChanged: (index, _) =>
-                                          _model.carouselCurrentIndex = index,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        FutureBuilder<List<EmpromoRow>>(
+                          future: EmpromoTable().queryRows(
+                            queryFn: (q) => q,
+                          ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).primary,
                                     ),
                                   ),
-                                );
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
+                                ),
+                              );
+                            }
+                            List<EmpromoRow> carouselEmpromoRowList =
+                                snapshot.data!;
+                            return Container(
+                              width: double.infinity,
+                              height: 180.0,
+                              child: CarouselSlider.builder(
+                                itemCount: carouselEmpromoRowList.length,
+                                itemBuilder: (context, carouselIndex, _) {
+                                  final carouselEmpromoRow =
+                                      carouselEmpromoRowList[carouselIndex];
+                                  return ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.network(
+                                      carouselEmpromoRow.img!,
+                                      width: 300.0,
+                                      height: 200.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  );
+                                },
+                                carouselController:
+                                    _model.carouselController ??=
+                                        CarouselController(),
+                                options: CarouselOptions(
+                                  initialPage:
+                                      min(1, carouselEmpromoRowList.length - 1),
+                                  viewportFraction: 0.5,
+                                  disableCenter: true,
+                                  enlargeCenterPage: true,
+                                  enlargeFactor: 0.25,
+                                  enableInfiniteScroll: true,
+                                  scrollDirection: Axis.horizontal,
+                                  autoPlay: false,
+                                  onPageChanged: (index, _) =>
+                                      _model.carouselCurrentIndex = index,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ],
                     ),
                   ),
                 ),
