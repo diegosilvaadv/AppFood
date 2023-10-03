@@ -50,9 +50,20 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
           iconTheme:
               IconThemeData(color: FlutterFlowTheme.of(context).primaryText),
           automaticallyImplyLeading: true,
-          title: Text(
-            'Meu Pedido',
-            style: FlutterFlowTheme.of(context).displaySmall,
+          title: InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              setState(() {
+                FFAppState().cardNumero = 0.0;
+              });
+            },
+            child: Text(
+              'Meu Pedido',
+              style: FlutterFlowTheme.of(context).displaySmall,
+            ),
           ),
           actions: [],
           centerTitle: false,
