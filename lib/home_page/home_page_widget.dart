@@ -917,7 +917,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   child: Text(
                                                     columnPratosRow.descricao!
                                                         .maybeHandleOverflow(
-                                                      maxChars: 50,
+                                                      maxChars: 40,
                                                       replacement: '…',
                                                     ),
                                                     style: FlutterFlowTheme.of(

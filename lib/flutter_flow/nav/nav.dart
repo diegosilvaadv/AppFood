@@ -84,6 +84,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'carrinho')
               : CarrinhoWidget(),
+        ),
+        FFRoute(
+          name: 'detalhes',
+          path: '/detalhes',
+          builder: (context, params) => DetalhesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
