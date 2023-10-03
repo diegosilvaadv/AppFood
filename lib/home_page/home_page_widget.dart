@@ -868,7 +868,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         ParamType.String,
                                       ),
                                       'valor': serializeParam(
-                                        0.0,
+                                        columnPratosRow.valor,
                                         ParamType.double,
                                       ),
                                     }.withoutNulls,
