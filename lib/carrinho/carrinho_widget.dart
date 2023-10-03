@@ -144,24 +144,32 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 8.0),
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  8.0),
+                                                      child: Text(
+                                                        pedidosItem.nome,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleLarge,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Expanded(
                                                     child: Text(
-                                                      pedidosItem.nome,
+                                                      'R\$ ${pedidosItem.preco}',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .titleLarge,
+                                                              .labelMedium,
                                                     ),
-                                                  ),
-                                                  Text(
-                                                    'R\$ ${pedidosItem.preco}',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .labelMedium,
                                                   ),
                                                   Padding(
                                                     padding:
@@ -169,7 +177,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      'Quanity: 1',
+                                                      'Quantidade${pedidosItem.hasQuantidade().toString()}',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)

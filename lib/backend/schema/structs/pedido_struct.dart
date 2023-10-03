@@ -9,8 +9,10 @@ class PedidoStruct extends BaseStruct {
   PedidoStruct({
     String? nome,
     String? preco,
+    PedidoStruct? quantidade,
   })  : _nome = nome,
-        _preco = preco;
+        _preco = preco,
+        _quantidade = quantidade;
 
   // "nome" field.
   String? _nome;
@@ -24,9 +26,18 @@ class PedidoStruct extends BaseStruct {
   set preco(String? val) => _preco = val;
   bool hasPreco() => _preco != null;
 
+  // "quantidade" field.
+  PedidoStruct? _quantidade;
+  PedidoStruct get quantidade => _quantidade ?? PedidoStruct();
+  set quantidade(PedidoStruct? val) => _quantidade = val;
+  void updateQuantidade(Function(PedidoStruct) updateFn) =>
+      updateFn(_quantidade ??= PedidoStruct());
+  bool hasQuantidade() => _quantidade != null;
+
   static PedidoStruct fromMap(Map<String, dynamic> data) => PedidoStruct(
         nome: data['nome'] as String?,
         preco: data['preco'] as String?,
+        quantidade: PedidoStruct.maybeFromMap(data['quantidade']),
       );
 
   static PedidoStruct? maybeFromMap(dynamic data) =>
@@ -35,6 +46,7 @@ class PedidoStruct extends BaseStruct {
   Map<String, dynamic> toMap() => {
         'nome': _nome,
         'preco': _preco,
+        'quantidade': _quantidade?.toMap(),
       }.withoutNulls;
 
   @override
@@ -46,6 +58,10 @@ class PedidoStruct extends BaseStruct {
         'preco': serializeParam(
           _preco,
           ParamType.String,
+        ),
+        'quantidade': serializeParam(
+          _quantidade,
+          ParamType.DataStruct,
         ),
       }.withoutNulls;
 
@@ -61,6 +77,12 @@ class PedidoStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        quantidade: deserializeStructParam(
+          data['quantidade'],
+          ParamType.DataStruct,
+          false,
+          structBuilder: PedidoStruct.fromSerializableMap,
+        ),
       );
 
   @override
@@ -68,18 +90,23 @@ class PedidoStruct extends BaseStruct {
 
   @override
   bool operator ==(Object other) {
-    return other is PedidoStruct && nome == other.nome && preco == other.preco;
+    return other is PedidoStruct &&
+        nome == other.nome &&
+        preco == other.preco &&
+        quantidade == other.quantidade;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([nome, preco]);
+  int get hashCode => const ListEquality().hash([nome, preco, quantidade]);
 }
 
 PedidoStruct createPedidoStruct({
   String? nome,
   String? preco,
+  PedidoStruct? quantidade,
 }) =>
     PedidoStruct(
       nome: nome,
       preco: preco,
+      quantidade: quantidade ?? PedidoStruct(),
     );

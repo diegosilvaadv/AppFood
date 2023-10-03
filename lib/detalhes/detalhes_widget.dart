@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -289,6 +290,9 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                             ));
                             FFAppState().cardNumero =
                                 FFAppState().cardNumero + 1.0;
+                            FFAppState().Soma = FFAppState().Soma +
+                                functions.newCustomFunction(widget.valor!,
+                                    _model.countControllerValue!.toDouble());
                           });
                         },
                         text: 'ADD',
