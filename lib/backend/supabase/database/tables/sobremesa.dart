@@ -28,4 +28,7 @@ class SobremesaRow extends SupabaseDataRow {
 
   String? get descricao => getField<String>('descricao');
   set descricao(String? value) => setField<String>('descricao', value);
+
+  String? get img => getField<String>('img');
+  set img(String? value) => setField<String>('img', value);
 }
