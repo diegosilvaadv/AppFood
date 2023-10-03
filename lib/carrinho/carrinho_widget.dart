@@ -226,6 +226,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 FFAppState().cardNumero =
                                                     FFAppState().cardNumero +
                                                         -1.0;
+                                                FFAppState().Soma = 0.0;
                                               });
                                             },
                                           ),
