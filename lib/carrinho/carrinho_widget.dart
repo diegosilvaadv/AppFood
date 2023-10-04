@@ -177,9 +177,10 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                     '${formatNumber(
                                                       pedidosItem.preco,
                                                       formatType:
-                                                          FormatType.custom,
-                                                      format: 'R\$',
-                                                      locale: '',
+                                                          FormatType.decimal,
+                                                      decimalType: DecimalType
+                                                          .periodDecimal,
+                                                      currency: 'R\$',
                                                     )} X ${formatNumber(
                                                       pedidosItem.quantidade,
                                                       formatType:
