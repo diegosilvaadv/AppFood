@@ -599,8 +599,14 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                           FFAppState().Soma2 = FFAppState()
                                                   .Soma2 +
                                               functions.newCustomFunction(
-                                                  widget.valor!,
-                                                  _model.apiResultb8x!.quanty!);
+                                                  FFAppState()
+                                                      .Pedido[
+                                                          FFAppState().contador]
+                                                      .preco,
+                                                  FFAppState()
+                                                      .Pedido[
+                                                          FFAppState().contador]
+                                                      .quantidade);
                                           FFAppState().contador =
                                               FFAppState().contador + 1;
                                         });
