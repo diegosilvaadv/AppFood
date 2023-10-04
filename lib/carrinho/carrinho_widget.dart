@@ -499,18 +499,22 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                       );
                       _shouldSetState = true;
                       if ((_model.apiResultb8x?.succeeded ?? true)) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              'Enviando!',
-                              style: TextStyle(
-                                color: FlutterFlowTheme.of(context).primaryText,
-                              ),
-                            ),
-                            duration: Duration(milliseconds: 4000),
-                            backgroundColor:
-                                FlutterFlowTheme.of(context).secondary,
-                          ),
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('PEDIDO FINALIZADO!'),
+                              content: Text(
+                                  'AGUARDE A PREPARAÇÃO DO PEDIDO! MUITO OBG ;)'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            );
+                          },
                         );
                       }
                     }
