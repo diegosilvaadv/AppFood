@@ -570,6 +570,29 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       });
                                       _shouldSetState = true;
                                       setState(() {
+                                        FFAppState().addToOrdensPedidos(
+                                            OrdensPedidosStruct(
+                                          nomeCliente:
+                                              _model.textController.text,
+                                          formaPag: _model.formaPagValue,
+                                          mesa: _model.numMesaValue,
+                                          pedido: FFAppState()
+                                              .ordensPedidos[
+                                                  FFAppState().contador]
+                                              .pedido,
+                                          valor: FFAppState()
+                                              .ordensPedidos[
+                                                  FFAppState().contador]
+                                              .valor,
+                                          quantidade: FFAppState()
+                                              .ordensPedidos[
+                                                  FFAppState().contador]
+                                              .quantidade,
+                                          img: FFAppState()
+                                              .ordensPedidos[
+                                                  FFAppState().contador]
+                                              .img,
+                                        ));
                                         FFAppState().Pedido = [];
                                         FFAppState().cardNumero = 0.0;
                                         FFAppState().Soma = 0.0;
