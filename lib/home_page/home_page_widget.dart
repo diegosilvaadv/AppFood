@@ -1087,7 +1087,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   ),
                                             ),
                                             Text(
-                                              columnPratosRow.valor!.toString(),
+                                              formatNumber(
+                                                columnPratosRow.valor!,
+                                                formatType: FormatType.decimal,
+                                                decimalType:
+                                                    DecimalType.periodDecimal,
+                                              ),
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
