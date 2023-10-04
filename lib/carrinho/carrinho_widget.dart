@@ -14,12 +14,7 @@ import 'carrinho_model.dart';
 export 'carrinho_model.dart';
 
 class CarrinhoWidget extends StatefulWidget {
-  const CarrinhoWidget({
-    Key? key,
-    required this.valor,
-  }) : super(key: key);
-
-  final double? valor;
+  const CarrinhoWidget({Key? key}) : super(key: key);
 
   @override
   _CarrinhoWidgetState createState() => _CarrinhoWidgetState();

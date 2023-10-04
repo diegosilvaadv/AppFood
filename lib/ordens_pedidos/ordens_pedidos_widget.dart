@@ -270,6 +270,7 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                               onTap: () async {
                                 setState(() {
                                   FFAppState().ordensPedidos = [];
+                                  FFAppState().Soma2 = 0.0;
                                 });
                               },
                               child: Text(

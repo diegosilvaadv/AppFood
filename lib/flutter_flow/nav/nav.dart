@@ -79,9 +79,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'carrinho',
           path: '/carrinho',
-          builder: (context, params) => CarrinhoWidget(
-            valor: params.getParam('valor', ParamType.double),
-          ),
+          builder: (context, params) => CarrinhoWidget(),
         ),
         FFRoute(
           name: 'detalhes',
