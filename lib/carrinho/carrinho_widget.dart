@@ -503,22 +503,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                           .toString(),
                                     );
                                     _shouldSetState = true;
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('errroooo'),
-                                          content: Text('errrroooo'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
                                     if ((_model.apiResultb8x?.succeeded ??
                                         true)) {
                                       await showDialog(
@@ -539,8 +523,22 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                         },
                                       );
                                     } else {
-                                      if (_shouldSetState) setState(() {});
-                                      return;
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('ERRROOOO'),
+                                            content: Text('ERRROOOO'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
                                     }
                                   }
                                 } else {
