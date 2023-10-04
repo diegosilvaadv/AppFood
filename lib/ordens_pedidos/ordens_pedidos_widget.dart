@@ -146,43 +146,32 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                                       ),
                                             ),
                                           ),
-                                          Text(
-                                            '${formatNumber(
-                                              ordensPedidosItem.valor,
-                                              formatType: FormatType.decimal,
-                                              decimalType:
-                                                  DecimalType.periodDecimal,
-                                              currency: 'R\$',
-                                            )} X ${formatNumber(
-                                              ordensPedidosItem.quantidade,
-                                              formatType: FormatType.custom,
-                                              format: '',
-                                              locale: '',
-                                            )}',
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: Color(0xFF0D820A),
-                                                  fontSize: 20.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                          Flexible(
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 8.0, 0.0, 0.0),
-                                              child: Text(
-                                                ordensPedidosItem.nomeCliente,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          fontSize: 15.0,
-                                                        ),
-                                              ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 2.0),
+                                            child: Text(
+                                              '${formatNumber(
+                                                ordensPedidosItem.valor,
+                                                formatType: FormatType.decimal,
+                                                decimalType:
+                                                    DecimalType.periodDecimal,
+                                                currency: 'R\$',
+                                              )} X ${formatNumber(
+                                                ordensPedidosItem.quantidade,
+                                                formatType: FormatType.custom,
+                                                format: '',
+                                                locale: '',
+                                              )}',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: Color(0xFF0D820A),
+                                                    fontSize: 20.0,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                             ),
                                           ),
                                           Text(
@@ -191,7 +180,7 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                                 .bodyMedium,
                                           ),
                                           Text(
-                                            ordensPedidosItem.formaPag,
+                                            'Forma de Pagamento: ${ordensPedidosItem.formaPag}',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium,
                                           ),
