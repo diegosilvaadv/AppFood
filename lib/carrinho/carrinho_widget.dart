@@ -603,6 +603,10 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                           ),
                                         },
                                       );
+
+                                      setState(() {
+                                        FFAppState().Pedido = [];
+                                      });
                                     }
                                   } else {
                                     if (_shouldSetState) setState(() {});
