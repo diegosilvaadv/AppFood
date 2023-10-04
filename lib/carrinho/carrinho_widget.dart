@@ -591,6 +591,10 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                             getCurrentTimestamp),
                                       });
                                       _shouldSetState = true;
+                                      setState(() {
+                                        FFAppState().contador =
+                                            FFAppState().contador + 1;
+                                      });
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
                                         backgroundColor: Colors.transparent,
