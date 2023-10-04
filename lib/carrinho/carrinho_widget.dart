@@ -466,96 +466,132 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                           ],
                         ),
                       ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 10.0, 10.0, 10.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            FFButtonWidget(
+                              onPressed: () async {
+                                var _shouldSetState = false;
+                                if (FFAppState().Pedido.length >= 1) {
+                                  setState(() {
+                                    FFAppState().contador = -1;
+                                  });
+                                  while (FFAppState().contador <=
+                                      FFAppState().Pedido.length) {
+                                    setState(() {
+                                      FFAppState().contador =
+                                          FFAppState().contador + 1;
+                                    });
+                                    _model.apiResultb8x =
+                                        await SetDadosCall.call(
+                                      pedido: FFAppState()
+                                          .Pedido[FFAppState().contador]
+                                          .nome,
+                                      valor: FFAppState()
+                                          .Pedido[FFAppState().contador]
+                                          .preco,
+                                      nomeCliente: _model.textController.text,
+                                      nMesa: _model.numMesaValue,
+                                      pagamento: _model.formaPagValue,
+                                      quanty: FFAppState()
+                                          .Pedido[FFAppState().contador]
+                                          .quantidade
+                                          .toString(),
+                                    );
+                                    _shouldSetState = true;
+                                    if ((_model.apiResultb8x?.succeeded ??
+                                        true)) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('PEDIDO FINALIZADO!'),
+                                            content: Text(
+                                                'AGUARDE A PREPARAÇÃO DO PEDIDO! MUITO OBG ;)'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    } else {
+                                      if (_shouldSetState) setState(() {});
+                                      return;
+                                    }
+                                  }
+                                } else {
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+
+                                if (_shouldSetState) setState(() {});
+                              },
+                              text: 'ENVIAR',
+                              options: FFButtonOptions(
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Colors.white,
+                                    ),
+                                elevation: 3.0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ),
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  var _shouldSetState = false;
-                  if (FFAppState().Pedido.length >= 1) {
-                    setState(() {
-                      FFAppState().contador = -1;
-                    });
-                    while (
-                        FFAppState().contador <= FFAppState().Pedido.length) {
-                      setState(() {
-                        FFAppState().contador = FFAppState().contador + 1;
-                      });
-                      _model.apiResultb8x = await SetDadosCall.call(
-                        pedido: FFAppState().Pedido[FFAppState().contador].nome,
-                        valor: FFAppState().Pedido[FFAppState().contador].preco,
-                        nomeCliente: _model.textController.text,
-                        nMesa: _model.numMesaValue,
-                        pagamento: _model.formaPagValue,
-                        quanty: FFAppState()
-                            .Pedido[FFAppState().contador]
-                            .quantidade
-                            .toString(),
-                      );
-                      _shouldSetState = true;
-                      if ((_model.apiResultb8x?.succeeded ?? true)) {
-                        await showDialog(
-                          context: context,
-                          builder: (alertDialogContext) {
-                            return AlertDialog(
-                              title: Text('PEDIDO FINALIZADO!'),
-                              content: Text(
-                                  'AGUARDE A PREPARAÇÃO DO PEDIDO! MUITO OBG ;)'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Ok'),
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      }
-                    }
-                  } else {
-                    if (_shouldSetState) setState(() {});
-                    return;
-                  }
-
-                  if (_shouldSetState) setState(() {});
-                },
-                child: Container(
-                  width: double.infinity,
-                  height: 50.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primaryText,
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 4.0,
-                        color: Color(0x320E151B),
-                        offset: Offset(0.0, -2.0),
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'FINALIZAR PEDIDO',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Roboto',
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              fontSize: 22.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ],
-                  ),
+              Container(
+                width: double.infinity,
+                height: 50.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 4.0,
+                      color: Color(0x320E151B),
+                      offset: Offset(0.0, -2.0),
+                    )
+                  ],
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                alignment: AlignmentDirectional(0.00, 0.00),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'FINALIZAR PEDIDO',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Roboto',
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                  ],
                 ),
               ),
             ],

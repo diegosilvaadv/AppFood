@@ -25,7 +25,7 @@ class CarrinhoModel extends FlutterFlowModel<CarrinhoWidget> {
   // State field(s) for forma_pag widget.
   String? formaPagValue;
   FormFieldController<String>? formaPagValueController;
-  // Stores action output result for [Backend Call - API (SetDados)] action in Container widget.
+  // Stores action output result for [Backend Call - API (SetDados)] action in Button widget.
   ApiCallResponse? apiResultb8x;
 
   /// Initialization and disposal methods.
