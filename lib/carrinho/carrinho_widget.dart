@@ -576,6 +576,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               _model.textController.text,
                                           formaPag: _model.formaPagValue,
                                           mesa: _model.numMesaValue,
+                                          pedido: FFAppState()
+                                              .Pedido[FFAppState().contador]
+                                              .nome,
                                         ));
                                         FFAppState().Pedido = [];
                                         FFAppState().cardNumero = 0.0;

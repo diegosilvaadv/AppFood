@@ -174,15 +174,27 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                                   ),
                                             ),
                                           ),
-                                          Text(
-                                            'Nome:  ${ordensPedidosItem.nomeCliente}',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 2.0),
+                                            child: Text(
+                                              'Nome:  ${ordensPedidosItem.nomeCliente}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
                                           ),
-                                          Text(
-                                            'Forma de Pagamento: ${ordensPedidosItem.formaPag}',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 2.0),
+                                            child: Text(
+                                              'Forma de Pagamento: ${ordensPedidosItem.formaPag}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
                                           ),
                                         ],
                                       ),
