@@ -544,8 +544,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                     setState(() {
                                       FFAppState().contador = -1;
                                     });
-                                    await Future.delayed(
-                                        const Duration(milliseconds: 1000));
                                     while (FFAppState().contador <=
                                         FFAppState().Pedido.length) {
                                       setState(() {
@@ -571,8 +569,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                             getCurrentTimestamp),
                                       });
                                       _shouldSetState = true;
-                                      await Future.delayed(
-                                          const Duration(milliseconds: 1000));
                                       while (FFAppState().contador ==
                                           FFAppState().ordensPedidos.length) {
                                         setState(() {
@@ -599,6 +595,10 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 .Pedido[FFAppState().contador]
                                                 .img,
                                           ));
+                                          FFAppState().contador =
+                                              FFAppState().contador + 1;
+                                        });
+                                        setState(() {
                                           FFAppState().Soma2 = FFAppState()
                                                   .Soma2 +
                                               functions.newCustomFunction(
