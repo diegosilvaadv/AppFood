@@ -505,11 +505,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                     'n_mesa': _model.numMesaValue,
                     'pagamento': _model.formaPagValue,
                     'valor': FFAppState().Soma,
-                    'id': FFAppState()
-                        .Pedido
-                        .where((e) => e.hasId())
-                        .toList()
-                        .length,
                   });
                   await showDialog(
                     context: context,
