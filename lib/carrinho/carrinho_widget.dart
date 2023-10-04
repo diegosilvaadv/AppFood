@@ -590,8 +590,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               .img,
                                         ));
                                       });
-                                      await Future.delayed(
-                                          const Duration(milliseconds: 1000));
 
                                       context.pushNamed('ordens_pedidos');
                                     }
@@ -599,6 +597,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
+
+                                  context.pushNamed('ordens_pedidos');
 
                                   if (_shouldSetState) setState(() {});
                                 },
