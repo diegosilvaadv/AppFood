@@ -572,10 +572,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       while (FFAppState().contador ==
                                           FFAppState().ordensPedidos.length) {
                                         setState(() {
-                                          FFAppState().contador =
-                                              FFAppState().contador + 1;
-                                        });
-                                        setState(() {
                                           FFAppState().addToOrdensPedidos(
                                               OrdensPedidosStruct(
                                             nomeCliente:
@@ -595,9 +591,22 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 .Pedido[FFAppState().contador]
                                                 .img,
                                           ));
+                                          FFAppState().contador =
+                                              FFAppState().contador + 1;
                                         });
-                                        await Future.delayed(
-                                            const Duration(milliseconds: 1000));
+                                        setState(() {
+                                          FFAppState().Soma2 = FFAppState()
+                                                  .Soma2 +
+                                              functions.newCustomFunction(
+                                                  FFAppState()
+                                                      .Pedido[
+                                                          FFAppState().contador]
+                                                      .preco,
+                                                  FFAppState()
+                                                      .Pedido[
+                                                          FFAppState().contador]
+                                                      .quantidade);
+                                        });
                                         setState(() {
                                           FFAppState().Pedido = [];
                                           FFAppState().cardNumero = 0.0;
