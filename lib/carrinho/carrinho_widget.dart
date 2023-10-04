@@ -604,6 +604,24 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                         },
                                       );
                                     }
+                                    await Future.delayed(
+                                        const Duration(milliseconds: 1000));
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          title: Text('gfdg'),
+                                          content: Text('xfgvfd'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
                                   } else {
                                     if (_shouldSetState) setState(() {});
                                     return;
