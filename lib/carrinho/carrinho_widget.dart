@@ -1,5 +1,5 @@
-import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -487,60 +487,33 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                           FFAppState().contador + 1;
                                     });
                                     _model.apiResultb8x =
-                                        await SetDadosCall.call(
-                                      pedido: FFAppState()
+                                        await PedidosClienteTable().insert({
+                                      'nome_cliente':
+                                          _model.textController.text,
+                                      'n_mesa': _model.numMesaValue,
+                                      'pagamento': _model.formaPagValue,
+                                      'pedido': FFAppState()
                                           .Pedido[FFAppState().contador]
                                           .nome,
-                                      valor: FFAppState()
-                                          .Pedido[FFAppState().contador]
-                                          .preco,
-                                      nomeCliente: _model.textController.text,
-                                      nMesa: _model.numMesaValue,
-                                      pagamento: _model.formaPagValue,
-                                      quanty: FFAppState()
-                                          .Pedido[FFAppState().contador]
-                                          .quantidade
-                                          .toString(),
-                                    );
+                                    });
                                     _shouldSetState = true;
-                                    if ((_model.apiResultb8x?.succeeded ??
-                                        true)) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return AlertDialog(
-                                            title: Text('PEDIDO FINALIZADO!'),
-                                            content: Text(
-                                                'AGUARDE A PREPARAÇÃO DO PEDIDO! MUITO OBG ;)'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      );
-                                    } else {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return AlertDialog(
-                                            title: Text('ERRROOOO'),
-                                            content: Text('ERRROOOO'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      );
-                                    }
                                   }
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        title: Text('ok'),
+                                        content: Text('ok'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
                                 } else {
                                   if (_shouldSetState) setState(() {});
                                   return;

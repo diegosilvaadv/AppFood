@@ -8,19 +8,6 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-/// Start SetDadosCliente Group Code
-
-class SetDadosClienteGroup {
-  static String baseUrl =
-      'https://zgnzdzgihtgzpjjulpua.supabase.co/rest/v1/Pedidos_cliente';
-  static Map<String, String> headers = {
-    'apikey':
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpnbnpkemdpaHRnenBqanVscHVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTYyOTYzNTcsImV4cCI6MjAxMTg3MjM1N30.pu8ZfLUxszV-U3nryPh-sQRyMbQExjosix9C6JFvI04',
-  };
-}
-
-/// End SetDadosCliente Group Code
-
 class SetDadosCall {
   static Future<ApiCallResponse> call({
     String? pedido = '',
