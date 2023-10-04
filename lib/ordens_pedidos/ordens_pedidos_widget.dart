@@ -113,9 +113,7 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                   ),
                                   Expanded(
                                     child: Text(
-                                      FFAppState()
-                                          .ordensPedidos[FFAppState().contador]
-                                          .nPedido,
+                                      'Sua Ordem:',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -143,9 +141,7 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                   ),
                                   Expanded(
                                     child: Text(
-                                      FFAppState()
-                                          .ordensPedidos[FFAppState().contador]
-                                          .nomeCliente,
+                                      'Sua Ordem:',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
