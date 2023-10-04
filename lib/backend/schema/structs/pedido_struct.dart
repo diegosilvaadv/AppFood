@@ -11,7 +11,7 @@ class PedidoStruct extends BaseStruct {
     double? preco,
     double? quantidade,
     String? img,
-    PedidoStruct? id,
+    double? id,
   })  : _nome = nome,
         _preco = preco,
         _quantidade = quantidade,
@@ -45,11 +45,10 @@ class PedidoStruct extends BaseStruct {
   bool hasImg() => _img != null;
 
   // "id" field.
-  PedidoStruct? _id;
-  PedidoStruct get id => _id ?? PedidoStruct();
-  set id(PedidoStruct? val) => _id = val;
-  void updateId(Function(PedidoStruct) updateFn) =>
-      updateFn(_id ??= PedidoStruct());
+  double? _id;
+  double get id => _id ?? 0.0;
+  set id(double? val) => _id = val;
+  void incrementId(double amount) => _id = id + amount;
   bool hasId() => _id != null;
 
   static PedidoStruct fromMap(Map<String, dynamic> data) => PedidoStruct(
@@ -57,7 +56,7 @@ class PedidoStruct extends BaseStruct {
         preco: castToType<double>(data['Preco']),
         quantidade: castToType<double>(data['quantidade']),
         img: data['img'] as String?,
-        id: PedidoStruct.maybeFromMap(data['id']),
+        id: castToType<double>(data['id']),
       );
 
   static PedidoStruct? maybeFromMap(dynamic data) =>
@@ -68,7 +67,7 @@ class PedidoStruct extends BaseStruct {
         'Preco': _preco,
         'quantidade': _quantidade,
         'img': _img,
-        'id': _id?.toMap(),
+        'id': _id,
       }.withoutNulls;
 
   @override
@@ -91,7 +90,7 @@ class PedidoStruct extends BaseStruct {
         ),
         'id': serializeParam(
           _id,
-          ParamType.DataStruct,
+          ParamType.double,
         ),
       }.withoutNulls;
 
@@ -117,11 +116,10 @@ class PedidoStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
-        id: deserializeStructParam(
+        id: deserializeParam(
           data['id'],
-          ParamType.DataStruct,
+          ParamType.double,
           false,
-          structBuilder: PedidoStruct.fromSerializableMap,
         ),
       );
 
@@ -148,12 +146,12 @@ PedidoStruct createPedidoStruct({
   double? preco,
   double? quantidade,
   String? img,
-  PedidoStruct? id,
+  double? id,
 }) =>
     PedidoStruct(
       nome: nome,
       preco: preco,
       quantidade: quantidade,
       img: img,
-      id: id ?? PedidoStruct(),
+      id: id,
     );
