@@ -569,50 +569,30 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                             getCurrentTimestamp),
                                       });
                                       _shouldSetState = true;
+                                      setState(() {
+                                        FFAppState().addToOrdensPedidos(
+                                            OrdensPedidosStruct(
+                                          nomeCliente:
+                                              _model.textController.text,
+                                          formaPag: _model.formaPagValue,
+                                          mesa: _model.numMesaValue,
+                                          pedido: FFAppState()
+                                              .Pedido[FFAppState().contador]
+                                              .nome,
+                                          valor: FFAppState()
+                                              .Pedido[FFAppState().contador]
+                                              .preco,
+                                          quantidade: FFAppState()
+                                              .Pedido[FFAppState().contador]
+                                              .quantidade,
+                                          img: FFAppState()
+                                              .Pedido[FFAppState().contador]
+                                              .img,
+                                        ));
+                                      });
                                       while (FFAppState().contador ==
                                           FFAppState().ordensPedidos.length) {
-                                        setState(() {
-                                          FFAppState().addToOrdensPedidos(
-                                              OrdensPedidosStruct(
-                                            nomeCliente:
-                                                _model.textController.text,
-                                            formaPag: _model.formaPagValue,
-                                            mesa: _model.numMesaValue,
-                                            pedido: FFAppState()
-                                                .Pedido[FFAppState().contador]
-                                                .nome,
-                                            valor: FFAppState()
-                                                .Pedido[FFAppState().contador]
-                                                .preco,
-                                            quantidade: FFAppState()
-                                                .Pedido[FFAppState().contador]
-                                                .quantidade,
-                                            img: FFAppState()
-                                                .Pedido[FFAppState().contador]
-                                                .img,
-                                          ));
-                                        });
-                                        setState(() {
-                                          FFAppState().Soma2 = FFAppState()
-                                                  .Soma2 +
-                                              functions.newCustomFunction(
-                                                  FFAppState()
-                                                      .Pedido[
-                                                          FFAppState().contador]
-                                                      .preco,
-                                                  FFAppState()
-                                                      .Pedido[
-                                                          FFAppState().contador]
-                                                      .quantidade);
-                                        });
-
                                         context.pushNamed('ordens_pedidos');
-
-                                        setState(() {
-                                          FFAppState().Pedido = [];
-                                          FFAppState().cardNumero = 0.0;
-                                          FFAppState().Soma = 0.0;
-                                        });
                                       }
                                     }
                                   } else {
