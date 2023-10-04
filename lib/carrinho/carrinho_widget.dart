@@ -577,38 +577,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                   ),
                 ),
               ),
-              Container(
-                width: double.infinity,
-                height: 50.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 4.0,
-                      color: Color(0x320E151B),
-                      offset: Offset(0.0, -2.0),
-                    )
-                  ],
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                alignment: AlignmentDirectional(0.00, 0.00),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'FINALIZAR PEDIDO',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Roboto',
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            fontSize: 22.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                  ],
-                ),
-              ),
             ],
           ),
         ),
