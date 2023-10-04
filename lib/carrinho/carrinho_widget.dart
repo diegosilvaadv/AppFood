@@ -590,10 +590,10 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               .img,
                                         ));
                                       });
-                                      while (FFAppState().contador ==
-                                          FFAppState().ordensPedidos.length) {
-                                        context.pushNamed('ordens_pedidos');
-                                      }
+                                      await Future.delayed(
+                                          const Duration(milliseconds: 1000));
+
+                                      context.pushNamed('ordens_pedidos');
                                     }
                                   } else {
                                     if (_shouldSetState) setState(() {});
