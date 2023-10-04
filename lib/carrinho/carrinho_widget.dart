@@ -31,9 +31,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
     _model = createModel(context, () => CarrinhoModel());
 
     _model.textController ??= TextEditingController();
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
-          _model.textController?.text = 'Seu Nome';
-        }));
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -367,6 +365,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                     labelText: 'Seu Nome',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium,
+                                    hintText: 'Seu Nome',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium,
                                     enabledBorder: UnderlineInputBorder(
@@ -516,84 +515,86 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            FFButtonWidget(
-                              onPressed: () async {
-                                var _shouldSetState = false;
-                                if (FFAppState().Pedido.length >= 1) {
-                                  setState(() {
-                                    FFAppState().contador = -1;
-                                  });
-                                  while (FFAppState().contador <=
-                                      FFAppState().Pedido.length) {
+                            Expanded(
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  var _shouldSetState = false;
+                                  if (FFAppState().Pedido.length >= 1) {
                                     setState(() {
-                                      FFAppState().contador =
-                                          FFAppState().contador + 1;
+                                      FFAppState().contador = -1;
                                     });
-                                    _model.apiResultb8x =
-                                        await PedidosClienteTable().insert({
-                                      'nome_cliente':
-                                          _model.textController.text,
-                                      'n_mesa': _model.numMesaValue,
-                                      'pagamento': _model.formaPagValue,
-                                      'pedido': FFAppState()
-                                          .Pedido[FFAppState().contador]
-                                          .nome,
-                                      'quanty': FFAppState()
-                                          .Pedido[FFAppState().contador]
-                                          .quantidade,
-                                      'valor': FFAppState()
-                                          .Pedido[FFAppState().contador]
-                                          .preco,
-                                      'created_at': supaSerialize<DateTime>(
-                                          getCurrentTimestamp),
-                                    });
-                                    _shouldSetState = true;
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('PEDIDO FINALIZADO!'),
-                                          content: Text(
-                                              'Muito Obrigado ;) Seu Pedido já vai ser preparado.'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
+                                    while (FFAppState().contador <=
+                                        FFAppState().Pedido.length) {
+                                      setState(() {
+                                        FFAppState().contador =
+                                            FFAppState().contador + 1;
+                                      });
+                                      _model.apiResultb8x =
+                                          await PedidosClienteTable().insert({
+                                        'nome_cliente':
+                                            _model.textController.text,
+                                        'n_mesa': _model.numMesaValue,
+                                        'pagamento': _model.formaPagValue,
+                                        'pedido': FFAppState()
+                                            .Pedido[FFAppState().contador]
+                                            .nome,
+                                        'quanty': FFAppState()
+                                            .Pedido[FFAppState().contador]
+                                            .quantidade,
+                                        'valor': FFAppState()
+                                            .Pedido[FFAppState().contador]
+                                            .preco,
+                                        'created_at': supaSerialize<DateTime>(
+                                            getCurrentTimestamp),
+                                      });
+                                      _shouldSetState = true;
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('PEDIDO FINALIZADO!'),
+                                            content: Text(
+                                                'Muito Obrigado ;) Seu Pedido já vai ser preparado.'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    }
+                                  } else {
+                                    if (_shouldSetState) setState(() {});
+                                    return;
                                   }
-                                } else {
-                                  if (_shouldSetState) setState(() {});
-                                  return;
-                                }
 
-                                if (_shouldSetState) setState(() {});
-                              },
-                              text: 'ENVIAR',
-                              options: FFButtonOptions(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: Colors.white,
-                                    ),
-                                elevation: 3.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
+                                  if (_shouldSetState) setState(() {});
+                                },
+                                text: 'ENVIAR',
+                                options: FFButtonOptions(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 24.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: Colors.white,
+                                      ),
+                                  elevation: 3.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
-                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                           ],
