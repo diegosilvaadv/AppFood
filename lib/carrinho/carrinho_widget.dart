@@ -487,33 +487,26 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                       setState(() {
                         FFAppState().contador = FFAppState().contador + 1;
                       });
-                    }
-                    _model.apiResult2np = await SetDadosCall.call(
-                      nomeCliente: _model.textController.text,
-                      nMesa: _model.numMesaValue,
-                      pagamento: _model.formaPagValue,
-                      pedido: FFAppState().Pedido[FFAppState().contador].nome,
-                      valor: FFAppState().Pedido[FFAppState().contador].preco,
-                    );
-                    _shouldSetState = true;
-                    if ((_model.apiResult2np?.succeeded ?? true)) {
-                      await showDialog(
-                        context: context,
-                        builder: (alertDialogContext) {
-                          return AlertDialog(
-                            title: Text('Pedido Finalizado'),
-                            content: Text(
-                                'Aguarde a preparação do Pedido. Muito obrigado! ;)'),
-                            actions: [
-                              TextButton(
-                                onPressed: () =>
-                                    Navigator.pop(alertDialogContext),
-                                child: Text('Ok'),
-                              ),
-                            ],
-                          );
-                        },
+                      _model.apiResultb8x = await SetDadosCall.call(
+                        pedido: FFAppState().Pedido[FFAppState().contador].nome,
+                        valor: FFAppState().Pedido[FFAppState().contador].preco,
                       );
+                      _shouldSetState = true;
+                      if ((_model.apiResultb8x?.succeeded ?? true)) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Enviando!',
+                              style: TextStyle(
+                                color: FlutterFlowTheme.of(context).primaryText,
+                              ),
+                            ),
+                            duration: Duration(milliseconds: 4000),
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).secondary,
+                          ),
+                        );
+                      }
                     }
                   } else {
                     if (_shouldSetState) setState(() {});
