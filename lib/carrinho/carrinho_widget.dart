@@ -527,56 +527,22 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                     }
                                   }
                                 } else {
-                                  setState(() {
-                                    FFAppState().contador = -1;
-                                  });
-                                  while (FFAppState().contador <=
-                                      FFAppState().Pedido.length) {
-                                    setState(() {
-                                      FFAppState().contador =
-                                          FFAppState().contador + 1;
-                                    });
-                                    _model.apiResultb8x =
-                                        await SetDadosCall.call(
-                                      pedido: FFAppState()
-                                          .Pedido[FFAppState().contador]
-                                          .nome,
-                                      valor: FFAppState()
-                                          .Pedido[FFAppState().contador]
-                                          .preco,
-                                      nomeCliente: _model.textController.text,
-                                      nMesa: _model.numMesaValue,
-                                      pagamento: _model.formaPagValue,
-                                      quanty: FFAppState()
-                                          .Pedido[FFAppState().contador]
-                                          .quantidade
-                                          .toString(),
-                                    );
-                                    _shouldSetState = true;
-                                    if ((_model.apiResultb8x?.succeeded ??
-                                        true)) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return AlertDialog(
-                                            title: Text('PEDIDO FINALIZADO!'),
-                                            content: Text(
-                                                'AGUARDE A PREPARAÇÃO DO PEDIDO! MUITO OBG ;)'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          );
-                                        },
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        title: Text('ERRRRRRRRO'),
+                                        content: Text('ERRRROOOO'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
                                       );
-                                    } else {
-                                      if (_shouldSetState) setState(() {});
-                                      return;
-                                    }
-                                  }
+                                    },
+                                  );
                                 }
 
                                 if (_shouldSetState) setState(() {});
