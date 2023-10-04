@@ -307,10 +307,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                   Text(
                                     formatNumber(
                                       FFAppState().Soma,
-                                      formatType: FormatType.custom,
-                                      currency: '',
-                                      format: 'R\$',
-                                      locale: '',
+                                      formatType: FormatType.decimal,
+                                      decimalType: DecimalType.automatic,
+                                      currency: 'R\$',
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .displaySmall,
