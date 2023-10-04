@@ -477,6 +477,16 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
+                  while (FFAppState().Pedido.length ==
+                      FFAppState().Pedido.length) {
+                    await PedidosClienteTable().insert({
+                      'nome_cliente': _model.textController.text,
+                      'n_mesa': _model.numMesaValue,
+                      'pagamento': _model.formaPagValue,
+                      'valor': FFAppState().Soma,
+                      'pedido': FFAppState().Pedido.length.toString(),
+                    });
+                  }
                   await showDialog(
                     context: context,
                     builder: (alertDialogContext) {
@@ -493,16 +503,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                       );
                     },
                   );
-                  while (FFAppState().Pedido.length ==
-                      FFAppState().Pedido.length) {
-                    await PedidosClienteTable().insert({
-                      'nome_cliente': _model.textController.text,
-                      'n_mesa': _model.numMesaValue,
-                      'pagamento': _model.formaPagValue,
-                      'valor': FFAppState().Soma,
-                      'pedido': FFAppState().Pedido.length.toString(),
-                    });
-                  }
                 },
                 child: Container(
                   width: double.infinity,
