@@ -173,13 +173,19 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    formatNumber(
+                                                    '${formatNumber(
                                                       pedidosItem.preco,
                                                       formatType:
                                                           FormatType.custom,
                                                       format: 'R\$',
                                                       locale: '',
-                                                    ),
+                                                    )} X ${formatNumber(
+                                                      pedidosItem.quantidade,
+                                                      formatType:
+                                                          FormatType.custom,
+                                                      format: '',
+                                                      locale: '',
+                                                    )}',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .labelMedium
@@ -192,35 +198,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
-                                                  ),
-                                                  Flexible(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  8.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        'Quantidade: ${formatNumber(
-                                                          pedidosItem
-                                                              .quantidade,
-                                                          formatType:
-                                                              FormatType.custom,
-                                                          format: '',
-                                                          locale: '',
-                                                        )}',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .labelSmall
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Readex Pro',
-                                                              fontSize: 15.0,
-                                                            ),
-                                                      ),
-                                                    ),
                                                   ),
                                                   Flexible(
                                                     child: Padding(
