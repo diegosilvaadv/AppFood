@@ -590,8 +590,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               .img,
                                         ));
                                       });
-
-                                      context.pushNamed('ordens_pedidos');
                                     }
                                   } else {
                                     if (_shouldSetState) setState(() {});
