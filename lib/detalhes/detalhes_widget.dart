@@ -22,7 +22,6 @@ class DetalhesWidget extends StatefulWidget {
     required this.descricao,
     required this.valor,
     required this.img,
-    required this.pedido,
     required this.id,
   }) : super(key: key);
 
@@ -30,7 +29,6 @@ class DetalhesWidget extends StatefulWidget {
   final String? descricao;
   final double? valor;
   final String? img;
-  final String? pedido;
   final double? id;
 
   @override

@@ -509,8 +509,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return AlertDialog(
-                                          title: Text('Pedido ok'),
-                                          content: Text('em preparação'),
+                                          title: Text('PEDIDO FINALIZADO!'),
+                                          content: Text(
+                                              'Muito Obrigado ;) Seu Pedido já vai ser preparado.'),
                                           actions: [
                                             TextButton(
                                               onPressed: () => Navigator.pop(
