@@ -40,6 +40,21 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _Soma = prefs.getDouble('ff_Soma') ?? _Soma;
     });
+    _safeInit(() {
+      _ordensPedidos = prefs
+              .getStringList('ff_ordensPedidos')
+              ?.map((x) {
+                try {
+                  return OrdensPedidosStruct.fromSerializableMap(jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _ordensPedidos;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -107,6 +122,47 @@ class FFAppState extends ChangeNotifier {
   int get contador => _contador;
   set contador(int _value) {
     _contador = _value;
+  }
+
+  List<OrdensPedidosStruct> _ordensPedidos = [];
+  List<OrdensPedidosStruct> get ordensPedidos => _ordensPedidos;
+  set ordensPedidos(List<OrdensPedidosStruct> _value) {
+    _ordensPedidos = _value;
+    prefs.setStringList(
+        'ff_ordensPedidos', _value.map((x) => x.serialize()).toList());
+  }
+
+  void addToOrdensPedidos(OrdensPedidosStruct _value) {
+    _ordensPedidos.add(_value);
+    prefs.setStringList(
+        'ff_ordensPedidos', _ordensPedidos.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromOrdensPedidos(OrdensPedidosStruct _value) {
+    _ordensPedidos.remove(_value);
+    prefs.setStringList(
+        'ff_ordensPedidos', _ordensPedidos.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromOrdensPedidos(int _index) {
+    _ordensPedidos.removeAt(_index);
+    prefs.setStringList(
+        'ff_ordensPedidos', _ordensPedidos.map((x) => x.serialize()).toList());
+  }
+
+  void updateOrdensPedidosAtIndex(
+    int _index,
+    OrdensPedidosStruct Function(OrdensPedidosStruct) updateFn,
+  ) {
+    _ordensPedidos[_index] = updateFn(_ordensPedidos[_index]);
+    prefs.setStringList(
+        'ff_ordensPedidos', _ordensPedidos.map((x) => x.serialize()).toList());
+  }
+
+  void insertAtIndexInOrdensPedidos(int _index, OrdensPedidosStruct _value) {
+    _ordensPedidos.insert(_index, _value);
+    prefs.setStringList(
+        'ff_ordensPedidos', _ordensPedidos.map((x) => x.serialize()).toList());
   }
 }
 

@@ -49,13 +49,22 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           automaticallyImplyLeading: false,
-          title: Text(
-            'Meus Pedidos',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  fontSize: 22.0,
-                ),
+          title: InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              context.pushNamed('HomePage');
+            },
+            child: Text(
+              'Meus Pedidos | Fazer Mais Pedidos',
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    fontFamily: 'Outfit',
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    fontSize: 22.0,
+                  ),
+            ),
           ),
           actions: [],
           centerTitle: false,

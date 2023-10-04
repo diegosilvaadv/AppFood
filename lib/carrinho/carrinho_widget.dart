@@ -557,6 +557,24 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       });
                                       _shouldSetState = true;
                                     }
+                                    setState(() {
+                                      FFAppState().addToOrdensPedidos(
+                                          OrdensPedidosStruct(
+                                        nomeCliente: _model.textController.text,
+                                        pedido: FFAppState()
+                                            .Pedido[FFAppState().contador]
+                                            .nome,
+                                        valor: FFAppState()
+                                            .Pedido[FFAppState().contador]
+                                            .preco,
+                                        quantidade: FFAppState().cardNumero,
+                                        formaPag: _model.formaPagValue,
+                                        mesa: _model.numMesaValue,
+                                      ));
+                                    });
+                                    setState(() {
+                                      FFAppState().Pedido = [];
+                                    });
 
                                     context.pushNamed('ordens_pedidos');
                                   } else {
