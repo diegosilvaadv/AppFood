@@ -236,11 +236,6 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                                               fontSize: 20.0,
                                             ),
                                       ),
-                                      Icon(
-                                        Icons.add_circle,
-                                        color: Color(0xFF13DC0C),
-                                        size: 40.0,
-                                      ),
                                     ],
                                   ),
                                 ],

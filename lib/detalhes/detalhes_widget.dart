@@ -133,22 +133,7 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
             context.pop();
           },
         ),
-        actions: [
-          FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            icon: Icon(
-              Icons.more_vert,
-              color: FlutterFlowTheme.of(context).secondaryText,
-              size: 24.0,
-            ),
-            onPressed: () {
-              print('IconButton pressed ...');
-            },
-          ),
-        ],
+        actions: [],
         centerTitle: false,
         elevation: 0.0,
       ),

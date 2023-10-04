@@ -235,11 +235,6 @@ class _ComidasWidgetState extends State<ComidasWidget> {
                                               fontSize: 20.0,
                                             ),
                                       ),
-                                      Icon(
-                                        Icons.add_circle,
-                                        color: Color(0xFF13DC0C),
-                                        size: 40.0,
-                                      ),
                                     ],
                                   ),
                                 ],
