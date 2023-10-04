@@ -501,6 +501,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       'valor': FFAppState()
                                           .Pedido[FFAppState().contador]
                                           .preco,
+                                      'created_at': supaSerialize<DateTime>(
+                                          getCurrentTimestamp),
                                     });
                                     _shouldSetState = true;
                                     await showDialog(
