@@ -31,7 +31,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
     _model = createModel(context, () => CarrinhoModel());
 
     _model.textController ??= TextEditingController();
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.textController?.text = 'Seu Nome';
+        }));
   }
 
   @override
@@ -323,6 +325,27 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 10.0, 10.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'Para finalizar o Pedido, preencha as informações abaixo.',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             10.0, 10.0, 10.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -393,14 +416,28 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                             FlutterFlowDropDown<String>(
                               controller: _model.numMesaValueController ??=
                                   FormFieldController<String>(null),
-                              options: ['1', '2', '3', '4', '5'],
+                              options: [
+                                '1',
+                                '2',
+                                '3',
+                                '4',
+                                '5',
+                                '6',
+                                '7',
+                                '8',
+                                '9',
+                                '10'
+                              ],
                               onChanged: (val) =>
                                   setState(() => _model.numMesaValue = val),
-                              width: 300.0,
+                              width: 357.0,
                               height: 50.0,
+                              searchHintTextStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
                               textStyle:
                                   FlutterFlowTheme.of(context).bodyMedium,
                               hintText: 'Numero da Mesa',
+                              searchHintText: 'Pesquisar Mesa',
                               icon: Icon(
                                 Icons.keyboard_arrow_down_rounded,
                                 color:
@@ -408,7 +445,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                 size: 24.0,
                               ),
                               fillColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                                  .primaryBackground,
                               elevation: 2.0,
                               borderColor:
                                   FlutterFlowTheme.of(context).alternate,
@@ -417,7 +454,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                               margin: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 4.0, 16.0, 4.0),
                               hidesUnderline: true,
-                              isSearchable: false,
+                              isSearchable: true,
                               isMultiSelect: false,
                             ),
                           ],
@@ -440,7 +477,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                               ],
                               onChanged: (val) =>
                                   setState(() => _model.formaPagValue = val),
-                              width: 300.0,
+                              width: 354.0,
                               height: 50.0,
                               textStyle:
                                   FlutterFlowTheme.of(context).bodyMedium,
@@ -452,7 +489,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                 size: 24.0,
                               ),
                               fillColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                                  .primaryBackground,
                               elevation: 2.0,
                               borderColor:
                                   FlutterFlowTheme.of(context).alternate,
@@ -532,6 +569,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                               },
                               text: 'ENVIAR',
                               options: FFButtonOptions(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 height: 40.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
