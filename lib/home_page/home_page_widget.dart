@@ -425,228 +425,192 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         final carouselEmpromoRow =
                                             carouselEmpromoRowList[
                                                 carouselIndex];
-                                        return InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            context.pushNamed(
-                                              'detalhes',
-                                              queryParameters: {
-                                                'nome': serializeParam(
-                                                  carouselEmpromoRow.nome,
-                                                  ParamType.String,
+                                        return Stack(
+                                          children: [
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -0.51, -0.97),
+                                              child: Container(
+                                                width: 178.0,
+                                                height: 141.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFF13DC0C),
+                                                    width: 1.0,
+                                                  ),
                                                 ),
-                                                'descricao': serializeParam(
-                                                  carouselEmpromoRow.descricao,
-                                                  ParamType.String,
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  child: Image.network(
+                                                    carouselEmpromoRow.img!,
+                                                    width: 100.0,
+                                                    height: 100.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
                                                 ),
-                                                'valor': serializeParam(
-                                                  carouselEmpromoRow.valorNovo,
-                                                  ParamType.double,
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.00, 0.88),
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                elevation: 5.0,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          5.0),
                                                 ),
-                                                'img': serializeParam(
-                                                  carouselEmpromoRow.img,
-                                                  ParamType.String,
-                                                ),
-                                                'pedido': serializeParam(
-                                                  carouselEmpromoRow.id
-                                                      .toString(),
-                                                  ParamType.String,
-                                                ),
-                                              }.withoutNulls,
-                                            );
-                                          },
-                                          child: Stack(
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -0.51, -0.97),
                                                 child: Container(
                                                   width: 178.0,
-                                                  height: 141.0,
+                                                  height: 76.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondaryBackground,
+                                                        .primaryBackground,
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            5.0),
                                                     border: Border.all(
                                                       color: Color(0xFF13DC0C),
                                                       width: 1.0,
                                                     ),
                                                   ),
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    child: Image.network(
-                                                      carouselEmpromoRow.img!,
-                                                      width: 100.0,
-                                                      height: 100.0,
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.00, 0.88),
-                                                child: Material(
-                                                  color: Colors.transparent,
-                                                  elevation: 5.0,
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            5.0),
-                                                  ),
-                                                  child: Container(
-                                                    width: 178.0,
-                                                    height: 76.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            Color(0xFF13DC0C),
-                                                        width: 1.0,
-                                                      ),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        6.0,
-                                                                        6.0,
-                                                                        6.0,
-                                                                        6.0),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Expanded(
-                                                                  child: Text(
-                                                                    carouselEmpromoRow
-                                                                        .nome!,
-                                                                    textAlign:
-                                                                        TextAlign
-                                                                            .center,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium,
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
+                                                                      6.0,
+                                                                      6.0,
+                                                                      6.0,
                                                                       6.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
                                                                     .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
                                                             children: [
-                                                              Text(
-                                                                'De ',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      fontSize:
-                                                                          10.0,
-                                                                    ),
-                                                              ),
-                                                              Text(
-                                                                formatNumber(
+                                                              Expanded(
+                                                                child: Text(
                                                                   carouselEmpromoRow
-                                                                      .valorAntigo!,
-                                                                  formatType:
-                                                                      FormatType
-                                                                          .custom,
-                                                                  format: 'R\$',
-                                                                  locale: '',
+                                                                      .nome!,
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .center,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
                                                                 ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: Color(
-                                                                          0xFFA00505),
-                                                                      decoration:
-                                                                          TextDecoration
-                                                                              .lineThrough,
-                                                                    ),
-                                                              ),
-                                                              Text(
-                                                                ' Por ',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      fontSize:
-                                                                          10.0,
-                                                                    ),
-                                                              ),
-                                                              Text(
-                                                                formatNumber(
-                                                                  carouselEmpromoRow
-                                                                      .valorNovo!,
-                                                                  formatType:
-                                                                      FormatType
-                                                                          .custom,
-                                                                  format: 'R\$',
-                                                                  locale: '',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: Color(
-                                                                          0xFF0D820A),
-                                                                      fontSize:
-                                                                          18.0,
-                                                                    ),
                                                               ),
                                                             ],
                                                           ),
                                                         ),
-                                                      ],
-                                                    ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    6.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Text(
+                                                              'De ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    fontSize:
+                                                                        10.0,
+                                                                  ),
+                                                            ),
+                                                            Text(
+                                                              formatNumber(
+                                                                carouselEmpromoRow
+                                                                    .valorAntigo!,
+                                                                formatType:
+                                                                    FormatType
+                                                                        .custom,
+                                                                format: 'R\$',
+                                                                locale: '',
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Color(
+                                                                        0xFFA00505),
+                                                                    decoration:
+                                                                        TextDecoration
+                                                                            .lineThrough,
+                                                                  ),
+                                                            ),
+                                                            Text(
+                                                              ' Por ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    fontSize:
+                                                                        10.0,
+                                                                  ),
+                                                            ),
+                                                            Text(
+                                                              formatNumber(
+                                                                carouselEmpromoRow
+                                                                    .valorNovo!,
+                                                                formatType:
+                                                                    FormatType
+                                                                        .custom,
+                                                                format: 'R\$',
+                                                                locale: '',
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Color(
+                                                                        0xFF0D820A),
+                                                                    fontSize:
+                                                                        18.0,
+                                                                  ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         );
                                       },
                                       carouselController:
@@ -962,6 +926,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       'pedido': serializeParam(
                                         columnPratosRow.id.toString(),
                                         ParamType.String,
+                                      ),
+                                      'id': serializeParam(
+                                        columnPratosRow.id.toDouble(),
+                                        ParamType.double,
                                       ),
                                     }.withoutNulls,
                                   );

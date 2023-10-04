@@ -95,154 +95,118 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                       return Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.pushNamed(
-                              'detalhes',
-                              queryParameters: {
-                                'nome': serializeParam(
-                                  columnBebidasRow.nome,
-                                  ParamType.String,
-                                ),
-                                'descricao': serializeParam(
-                                  columnBebidasRow.descricao,
-                                  ParamType.String,
-                                ),
-                                'valor': serializeParam(
-                                  columnBebidasRow.valor,
-                                  ParamType.double,
-                                ),
-                                'img': serializeParam(
-                                  columnBebidasRow.img,
-                                  ParamType.String,
-                                ),
-                                'pedido': serializeParam(
-                                  columnBebidasRow.id.toString(),
-                                  ParamType.String,
-                                ),
-                              }.withoutNulls,
-                            );
-                          },
-                          child: Card(
-                            clipBehavior: Clip.antiAliasWithSaveLayer,
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            elevation: 4.0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 10.0, 10.0, 10.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          valueOrDefault<String>(
-                                            columnBebidasRow.img,
-                                            'https://www.imigrantesbebidas.com.br/bebida/images/products/full/1984-refrigerante-coca-cola-lata-350ml.jpg',
-                                          ),
-                                          width: 100.0,
-                                          height: 100.0,
-                                          fit: BoxFit.cover,
+                        child: Card(
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          elevation: 4.0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 10.0, 10.0, 10.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        valueOrDefault<String>(
+                                          columnBebidasRow.img,
+                                          'https://www.imigrantesbebidas.com.br/bebida/images/products/full/1984-refrigerante-coca-cola-lata-350ml.jpg',
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          6.0, 6.0, 6.0, 6.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: Text(
-                                                  columnBebidasRow.nome!,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        fontSize: 18.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: Text(
-                                                  columnBebidasRow.descricao!
-                                                      .maybeHandleOverflow(
-                                                    maxChars: 40,
-                                                    replacement: '…',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
+                                        width: 100.0,
+                                        height: 100.0,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
-                                  ),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Text(
-                                        'R\$',
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              color: Color(0xFF0D820A),
-                                              fontWeight: FontWeight.bold,
+                                  ],
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        6.0, 6.0, 6.0, 6.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                columnBebidasRow.nome!,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelLarge
+                                                    .override(
+                                                      fontFamily: 'Readex Pro',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      fontSize: 18.0,
+                                                    ),
+                                              ),
                                             ),
-                                      ),
-                                      Text(
-                                        columnBebidasRow.valor!.toString(),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              color: Color(0xFF0D820A),
-                                              fontSize: 20.0,
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                columnBebidasRow.descricao!
+                                                    .maybeHandleOverflow(
+                                                  maxChars: 40,
+                                                  replacement: '…',
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
                                             ),
-                                      ),
-                                      Icon(
-                                        Icons.add_circle,
-                                        color: Color(0xFF13DC0C),
-                                        size: 40.0,
-                                      ),
-                                    ],
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ],
-                              ),
+                                ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      'R\$',
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleLarge
+                                          .override(
+                                            fontFamily: 'Outfit',
+                                            color: Color(0xFF0D820A),
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                    Text(
+                                      columnBebidasRow.valor!.toString(),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: Color(0xFF0D820A),
+                                            fontSize: 20.0,
+                                          ),
+                                    ),
+                                    Icon(
+                                      Icons.add_circle,
+                                      color: Color(0xFF13DC0C),
+                                      size: 40.0,
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                         ),

@@ -23,6 +23,7 @@ class DetalhesWidget extends StatefulWidget {
     required this.valor,
     required this.img,
     required this.pedido,
+    required this.id,
   }) : super(key: key);
 
   final String? nome;
@@ -30,6 +31,7 @@ class DetalhesWidget extends StatefulWidget {
   final double? valor;
   final String? img;
   final String? pedido;
+  final double? id;
 
   @override
   _DetalhesWidgetState createState() => _DetalhesWidgetState();
@@ -55,6 +57,25 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
       ],
     ),
     'textOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0.0, 120.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation3': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
@@ -161,6 +182,20 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                         style: FlutterFlowTheme.of(context).labelMedium,
                       ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation2']!),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      child: Text(
+                        formatNumber(
+                          widget.id,
+                          formatType: FormatType.custom,
+                          format: '',
+                          locale: '',
+                        ),
+                        style: FlutterFlowTheme.of(context).labelMedium,
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation3']!),
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.max,

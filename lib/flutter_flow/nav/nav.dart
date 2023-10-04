@@ -90,6 +90,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             valor: params.getParam('valor', ParamType.double),
             img: params.getParam('img', ParamType.String),
             pedido: params.getParam('pedido', ParamType.String),
+            id: params.getParam('id', ParamType.double),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
