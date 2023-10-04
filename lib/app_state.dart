@@ -55,6 +55,9 @@ class FFAppState extends ChangeNotifier {
               .toList() ??
           _ordensPedidos;
     });
+    _safeInit(() {
+      _Soma2 = prefs.getDouble('ff_Soma2') ?? _Soma2;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -163,6 +166,13 @@ class FFAppState extends ChangeNotifier {
     _ordensPedidos.insert(_index, _value);
     prefs.setStringList(
         'ff_ordensPedidos', _ordensPedidos.map((x) => x.serialize()).toList());
+  }
+
+  double _Soma2 = 0.0;
+  double get Soma2 => _Soma2;
+  set Soma2(double _value) {
+    _Soma2 = _value;
+    prefs.setDouble('ff_Soma2', _value);
   }
 }
 
