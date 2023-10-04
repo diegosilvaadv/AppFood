@@ -102,6 +102,35 @@ class FFAppState extends ChangeNotifier {
     _Soma = _value;
     prefs.setDouble('ff_Soma', _value);
   }
+
+  List<String> _foodname = [];
+  List<String> get foodname => _foodname;
+  set foodname(List<String> _value) {
+    _foodname = _value;
+  }
+
+  void addToFoodname(String _value) {
+    _foodname.add(_value);
+  }
+
+  void removeFromFoodname(String _value) {
+    _foodname.remove(_value);
+  }
+
+  void removeAtIndexFromFoodname(int _index) {
+    _foodname.removeAt(_index);
+  }
+
+  void updateFoodnameAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _foodname[_index] = updateFn(_foodname[_index]);
+  }
+
+  void insertAtIndexInFoodname(int _index, String _value) {
+    _foodname.insert(_index, _value);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

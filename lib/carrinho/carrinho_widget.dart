@@ -482,6 +482,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                     'n_mesa': _model.numMesaValue,
                     'pagamento': _model.formaPagValue,
                     'valor': FFAppState().Soma,
+                    'pedidos': FFAppState().Pedido.length,
                   });
                   await showDialog(
                     context: context,
