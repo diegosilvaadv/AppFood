@@ -436,7 +436,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                   FlutterFlowTheme.of(context).labelMedium,
                               textStyle:
                                   FlutterFlowTheme.of(context).bodyMedium,
-                              hintText: 'Numero da Mesa',
+                              hintText: 'Número da Mesa',
                               searchHintText: 'Pesquisar Mesa',
                               icon: Icon(
                                 Icons.keyboard_arrow_down_rounded,
@@ -477,7 +477,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                               ],
                               onChanged: (val) =>
                                   setState(() => _model.formaPagValue = val),
-                              width: 354.0,
+                              width: 357.0,
                               height: 50.0,
                               textStyle:
                                   FlutterFlowTheme.of(context).bodyMedium,
