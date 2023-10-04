@@ -569,6 +569,10 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                             getCurrentTimestamp),
                                       });
                                       _shouldSetState = true;
+                                      setState(() {
+                                        FFAppState().contador =
+                                            FFAppState().contador + 1;
+                                      });
                                       while (FFAppState().contador ==
                                           FFAppState().ordensPedidos.length) {
                                         setState(() {
@@ -602,10 +606,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                       .Pedido[
                                                           FFAppState().contador]
                                                       .quantidade);
-                                        });
-                                        setState(() {
-                                          FFAppState().contador =
-                                              FFAppState().contador + 1;
                                         });
                                         setState(() {
                                           FFAppState().Pedido = [];
