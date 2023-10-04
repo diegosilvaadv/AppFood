@@ -495,6 +495,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       'pedido': FFAppState()
                                           .Pedido[FFAppState().contador]
                                           .nome,
+                                      'quanty': FFAppState()
+                                          .Pedido[FFAppState().contador]
+                                          .quantidade,
                                       'valor': FFAppState()
                                           .Pedido[FFAppState().contador]
                                           .preco,
