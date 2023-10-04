@@ -569,32 +569,32 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                             getCurrentTimestamp),
                                       });
                                       _shouldSetState = true;
-                                      setState(() {
-                                        FFAppState().addToOrdensPedidos(
-                                            OrdensPedidosStruct(
-                                          nomeCliente:
-                                              _model.textController.text,
-                                          formaPag: _model.formaPagValue,
-                                          mesa: _model.numMesaValue,
-                                          pedido: FFAppState()
-                                              .Pedido[FFAppState().contador]
-                                              .nome,
-                                          valor: FFAppState()
-                                              .Pedido[FFAppState().contador]
-                                              .preco,
-                                          quantidade: FFAppState()
-                                              .Pedido[FFAppState().contador]
-                                              .quantidade,
-                                          img: FFAppState()
-                                              .Pedido[FFAppState().contador]
-                                              .img,
-                                        ));
-                                        FFAppState().Pedido = [];
-                                        FFAppState().cardNumero = 0.0;
-                                        FFAppState().Soma = 0.0;
-                                      });
+                                      while (FFAppState().contador ==
+                                          FFAppState().ordensPedidos.length) {
+                                        setState(() {
+                                          FFAppState().addToOrdensPedidos(
+                                              OrdensPedidosStruct(
+                                            nomeCliente:
+                                                _model.textController.text,
+                                            formaPag: _model.formaPagValue,
+                                            mesa: _model.numMesaValue,
+                                            pedido: FFAppState()
+                                                .Pedido[FFAppState().contador]
+                                                .nome,
+                                            valor: FFAppState()
+                                                .Pedido[FFAppState().contador]
+                                                .preco,
+                                            quantidade: FFAppState()
+                                                .Pedido[FFAppState().contador]
+                                                .quantidade,
+                                            img: FFAppState()
+                                                .Pedido[FFAppState().contador]
+                                                .img,
+                                          ));
+                                        });
 
-                                      context.pushNamed('ordens_pedidos');
+                                        context.pushNamed('ordens_pedidos');
+                                      }
                                     }
                                   } else {
                                     if (_shouldSetState) setState(() {});
