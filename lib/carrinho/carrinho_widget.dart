@@ -66,7 +66,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
           elevation: 0.0,
         ),
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
