@@ -246,9 +246,9 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                               Text(
                                 formatNumber(
                                   widget.valor,
-                                  formatType: FormatType.custom,
-                                  format: 'R\$',
-                                  locale: '',
+                                  formatType: FormatType.decimal,
+                                  decimalType: DecimalType.periodDecimal,
+                                  currency: 'R\$',
                                 ),
                                 style: FlutterFlowTheme.of(context).titleLarge,
                               ),
