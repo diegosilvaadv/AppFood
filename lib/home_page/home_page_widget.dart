@@ -1082,6 +1082,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 .bodyMedium,
                                                       ),
                                                     ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
                                                     Expanded(
                                                       child: Text(
                                                         columnPratosRow.id
