@@ -495,25 +495,28 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       'pedido': FFAppState()
                                           .Pedido[FFAppState().contador]
                                           .nome,
+                                      'valor': FFAppState()
+                                          .Pedido[FFAppState().contador]
+                                          .preco,
                                     });
                                     _shouldSetState = true;
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          title: Text('Pedido ok'),
+                                          content: Text('em preparação'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
                                   }
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return AlertDialog(
-                                        title: Text('ok'),
-                                        content: Text('ok'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
                                 } else {
                                   if (_shouldSetState) setState(() {});
                                   return;
