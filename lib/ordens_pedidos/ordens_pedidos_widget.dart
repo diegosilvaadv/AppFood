@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -232,14 +233,25 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                               ),
                             ],
                           ),
-                          Text(
-                            formatNumber(
-                              FFAppState().Soma,
-                              formatType: FormatType.decimal,
-                              decimalType: DecimalType.automatic,
-                              currency: 'R\$',
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              setState(() {
+                                FFAppState().ordensPedidos = [];
+                              });
+                            },
+                            child: Text(
+                              formatNumber(
+                                FFAppState().Soma,
+                                formatType: FormatType.decimal,
+                                decimalType: DecimalType.automatic,
+                                currency: 'R\$',
+                              ),
+                              style: FlutterFlowTheme.of(context).displaySmall,
                             ),
-                            style: FlutterFlowTheme.of(context).displaySmall,
                           ),
                         ],
                       ),
