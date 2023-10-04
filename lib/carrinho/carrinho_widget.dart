@@ -14,7 +14,12 @@ import 'carrinho_model.dart';
 export 'carrinho_model.dart';
 
 class CarrinhoWidget extends StatefulWidget {
-  const CarrinhoWidget({Key? key}) : super(key: key);
+  const CarrinhoWidget({
+    Key? key,
+    required this.valor,
+  }) : super(key: key);
+
+  final double? valor;
 
   @override
   _CarrinhoWidgetState createState() => _CarrinhoWidgetState();
@@ -591,6 +596,11 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 .Pedido[FFAppState().contador]
                                                 .img,
                                           ));
+                                          FFAppState().Soma2 = FFAppState()
+                                                  .Soma2 +
+                                              functions.newCustomFunction(
+                                                  widget.valor!,
+                                                  _model.apiResultb8x!.quanty!);
                                           FFAppState().contador =
                                               FFAppState().contador + 1;
                                         });

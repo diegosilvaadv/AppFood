@@ -195,6 +195,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                 onTap: () async {
                   context.pushNamed(
                     'carrinho',
+                    queryParameters: {
+                      'valor': serializeParam(
+                        FFAppState().Pedido[FFAppState().contador].preco,
+                        ParamType.double,
+                      ),
+                    }.withoutNulls,
                     extra: <String, dynamic>{
                       kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,
