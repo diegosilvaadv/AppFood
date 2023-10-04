@@ -588,6 +588,10 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               .ordensPedidos[
                                                   FFAppState().contador]
                                               .quantidade,
+                                          nPedido: FFAppState()
+                                              .ordensPedidos[
+                                                  FFAppState().contador]
+                                              .nPedido,
                                           img: FFAppState()
                                               .ordensPedidos[
                                                   FFAppState().contador]

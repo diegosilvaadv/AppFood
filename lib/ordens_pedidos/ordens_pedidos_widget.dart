@@ -79,15 +79,16 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Builder(
                   builder: (context) {
-                    final pedidos = FFAppState().Pedido.toList();
+                    final ordensPedidos = FFAppState().ordensPedidos.toList();
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       primary: false,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
-                      itemCount: pedidos.length,
-                      itemBuilder: (context, pedidosIndex) {
-                        final pedidosItem = pedidos[pedidosIndex];
+                      itemCount: ordensPedidos.length,
+                      itemBuilder: (context, ordensPedidosIndex) {
+                        final ordensPedidosItem =
+                            ordensPedidos[ordensPedidosIndex];
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 8.0, 16.0, 0.0),
@@ -115,12 +116,12 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Hero(
-                                    tag: pedidosItem.img,
+                                    tag: ordensPedidosItem.img,
                                     transitionOnUserGestures: true,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(12.0),
                                       child: Image.network(
-                                        pedidosItem.img,
+                                        ordensPedidosItem.img,
                                         width: 80.0,
                                         height: 80.0,
                                         fit: BoxFit.fitHeight,
@@ -143,7 +144,7 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 8.0),
                                             child: Text(
-                                              pedidosItem.nome
+                                              ordensPedidosItem.pedido
                                                   .maybeHandleOverflow(
                                                 maxChars: 35,
                                                 replacement: '…',
@@ -159,13 +160,13 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                           ),
                                           Text(
                                             '${formatNumber(
-                                              pedidosItem.preco,
+                                              ordensPedidosItem.valor,
                                               formatType: FormatType.decimal,
                                               decimalType:
                                                   DecimalType.periodDecimal,
                                               currency: 'R\$',
                                             )} X ${formatNumber(
-                                              pedidosItem.quantidade,
+                                              ordensPedidosItem.quantidade,
                                               formatType: FormatType.custom,
                                               format: '',
                                               locale: '',
@@ -184,12 +185,7 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 8.0, 0.0, 0.0),
                                               child: Text(
-                                                'ID : ${formatNumber(
-                                                  pedidosItem.id,
-                                                  formatType: FormatType.custom,
-                                                  format: '',
-                                                  locale: '',
-                                                )}',
+                                                'Quanity: 1',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .labelSmall

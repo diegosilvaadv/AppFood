@@ -12,17 +12,17 @@ class OrdensPedidosStruct extends BaseStruct {
     String? nPedido,
     double? valor,
     double? quantidade,
-    String? img,
     String? formaPag,
     String? mesa,
+    String? img,
   })  : _nomeCliente = nomeCliente,
         _pedido = pedido,
         _nPedido = nPedido,
         _valor = valor,
         _quantidade = quantidade,
-        _img = img,
         _formaPag = formaPag,
-        _mesa = mesa;
+        _mesa = mesa,
+        _img = img;
 
   // "Nome_Cliente" field.
   String? _nomeCliente;
@@ -56,12 +56,6 @@ class OrdensPedidosStruct extends BaseStruct {
   void incrementQuantidade(double amount) => _quantidade = quantidade + amount;
   bool hasQuantidade() => _quantidade != null;
 
-  // "img" field.
-  String? _img;
-  String get img => _img ?? '';
-  set img(String? val) => _img = val;
-  bool hasImg() => _img != null;
-
   // "Forma_pag" field.
   String? _formaPag;
   String get formaPag => _formaPag ?? '';
@@ -74,6 +68,12 @@ class OrdensPedidosStruct extends BaseStruct {
   set mesa(String? val) => _mesa = val;
   bool hasMesa() => _mesa != null;
 
+  // "img" field.
+  String? _img;
+  String get img => _img ?? '';
+  set img(String? val) => _img = val;
+  bool hasImg() => _img != null;
+
   static OrdensPedidosStruct fromMap(Map<String, dynamic> data) =>
       OrdensPedidosStruct(
         nomeCliente: data['Nome_Cliente'] as String?,
@@ -81,9 +81,9 @@ class OrdensPedidosStruct extends BaseStruct {
         nPedido: data['n_pedido'] as String?,
         valor: castToType<double>(data['Valor']),
         quantidade: castToType<double>(data['Quantidade']),
-        img: data['img'] as String?,
         formaPag: data['Forma_pag'] as String?,
         mesa: data['Mesa'] as String?,
+        img: data['img'] as String?,
       );
 
   static OrdensPedidosStruct? maybeFromMap(dynamic data) =>
@@ -95,9 +95,9 @@ class OrdensPedidosStruct extends BaseStruct {
         'n_pedido': _nPedido,
         'Valor': _valor,
         'Quantidade': _quantidade,
-        'img': _img,
         'Forma_pag': _formaPag,
         'Mesa': _mesa,
+        'img': _img,
       }.withoutNulls;
 
   @override
@@ -122,16 +122,16 @@ class OrdensPedidosStruct extends BaseStruct {
           _quantidade,
           ParamType.double,
         ),
-        'img': serializeParam(
-          _img,
-          ParamType.String,
-        ),
         'Forma_pag': serializeParam(
           _formaPag,
           ParamType.String,
         ),
         'Mesa': serializeParam(
           _mesa,
+          ParamType.String,
+        ),
+        'img': serializeParam(
+          _img,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -163,11 +163,6 @@ class OrdensPedidosStruct extends BaseStruct {
           ParamType.double,
           false,
         ),
-        img: deserializeParam(
-          data['img'],
-          ParamType.String,
-          false,
-        ),
         formaPag: deserializeParam(
           data['Forma_pag'],
           ParamType.String,
@@ -175,6 +170,11 @@ class OrdensPedidosStruct extends BaseStruct {
         ),
         mesa: deserializeParam(
           data['Mesa'],
+          ParamType.String,
+          false,
+        ),
+        img: deserializeParam(
+          data['img'],
           ParamType.String,
           false,
         ),
@@ -191,14 +191,14 @@ class OrdensPedidosStruct extends BaseStruct {
         nPedido == other.nPedido &&
         valor == other.valor &&
         quantidade == other.quantidade &&
-        img == other.img &&
         formaPag == other.formaPag &&
-        mesa == other.mesa;
+        mesa == other.mesa &&
+        img == other.img;
   }
 
   @override
   int get hashCode => const ListEquality().hash(
-      [nomeCliente, pedido, nPedido, valor, quantidade, img, formaPag, mesa]);
+      [nomeCliente, pedido, nPedido, valor, quantidade, formaPag, mesa, img]);
 }
 
 OrdensPedidosStruct createOrdensPedidosStruct({
@@ -207,9 +207,9 @@ OrdensPedidosStruct createOrdensPedidosStruct({
   String? nPedido,
   double? valor,
   double? quantidade,
-  String? img,
   String? formaPag,
   String? mesa,
+  String? img,
 }) =>
     OrdensPedidosStruct(
       nomeCliente: nomeCliente,
@@ -217,7 +217,7 @@ OrdensPedidosStruct createOrdensPedidosStruct({
       nPedido: nPedido,
       valor: valor,
       quantidade: quantidade,
-      img: img,
       formaPag: formaPag,
       mesa: mesa,
+      img: img,
     );
