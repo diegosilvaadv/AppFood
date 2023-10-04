@@ -480,6 +480,22 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                   setState(() {
                                     FFAppState().contador = -1;
                                   });
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        title: Text('errrooo'),
+                                        content: Text('errrooo'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
                                   while (FFAppState().contador <=
                                       FFAppState().Pedido.length) {
                                     setState(() {
@@ -528,22 +544,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                     }
                                   }
                                 } else {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return AlertDialog(
-                                        title: Text('ERRRRRRRRO'),
-                                        content: Text('ERRRROOOO'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
+                                  if (_shouldSetState) setState(() {});
+                                  return;
                                 }
 
                                 if (_shouldSetState) setState(() {});
