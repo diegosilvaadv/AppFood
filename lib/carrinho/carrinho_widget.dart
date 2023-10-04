@@ -311,15 +311,26 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       ),
                                     ],
                                   ),
-                                  Text(
-                                    formatNumber(
-                                      FFAppState().Soma,
-                                      formatType: FormatType.decimal,
-                                      decimalType: DecimalType.automatic,
-                                      currency: 'R\$',
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      setState(() {
+                                        FFAppState().Pedido = [];
+                                      });
+                                    },
+                                    child: Text(
+                                      formatNumber(
+                                        FFAppState().Soma,
+                                        formatType: FormatType.decimal,
+                                        decimalType: DecimalType.automatic,
+                                        currency: 'R\$',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .displaySmall,
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .displaySmall,
                                   ),
                                 ],
                               ),
