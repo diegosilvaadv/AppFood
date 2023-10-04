@@ -197,7 +197,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     'carrinho',
                     queryParameters: {
                       'valor': serializeParam(
-                        FFAppState().Pedido[FFAppState().contador].preco,
+                        0.0,
                         ParamType.double,
                       ),
                     }.withoutNulls,
