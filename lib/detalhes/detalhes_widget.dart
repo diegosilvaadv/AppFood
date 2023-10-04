@@ -297,7 +297,7 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                                         _model.countControllerValue = count),
                                     stepSize: 1,
                                     minimum: 1,
-                                    maximum: 10,
+                                    maximum: 100,
                                   ),
                                 ),
                               ),

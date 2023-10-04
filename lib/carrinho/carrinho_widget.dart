@@ -355,57 +355,65 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 8.0, 0.0),
-                                child: TextFormField(
-                                  controller: _model.textController,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    labelText: 'Seu Nome',
-                                    labelStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium,
-                                    hintText: 'Seu Nome',
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium,
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        width: 2.0,
+                              child: Form(
+                                key: _model.formKey,
+                                autovalidateMode: AutovalidateMode.always,
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 0.0, 8.0, 0.0),
+                                  child: TextFormField(
+                                    controller: _model.textController,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelText: 'Seu Nome',
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                      hintText: 'Seu Nome',
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                      enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        width: 2.0,
+                                      focusedBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    errorBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 2.0,
+                                      errorBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    focusedErrorBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 2.0,
+                                      focusedErrorBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      filled: true,
                                     ),
-                                    filled: true,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    validator: _model.textControllerValidator
+                                        .asValidator(context),
                                   ),
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                  validator: _model.textControllerValidator
-                                      .asValidator(context),
                                 ),
                               ),
                             ),
@@ -548,24 +556,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                             getCurrentTimestamp),
                                       });
                                       _shouldSetState = true;
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return AlertDialog(
-                                            title: Text('PEDIDO FINALIZADO!'),
-                                            content: Text(
-                                                'Muito Obrigado ;) Seu Pedido já vai ser preparado.'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      );
                                     }
+
+                                    context.pushNamed('ordens_pedidos');
                                   } else {
                                     if (_shouldSetState) setState(() {});
                                     return;

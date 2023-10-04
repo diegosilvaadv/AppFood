@@ -72,9 +72,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => EntradasWidget(),
         ),
         FFRoute(
-          name: 'buscar',
-          path: '/buscar',
-          builder: (context, params) => BuscarWidget(),
+          name: 'ordens_pedidos',
+          path: '/ordens_pedid',
+          builder: (context, params) => OrdensPedidosWidget(),
         ),
         FFRoute(
           name: 'carrinho',

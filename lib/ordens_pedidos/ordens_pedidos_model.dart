@@ -1,12 +1,13 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'buscar_widget.dart' show BuscarWidget;
+import 'ordens_pedidos_widget.dart' show OrdensPedidosWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class BuscarModel extends FlutterFlowModel<BuscarWidget> {
+class OrdensPedidosModel extends FlutterFlowModel<OrdensPedidosWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

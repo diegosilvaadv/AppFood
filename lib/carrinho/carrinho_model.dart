@@ -16,9 +16,25 @@ class CarrinhoModel extends FlutterFlowModel<CarrinhoWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  final formKey = GlobalKey<FormState>();
   // State field(s) for TextField widget.
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  String? _textControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Campo Obrigatório';
+    }
+
+    if (val.length < 2) {
+      return 'Requires at least 2 characters.';
+    }
+    if (val.length > 20) {
+      return 'Maximum 20 characters allowed, currently ${val.length}.';
+    }
+
+    return null;
+  }
+
   // State field(s) for num_mesa widget.
   String? numMesaValue;
   FormFieldController<String>? numMesaValueController;
@@ -30,7 +46,9 @@ class CarrinhoModel extends FlutterFlowModel<CarrinhoWidget> {
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    textControllerValidator = _textControllerValidator;
+  }
 
   void dispose() {
     unfocusNode.dispose();
