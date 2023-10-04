@@ -1,6 +1,5 @@
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
-import '/components/componet_home_ordens_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -595,28 +594,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                         FFAppState().contador =
                                             FFAppState().contador + 1;
                                       });
-                                      await showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        enableDrag: false,
-                                        context: context,
-                                        builder: (context) {
-                                          return GestureDetector(
-                                            onTap: () => _model
-                                                    .unfocusNode.canRequestFocus
-                                                ? FocusScope.of(context)
-                                                    .requestFocus(
-                                                        _model.unfocusNode)
-                                                : FocusScope.of(context)
-                                                    .unfocus(),
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: ComponetHomeOrdensWidget(),
-                                            ),
-                                          );
-                                        },
-                                      ).then((value) => safeSetState(() {}));
+
+                                      context.pushNamed('ordens_pedidos');
                                     }
                                   } else {
                                     if (_shouldSetState) setState(() {});
