@@ -480,28 +480,28 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                   setState(() {
                                     FFAppState().contador = -1;
                                   });
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return AlertDialog(
-                                        title: Text('errrooo'),
-                                        content: Text('errrooo'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
                                   while (FFAppState().contador <=
                                       FFAppState().Pedido.length) {
                                     setState(() {
                                       FFAppState().contador =
                                           FFAppState().contador + 1;
                                     });
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          title: Text('errroooo'),
+                                          content: Text('errrroooo'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
                                     _model.apiResultb8x =
                                         await SetDadosCall.call(
                                       pedido: FFAppState()
