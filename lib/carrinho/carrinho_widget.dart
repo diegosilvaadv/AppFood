@@ -571,8 +571,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                         formaPag: _model.formaPagValue,
                                         mesa: _model.numMesaValue,
                                       ));
-                                    });
-                                    setState(() {
                                       FFAppState().Pedido = [];
                                     });
 
