@@ -486,22 +486,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       FFAppState().contador =
                                           FFAppState().contador + 1;
                                     });
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('errroooo'),
-                                          content: Text('errrroooo'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
                                     _model.apiResultb8x =
                                         await SetDadosCall.call(
                                       pedido: FFAppState()
@@ -519,6 +503,22 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                           .toString(),
                                     );
                                     _shouldSetState = true;
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          title: Text('errroooo'),
+                                          content: Text('errrroooo'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
                                     if ((_model.apiResultb8x?.succeeded ??
                                         true)) {
                                       await showDialog(
