@@ -116,6 +116,19 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
+                                  Hero(
+                                    tag: ordensPedidosItem.img,
+                                    transitionOnUserGestures: true,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(12.0),
+                                      child: Image.network(
+                                        ordensPedidosItem.img,
+                                        width: 80.0,
+                                        height: 80.0,
+                                        fit: BoxFit.fitHeight,
+                                      ),
+                                    ),
+                                  ),
                                   Expanded(
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -185,15 +198,16 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                                       .bodyMedium,
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 2.0),
-                                            child: Text(
-                                              'Forma de Pagamento: ${ordensPedidosItem.formaPag}',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 2.0),
+                                              child: Text(
+                                                'Forma de Pagamento: ${ordensPedidosItem.formaPag}',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
                                             ),
                                           ),
                                         ],

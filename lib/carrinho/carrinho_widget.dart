@@ -579,6 +579,15 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                           pedido: FFAppState()
                                               .Pedido[FFAppState().contador]
                                               .nome,
+                                          valor: FFAppState()
+                                              .Pedido[FFAppState().contador]
+                                              .preco,
+                                          quantidade: FFAppState()
+                                              .Pedido[FFAppState().contador]
+                                              .quantidade,
+                                          img: FFAppState()
+                                              .Pedido[FFAppState().contador]
+                                              .img,
                                         ));
                                         FFAppState().Pedido = [];
                                         FFAppState().cardNumero = 0.0;
