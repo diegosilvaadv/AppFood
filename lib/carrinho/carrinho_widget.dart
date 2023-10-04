@@ -58,7 +58,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
               IconThemeData(color: FlutterFlowTheme.of(context).primaryText),
           automaticallyImplyLeading: true,
           title: Text(
-            'Meus Pedidos',
+            'Meu Pedido',
             style: FlutterFlowTheme.of(context).displaySmall,
           ),
           actions: [],
@@ -125,6 +125,20 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
+                                          Hero(
+                                            tag: pedidosItem.img,
+                                            transitionOnUserGestures: true,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                              child: Image.network(
+                                                pedidosItem.img,
+                                                width: 80.0,
+                                                height: 80.0,
+                                                fit: BoxFit.fitHeight,
+                                              ),
+                                            ),
+                                          ),
                                           Expanded(
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
