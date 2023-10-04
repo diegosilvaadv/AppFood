@@ -490,6 +490,13 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                       _model.apiResultb8x = await SetDadosCall.call(
                         pedido: FFAppState().Pedido[FFAppState().contador].nome,
                         valor: FFAppState().Pedido[FFAppState().contador].preco,
+                        nomeCliente: _model.textController.text,
+                        nMesa: _model.numMesaValue,
+                        pagamento: _model.formaPagValue,
+                        quanty: FFAppState()
+                            .Pedido[FFAppState().contador]
+                            .quantidade
+                            .toString(),
                       );
                       _shouldSetState = true;
                       if ((_model.apiResultb8x?.succeeded ?? true)) {

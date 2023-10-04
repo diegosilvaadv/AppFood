@@ -15,6 +15,7 @@ class SetDadosCall {
     String? nomeCliente = '',
     String? nMesa = '',
     String? pagamento = '',
+    String? quanty = '',
   }) {
     final ffApiRequestBody = '''
 {
@@ -22,7 +23,8 @@ class SetDadosCall {
   "valor": ${valor},
   "nome_cliente": "${nomeCliente}",
   "n_mesa": "${nMesa}",
-  "pagamento": "${pagamento}"
+  "pagamento": "${pagamento}",
+  "quanty": "${quanty}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'SetDados',

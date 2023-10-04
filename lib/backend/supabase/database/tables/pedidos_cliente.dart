@@ -35,4 +35,7 @@ class PedidosClienteRow extends SupabaseDataRow {
 
   String? get pedido => getField<String>('pedido');
   set pedido(String? value) => setField<String>('pedido', value);
+
+  int? get quanty => getField<int>('quanty');
+  set quanty(int? value) => setField<int>('quanty', value);
 }
