@@ -213,7 +213,13 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        'Identificação do pedido: ${pedidosItem.id.toString()}',
+                                                        'ID : ${formatNumber(
+                                                          pedidosItem.id,
+                                                          formatType:
+                                                              FormatType.custom,
+                                                          format: '',
+                                                          locale: '',
+                                                        )}',
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .labelSmall
