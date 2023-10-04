@@ -590,13 +590,10 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                             getCurrentTimestamp),
                                       });
                                       _shouldSetState = true;
-                                      if (FFAppState().Pedido.length >= 1) {
-                                        context.pushNamed('ordens_pedidos');
-                                      } else {
-                                        if (_shouldSetState) setState(() {});
-                                        return;
-                                      }
+                                      break;
                                     }
+
+                                    context.pushNamed('ordens_pedidos');
                                   } else {
                                     if (_shouldSetState) setState(() {});
                                     return;
