@@ -1,5 +1,4 @@
 import '/backend/schema/structs/index.dart';
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -477,16 +476,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  while (FFAppState().Pedido.length ==
-                      FFAppState().Pedido.length) {
-                    await PedidosClienteTable().insert({
-                      'nome_cliente': _model.textController.text,
-                      'n_mesa': _model.numMesaValue,
-                      'pagamento': _model.formaPagValue,
-                      'valor': FFAppState().Soma,
-                      'pedido': FFAppState().Pedido.length.toString(),
-                    });
-                  }
                   await showDialog(
                     context: context,
                     builder: (alertDialogContext) {
