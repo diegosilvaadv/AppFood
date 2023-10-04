@@ -602,6 +602,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                       .Pedido[
                                                           FFAppState().contador]
                                                       .quantidade);
+                                        });
+                                        setState(() {
                                           FFAppState().contador =
                                               FFAppState().contador + 1;
                                         });
