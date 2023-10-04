@@ -569,12 +569,14 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                             getCurrentTimestamp),
                                       });
                                       _shouldSetState = true;
-                                    }
-                                    setState(() {
-                                      FFAppState().Pedido = [];
-                                    });
+                                      setState(() {
+                                        FFAppState().Pedido = [];
+                                        FFAppState().cardNumero = 0.0;
+                                        FFAppState().Soma = 0.0;
+                                      });
 
-                                    context.pushNamed('ordens_pedidos');
+                                      context.pushNamed('ordens_pedidos');
+                                    }
                                   } else {
                                     if (_shouldSetState) setState(() {});
                                     return;
