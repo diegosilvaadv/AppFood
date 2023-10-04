@@ -550,25 +550,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                         FFAppState().contador =
                                             FFAppState().contador + 1;
                                       });
-                                      _model.apiResultb8x =
-                                          await PedidosClienteTable().insert({
-                                        'nome_cliente':
-                                            _model.textController.text,
-                                        'n_mesa': _model.numMesaValue,
-                                        'pagamento': _model.formaPagValue,
-                                        'pedido': FFAppState()
-                                            .Pedido[FFAppState().contador]
-                                            .nome,
-                                        'quanty': FFAppState()
-                                            .Pedido[FFAppState().contador]
-                                            .quantidade,
-                                        'valor': FFAppState()
-                                            .Pedido[FFAppState().contador]
-                                            .preco,
-                                        'created_at': supaSerialize<DateTime>(
-                                            getCurrentTimestamp),
-                                      });
-                                      _shouldSetState = true;
                                       setState(() {
                                         FFAppState().addToOrdensPedidos(
                                             OrdensPedidosStruct(
@@ -590,25 +571,26 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               .img,
                                         ));
                                       });
+                                      _model.apiResultb8x =
+                                          await PedidosClienteTable().insert({
+                                        'nome_cliente':
+                                            _model.textController.text,
+                                        'n_mesa': _model.numMesaValue,
+                                        'pagamento': _model.formaPagValue,
+                                        'pedido': FFAppState()
+                                            .Pedido[FFAppState().contador]
+                                            .nome,
+                                        'quanty': FFAppState()
+                                            .Pedido[FFAppState().contador]
+                                            .quantidade,
+                                        'valor': FFAppState()
+                                            .Pedido[FFAppState().contador]
+                                            .preco,
+                                        'created_at': supaSerialize<DateTime>(
+                                            getCurrentTimestamp),
+                                      });
+                                      _shouldSetState = true;
                                     }
-                                    await Future.delayed(
-                                        const Duration(milliseconds: 1000));
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('gfdg'),
-                                          content: Text('xfgvfd'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
                                   } else {
                                     if (_shouldSetState) setState(() {});
                                     return;
