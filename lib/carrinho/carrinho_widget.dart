@@ -591,17 +591,15 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       });
                                       _shouldSetState = true;
                                       if (FFAppState().Pedido.length >= 1) {
-                                        setState(() {
-                                          FFAppState().Pedido = [];
-                                          FFAppState().cardNumero = 0.0;
-                                          FFAppState().Soma = 0.0;
-                                        });
+                                        context.pushNamed('ordens_pedidos');
                                       } else {
                                         if (_shouldSetState) setState(() {});
                                         return;
                                       }
 
-                                      context.pushNamed('ordens_pedidos');
+                                      setState(() {
+                                        FFAppState().Pedido = [];
+                                      });
                                     }
                                   } else {
                                     if (_shouldSetState) setState(() {});
