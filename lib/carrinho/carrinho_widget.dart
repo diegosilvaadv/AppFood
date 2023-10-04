@@ -595,21 +595,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 .Pedido[FFAppState().contador]
                                                 .img,
                                           ));
-                                          FFAppState().contador =
-                                              FFAppState().contador + 1;
-                                        });
-                                        setState(() {
-                                          FFAppState().Soma2 = FFAppState()
-                                                  .Soma2 +
-                                              functions.newCustomFunction(
-                                                  FFAppState()
-                                                      .Pedido[
-                                                          FFAppState().contador]
-                                                      .preco,
-                                                  FFAppState()
-                                                      .Pedido[
-                                                          FFAppState().contador]
-                                                      .quantidade);
                                         });
                                         await Future.delayed(
                                             const Duration(milliseconds: 1000));
