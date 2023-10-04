@@ -591,15 +591,16 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 .Pedido[FFAppState().contador]
                                                 .img,
                                           ));
+                                          FFAppState().contador =
+                                              FFAppState().contador + 1;
                                         });
-
-                                        context.pushNamed('ordens_pedidos');
-
                                         setState(() {
                                           FFAppState().Pedido = [];
                                           FFAppState().cardNumero = 0.0;
                                           FFAppState().Soma = 0.0;
                                         });
+
+                                        context.pushNamed('ordens_pedidos');
                                       }
                                     }
                                   } else {
