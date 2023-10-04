@@ -172,7 +172,7 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 8.0, 0.0, 0.0),
                                               child: Text(
-                                                'Quanity: 1',
+                                                ordensPedidosItem.nomeCliente,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .labelSmall
