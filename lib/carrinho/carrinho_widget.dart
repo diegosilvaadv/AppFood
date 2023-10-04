@@ -590,10 +590,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                             getCurrentTimestamp),
                                       });
                                       _shouldSetState = true;
-                                      break;
                                     }
-
-                                    context.pushNamed('ordens_pedidos');
                                   } else {
                                     if (_shouldSetState) setState(() {});
                                     return;
