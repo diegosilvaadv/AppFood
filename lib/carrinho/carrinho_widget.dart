@@ -592,13 +592,14 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 .img,
                                           ));
                                         });
+
+                                        context.pushNamed('ordens_pedidos');
+
                                         setState(() {
                                           FFAppState().Pedido = [];
                                           FFAppState().cardNumero = 0.0;
                                           FFAppState().Soma = 0.0;
                                         });
-
-                                        context.pushNamed('ordens_pedidos');
                                       }
                                     }
                                   } else {
