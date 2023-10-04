@@ -323,7 +323,15 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
                                     _model.countControllerValue!.toDouble());
                           });
 
-                          context.pushNamed('HomePage');
+                          context.pushNamed(
+                            'carrinho',
+                            queryParameters: {
+                              'valor': serializeParam(
+                                widget.valor,
+                                ParamType.double,
+                              ),
+                            }.withoutNulls,
+                          );
                         },
                         text: '+',
                         options: FFButtonOptions(

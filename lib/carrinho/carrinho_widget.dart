@@ -601,8 +601,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               functions.newCustomFunction(
                                                   widget.valor!,
                                                   _model.apiResultb8x!.quanty!);
-                                          FFAppState().contador =
-                                              FFAppState().contador + 1;
                                         });
                                         setState(() {
                                           FFAppState().Pedido = [];

@@ -35,12 +35,6 @@ class FFAppState extends ChangeNotifier {
           _Pedido;
     });
     _safeInit(() {
-      _cardNumero = prefs.getDouble('ff_cardNumero') ?? _cardNumero;
-    });
-    _safeInit(() {
-      _Soma = prefs.getDouble('ff_Soma') ?? _Soma;
-    });
-    _safeInit(() {
       _ordensPedidos = prefs
               .getStringList('ff_ordensPedidos')
               ?.map((x) {
@@ -54,6 +48,12 @@ class FFAppState extends ChangeNotifier {
               .withoutNulls
               .toList() ??
           _ordensPedidos;
+    });
+    _safeInit(() {
+      _cardNumero = prefs.getDouble('ff_cardNumero') ?? _cardNumero;
+    });
+    _safeInit(() {
+      _Soma = prefs.getDouble('ff_Soma') ?? _Soma;
     });
     _safeInit(() {
       _Soma2 = prefs.getDouble('ff_Soma2') ?? _Soma2;
@@ -107,26 +107,6 @@ class FFAppState extends ChangeNotifier {
         'ff_Pedido', _Pedido.map((x) => x.serialize()).toList());
   }
 
-  double _cardNumero = 0.0;
-  double get cardNumero => _cardNumero;
-  set cardNumero(double _value) {
-    _cardNumero = _value;
-    prefs.setDouble('ff_cardNumero', _value);
-  }
-
-  double _Soma = 0.0;
-  double get Soma => _Soma;
-  set Soma(double _value) {
-    _Soma = _value;
-    prefs.setDouble('ff_Soma', _value);
-  }
-
-  int _contador = -1;
-  int get contador => _contador;
-  set contador(int _value) {
-    _contador = _value;
-  }
-
   List<OrdensPedidosStruct> _ordensPedidos = [];
   List<OrdensPedidosStruct> get ordensPedidos => _ordensPedidos;
   set ordensPedidos(List<OrdensPedidosStruct> _value) {
@@ -166,6 +146,26 @@ class FFAppState extends ChangeNotifier {
     _ordensPedidos.insert(_index, _value);
     prefs.setStringList(
         'ff_ordensPedidos', _ordensPedidos.map((x) => x.serialize()).toList());
+  }
+
+  double _cardNumero = 0.0;
+  double get cardNumero => _cardNumero;
+  set cardNumero(double _value) {
+    _cardNumero = _value;
+    prefs.setDouble('ff_cardNumero', _value);
+  }
+
+  int _contador = -1;
+  int get contador => _contador;
+  set contador(int _value) {
+    _contador = _value;
+  }
+
+  double _Soma = 0.0;
+  double get Soma => _Soma;
+  set Soma(double _value) {
+    _Soma = _value;
+    prefs.setDouble('ff_Soma', _value);
   }
 
   double _Soma2 = 0.0;
