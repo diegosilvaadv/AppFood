@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -476,22 +477,50 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  await showDialog(
-                    context: context,
-                    builder: (alertDialogContext) {
-                      return AlertDialog(
-                        title: Text('Pedido Finalizado'),
-                        content: Text(
-                            'Aguarde a preparação do Pedido. Muito obrigado! ;)'),
-                        actions: [
-                          TextButton(
-                            onPressed: () => Navigator.pop(alertDialogContext),
-                            child: Text('Ok'),
-                          ),
-                        ],
+                  var _shouldSetState = false;
+                  if (FFAppState().Pedido.length >= 1) {
+                    setState(() {
+                      FFAppState().contador = -1;
+                    });
+                    while (
+                        FFAppState().contador <= FFAppState().Pedido.length) {
+                      setState(() {
+                        FFAppState().contador = FFAppState().contador + 1;
+                      });
+                    }
+                    _model.apiResult2np = await SetDadosCall.call(
+                      nomeCliente: _model.textController.text,
+                      nMesa: _model.numMesaValue,
+                      pagamento: _model.formaPagValue,
+                      pedido: FFAppState().Pedido[FFAppState().contador].nome,
+                      valor: FFAppState().Pedido[FFAppState().contador].preco,
+                    );
+                    _shouldSetState = true;
+                    if ((_model.apiResult2np?.succeeded ?? true)) {
+                      await showDialog(
+                        context: context,
+                        builder: (alertDialogContext) {
+                          return AlertDialog(
+                            title: Text('Pedido Finalizado'),
+                            content: Text(
+                                'Aguarde a preparação do Pedido. Muito obrigado! ;)'),
+                            actions: [
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(alertDialogContext),
+                                child: Text('Ok'),
+                              ),
+                            ],
+                          );
+                        },
                       );
-                    },
-                  );
+                    }
+                  } else {
+                    if (_shouldSetState) setState(() {});
+                    return;
+                  }
+
+                  if (_shouldSetState) setState(() {});
                 },
                 child: Container(
                   width: double.infinity,

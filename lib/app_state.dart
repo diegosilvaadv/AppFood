@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '/backend/schema/structs/index.dart';
+import 'backend/api_requests/api_manager.dart';
 import 'backend/supabase/supabase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
@@ -103,33 +104,10 @@ class FFAppState extends ChangeNotifier {
     prefs.setDouble('ff_Soma', _value);
   }
 
-  List<String> _foodname = [];
-  List<String> get foodname => _foodname;
-  set foodname(List<String> _value) {
-    _foodname = _value;
-  }
-
-  void addToFoodname(String _value) {
-    _foodname.add(_value);
-  }
-
-  void removeFromFoodname(String _value) {
-    _foodname.remove(_value);
-  }
-
-  void removeAtIndexFromFoodname(int _index) {
-    _foodname.removeAt(_index);
-  }
-
-  void updateFoodnameAtIndex(
-    int _index,
-    String Function(String) updateFn,
-  ) {
-    _foodname[_index] = updateFn(_foodname[_index]);
-  }
-
-  void insertAtIndexInFoodname(int _index, String _value) {
-    _foodname.insert(_index, _value);
+  int _contador = -1;
+  int get contador => _contador;
+  set contador(int _value) {
+    _contador = _value;
   }
 }
 

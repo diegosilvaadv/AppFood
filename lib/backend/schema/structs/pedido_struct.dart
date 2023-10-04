@@ -12,13 +12,11 @@ class PedidoStruct extends BaseStruct {
     double? quantidade,
     String? img,
     double? id,
-    List<PedidoStruct>? namelist,
   })  : _nome = nome,
         _preco = preco,
         _quantidade = quantidade,
         _img = img,
-        _id = id,
-        _namelist = namelist;
+        _id = id;
 
   // "Nome" field.
   String? _nome;
@@ -53,24 +51,12 @@ class PedidoStruct extends BaseStruct {
   void incrementId(double amount) => _id = id + amount;
   bool hasId() => _id != null;
 
-  // "namelist" field.
-  List<PedidoStruct>? _namelist;
-  List<PedidoStruct> get namelist => _namelist ?? const [];
-  set namelist(List<PedidoStruct>? val) => _namelist = val;
-  void updateNamelist(Function(List<PedidoStruct>) updateFn) =>
-      updateFn(_namelist ??= []);
-  bool hasNamelist() => _namelist != null;
-
   static PedidoStruct fromMap(Map<String, dynamic> data) => PedidoStruct(
         nome: data['Nome'] as String?,
         preco: castToType<double>(data['Preco']),
         quantidade: castToType<double>(data['quantidade']),
         img: data['img'] as String?,
         id: castToType<double>(data['id']),
-        namelist: getStructList(
-          data['namelist'],
-          PedidoStruct.fromMap,
-        ),
       );
 
   static PedidoStruct? maybeFromMap(dynamic data) =>
@@ -82,7 +68,6 @@ class PedidoStruct extends BaseStruct {
         'quantidade': _quantidade,
         'img': _img,
         'id': _id,
-        'namelist': _namelist?.map((e) => e.toMap()).toList(),
       }.withoutNulls;
 
   @override
@@ -106,11 +91,6 @@ class PedidoStruct extends BaseStruct {
         'id': serializeParam(
           _id,
           ParamType.double,
-        ),
-        'namelist': serializeParam(
-          _namelist,
-          ParamType.DataStruct,
-          true,
         ),
       }.withoutNulls;
 
@@ -141,12 +121,6 @@ class PedidoStruct extends BaseStruct {
           ParamType.double,
           false,
         ),
-        namelist: deserializeStructParam<PedidoStruct>(
-          data['namelist'],
-          ParamType.DataStruct,
-          true,
-          structBuilder: PedidoStruct.fromSerializableMap,
-        ),
       );
 
   @override
@@ -154,19 +128,17 @@ class PedidoStruct extends BaseStruct {
 
   @override
   bool operator ==(Object other) {
-    const listEquality = ListEquality();
     return other is PedidoStruct &&
         nome == other.nome &&
         preco == other.preco &&
         quantidade == other.quantidade &&
         img == other.img &&
-        id == other.id &&
-        listEquality.equals(namelist, other.namelist);
+        id == other.id;
   }
 
   @override
   int get hashCode =>
-      const ListEquality().hash([nome, preco, quantidade, img, id, namelist]);
+      const ListEquality().hash([nome, preco, quantidade, img, id]);
 }
 
 PedidoStruct createPedidoStruct({
