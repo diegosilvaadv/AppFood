@@ -571,6 +571,10 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       _shouldSetState = true;
                                       while (FFAppState().contador ==
                                           FFAppState().ordensPedidos.length) {
+                                        FFAppState().update(() {
+                                          FFAppState().contador =
+                                              FFAppState().contador + 1;
+                                        });
                                         setState(() {
                                           FFAppState().addToOrdensPedidos(
                                               OrdensPedidosStruct(
@@ -591,8 +595,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 .Pedido[FFAppState().contador]
                                                 .img,
                                           ));
-                                          FFAppState().contador =
-                                              FFAppState().contador + 1;
                                         });
                                         setState(() {
                                           FFAppState().Soma2 = FFAppState()
