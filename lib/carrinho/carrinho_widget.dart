@@ -590,19 +590,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               .img,
                                         ));
                                       });
-
-                                      context.pushNamed(
-                                        'ordens_pedidos',
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.fade,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                          ),
-                                        },
-                                      );
                                     }
                                     await Future.delayed(
                                         const Duration(milliseconds: 1000));
