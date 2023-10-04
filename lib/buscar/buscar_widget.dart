@@ -23,6 +23,8 @@ class _BuscarWidgetState extends State<BuscarWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BuscarModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

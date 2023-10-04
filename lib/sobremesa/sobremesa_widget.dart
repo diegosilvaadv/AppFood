@@ -24,6 +24,8 @@ class _SobremesaWidgetState extends State<SobremesaWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SobremesaModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

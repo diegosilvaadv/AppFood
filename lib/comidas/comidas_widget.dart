@@ -24,6 +24,8 @@ class _ComidasWidgetState extends State<ComidasWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ComidasModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

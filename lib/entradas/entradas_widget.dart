@@ -24,6 +24,8 @@ class _EntradasWidgetState extends State<EntradasWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EntradasModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -24,6 +24,8 @@ class _BebidasWidgetState extends State<BebidasWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BebidasModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -31,6 +31,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
     _model = createModel(context, () => CarrinhoModel());
 
     _model.textController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

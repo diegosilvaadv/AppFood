@@ -100,6 +100,8 @@ class _DetalhesWidgetState extends State<DetalhesWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => DetalhesModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
