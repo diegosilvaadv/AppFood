@@ -222,6 +222,28 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                       ),
                                                     ),
                                                   ),
+                                                  Flexible(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        pedidosIndex.toString(),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .labelSmall
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              fontSize: 15.0,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ],
                                               ),
                                             ),
@@ -482,12 +504,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                     'n_mesa': _model.numMesaValue,
                     'pagamento': _model.formaPagValue,
                     'valor': FFAppState().Soma,
-                    'pedido': FFAppState()
-                        .Pedido
-                        .where((e) => e.hasNome())
-                        .toList()
-                        .length
-                        .toString(),
+                    'id': FFAppState().Pedido.length,
                   });
                   await showDialog(
                     context: context,

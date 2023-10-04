@@ -11,10 +11,12 @@ class PedidoStruct extends BaseStruct {
     double? preco,
     double? quantidade,
     String? img,
+    PedidoStruct? id,
   })  : _nome = nome,
         _preco = preco,
         _quantidade = quantidade,
-        _img = img;
+        _img = img,
+        _id = id;
 
   // "Nome" field.
   String? _nome;
@@ -42,11 +44,20 @@ class PedidoStruct extends BaseStruct {
   set img(String? val) => _img = val;
   bool hasImg() => _img != null;
 
+  // "id" field.
+  PedidoStruct? _id;
+  PedidoStruct get id => _id ?? PedidoStruct();
+  set id(PedidoStruct? val) => _id = val;
+  void updateId(Function(PedidoStruct) updateFn) =>
+      updateFn(_id ??= PedidoStruct());
+  bool hasId() => _id != null;
+
   static PedidoStruct fromMap(Map<String, dynamic> data) => PedidoStruct(
         nome: data['Nome'] as String?,
         preco: castToType<double>(data['Preco']),
         quantidade: castToType<double>(data['quantidade']),
         img: data['img'] as String?,
+        id: PedidoStruct.maybeFromMap(data['id']),
       );
 
   static PedidoStruct? maybeFromMap(dynamic data) =>
@@ -57,6 +68,7 @@ class PedidoStruct extends BaseStruct {
         'Preco': _preco,
         'quantidade': _quantidade,
         'img': _img,
+        'id': _id?.toMap(),
       }.withoutNulls;
 
   @override
@@ -76,6 +88,10 @@ class PedidoStruct extends BaseStruct {
         'img': serializeParam(
           _img,
           ParamType.String,
+        ),
+        'id': serializeParam(
+          _id,
+          ParamType.DataStruct,
         ),
       }.withoutNulls;
 
@@ -101,6 +117,12 @@ class PedidoStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        id: deserializeStructParam(
+          data['id'],
+          ParamType.DataStruct,
+          false,
+          structBuilder: PedidoStruct.fromSerializableMap,
+        ),
       );
 
   @override
@@ -112,11 +134,13 @@ class PedidoStruct extends BaseStruct {
         nome == other.nome &&
         preco == other.preco &&
         quantidade == other.quantidade &&
-        img == other.img;
+        img == other.img &&
+        id == other.id;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([nome, preco, quantidade, img]);
+  int get hashCode =>
+      const ListEquality().hash([nome, preco, quantidade, img, id]);
 }
 
 PedidoStruct createPedidoStruct({
@@ -124,10 +148,12 @@ PedidoStruct createPedidoStruct({
   double? preco,
   double? quantidade,
   String? img,
+  PedidoStruct? id,
 }) =>
     PedidoStruct(
       nome: nome,
       preco: preco,
       quantidade: quantidade,
       img: img,
+      id: id ?? PedidoStruct(),
     );
