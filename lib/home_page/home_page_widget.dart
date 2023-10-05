@@ -494,8 +494,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 alignment: AlignmentDirectional(
                                                     -0.51, -0.97),
                                                 child: Container(
-                                                  width: 178.0,
-                                                  height: 141.0,
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.5,
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .height *
+                                                          0.15,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -539,8 +545,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             5.0),
                                                   ),
                                                   child: Container(
-                                                    width: 178.0,
-                                                    height: 76.0,
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        0.5,
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.08,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -592,9 +604,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
+                                                                      6.0,
+                                                                      6.0,
+                                                                      6.0,
                                                                       6.0),
                                                           child: Row(
                                                             mainAxisSize:
