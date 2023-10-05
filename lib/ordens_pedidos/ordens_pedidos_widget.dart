@@ -287,9 +287,9 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                 child: Text(
                                   formatNumber(
                                     FFAppState().Soma2,
-                                    formatType: FormatType.custom,
-                                    format: 'R\$',
-                                    locale: '',
+                                    formatType: FormatType.decimal,
+                                    decimalType: DecimalType.periodDecimal,
+                                    currency: 'R\$',
                                   ),
                                   style:
                                       FlutterFlowTheme.of(context).displaySmall,
