@@ -70,7 +70,7 @@ class _DrawerWidgetState extends State<DrawerWidget>
     context.watch<FFAppState>();
 
     return Container(
-      width: MediaQuery.sizeOf(context).width * 0.8,
+      width: MediaQuery.sizeOf(context).width * 0.5,
       height: double.infinity,
       decoration: BoxDecoration(
         color: Color(0x84F1F4F8),

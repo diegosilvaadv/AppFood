@@ -109,6 +109,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     await showModalBottomSheet(
                       isScrollControlled: true,
                       backgroundColor: Colors.transparent,
+                      barrierColor: Colors.transparent,
                       enableDrag: false,
                       useSafeArea: true,
                       context: context,
