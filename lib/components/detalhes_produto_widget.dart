@@ -66,7 +66,7 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Hello World',
+                  widget.nome!,
                   style: FlutterFlowTheme.of(context).titleLarge,
                 ),
               ],
@@ -82,7 +82,7 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
               children: [
                 Flexible(
                   child: Text(
-                    'Hello World',
+                    widget.descricao!,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
                           fontSize: 15.0,
@@ -133,7 +133,7 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
                       child: Text(
-                        'Hello World',
+                        widget.valor.toString(),
                         style: FlutterFlowTheme.of(context).titleSmall,
                       ),
                     ),
@@ -172,10 +172,12 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                             count.toString(),
                             style: FlutterFlowTheme.of(context).titleLarge,
                           ),
-                          count: _model.countControllerValue ??= 0,
+                          count: _model.countControllerValue ??= 1,
                           updateCount: (count) => setState(
                               () => _model.countControllerValue = count),
                           stepSize: 1,
+                          minimum: 1,
+                          maximum: 100,
                         ),
                       ),
                     ),
