@@ -442,9 +442,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             await showModalBottomSheet(
                                               isScrollControlled: true,
                                               backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              barrierColor: Color(0x47000000),
+                                                  Color(0x00F1F4F8),
+                                              barrierColor: Color(0x79000000),
                                               enableDrag: false,
                                               context: context,
                                               builder: (context) {
