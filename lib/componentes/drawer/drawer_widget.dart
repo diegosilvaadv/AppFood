@@ -41,17 +41,19 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        Container(
-          width: MediaQuery.sizeOf(context).width * 0.5,
-          height: MediaQuery.sizeOf(context).height * 1.0,
-          decoration: BoxDecoration(
-            color: Color(0x3FFFFFFF),
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Container(
+            width: MediaQuery.sizeOf(context).width * 0.5,
+            height: MediaQuery.sizeOf(context).height * 1.0,
+            decoration: BoxDecoration(
+              color: Color(0x92FFFFFF),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
