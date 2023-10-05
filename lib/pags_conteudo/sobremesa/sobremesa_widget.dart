@@ -1,5 +1,5 @@
 import '/backend/supabase/supabase.dart';
-import '/components/detalhes_produto_widget.dart';
+import '/componentes/detalhes_produto/detalhes_produto_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -7,25 +7,25 @@ import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'bebidas_model.dart';
-export 'bebidas_model.dart';
+import 'sobremesa_model.dart';
+export 'sobremesa_model.dart';
 
-class BebidasWidget extends StatefulWidget {
-  const BebidasWidget({Key? key}) : super(key: key);
+class SobremesaWidget extends StatefulWidget {
+  const SobremesaWidget({Key? key}) : super(key: key);
 
   @override
-  _BebidasWidgetState createState() => _BebidasWidgetState();
+  _SobremesaWidgetState createState() => _SobremesaWidgetState();
 }
 
-class _BebidasWidgetState extends State<BebidasWidget> {
-  late BebidasModel _model;
+class _SobremesaWidgetState extends State<SobremesaWidget> {
+  late SobremesaModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BebidasModel());
+    _model = createModel(context, () => SobremesaModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -74,7 +74,7 @@ class _BebidasWidgetState extends State<BebidasWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Bebidas',
+                  'Sobremesas',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Outfit',
                         color: FlutterFlowTheme.of(context).primaryText,
@@ -133,8 +133,8 @@ class _BebidasWidgetState extends State<BebidasWidget> {
           top: true,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 10.0),
-            child: FutureBuilder<List<BebidasRow>>(
-              future: BebidasTable().queryRows(
+            child: FutureBuilder<List<SobremesaRow>>(
+              future: SobremesaTable().queryRows(
                 queryFn: (q) => q,
               ),
               builder: (context, snapshot) {
@@ -152,14 +152,14 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                     ),
                   );
                 }
-                List<BebidasRow> columnBebidasRowList = snapshot.data!;
+                List<SobremesaRow> columnSobremesaRowList = snapshot.data!;
                 return SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
-                    children: List.generate(columnBebidasRowList.length,
+                    children: List.generate(columnSobremesaRowList.length,
                         (columnIndex) {
-                      final columnBebidasRow =
-                          columnBebidasRowList[columnIndex];
+                      final columnSobremesaRow =
+                          columnSobremesaRowList[columnIndex];
                       return Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
@@ -187,12 +187,13 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                                     child: Container(
                                       height: 550.0,
                                       child: DetalhesProdutoWidget(
-                                        nome: columnBebidasRow.nome!,
-                                        descricao: columnBebidasRow.descricao!,
-                                        img: columnBebidasRow.img!,
-                                        valor: columnBebidasRow.valor!,
-                                        id: columnBebidasRow.id.toString(),
-                                        data: columnBebidasRow.createdAt,
+                                        nome: columnSobremesaRow.nome!,
+                                        descricao:
+                                            columnSobremesaRow.descricao!,
+                                        img: columnSobremesaRow.img!,
+                                        valor: columnSobremesaRow.valor!,
+                                        id: columnSobremesaRow.id.toString(),
+                                        data: columnSobremesaRow.createdAt,
                                       ),
                                     ),
                                   ),
@@ -224,8 +225,8 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                                             BorderRadius.circular(8.0),
                                         child: Image.network(
                                           valueOrDefault<String>(
-                                            columnBebidasRow.img,
-                                            'https://www.imigrantesbebidas.com.br/bebida/images/products/full/1984-refrigerante-coca-cola-lata-350ml.jpg',
+                                            columnSobremesaRow.img,
+                                            'https://guiadacozinha.com.br/wp-content/uploads/2021/12/cheesecake-frutas-vermelhas.jpg',
                                           ),
                                           width: 100.0,
                                           height: 100.0,
@@ -246,7 +247,7 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                                             children: [
                                               Expanded(
                                                 child: Text(
-                                                  columnBebidasRow.nome!,
+                                                  columnSobremesaRow.nome!,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelLarge
@@ -268,7 +269,7 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                                             children: [
                                               Expanded(
                                                 child: Text(
-                                                  columnBebidasRow.descricao!
+                                                  columnSobremesaRow.descricao!
                                                       .maybeHandleOverflow(
                                                     maxChars: 40,
                                                     replacement: '…',
@@ -298,7 +299,7 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                                             ),
                                       ),
                                       Text(
-                                        columnBebidasRow.valor!.toString(),
+                                        columnSobremesaRow.valor!.toString(),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
