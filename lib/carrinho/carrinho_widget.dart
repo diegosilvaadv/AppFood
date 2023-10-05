@@ -58,8 +58,11 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
               IconThemeData(color: FlutterFlowTheme.of(context).primaryText),
           automaticallyImplyLeading: true,
           title: Text(
-            'Meu Pedido',
-            style: FlutterFlowTheme.of(context).displaySmall,
+            'Meu Carrinho',
+            style: FlutterFlowTheme.of(context).displaySmall.override(
+                  fontFamily: 'Outfit',
+                  fontSize: 22.0,
+                ),
           ),
           actions: [],
           centerTitle: false,
@@ -369,7 +372,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                           children: [
                             Expanded(
                               child: Form(
-                                key: _model.formKey,
+                                key: _model.formKey2,
                                 autovalidateMode: AutovalidateMode.always,
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -439,49 +442,53 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            FlutterFlowDropDown<String>(
-                              controller: _model.numMesaValueController ??=
-                                  FormFieldController<String>(null),
-                              options: [
-                                '1',
-                                '2',
-                                '3',
-                                '4',
-                                '5',
-                                '6',
-                                '7',
-                                '8',
-                                '9',
-                                '10'
-                              ],
-                              onChanged: (val) =>
-                                  setState(() => _model.numMesaValue = val),
-                              width: 357.0,
-                              height: 50.0,
-                              searchHintTextStyle:
-                                  FlutterFlowTheme.of(context).labelMedium,
-                              textStyle:
-                                  FlutterFlowTheme.of(context).bodyMedium,
-                              hintText: 'Número da Mesa',
-                              searchHintText: 'Pesquisar Mesa',
-                              icon: Icon(
-                                Icons.keyboard_arrow_down_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
+                            Form(
+                              key: _model.formKey1,
+                              autovalidateMode: AutovalidateMode.always,
+                              child: FlutterFlowDropDown<String>(
+                                controller: _model.numMesaValueController ??=
+                                    FormFieldController<String>(null),
+                                options: [
+                                  '1',
+                                  '2',
+                                  '3',
+                                  '4',
+                                  '5',
+                                  '6',
+                                  '7',
+                                  '8',
+                                  '9',
+                                  '10'
+                                ],
+                                onChanged: (val) =>
+                                    setState(() => _model.numMesaValue = val),
+                                width: 357.0,
+                                height: 50.0,
+                                searchHintTextStyle:
+                                    FlutterFlowTheme.of(context).labelMedium,
+                                textStyle:
+                                    FlutterFlowTheme.of(context).bodyMedium,
+                                hintText: 'Número da Mesa',
+                                searchHintText: 'Pesquisar Mesa',
+                                icon: Icon(
+                                  Icons.keyboard_arrow_down_rounded,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 24.0,
+                                ),
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                elevation: 2.0,
+                                borderColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                borderWidth: 2.0,
+                                borderRadius: 8.0,
+                                margin: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 4.0, 16.0, 4.0),
+                                hidesUnderline: true,
+                                isSearchable: true,
+                                isMultiSelect: false,
                               ),
-                              fillColor: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              elevation: 2.0,
-                              borderColor:
-                                  FlutterFlowTheme.of(context).alternate,
-                              borderWidth: 2.0,
-                              borderRadius: 8.0,
-                              margin: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 4.0, 16.0, 4.0),
-                              hidesUnderline: true,
-                              isSearchable: true,
-                              isMultiSelect: false,
                             ),
                           ],
                         ),
@@ -492,40 +499,44 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            FlutterFlowDropDown<String>(
-                              controller: _model.formaPagValueController ??=
-                                  FormFieldController<String>(null),
-                              options: [
-                                'Dinheiro',
-                                'Cartão de Debido',
-                                'Cartão de Credito',
-                                'Pix'
-                              ],
-                              onChanged: (val) =>
-                                  setState(() => _model.formaPagValue = val),
-                              width: 357.0,
-                              height: 50.0,
-                              textStyle:
-                                  FlutterFlowTheme.of(context).bodyMedium,
-                              hintText: 'Forma de Pagamento',
-                              icon: Icon(
-                                Icons.keyboard_arrow_down_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
+                            Form(
+                              key: _model.formKey3,
+                              autovalidateMode: AutovalidateMode.always,
+                              child: FlutterFlowDropDown<String>(
+                                controller: _model.formaPagValueController ??=
+                                    FormFieldController<String>(null),
+                                options: [
+                                  'Dinheiro',
+                                  'Cartão de Debido',
+                                  'Cartão de Credito',
+                                  'Pix'
+                                ],
+                                onChanged: (val) =>
+                                    setState(() => _model.formaPagValue = val),
+                                width: 357.0,
+                                height: 50.0,
+                                textStyle:
+                                    FlutterFlowTheme.of(context).bodyMedium,
+                                hintText: 'Forma de Pagamento',
+                                icon: Icon(
+                                  Icons.keyboard_arrow_down_rounded,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 24.0,
+                                ),
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                elevation: 2.0,
+                                borderColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                borderWidth: 2.0,
+                                borderRadius: 8.0,
+                                margin: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 4.0, 16.0, 4.0),
+                                hidesUnderline: true,
+                                isSearchable: false,
+                                isMultiSelect: false,
                               ),
-                              fillColor: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              elevation: 2.0,
-                              borderColor:
-                                  FlutterFlowTheme.of(context).alternate,
-                              borderWidth: 2.0,
-                              borderRadius: 8.0,
-                              margin: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 4.0, 16.0, 4.0),
-                              hidesUnderline: true,
-                              isSearchable: false,
-                              isMultiSelect: false,
                             ),
                           ],
                         ),
@@ -544,6 +555,27 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                     setState(() {
                                       FFAppState().contador = -1;
                                     });
+                                    if (_model.formKey2.currentState == null ||
+                                        !_model.formKey2.currentState!
+                                            .validate()) {
+                                      return;
+                                    }
+                                    if (_model.formKey1.currentState == null ||
+                                        !_model.formKey1.currentState!
+                                            .validate()) {
+                                      return;
+                                    }
+                                    if (_model.numMesaValue == null) {
+                                      return;
+                                    }
+                                    if (_model.formKey3.currentState == null ||
+                                        !_model.formKey3.currentState!
+                                            .validate()) {
+                                      return;
+                                    }
+                                    if (_model.formaPagValue == null) {
+                                      return;
+                                    }
                                     while (FFAppState().contador <=
                                         FFAppState().Pedido.length) {
                                       setState(() {
