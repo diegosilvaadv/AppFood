@@ -669,7 +669,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       });
                                       _shouldSetState = true;
 
-                                      context.pushNamed('ordens_pedidos');
+                                      context.pushNamed('home_or_pedidos');
                                     }
                                   } else {
                                     if (_shouldSetState) setState(() {});
