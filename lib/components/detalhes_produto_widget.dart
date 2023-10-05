@@ -166,7 +166,12 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                             decimalType: DecimalType.periodDecimal,
                             currency: 'R\$',
                           ),
-                          style: FlutterFlowTheme.of(context).titleSmall,
+                          style: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                              ),
                         ),
                       ),
                       Padding(
