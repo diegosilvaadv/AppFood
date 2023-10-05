@@ -58,58 +58,82 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Expanded(
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  widget.nome!,
-                  style: FlutterFlowTheme.of(context).titleLarge,
-                ),
-              ],
+        Flexible(
+          child: Card(
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+            elevation: 4.0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    widget.nome!,
+                    style: FlutterFlowTheme.of(context).titleLarge,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-        Expanded(
+        Flexible(
+          child: Card(
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+            elevation: 4.0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Flexible(
+                    child: Text(
+                      widget.descricao!,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.w600,
+                          ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        Card(
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          color: FlutterFlowTheme.of(context).secondaryBackground,
+          elevation: 4.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Flexible(
-                  child: Text(
-                    widget.descricao!,
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.w600,
-                        ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.network(
+                    'https://picsum.photos/seed/229/600',
+                    width: 300.0,
+                    height: 200.0,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ],
             ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.network(
-                  'https://picsum.photos/seed/229/600',
-                  width: 300.0,
-                  height: 200.0,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ],
           ),
         ),
         Padding(
