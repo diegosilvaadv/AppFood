@@ -18,12 +18,16 @@ class DetalhesProdutoWidget extends StatefulWidget {
     required this.descricao,
     required this.img,
     required this.valor,
+    required this.id,
+    required this.data,
   }) : super(key: key);
 
   final String? nome;
   final String? descricao;
   final String? img;
   final double? valor;
+  final String? id;
+  final DateTime? data;
 
   @override
   _DetalhesProdutoWidgetState createState() => _DetalhesProdutoWidgetState();
@@ -104,6 +108,24 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                       ),
                     ],
                   ),
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        widget.id!,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.w600,
+                            ),
+                      ),
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),

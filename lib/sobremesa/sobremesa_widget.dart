@@ -1,7 +1,9 @@
 import '/backend/supabase/supabase.dart';
+import '/components/detalhes_produto_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -59,7 +61,64 @@ class _SobremesaWidgetState extends State<SobremesaWidget> {
                   fontSize: 22.0,
                 ),
           ),
-          actions: [],
+          actions: [
+            InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                context.pushNamed(
+                  'carrinho',
+                  extra: <String, dynamic>{
+                    kTransitionInfoKey: TransitionInfo(
+                      hasTransition: true,
+                      transitionType: PageTransitionType.rightToLeft,
+                    ),
+                  },
+                );
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
+                    child: Icon(
+                      Icons.local_grocery_store,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 24.0,
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(3.94, 2.72),
+                    child: badges.Badge(
+                      badgeContent: Text(
+                        formatNumber(
+                          FFAppState().cardNumero,
+                          formatType: FormatType.custom,
+                          format: '0',
+                          locale: '',
+                        ),
+                        style: FlutterFlowTheme.of(context).titleSmall.override(
+                              fontFamily: 'Readex Pro',
+                              color: Colors.white,
+                            ),
+                      ),
+                      showBadge: true,
+                      shape: badges.BadgeShape.circle,
+                      badgeColor: Color(0xFF13DC0C),
+                      elevation: 4.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                      position: badges.BadgePosition.topEnd(),
+                      animationType: badges.BadgeAnimationType.scale,
+                      toAnimate: true,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
           centerTitle: false,
           elevation: 0.0,
         ),
@@ -103,31 +162,38 @@ class _SobremesaWidgetState extends State<SobremesaWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed(
-                              'detalhes',
-                              queryParameters: {
-                                'nome': serializeParam(
-                                  columnSobremesaRow.nome,
-                                  ParamType.String,
-                                ),
-                                'descricao': serializeParam(
-                                  columnSobremesaRow.descricao,
-                                  ParamType.String,
-                                ),
-                                'valor': serializeParam(
-                                  columnSobremesaRow.valor,
-                                  ParamType.double,
-                                ),
-                                'img': serializeParam(
-                                  columnSobremesaRow.img,
-                                  ParamType.String,
-                                ),
-                                'id': serializeParam(
-                                  columnSobremesaRow.id.toDouble(),
-                                  ParamType.double,
-                                ),
-                              }.withoutNulls,
-                            );
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              barrierColor: Color(0x47000000),
+                              enableDrag: false,
+                              context: context,
+                              builder: (context) {
+                                return GestureDetector(
+                                  onTap: () =>
+                                      _model.unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: Container(
+                                      height: 500.0,
+                                      child: DetalhesProdutoWidget(
+                                        nome: columnSobremesaRow.nome!,
+                                        descricao:
+                                            columnSobremesaRow.descricao!,
+                                        img: columnSobremesaRow.img!,
+                                        valor: columnSobremesaRow.valor!,
+                                        id: columnSobremesaRow.id.toString(),
+                                        data: columnSobremesaRow.createdAt,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
                           },
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
