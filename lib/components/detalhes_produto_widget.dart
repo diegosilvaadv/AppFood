@@ -211,6 +211,7 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                               .override(
                                 fontFamily: 'Readex Pro',
                                 color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 20.0,
                               ),
                         ),
                       ),
