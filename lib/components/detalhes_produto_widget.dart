@@ -217,11 +217,11 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
                         child: FlutterFlowIconButton(
-                          borderColor: FlutterFlowTheme.of(context).primary,
+                          borderColor: Color(0xFF0D820A),
                           borderRadius: 20.0,
                           borderWidth: 1.0,
                           buttonSize: 40.0,
-                          fillColor: FlutterFlowTheme.of(context).accent1,
+                          fillColor: Color(0xFF13DC0C),
                           icon: Icon(
                             Icons.add,
                             color: FlutterFlowTheme.of(context).primaryText,
@@ -242,6 +242,7 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                                   functions.newCustomFunction(widget.valor!,
                                       _model.countControllerValue!.toDouble());
                             });
+                            context.safePop();
                           },
                         ),
                       ),
