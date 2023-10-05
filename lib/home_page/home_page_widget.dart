@@ -78,6 +78,31 @@ class _HomePageWidgetState extends State<HomePageWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        floatingActionButton: Visibility(
+          visible: () {
+            if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+              return false;
+            } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+              return false;
+            } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+              return true;
+            } else {
+              return false;
+            }
+          }(),
+          child: FloatingActionButton(
+            onPressed: () {
+              print('FloatingActionButton pressed ...');
+            },
+            backgroundColor: Color(0xFFA00505),
+            elevation: 8.0,
+            child: Icon(
+              Icons.handyman,
+              color: Color(0xFF13DC0C),
+              size: 24.0,
+            ),
+          ),
+        ),
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           automaticallyImplyLeading: false,

@@ -686,7 +686,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       24.0, 0.0, 24.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
+                                  color: Color(0xFF13DC0C),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
