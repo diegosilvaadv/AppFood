@@ -1005,7 +1005,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
                                           child: Container(
-                                            height: 500.0,
+                                            height: 550.0,
                                             child: DetalhesProdutoWidget(
                                               nome: columnPratosRow.nome!,
                                               descricao:
