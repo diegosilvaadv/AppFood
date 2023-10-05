@@ -85,7 +85,32 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                       children: [
                         Text(
                           widget.nome!,
+                          textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context).titleLarge,
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              15.0, 0.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.safePop();
+                                },
+                                child: Icon(
+                                  Icons.close,
+                                  color: Color(0xFFA00505),
+                                  size: 30.0,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

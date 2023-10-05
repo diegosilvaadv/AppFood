@@ -501,7 +501,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   height:
                                                       MediaQuery.sizeOf(context)
                                                               .height *
-                                                          0.15,
+                                                          0.2,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
