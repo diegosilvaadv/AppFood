@@ -570,6 +570,17 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                               .Pedido[FFAppState().contador]
                                               .img,
                                         ));
+                                        FFAppState().Soma2 = FFAppState()
+                                                .Soma2 +
+                                            functions.newCustomFunction(
+                                                FFAppState()
+                                                    .Pedido[
+                                                        FFAppState().contador]
+                                                    .preco,
+                                                FFAppState()
+                                                    .Pedido[
+                                                        FFAppState().contador]
+                                                    .quantidade);
                                       });
                                       _model.apiResultb8x =
                                           await PedidosClienteTable().insert({
