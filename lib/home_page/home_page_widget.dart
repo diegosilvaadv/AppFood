@@ -475,9 +475,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               backgroundColor:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
-                                              barrierColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              barrierColor: Color(0x00FFFFFF),
                                               enableDrag: false,
                                               context: context,
                                               builder: (context) {

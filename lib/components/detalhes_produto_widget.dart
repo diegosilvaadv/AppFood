@@ -1,7 +1,7 @@
 import '/flutter_flow/flutter_flow_count_controller.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -126,7 +126,7 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.network(
-                    'https://picsum.photos/seed/229/600',
+                    widget.img!,
                     width: 300.0,
                     height: 200.0,
                     fit: BoxFit.cover,
@@ -143,7 +143,7 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: MediaQuery.sizeOf(context).width * 0.8,
+                width: MediaQuery.sizeOf(context).width * 1.0,
                 height: 100.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -157,7 +157,12 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
                       child: Text(
-                        widget.valor.toString(),
+                        formatNumber(
+                          widget.valor,
+                          formatType: FormatType.decimal,
+                          decimalType: DecimalType.periodDecimal,
+                          currency: 'R\$',
+                        ),
                         style: FlutterFlowTheme.of(context).titleSmall,
                       ),
                     ),
@@ -205,29 +210,23 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                         ),
                       ),
                     ),
-                    FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
-                      },
-                      text: 'ADD CARINHO',
-                      options: FFButtonOptions(
-                        height: 40.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                      child: FlutterFlowIconButton(
+                        borderColor: FlutterFlowTheme.of(context).primary,
+                        borderRadius: 20.0,
+                        borderWidth: 1.0,
+                        buttonSize: 40.0,
+                        fillColor: FlutterFlowTheme.of(context).accent1,
+                        icon: Icon(
+                          Icons.add,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          size: 24.0,
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
+                        onPressed: () {
+                          print('IconButton pressed ...');
+                        },
                       ),
                     ),
                   ],
