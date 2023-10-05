@@ -221,7 +221,7 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
                         child: Container(
-                          width: 180.0,
+                          width: 200.0,
                           height: 50.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
@@ -250,7 +250,12 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                             ),
                             countBuilder: (count) => Text(
                               count.toString(),
-                              style: FlutterFlowTheme.of(context).titleLarge,
+                              style: FlutterFlowTheme.of(context)
+                                  .titleLarge
+                                  .override(
+                                    fontFamily: 'Outfit',
+                                    fontSize: 21.0,
+                                  ),
                             ),
                             count: _model.countControllerValue ??= 1,
                             updateCount: (count) => setState(
