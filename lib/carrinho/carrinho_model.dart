@@ -28,7 +28,7 @@ class CarrinhoModel extends FlutterFlowModel<CarrinhoWidget> {
     }
 
     if (val.length < 2) {
-      return 'Requires at least 2 characters.';
+      return '1';
     }
     if (val.length > 20) {
       return 'Maximum 20 characters allowed, currently ${val.length}.';

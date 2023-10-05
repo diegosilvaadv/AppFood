@@ -566,6 +566,23 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       return;
                                     }
                                     if (_model.numMesaValue == null) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('Selecione sua mesa'),
+                                            content: Text(
+                                                'Para continuar por favor adiciona qual mesa está.'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
                                       return;
                                     }
                                     if (_model.formKey3.currentState == null ||
@@ -574,6 +591,24 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                       return;
                                     }
                                     if (_model.formaPagValue == null) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text(
+                                                'Adicione a forma de pagamento'),
+                                            content: Text(
+                                                'Para continuar por favor adiciona a forma de pagamento.'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
                                       return;
                                     }
                                     while (FFAppState().contador <=
