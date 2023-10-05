@@ -1,6 +1,5 @@
 import '/backend/supabase/supabase.dart';
 import '/componentes/detalhes_produto/detalhes_produto_widget.dart';
-import '/componentes/drawer/drawer_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
