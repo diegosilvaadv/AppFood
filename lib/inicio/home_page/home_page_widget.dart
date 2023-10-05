@@ -95,7 +95,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
           child: Drawer(
             elevation: 16.0,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 115.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 85.0, 0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
