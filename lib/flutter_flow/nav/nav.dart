@@ -97,6 +97,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'dashboard',
           path: '/dashboard',
           builder: (context, params) => DashboardWidget(),
+        ),
+        FFRoute(
+          name: 'Pedidos_web',
+          path: '/pedidosWeb',
+          builder: (context, params) => PedidosWebWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

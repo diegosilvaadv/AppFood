@@ -9,4 +9,5 @@ export '/inicio/ordens_pedidos/ordens_pedidos_widget.dart'
 export '/inicio/carrinho/carrinho_widget.dart' show CarrinhoWidget;
 export '/inicio/home_or_pedidos/home_or_pedidos_widget.dart'
     show HomeOrPedidosWidget;
-export '/dashboard/dashboard_widget.dart' show DashboardWidget;
+export '/dash_board/dashboard/dashboard_widget.dart' show DashboardWidget;
+export '/dash_board/pedidos_web/pedidos_web_widget.dart' show PedidosWebWidget;
