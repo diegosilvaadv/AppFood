@@ -81,40 +81,46 @@ class _SobremesaWidgetState extends State<SobremesaWidget> {
                         fontSize: 22.0,
                       ),
                 ),
-                Flexible(
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 6.0, 0.0),
-                    child: Icon(
-                      Icons.local_grocery_store,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 24.0,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(3.94, 2.72),
-                  child: badges.Badge(
-                    badgeContent: Text(
-                      formatNumber(
-                        FFAppState().cardNumero,
-                        formatType: FormatType.custom,
-                        format: '0',
-                        locale: '',
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 6.0, 0.0),
+                      child: Icon(
+                        Icons.local_grocery_store,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 24.0,
                       ),
-                      style: FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Readex Pro',
-                            color: Colors.white,
-                          ),
                     ),
-                    showBadge: true,
-                    shape: badges.BadgeShape.circle,
-                    badgeColor: Color(0xFF13DC0C),
-                    elevation: 4.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                    position: badges.BadgePosition.topEnd(),
-                    animationType: badges.BadgeAnimationType.scale,
-                    toAnimate: true,
-                  ),
+                    Align(
+                      alignment: AlignmentDirectional(3.94, 2.72),
+                      child: badges.Badge(
+                        badgeContent: Text(
+                          formatNumber(
+                            FFAppState().cardNumero,
+                            formatType: FormatType.custom,
+                            format: '0',
+                            locale: '',
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
+                        ),
+                        showBadge: true,
+                        shape: badges.BadgeShape.circle,
+                        badgeColor: Color(0xFF13DC0C),
+                        elevation: 4.0,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                        position: badges.BadgePosition.topEnd(),
+                        animationType: badges.BadgeAnimationType.scale,
+                        toAnimate: true,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
