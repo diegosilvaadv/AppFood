@@ -215,7 +215,7 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                         ),
                       ),
                     ),
-                    Flexible(
+                    Expanded(
                       child: Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),

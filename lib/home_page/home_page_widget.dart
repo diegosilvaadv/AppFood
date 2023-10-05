@@ -461,7 +461,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         MediaQuery.viewInsetsOf(
                                                             context),
                                                     child: Container(
-                                                      height: 500.0,
+                                                      height: 600.0,
                                                       child:
                                                           DetalhesProdutoWidget(
                                                         nome: carouselEmpromoRow
