@@ -293,7 +293,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         Expanded(
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 0.0, 0.0),
+                                10.0, 0.0, 10.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 context.pushNamed('ordens_pedidos');
@@ -314,7 +314,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(
-                                  color: Colors.transparent,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
