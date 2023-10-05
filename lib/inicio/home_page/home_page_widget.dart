@@ -368,7 +368,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          'Bebidas',
+                          'Sobremesa',
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
