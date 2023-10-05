@@ -70,76 +70,67 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
               ),
-              child: Row(
+              child: Column(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
-                    child: Text(
-                      widget.nome!,
-                      style: FlutterFlowTheme.of(context).titleLarge,
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          widget.nome!,
+                          style: FlutterFlowTheme.of(context).titleLarge,
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-            ),
-          ),
-          Flexible(
-            child: Card(
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              color: FlutterFlowTheme.of(context).secondaryBackground,
-              elevation: 4.0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Flexible(
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
-                      child: Text(
-                        widget.descricao!,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.w600,
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Flexible(
+                          child: Text(
+                            widget.descricao!,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 16.0, 16.0, 16.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.network(
+                              widget.img!,
+                              width: 300.0,
+                              height: 200.0,
+                              fit: BoxFit.cover,
                             ),
-                      ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-            ),
-          ),
-          Card(
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            color: FlutterFlowTheme.of(context).secondaryBackground,
-            elevation: 4.0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.network(
-                      widget.img!,
-                      width: 300.0,
-                      height: 200.0,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ],
             ),
           ),
           Expanded(
