@@ -1,4 +1,5 @@
 import '/backend/supabase/supabase.dart';
+import '/components/detalhes_produto_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -469,32 +470,47 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            context.pushNamed(
-                                              'detalhes',
-                                              queryParameters: {
-                                                'nome': serializeParam(
-                                                  carouselEmpromoRow.nome,
-                                                  ParamType.String,
-                                                ),
-                                                'descricao': serializeParam(
-                                                  carouselEmpromoRow.descricao,
-                                                  ParamType.String,
-                                                ),
-                                                'valor': serializeParam(
-                                                  carouselEmpromoRow.valorNovo,
-                                                  ParamType.double,
-                                                ),
-                                                'img': serializeParam(
-                                                  carouselEmpromoRow.img,
-                                                  ParamType.String,
-                                                ),
-                                                'id': serializeParam(
-                                                  carouselEmpromoRow.id
-                                                      .toDouble(),
-                                                  ParamType.double,
-                                                ),
-                                              }.withoutNulls,
-                                            );
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return GestureDetector(
+                                                  onTap: () => _model
+                                                          .unfocusNode
+                                                          .canRequestFocus
+                                                      ? FocusScope.of(context)
+                                                          .requestFocus(_model
+                                                              .unfocusNode)
+                                                      : FocusScope.of(context)
+                                                          .unfocus(),
+                                                  child: Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child: Container(
+                                                      height: 700.0,
+                                                      child:
+                                                          DetalhesProdutoWidget(
+                                                        nome: carouselEmpromoRow
+                                                            .nome!,
+                                                        descricao:
+                                                            carouselEmpromoRow
+                                                                .descricao!,
+                                                        img: carouselEmpromoRow
+                                                            .img!,
+                                                        valor:
+                                                            carouselEmpromoRow
+                                                                .valorNovo!,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
                                           },
                                           child: Stack(
                                             children: [
