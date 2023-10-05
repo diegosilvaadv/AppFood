@@ -473,9 +473,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             await showModalBottomSheet(
                                               isScrollControlled: true,
                                               backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              barrierColor: Color(0x00FFFFFF),
+                                                  Color(0x891D2428),
+                                              barrierColor: Color(0x36000000),
                                               enableDrag: false,
                                               context: context,
                                               builder: (context) {
@@ -493,7 +492,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         MediaQuery.viewInsetsOf(
                                                             context),
                                                     child: Container(
-                                                      height: 700.0,
+                                                      height: 1500.0,
                                                       child:
                                                           DetalhesProdutoWidget(
                                                         nome: carouselEmpromoRow
