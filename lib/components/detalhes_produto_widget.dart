@@ -221,7 +221,7 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
                         child: Container(
-                          width: 160.0,
+                          width: 180.0,
                           height: 50.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
