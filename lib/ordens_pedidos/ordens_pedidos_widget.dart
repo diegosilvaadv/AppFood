@@ -101,7 +101,7 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                   16.0, 8.0, 16.0, 0.0),
                               child: Container(
                                 width: double.infinity,
-                                height: 150.0,
+                                height: 180.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -219,6 +219,26 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                                                           0.0, 0.0, 0.0, 2.0),
                                                   child: Text(
                                                     'Forma de Pagamento: ${ordensPedidosItem.formaPag}',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 2.0),
+                                                  child: Text(
+                                                    'Data: ${dateTimeFormat(
+                                                      'd/M H:mm',
+                                                      ordensPedidosItem.data,
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    )}',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium,
