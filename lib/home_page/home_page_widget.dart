@@ -327,74 +327,71 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       ],
                     ),
                   ),
-                  Flexible(
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 28.0, 50.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Flexible(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 8.0, 0.0),
-                              child: TextFormField(
-                                controller: _model.textController,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelText: 'Pesquisar',
-                                  labelStyle:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      width: 0.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(20.0),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 28.0, 50.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 0.0, 8.0, 0.0),
+                            child: TextFormField(
+                              controller: _model.textController,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                labelText: 'Pesquisar',
+                                labelStyle:
+                                    FlutterFlowTheme.of(context).labelMedium,
+                                hintStyle:
+                                    FlutterFlowTheme.of(context).labelMedium,
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    width: 0.0,
                                   ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      width: 0.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
-                                  errorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context).error,
-                                      width: 0.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
-                                  focusedErrorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context).error,
-                                      width: 0.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
-                                  filled: true,
-                                  fillColor: Color(0x0A000000),
-                                  prefixIcon: Icon(
-                                    Icons.search,
-                                  ),
-                                  suffixIcon: Icon(
-                                    Icons.keyboard_double_arrow_right_outlined,
-                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                                validator: _model.textControllerValidator
-                                    .asValidator(context),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 0.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 0.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 0.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                filled: true,
+                                fillColor: Color(0x0A000000),
+                                prefixIcon: Icon(
+                                  Icons.search,
+                                ),
+                                suffixIcon: Icon(
+                                  Icons.keyboard_double_arrow_right_outlined,
+                                ),
                               ),
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              validator: _model.textControllerValidator
+                                  .asValidator(context),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   Padding(
