@@ -73,7 +73,7 @@ class _DrawerWidgetState extends State<DrawerWidget>
       width: MediaQuery.sizeOf(context).width * 0.8,
       height: double.infinity,
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).primary,
+        color: Color(0x84F1F4F8),
         boxShadow: [
           BoxShadow(
             blurRadius: 0.0,
