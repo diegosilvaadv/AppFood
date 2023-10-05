@@ -747,8 +747,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                 tabletLandscape: false,
               ))
                 FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    context.pushNamed('dashboard');
                   },
                   text: 'ADMs',
                   options: FFButtonOptions(
