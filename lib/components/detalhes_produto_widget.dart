@@ -156,99 +156,108 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
-                        child: Text(
-                          formatNumber(
-                            widget.valor,
-                            formatType: FormatType.decimal,
-                            decimalType: DecimalType.periodDecimal,
-                            currency: 'R\$',
+                      Flexible(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              6.0, 6.0, 6.0, 6.0),
+                          child: Text(
+                            formatNumber(
+                              widget.valor,
+                              formatType: FormatType.decimal,
+                              decimalType: DecimalType.periodDecimal,
+                              currency: 'R\$',
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                ),
                           ),
-                          style: FlutterFlowTheme.of(context)
-                              .titleSmall
-                              .override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).primaryText,
+                        ),
+                      ),
+                      Flexible(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              6.0, 6.0, 6.0, 6.0),
+                          child: Container(
+                            width: 160.0,
+                            height: 50.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(8.0),
+                              shape: BoxShape.rectangle,
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).alternate,
+                                width: 2.0,
                               ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
-                        child: Container(
-                          width: 160.0,
-                          height: 50.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(8.0),
-                            shape: BoxShape.rectangle,
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).alternate,
-                              width: 2.0,
                             ),
-                          ),
-                          child: FlutterFlowCountController(
-                            decrementIconBuilder: (enabled) => FaIcon(
-                              FontAwesomeIcons.minus,
-                              color: enabled
-                                  ? FlutterFlowTheme.of(context).secondaryText
-                                  : FlutterFlowTheme.of(context).alternate,
-                              size: 20.0,
+                            child: FlutterFlowCountController(
+                              decrementIconBuilder: (enabled) => FaIcon(
+                                FontAwesomeIcons.minus,
+                                color: enabled
+                                    ? FlutterFlowTheme.of(context).secondaryText
+                                    : FlutterFlowTheme.of(context).alternate,
+                                size: 20.0,
+                              ),
+                              incrementIconBuilder: (enabled) => FaIcon(
+                                FontAwesomeIcons.plus,
+                                color: enabled
+                                    ? FlutterFlowTheme.of(context).primary
+                                    : FlutterFlowTheme.of(context).alternate,
+                                size: 20.0,
+                              ),
+                              countBuilder: (count) => Text(
+                                count.toString(),
+                                style: FlutterFlowTheme.of(context).titleLarge,
+                              ),
+                              count: _model.countControllerValue ??= 1,
+                              updateCount: (count) => setState(
+                                  () => _model.countControllerValue = count),
+                              stepSize: 1,
+                              minimum: 1,
+                              maximum: 100,
                             ),
-                            incrementIconBuilder: (enabled) => FaIcon(
-                              FontAwesomeIcons.plus,
-                              color: enabled
-                                  ? FlutterFlowTheme.of(context).primary
-                                  : FlutterFlowTheme.of(context).alternate,
-                              size: 20.0,
-                            ),
-                            countBuilder: (count) => Text(
-                              count.toString(),
-                              style: FlutterFlowTheme.of(context).titleLarge,
-                            ),
-                            count: _model.countControllerValue ??= 1,
-                            updateCount: (count) => setState(
-                                () => _model.countControllerValue = count),
-                            stepSize: 1,
-                            minimum: 1,
-                            maximum: 100,
                           ),
                         ),
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
-                        child: FlutterFlowIconButton(
-                          borderColor: Color(0xFF0D820A),
-                          borderRadius: 20.0,
-                          borderWidth: 1.0,
-                          buttonSize: 40.0,
-                          fillColor: Color(0xFF13DC0C),
-                          icon: Icon(
-                            Icons.add,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24.0,
+                      Flexible(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              6.0, 6.0, 6.0, 6.0),
+                          child: FlutterFlowIconButton(
+                            borderColor: Color(0xFF0D820A),
+                            borderRadius: 20.0,
+                            borderWidth: 1.0,
+                            buttonSize: 40.0,
+                            fillColor: Color(0xFF13DC0C),
+                            icon: Icon(
+                              Icons.add,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              size: 24.0,
+                            ),
+                            onPressed: () async {
+                              setState(() {
+                                FFAppState().addToPedido(PedidoStruct(
+                                  nome: widget.nome,
+                                  preco: widget.valor,
+                                  quantidade:
+                                      _model.countControllerValue?.toDouble(),
+                                  img: widget.img,
+                                ));
+                                FFAppState().cardNumero =
+                                    FFAppState().cardNumero + 1.0;
+                                FFAppState().Soma = FFAppState().Soma +
+                                    functions.newCustomFunction(
+                                        widget.valor!,
+                                        _model.countControllerValue!
+                                            .toDouble());
+                              });
+                              context.safePop();
+                            },
                           ),
-                          onPressed: () async {
-                            setState(() {
-                              FFAppState().addToPedido(PedidoStruct(
-                                nome: widget.nome,
-                                preco: widget.valor,
-                                quantidade:
-                                    _model.countControllerValue?.toDouble(),
-                                img: widget.img,
-                              ));
-                              FFAppState().cardNumero =
-                                  FFAppState().cardNumero + 1.0;
-                              FFAppState().Soma = FFAppState().Soma +
-                                  functions.newCustomFunction(widget.valor!,
-                                      _model.countControllerValue!.toDouble());
-                            });
-                            context.safePop();
-                          },
                         ),
                       ),
                     ],
