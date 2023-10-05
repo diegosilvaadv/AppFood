@@ -70,7 +70,7 @@ class _DrawerWidgetState extends State<DrawerWidget>
     context.watch<FFAppState>();
 
     return Container(
-      width: 270.0,
+      width: MediaQuery.sizeOf(context).width * 0.8,
       height: double.infinity,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primary,
@@ -201,11 +201,6 @@ class _DrawerWidgetState extends State<DrawerWidget>
                                 ],
                               ),
                             ),
-                          ),
-                          Icon(
-                            Icons.notifications_none,
-                            color: FlutterFlowTheme.of(context).info,
-                            size: 28.0,
                           ),
                         ],
                       ),
