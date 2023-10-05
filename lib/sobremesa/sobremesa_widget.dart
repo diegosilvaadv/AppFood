@@ -53,72 +53,73 @@ class _SobremesaWidgetState extends State<SobremesaWidget> {
           iconTheme:
               IconThemeData(color: FlutterFlowTheme.of(context).primaryText),
           automaticallyImplyLeading: true,
-          title: Text(
-            'Sobremesas',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  fontSize: 22.0,
+          title: InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              context.pushNamed(
+                'carrinho',
+                extra: <String, dynamic>{
+                  kTransitionInfoKey: TransitionInfo(
+                    hasTransition: true,
+                    transitionType: PageTransitionType.rightToLeft,
+                  ),
+                },
+              );
+            },
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Sobremesas',
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                        fontFamily: 'Outfit',
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        fontSize: 22.0,
+                      ),
                 ),
-          ),
-          actions: [
-            InkWell(
-              splashColor: Colors.transparent,
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: () async {
-                context.pushNamed(
-                  'carrinho',
-                  extra: <String, dynamic>{
-                    kTransitionInfoKey: TransitionInfo(
-                      hasTransition: true,
-                      transitionType: PageTransitionType.rightToLeft,
-                    ),
-                  },
-                );
-              },
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
+                Flexible(
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 6.0, 0.0),
                     child: Icon(
                       Icons.local_grocery_store,
                       color: FlutterFlowTheme.of(context).secondaryText,
                       size: 24.0,
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(3.94, 2.72),
-                    child: badges.Badge(
-                      badgeContent: Text(
-                        formatNumber(
-                          FFAppState().cardNumero,
-                          formatType: FormatType.custom,
-                          format: '0',
-                          locale: '',
-                        ),
-                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                              fontFamily: 'Readex Pro',
-                              color: Colors.white,
-                            ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(3.94, 2.72),
+                  child: badges.Badge(
+                    badgeContent: Text(
+                      formatNumber(
+                        FFAppState().cardNumero,
+                        formatType: FormatType.custom,
+                        format: '0',
+                        locale: '',
                       ),
-                      showBadge: true,
-                      shape: badges.BadgeShape.circle,
-                      badgeColor: Color(0xFF13DC0C),
-                      elevation: 4.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                      position: badges.BadgePosition.topEnd(),
-                      animationType: badges.BadgeAnimationType.scale,
-                      toAnimate: true,
+                      style: FlutterFlowTheme.of(context).titleSmall.override(
+                            fontFamily: 'Readex Pro',
+                            color: Colors.white,
+                          ),
                     ),
+                    showBadge: true,
+                    shape: badges.BadgeShape.circle,
+                    badgeColor: Color(0xFF13DC0C),
+                    elevation: 4.0,
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    position: badges.BadgePosition.topEnd(),
+                    animationType: badges.BadgeAnimationType.scale,
+                    toAnimate: true,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
+          actions: [],
           centerTitle: false,
           elevation: 0.0,
         ),

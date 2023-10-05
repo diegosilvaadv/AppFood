@@ -39,17 +39,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => HomePageWidget(),
+      errorBuilder: (context, state) => NavBarPage(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => HomePageWidget(),
+          builder: (context, _) => NavBarPage(),
         ),
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
-          builder: (context, params) => HomePageWidget(),
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'HomePage')
+              : HomePageWidget(),
         ),
         FFRoute(
           name: 'Comidas',
@@ -74,7 +76,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ordens_pedidos',
           path: '/ordens_pedid',
-          builder: (context, params) => OrdensPedidosWidget(),
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'ordens_pedidos')
+              : NavBarPage(
+                  initialPage: 'ordens_pedidos',
+                  page: OrdensPedidosWidget(),
+                ),
         ),
         FFRoute(
           name: 'carrinho',
