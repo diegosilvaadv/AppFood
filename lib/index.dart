@@ -6,4 +6,3 @@ export '/sobremesa/sobremesa_widget.dart' show SobremesaWidget;
 export '/entradas/entradas_widget.dart' show EntradasWidget;
 export '/ordens_pedidos/ordens_pedidos_widget.dart' show OrdensPedidosWidget;
 export '/carrinho/carrinho_widget.dart' show CarrinhoWidget;
-export '/detalhes/detalhes_widget.dart' show DetalhesWidget;

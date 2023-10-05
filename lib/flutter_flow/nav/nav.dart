@@ -87,17 +87,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'carrinho',
           path: '/carrinho',
           builder: (context, params) => CarrinhoWidget(),
-        ),
-        FFRoute(
-          name: 'detalhes',
-          path: '/detalhes',
-          builder: (context, params) => DetalhesWidget(
-            nome: params.getParam('nome', ParamType.String),
-            descricao: params.getParam('descricao', ParamType.String),
-            valor: params.getParam('valor', ParamType.double),
-            img: params.getParam('img', ParamType.String),
-            id: params.getParam('id', ParamType.double),
-          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

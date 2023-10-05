@@ -1,4 +1,5 @@
 import '/backend/supabase/supabase.dart';
+import '/components/detalhes_produto_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -102,31 +103,37 @@ class _ComidasWidgetState extends State<ComidasWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed(
-                              'detalhes',
-                              queryParameters: {
-                                'nome': serializeParam(
-                                  columnPratosRow.nome,
-                                  ParamType.String,
-                                ),
-                                'descricao': serializeParam(
-                                  columnPratosRow.descricao,
-                                  ParamType.String,
-                                ),
-                                'valor': serializeParam(
-                                  columnPratosRow.valor,
-                                  ParamType.double,
-                                ),
-                                'img': serializeParam(
-                                  columnPratosRow.img,
-                                  ParamType.String,
-                                ),
-                                'id': serializeParam(
-                                  columnPratosRow.id.toDouble(),
-                                  ParamType.double,
-                                ),
-                              }.withoutNulls,
-                            );
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              barrierColor: Color(0x47000000),
+                              enableDrag: false,
+                              context: context,
+                              builder: (context) {
+                                return GestureDetector(
+                                  onTap: () =>
+                                      _model.unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: Container(
+                                      height: 500.0,
+                                      child: DetalhesProdutoWidget(
+                                        nome: columnPratosRow.nome!,
+                                        descricao: columnPratosRow.descricao!,
+                                        img: columnPratosRow.img!,
+                                        valor: columnPratosRow.valor!,
+                                        id: columnPratosRow.id.toString(),
+                                        data: columnPratosRow.createdAt,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
                           },
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
