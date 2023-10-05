@@ -62,7 +62,8 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                 context.pushNamed('HomePage');
               },
               child: Text(
-                'Meus Pedidos | Fazer Mais Pedidos',
+                'Meus Pedidos ',
+                textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Outfit',
                       color: FlutterFlowTheme.of(context).primaryText,
@@ -71,7 +72,7 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
               ),
             ),
             actions: [],
-            centerTitle: false,
+            centerTitle: true,
             elevation: 0.0,
           ),
           body: SafeArea(
