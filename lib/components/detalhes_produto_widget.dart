@@ -81,19 +81,21 @@ class _DetalhesProdutoWidgetState extends State<DetalhesProdutoWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          widget.nome!,
-                          textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context).titleLarge,
+                        Expanded(
+                          child: Text(
+                            widget.nome!,
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context).titleLarge,
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 0.0, 0.0),
-                          child: Row(
+                              6.0, 6.0, 10.0, 6.0),
+                          child: Column(
                             mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               InkWell(
                                 splashColor: Colors.transparent,
