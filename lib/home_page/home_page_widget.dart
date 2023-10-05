@@ -72,7 +72,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
     context.watch<FFAppState>();
 
     return Opacity(
-      opacity: MediaQuery.sizeOf(context).height,
+      opacity: MediaQuery.sizeOf(context).width,
       child: GestureDetector(
         onTap: () => _model.unfocusNode.canRequestFocus
             ? FocusScope.of(context).requestFocus(_model.unfocusNode)
