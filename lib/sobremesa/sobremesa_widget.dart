@@ -171,9 +171,8 @@ class _SobremesaWidgetState extends State<SobremesaWidget> {
                           onTap: () async {
                             await showModalBottomSheet(
                               isScrollControlled: true,
-                              backgroundColor: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              barrierColor: Color(0x47000000),
+                              backgroundColor: Color(0x00F1F4F8),
+                              barrierColor: Color(0x8A000000),
                               enableDrag: false,
                               context: context,
                               builder: (context) {
