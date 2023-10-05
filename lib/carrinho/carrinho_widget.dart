@@ -637,6 +637,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                           img: FFAppState()
                                               .Pedido[FFAppState().contador]
                                               .img,
+                                          data: getCurrentTimestamp,
                                         ));
                                         FFAppState().Soma2 = FFAppState()
                                                 .Soma2 +
