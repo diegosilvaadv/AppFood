@@ -30,7 +30,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
     super.initState();
     _model = createModel(context, () => CarrinhoModel());
 
-    _model.textController ??= TextEditingController();
+    _model.textController ??=
+        TextEditingController(text: FFAppState().NomeCliente);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -648,6 +649,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                     .Pedido[
                                                         FFAppState().contador]
                                                     .quantidade);
+                                        FFAppState().NomeCliente =
+                                            _model.textController.text;
                                       });
                                       _model.apiResultb8x =
                                           await PedidosClienteTable().insert({

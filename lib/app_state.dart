@@ -58,6 +58,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _Soma2 = prefs.getDouble('ff_Soma2') ?? _Soma2;
     });
+    _safeInit(() {
+      _NomeCliente = prefs.getString('ff_NomeCliente') ?? _NomeCliente;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -173,6 +176,13 @@ class FFAppState extends ChangeNotifier {
   set Soma2(double _value) {
     _Soma2 = _value;
     prefs.setDouble('ff_Soma2', _value);
+  }
+
+  String _NomeCliente = '';
+  String get NomeCliente => _NomeCliente;
+  set NomeCliente(String _value) {
+    _NomeCliente = _value;
+    prefs.setString('ff_NomeCliente', _value);
   }
 }
 
