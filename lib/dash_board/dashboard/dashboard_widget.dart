@@ -68,7 +68,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                         ),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.2,
-                          height: MediaQuery.sizeOf(context).height * 1.0,
+                          height: MediaQuery.sizeOf(context).height * 0.9,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -603,8 +603,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: MediaQuery.sizeOf(context).height * 1.0,
+                              width: MediaQuery.sizeOf(context).width * 0.73,
+                              height: MediaQuery.sizeOf(context).height * 0.9,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
