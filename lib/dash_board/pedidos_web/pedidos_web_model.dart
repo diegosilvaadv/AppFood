@@ -12,7 +12,8 @@ class PedidosWebModel extends FlutterFlowModel<PedidosWebWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  Completer<List<PedidosClienteRow>>? requestCompleter;
+  Completer<List<PedidosClienteRow>>? requestCompleter2;
+  Completer<List<PedidosClienteRow>>? requestCompleter1;
 
   /// Initialization and disposal methods.
 
@@ -26,7 +27,7 @@ class PedidosWebModel extends FlutterFlowModel<PedidosWebWidget> {
 
   /// Additional helper methods are added here.
 
-  Future waitForRequestCompleted({
+  Future waitForRequestCompleted2({
     double minWait = 0,
     double maxWait = double.infinity,
   }) async {
@@ -34,7 +35,22 @@ class PedidosWebModel extends FlutterFlowModel<PedidosWebWidget> {
     while (true) {
       await Future.delayed(Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = requestCompleter?.isCompleted ?? false;
+      final requestComplete = requestCompleter2?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
+
+  Future waitForRequestCompleted1({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = requestCompleter1?.isCompleted ?? false;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
         break;
       }
