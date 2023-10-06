@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +34,7 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
     super.initState();
     _model = createModel(context, () => PagPesquisaModel());
 
-    _model.textController ??= TextEditingController(text: widget.nomepesquisa);
+    _model.textController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -90,73 +89,73 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 0.0),
-                  child: TextFormField(
-                    controller: _model.textController,
-                    onChanged: (_) => EasyDebounce.debounce(
-                      '_model.textController',
-                      Duration(milliseconds: 2000),
-                      () => setState(() {}),
-                    ),
-                    onFieldSubmitted: (_) async {
-                      setState(() => _model.requestCompleter = null);
-                      await _model.waitForRequestCompleted();
-                    },
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Pesquisar',
-                      labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.search_outlined,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                      ),
-                      suffixIcon: _model.textController!.text.isNotEmpty
-                          ? InkWell(
-                              onTap: () async {
-                                _model.textController?.clear();
-                                setState(() {});
-                              },
-                              child: Icon(
-                                Icons.clear,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 22.0,
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 28.0, 16.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 8.0, 0.0),
+                          child: TextFormField(
+                            controller: _model.textController,
+                            onFieldSubmitted: (_) async {
+                              setState(() => _model.requestCompleter = null);
+                              await _model.waitForRequestCompleted();
+                            },
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              labelText: 'Pesquisar',
+                              labelStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
+                              hintStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  width: 0.0,
+                                ),
+                                borderRadius: BorderRadius.circular(20.0),
                               ),
-                            )
-                          : null,
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                    maxLines: null,
-                    validator:
-                        _model.textControllerValidator.asValidator(context),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  width: 0.0,
+                                ),
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 0.0,
+                                ),
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 0.0,
+                                ),
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                              filled: true,
+                              fillColor: Color(0x0A000000),
+                              prefixIcon: Icon(
+                                Icons.search,
+                              ),
+                              suffixIcon: Icon(
+                                Icons.keyboard_double_arrow_right_outlined,
+                              ),
+                            ),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            validator: _model.textControllerValidator
+                                .asValidator(context),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Padding(
@@ -168,7 +167,7 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                                 queryFn: (q) => q
                                     .eq(
                                       'nome_produto',
-                                      _model.textController.text,
+                                      '',
                                     )
                                     .order('nome_produto'),
                               )))
