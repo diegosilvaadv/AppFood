@@ -621,7 +621,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                   ),
                                   child: Container(
                                     width:
-                                        MediaQuery.sizeOf(context).width * 0.4,
+                                        MediaQuery.sizeOf(context).width * 0.35,
                                     height:
                                         MediaQuery.sizeOf(context).height * 0.9,
                                     decoration: BoxDecoration(
@@ -640,7 +640,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  'PEDIDOS MAIS RECENTES',
+                                                  'PEDIDOS  COM PRIORIDADE',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .headlineLarge
@@ -687,8 +687,9 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                   List<PedidosClienteRow>>(
                                                 future: PedidosClienteTable()
                                                     .queryRows(
-                                                  queryFn: (q) =>
-                                                      q.order('created_at'),
+                                                  queryFn: (q) => q.order(
+                                                      'created_at',
+                                                      ascending: true),
                                                 ),
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
@@ -740,7 +741,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                               MediaQuery.sizeOf(
                                                                           context)
                                                                       .width *
-                                                                  0.5,
+                                                                  0.4,
                                                           height: 180.0,
                                                           decoration:
                                                               BoxDecoration(
@@ -980,7 +981,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                     ),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
-                                          0.73,
+                                          0.35,
                                       height:
                                           MediaQuery.sizeOf(context).height *
                                               0.9,
@@ -1001,7 +1002,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Text(
-                                                    'PEDIDOS  COM PRIORIDADE',
+                                                    'PEDIDOS MAIS RECENTES ',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .headlineLarge
@@ -1053,9 +1054,8 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                     List<PedidosClienteRow>>(
                                                   future: PedidosClienteTable()
                                                       .queryRows(
-                                                    queryFn: (q) => q.order(
-                                                        'created_at',
-                                                        ascending: true),
+                                                    queryFn: (q) =>
+                                                        q.order('created_at'),
                                                   ),
                                                   builder: (context, snapshot) {
                                                     // Customize what your widget looks like when it's loading.
