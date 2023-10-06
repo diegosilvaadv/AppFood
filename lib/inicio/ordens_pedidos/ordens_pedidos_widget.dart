@@ -85,10 +85,8 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: Builder(
                       builder: (context) {
-                        final ordensPedidos = FFAppState()
-                            .ordensPedidos
-                            .take(ordensPedidos.length)
-                            .toList();
+                        final ordensPedidos =
+                            FFAppState().ordensPedidos.toList();
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           primary: false,
