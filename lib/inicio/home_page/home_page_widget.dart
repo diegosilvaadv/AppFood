@@ -982,9 +982,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Expanded(
-                              child: FutureBuilder<List<EmpromoRow>>(
-                                future: EmpromoTable().queryRows(
-                                  queryFn: (q) => q,
+                              child: FutureBuilder<List<ProdutosRow>>(
+                                future: ProdutosTable().queryRows(
+                                  queryFn: (q) => q.eq(
+                                    'e_promo',
+                                    true,
+                                  ),
                                 ),
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
@@ -1003,16 +1006,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       ),
                                     );
                                   }
-                                  List<EmpromoRow> carouselEmpromoRowList =
+                                  List<ProdutosRow> carouselProdutosRowList =
                                       snapshot.data!;
                                   return Container(
                                     width: double.infinity,
                                     height: 250.0,
                                     child: CarouselSlider.builder(
-                                      itemCount: carouselEmpromoRowList.length,
+                                      itemCount: carouselProdutosRowList.length,
                                       itemBuilder: (context, carouselIndex, _) {
-                                        final carouselEmpromoRow =
-                                            carouselEmpromoRowList[
+                                        final carouselProdutosRow =
+                                            carouselProdutosRowList[
                                                 carouselIndex];
                                         return InkWell(
                                           splashColor: Colors.transparent,
@@ -1045,21 +1048,23 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       height: 550.0,
                                                       child:
                                                           DetalhesProdutoWidget(
-                                                        nome: carouselEmpromoRow
-                                                            .nome!,
+                                                        nome:
+                                                            carouselProdutosRow
+                                                                .nomeProduto!,
                                                         descricao:
-                                                            carouselEmpromoRow
+                                                            carouselProdutosRow
                                                                 .descricao!,
-                                                        img: carouselEmpromoRow
+                                                        img: carouselProdutosRow
                                                             .img!,
                                                         valor:
-                                                            carouselEmpromoRow
-                                                                .valorNovo!,
-                                                        id: carouselEmpromoRow
+                                                            carouselProdutosRow
+                                                                .valorPromo!,
+                                                        id: carouselProdutosRow
                                                             .id
                                                             .toString(),
-                                                        data: carouselEmpromoRow
-                                                            .createdAt,
+                                                        data:
+                                                            carouselProdutosRow
+                                                                .createdAt,
                                                       ),
                                                     ),
                                                   ),
@@ -1104,7 +1109,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       fadeOutDuration: Duration(
                                                           milliseconds: 500),
                                                       imageUrl:
-                                                          carouselEmpromoRow
+                                                          carouselProdutosRow
                                                               .img!,
                                                       width: 100.0,
                                                       height: 100.0,
@@ -1166,8 +1171,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               children: [
                                                                 Expanded(
                                                                   child: Text(
-                                                                    carouselEmpromoRow
-                                                                        .nome!,
+                                                                    carouselProdutosRow
+                                                                        .nomeProduto!,
                                                                     textAlign:
                                                                         TextAlign
                                                                             .center,
@@ -1210,8 +1215,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               ),
                                                               Text(
                                                                 formatNumber(
-                                                                  carouselEmpromoRow
-                                                                      .valorAntigo!,
+                                                                  carouselProdutosRow
+                                                                      .valor!,
                                                                   formatType:
                                                                       FormatType
                                                                           .custom,
@@ -1245,8 +1250,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               ),
                                                               Text(
                                                                 formatNumber(
-                                                                  carouselEmpromoRow
-                                                                      .valorNovo!,
+                                                                  carouselProdutosRow
+                                                                      .valorPromo!,
                                                                   formatType:
                                                                       FormatType
                                                                           .custom,
@@ -1282,7 +1287,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               CarouselController(),
                                       options: CarouselOptions(
                                         initialPage: min(1,
-                                            carouselEmpromoRowList.length - 1),
+                                            carouselProdutosRowList.length - 1),
                                         viewportFraction: 0.5,
                                         disableCenter: true,
                                         enlargeCenterPage: true,
