@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'carrinho_widget.dart' show CarrinhoWidget;
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -45,6 +46,7 @@ class CarrinhoModel extends FlutterFlowModel<CarrinhoWidget> {
   FormFieldController<String>? formaPagValueController;
   // Stores action output result for [Backend Call - Insert Row] action in Button widget.
   PedidosClienteRow? apiResultb8x;
+  Completer<List<PedidosClienteRow>>? requestCompleter;
 
   /// Initialization and disposal methods.
 
@@ -60,4 +62,19 @@ class CarrinhoModel extends FlutterFlowModel<CarrinhoWidget> {
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
+
+  Future waitForRequestCompleted({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = requestCompleter?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
 }

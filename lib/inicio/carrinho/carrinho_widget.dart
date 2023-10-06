@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -549,164 +550,212 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Expanded(
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  var _shouldSetState = false;
-                                  if (FFAppState().Pedido.length >= 1) {
-                                    setState(() {
-                                      FFAppState().contador = -1;
-                                    });
-                                    if (_model.formKey2.currentState == null ||
-                                        !_model.formKey2.currentState!
-                                            .validate()) {
-                                      return;
-                                    }
-                                    if (_model.formKey1.currentState == null ||
-                                        !_model.formKey1.currentState!
-                                            .validate()) {
-                                      return;
-                                    }
-                                    if (_model.numMesaValue == null) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return AlertDialog(
-                                            title: Text('Selecione sua mesa'),
-                                            content: Text(
-                                                'Para continuar por favor adiciona qual mesa está.'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      );
-                                      return;
-                                    }
-                                    if (_model.formKey3.currentState == null ||
-                                        !_model.formKey3.currentState!
-                                            .validate()) {
-                                      return;
-                                    }
-                                    if (_model.formaPagValue == null) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return AlertDialog(
-                                            title: Text(
-                                                'Adicione a forma de pagamento'),
-                                            content: Text(
-                                                'Para continuar por favor adiciona a forma de pagamento.'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      );
-                                      return;
-                                    }
-                                    while (FFAppState().contador <=
-                                        FFAppState().Pedido.length) {
-                                      setState(() {
-                                        FFAppState().contador =
-                                            FFAppState().contador + 1;
-                                      });
-                                      setState(() {
-                                        FFAppState().addToOrdensPedidos(
-                                            OrdensPedidosStruct(
-                                          nomeCliente:
-                                              _model.textController.text,
-                                          formaPag: _model.formaPagValue,
-                                          mesa: _model.numMesaValue,
-                                          pedido: FFAppState()
-                                              .Pedido[FFAppState().contador]
-                                              .nome,
-                                          valor: FFAppState()
-                                              .Pedido[FFAppState().contador]
-                                              .preco,
-                                          quantidade: FFAppState()
-                                              .Pedido[FFAppState().contador]
-                                              .quantidade,
-                                          img: FFAppState()
-                                              .Pedido[FFAppState().contador]
-                                              .img,
-                                          data: getCurrentTimestamp,
-                                        ));
-                                        FFAppState().Soma2 = FFAppState()
-                                                .Soma2 +
-                                            functions.newCustomFunction(
-                                                FFAppState()
-                                                    .Pedido[
-                                                        FFAppState().contador]
-                                                    .preco,
-                                                FFAppState()
-                                                    .Pedido[
-                                                        FFAppState().contador]
-                                                    .quantidade);
-                                        FFAppState().NomeCliente =
-                                            _model.textController.text;
-                                      });
-                                      _model.apiResultb8x =
-                                          await PedidosClienteTable().insert({
-                                        'nome_cliente':
-                                            _model.textController.text,
-                                        'n_mesa': _model.numMesaValue,
-                                        'pagamento': _model.formaPagValue,
-                                        'pedido': FFAppState()
-                                            .Pedido[FFAppState().contador]
-                                            .nome,
-                                        'quanty': FFAppState()
-                                            .Pedido[FFAppState().contador]
-                                            .quantidade,
-                                        'valor': FFAppState()
-                                            .Pedido[FFAppState().contador]
-                                            .preco,
-                                        'created_at': supaSerialize<DateTime>(
-                                            getCurrentTimestamp),
-                                        'img': FFAppState()
-                                            .Pedido[FFAppState().contador]
-                                            .img,
-                                      });
-                                      _shouldSetState = true;
-
-                                      context.pushNamed('home_or_pedidos');
-                                    }
-                                  } else {
-                                    if (_shouldSetState) setState(() {});
-                                    return;
-                                  }
-
-                                  if (_shouldSetState) setState(() {});
-                                },
-                                text: 'FINALIZAR PEDIDO',
-                                options: FFButtonOptions(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFF13DC0C),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: Colors.white,
+                              child: FutureBuilder<List<PedidosClienteRow>>(
+                                future: (_model.requestCompleter ??=
+                                        Completer<List<PedidosClienteRow>>()
+                                          ..complete(PedidosClienteTable()
+                                              .querySingleRow(
+                                            queryFn: (q) => q,
+                                          )))
+                                    .future,
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                        ),
                                       ),
-                                  elevation: 3.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
+                                    );
+                                  }
+                                  List<PedidosClienteRow>
+                                      buttonPedidosClienteRowList =
+                                      snapshot.data!;
+                                  final buttonPedidosClienteRow =
+                                      buttonPedidosClienteRowList.isNotEmpty
+                                          ? buttonPedidosClienteRowList.first
+                                          : null;
+                                  return FFButtonWidget(
+                                    onPressed: () async {
+                                      var _shouldSetState = false;
+                                      if (FFAppState().Pedido.length >= 1) {
+                                        setState(() {
+                                          FFAppState().contador = -1;
+                                        });
+                                        if (_model.formKey2.currentState ==
+                                                null ||
+                                            !_model.formKey2.currentState!
+                                                .validate()) {
+                                          return;
+                                        }
+                                        if (_model.formKey1.currentState ==
+                                                null ||
+                                            !_model.formKey1.currentState!
+                                                .validate()) {
+                                          return;
+                                        }
+                                        if (_model.numMesaValue == null) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                title:
+                                                    Text('Selecione sua mesa'),
+                                                content: Text(
+                                                    'Para continuar por favor adiciona qual mesa está.'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                          return;
+                                        }
+                                        if (_model.formKey3.currentState ==
+                                                null ||
+                                            !_model.formKey3.currentState!
+                                                .validate()) {
+                                          return;
+                                        }
+                                        if (_model.formaPagValue == null) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                title: Text(
+                                                    'Adicione a forma de pagamento'),
+                                                content: Text(
+                                                    'Para continuar por favor adiciona a forma de pagamento.'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                          return;
+                                        }
+                                        while (FFAppState().contador <=
+                                            FFAppState().Pedido.length) {
+                                          setState(() {
+                                            FFAppState().contador =
+                                                FFAppState().contador + 1;
+                                          });
+                                          setState(() {
+                                            FFAppState().addToOrdensPedidos(
+                                                OrdensPedidosStruct(
+                                              nomeCliente:
+                                                  _model.textController.text,
+                                              formaPag: _model.formaPagValue,
+                                              mesa: _model.numMesaValue,
+                                              pedido: FFAppState()
+                                                  .Pedido[FFAppState().contador]
+                                                  .nome,
+                                              valor: FFAppState()
+                                                  .Pedido[FFAppState().contador]
+                                                  .preco,
+                                              quantidade: FFAppState()
+                                                  .Pedido[FFAppState().contador]
+                                                  .quantidade,
+                                              img: FFAppState()
+                                                  .Pedido[FFAppState().contador]
+                                                  .img,
+                                              data: getCurrentTimestamp,
+                                            ));
+                                            FFAppState().Soma2 =
+                                                FFAppState().Soma2 +
+                                                    functions.newCustomFunction(
+                                                        FFAppState()
+                                                            .Pedido[FFAppState()
+                                                                .contador]
+                                                            .preco,
+                                                        FFAppState()
+                                                            .Pedido[FFAppState()
+                                                                .contador]
+                                                            .quantidade);
+                                            FFAppState().NomeCliente =
+                                                _model.textController.text;
+                                          });
+                                          _model.apiResultb8x =
+                                              await PedidosClienteTable()
+                                                  .insert({
+                                            'nome_cliente':
+                                                _model.textController.text,
+                                            'n_mesa': _model.numMesaValue,
+                                            'pagamento': _model.formaPagValue,
+                                            'pedido': FFAppState()
+                                                .Pedido[FFAppState().contador]
+                                                .nome,
+                                            'quanty': FFAppState()
+                                                .Pedido[FFAppState().contador]
+                                                .quantidade,
+                                            'valor': FFAppState()
+                                                .Pedido[FFAppState().contador]
+                                                .preco,
+                                            'created_at':
+                                                supaSerialize<DateTime>(
+                                                    getCurrentTimestamp),
+                                            'img': FFAppState()
+                                                .Pedido[FFAppState().contador]
+                                                .img,
+                                          });
+                                          _shouldSetState = true;
+                                          setState(() =>
+                                              _model.requestCompleter = null);
+                                          await _model.waitForRequestCompleted(
+                                              minWait: 10, maxWait: 20);
+
+                                          context.pushNamed('home_or_pedidos');
+                                        }
+                                      } else {
+                                        if (_shouldSetState) setState(() {});
+                                        return;
+                                      }
+
+                                      if (_shouldSetState) setState(() {});
+                                    },
+                                    text: 'FINALIZAR PEDIDO',
+                                    options: FFButtonOptions(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 40.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 24.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color: Color(0xFF13DC0C),
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: Colors.white,
+                                          ),
+                                      elevation: 3.0,
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  );
+                                },
                               ),
                             ),
                           ],
