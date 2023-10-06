@@ -111,7 +111,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'pagPesquisa',
           path: '/pagPesquisa',
-          builder: (context, params) => PagPesquisaWidget(),
+          builder: (context, params) => PagPesquisaWidget(
+            nomepesquisa: params.getParam('nomepesquisa', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

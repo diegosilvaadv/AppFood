@@ -9,7 +9,12 @@ import 'pag_pesquisa_model.dart';
 export 'pag_pesquisa_model.dart';
 
 class PagPesquisaWidget extends StatefulWidget {
-  const PagPesquisaWidget({Key? key}) : super(key: key);
+  const PagPesquisaWidget({
+    Key? key,
+    required this.nomepesquisa,
+  }) : super(key: key);
+
+  final String? nomepesquisa;
 
   @override
   _PagPesquisaWidgetState createState() => _PagPesquisaWidgetState();
@@ -25,10 +30,8 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
     super.initState();
     _model = createModel(context, () => PagPesquisaModel());
 
-    _model.textController ??= TextEditingController();
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
-          _model.textController?.text = 'Ran';
-        }));
+    _model.textController ??= TextEditingController(text: widget.nomepesquisa);
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

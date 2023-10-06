@@ -12,4 +12,4 @@ export '/inicio/home_or_pedidos/home_or_pedidos_widget.dart'
 export '/dash_board/dashboard/dashboard_widget.dart' show DashboardWidget;
 export '/dash_board/pedidos_web/pedidos_web_widget.dart' show PedidosWebWidget;
 export '/dash_board/pratos_add/pratos_add_widget.dart' show PratosAddWidget;
-export '/pag_pesquisa/pag_pesquisa_widget.dart' show PagPesquisaWidget;
+export '/inicio/pag_pesquisa/pag_pesquisa_widget.dart' show PagPesquisaWidget;

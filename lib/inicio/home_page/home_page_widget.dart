@@ -890,7 +890,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             child: TextFormField(
                               controller: _model.textController,
                               onFieldSubmitted: (_) async {
-                                context.pushNamed('pagPesquisa');
+                                context.pushNamed(
+                                  'pagPesquisa',
+                                  queryParameters: {
+                                    'nomepesquisa': serializeParam(
+                                      _model.textController.text,
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
                               },
                               obscureText: false,
                               decoration: InputDecoration(
