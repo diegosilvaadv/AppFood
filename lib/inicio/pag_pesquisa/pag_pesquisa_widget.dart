@@ -102,7 +102,6 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                       setState(() => _model.requestCompleter = null);
                       await _model.waitForRequestCompleted();
                     },
-                    autofillHints: [AutofillHints.name],
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Pesquisar',
@@ -135,8 +134,6 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                         ),
                         borderRadius: BorderRadius.circular(30.0),
                       ),
-                      filled: true,
-                      fillColor: FlutterFlowTheme.of(context).primaryBackground,
                       prefixIcon: Icon(
                         Icons.search_outlined,
                         color: FlutterFlowTheme.of(context).secondaryText,
