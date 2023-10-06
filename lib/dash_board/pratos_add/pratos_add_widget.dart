@@ -747,25 +747,35 @@ class _PratosAddWidgetState extends State<PratosAddWidget> {
                                                             MainAxisAlignment
                                                                 .spaceBetween,
                                                         children: [
-                                                          Hero(
-                                                            tag:
-                                                                listViewPratosRow
-                                                                    .img!,
-                                                            transitionOnUserGestures:
-                                                                true,
-                                                            child: ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          12.0),
-                                                              child:
-                                                                  Image.network(
-                                                                listViewPratosRow
-                                                                    .img!,
-                                                                width: 80.0,
-                                                                height: 80.0,
-                                                                fit: BoxFit
-                                                                    .fitHeight,
+                                                          Container(
+                                                            width: 250.0,
+                                                            height: 250.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                            ),
+                                                            child: Hero(
+                                                              tag:
+                                                                  listViewPratosRow
+                                                                      .img!,
+                                                              transitionOnUserGestures:
+                                                                  true,
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            12.0),
+                                                                child: Image
+                                                                    .network(
+                                                                  listViewPratosRow
+                                                                      .img!,
+                                                                  width: 80.0,
+                                                                  height: 80.0,
+                                                                  fit: BoxFit
+                                                                      .fitHeight,
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
