@@ -165,15 +165,10 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                     future: (_model.requestCompleter ??=
                             Completer<List<ProdutosRow>>()
                               ..complete(ProdutosTable().queryRows(
-                                queryFn: (q) => q
-                                    .gte(
-                                      'id',
-                                      1,
-                                    )
-                                    .eq(
-                                      'nome_produto',
-                                      _model.textController.text,
-                                    ),
+                                queryFn: (q) => q.gte(
+                                  'id',
+                                  1,
+                                ),
                               )))
                         .future,
                     builder: (context, snapshot) {
