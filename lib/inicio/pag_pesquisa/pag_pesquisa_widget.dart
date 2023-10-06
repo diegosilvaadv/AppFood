@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -97,6 +98,10 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                       Duration(milliseconds: 2000),
                       () => setState(() {}),
                     ),
+                    onFieldSubmitted: (_) async {
+                      setState(() => _model.requestCompleter = null);
+                      await _model.waitForRequestCompleted();
+                    },
                     autofillHints: [AutofillHints.name],
                     obscureText: false,
                     decoration: InputDecoration(
@@ -160,14 +165,17 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 0.0, 0.0),
                   child: FutureBuilder<List<ProdutosRow>>(
-                    future: ProdutosTable().queryRows(
-                      queryFn: (q) => q
-                          .eq(
-                            'nome_produto',
-                            widget.nomepesquisa,
-                          )
-                          .order('nome_produto'),
-                    ),
+                    future: (_model.requestCompleter ??=
+                            Completer<List<ProdutosRow>>()
+                              ..complete(ProdutosTable().queryRows(
+                                queryFn: (q) => q
+                                    .eq(
+                                      'nome_produto',
+                                      _model.textController.text,
+                                    )
+                                    .order('nome_produto'),
+                              )))
+                        .future,
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
