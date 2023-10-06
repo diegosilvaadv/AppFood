@@ -169,9 +169,9 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 0.0, 0.0),
                   child: FutureBuilder<List<ProdutosRow>>(
                     future: ProdutosTable().queryRows(
-                      queryFn: (q) => q.eq(
-                        'nome_produto',
-                        _model.textController.text,
+                      queryFn: (q) => q.gte(
+                        'id',
+                        1,
                       ),
                     ),
                     builder: (context, snapshot) {
