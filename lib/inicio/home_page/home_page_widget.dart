@@ -175,7 +175,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Container(
-                            width: MediaQuery.sizeOf(context).width * 0.7,
+                            width: MediaQuery.sizeOf(context).width * 0.5,
                             height: MediaQuery.sizeOf(context).height * 0.05,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).tertiary,
@@ -244,7 +244,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Container(
-                            width: MediaQuery.sizeOf(context).width * 0.7,
+                            width: MediaQuery.sizeOf(context).width * 0.5,
                             height: MediaQuery.sizeOf(context).height * 0.05,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).tertiary,
@@ -313,7 +313,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Container(
-                            width: MediaQuery.sizeOf(context).width * 0.7,
+                            width: MediaQuery.sizeOf(context).width * 0.5,
                             height: MediaQuery.sizeOf(context).height * 0.05,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).tertiary,
@@ -382,7 +382,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Container(
-                            width: MediaQuery.sizeOf(context).width * 0.7,
+                            width: MediaQuery.sizeOf(context).width * 0.5,
                             height: MediaQuery.sizeOf(context).height * 0.05,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).tertiary,
@@ -452,7 +452,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: MediaQuery.sizeOf(context).width * 0.7,
+                          width: MediaQuery.sizeOf(context).width * 0.5,
                           height: MediaQuery.sizeOf(context).height * 0.05,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).tertiary,
@@ -502,7 +502,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: MediaQuery.sizeOf(context).width * 0.7,
+                          width: MediaQuery.sizeOf(context).width * 0.5,
                           height: MediaQuery.sizeOf(context).height * 0.05,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).tertiary,
@@ -529,7 +529,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     6.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  'Política de Privaciade',
+                                  'Privaciade',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -552,7 +552,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: MediaQuery.sizeOf(context).width * 0.7,
+                          width: MediaQuery.sizeOf(context).width * 0.5,
                           height: MediaQuery.sizeOf(context).height * 0.05,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).tertiary,
