@@ -742,7 +742,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                           context)
                                                                       .width *
                                                                   0.4,
-                                                          height: 180.0,
+                                                          height: 190.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -867,86 +867,130 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                           CrossAxisAlignment
                                                                               .start,
                                                                       children: [
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              8.0),
-                                                                          child:
-                                                                              Text(
-                                                                            listViewPedidosClienteRow.pedido!.maybeHandleOverflow(
-                                                                              maxChars: 35,
-                                                                              replacement: '…',
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                                                                              child: Icon(
+                                                                                Icons.food_bank,
+                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                size: 24.0,
+                                                                              ),
                                                                             ),
-                                                                            style: FlutterFlowTheme.of(context).titleLarge.override(
-                                                                                  fontFamily: 'Outfit',
-                                                                                  fontSize: 25.0,
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                              child: Text(
+                                                                                listViewPedidosClienteRow.pedido!.maybeHandleOverflow(
+                                                                                  maxChars: 35,
+                                                                                  replacement: '…',
                                                                                 ),
-                                                                          ),
+                                                                                style: FlutterFlowTheme.of(context).titleLarge.override(
+                                                                                      fontFamily: 'Outfit',
+                                                                                      fontSize: 25.0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
                                                                         ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              2.0),
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                                                                              child: Icon(
+                                                                                Icons.price_change_sharp,
+                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                size: 24.0,
+                                                                              ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+                                                                              child: Text(
+                                                                                '${listViewPedidosClienteRow.valor?.toString()} X ${listViewPedidosClienteRow.quanty?.toString()}',
+                                                                                style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Readex Pro',
+                                                                                      color: Color(0xFF0D820A),
+                                                                                      fontSize: 20.0,
+                                                                                      fontWeight: FontWeight.bold,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                                                                              child: Icon(
+                                                                                Icons.person,
+                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                size: 24.0,
+                                                                              ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+                                                                              child: Text(
+                                                                                'Nome:  ${listViewPedidosClienteRow.nomeCliente}',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                        Expanded(
                                                                           child:
-                                                                              Text(
-                                                                            '${listViewPedidosClienteRow.valor?.toString()} X ${listViewPedidosClienteRow.quanty?.toString()}',
-                                                                            style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                  fontFamily: 'Readex Pro',
-                                                                                  color: Color(0xFF0D820A),
-                                                                                  fontSize: 20.0,
-                                                                                  fontWeight: FontWeight.bold,
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                                                                                child: Icon(
+                                                                                  Icons.payment,
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  size: 24.0,
                                                                                 ),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              2.0),
-                                                                          child:
-                                                                              Text(
-                                                                            'Nome:  ${listViewPedidosClienteRow.nomeCliente}',
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                              ),
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+                                                                                child: Text(
+                                                                                  'Forma de Pagamento: ${listViewPedidosClienteRow.pagamento}',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                ),
+                                                                              ),
+                                                                            ],
                                                                           ),
                                                                         ),
                                                                         Expanded(
                                                                           child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
                                                                               Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                2.0),
-                                                                            child:
-                                                                                Text(
-                                                                              'Forma de Pagamento: ${listViewPedidosClienteRow.pagamento}',
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Expanded(
-                                                                          child:
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                                                                                child: Icon(
+                                                                                  Icons.date_range,
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  size: 24.0,
+                                                                                ),
+                                                                              ),
                                                                               Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                2.0),
-                                                                            child:
-                                                                                Text(
-                                                                              'Data: ${dateTimeFormat(
-                                                                                'M/d h:mm a',
-                                                                                listViewPedidosClienteRow.createdAt,
-                                                                                locale: FFLocalizations.of(context).languageCode,
-                                                                              )}',
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                            ),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+                                                                                child: Text(
+                                                                                  'Data: ${dateTimeFormat(
+                                                                                    'M/d h:mm a',
+                                                                                    listViewPedidosClienteRow.createdAt,
+                                                                                    locale: FFLocalizations.of(context).languageCode,
+                                                                                  )}',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                ),
+                                                                              ),
+                                                                            ],
                                                                           ),
                                                                         ),
                                                                       ],
