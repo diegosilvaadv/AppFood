@@ -140,7 +140,12 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 0.0, 0.0),
                   child: FutureBuilder<List<ProdutosRow>>(
                     future: ProdutosTable().queryRows(
-                      queryFn: (q) => q.order('nome_produto'),
+                      queryFn: (q) => q
+                          .eq(
+                            'nome_produto',
+                            widget.nomepesquisa,
+                          )
+                          .order('nome_produto'),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
