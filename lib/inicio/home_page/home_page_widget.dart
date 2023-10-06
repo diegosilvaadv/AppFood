@@ -1607,7 +1607,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               descricao:
                                                   columnProdutosRow.descricao!,
                                               img: columnProdutosRow.img!,
-                                              valor: columnProdutosRow.valor!,
+                                              valor:
+                                                  columnProdutosRow.valorPromo!,
                                               id: columnProdutosRow.id
                                                   .toString(),
                                               data: columnProdutosRow.createdAt,
@@ -1750,7 +1751,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             ),
                                             Text(
                                               formatNumber(
-                                                columnProdutosRow.valor!,
+                                                columnProdutosRow.valorPromo!,
                                                 formatType: FormatType.decimal,
                                                 decimalType:
                                                     DecimalType.periodDecimal,

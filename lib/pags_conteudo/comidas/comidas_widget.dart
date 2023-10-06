@@ -133,9 +133,12 @@ class _ComidasWidgetState extends State<ComidasWidget> {
           top: true,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 10.0),
-            child: FutureBuilder<List<PratosRow>>(
-              future: PratosTable().queryRows(
-                queryFn: (q) => q,
+            child: FutureBuilder<List<ProdutosRow>>(
+              future: ProdutosTable().queryRows(
+                queryFn: (q) => q.eq(
+                  'categoria',
+                  'pratos',
+                ),
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
@@ -152,13 +155,14 @@ class _ComidasWidgetState extends State<ComidasWidget> {
                     ),
                   );
                 }
-                List<PratosRow> columnPratosRowList = snapshot.data!;
+                List<ProdutosRow> columnProdutosRowList = snapshot.data!;
                 return SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
-                    children: List.generate(columnPratosRowList.length,
+                    children: List.generate(columnProdutosRowList.length,
                         (columnIndex) {
-                      final columnPratosRow = columnPratosRowList[columnIndex];
+                      final columnProdutosRow =
+                          columnProdutosRowList[columnIndex];
                       return Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
@@ -186,12 +190,12 @@ class _ComidasWidgetState extends State<ComidasWidget> {
                                     child: Container(
                                       height: 550.0,
                                       child: DetalhesProdutoWidget(
-                                        nome: columnPratosRow.nome!,
-                                        descricao: columnPratosRow.descricao!,
-                                        img: columnPratosRow.img!,
-                                        valor: columnPratosRow.valor!,
-                                        id: columnPratosRow.id.toString(),
-                                        data: columnPratosRow.createdAt,
+                                        nome: columnProdutosRow.nomeProduto!,
+                                        descricao: columnProdutosRow.descricao!,
+                                        img: columnProdutosRow.img!,
+                                        valor: columnProdutosRow.valorPromo!,
+                                        id: columnProdutosRow.id.toString(),
+                                        data: columnProdutosRow.createdAt,
                                       ),
                                     ),
                                   ),
@@ -223,7 +227,7 @@ class _ComidasWidgetState extends State<ComidasWidget> {
                                             BorderRadius.circular(8.0),
                                         child: Image.network(
                                           valueOrDefault<String>(
-                                            columnPratosRow.img,
+                                            columnProdutosRow.img,
                                             'https://cdn.deliway.com.br/blog/base/e27/c04/53b/bife-parmegiana.jpg',
                                           ),
                                           width: 100.0,
@@ -245,7 +249,8 @@ class _ComidasWidgetState extends State<ComidasWidget> {
                                             children: [
                                               Expanded(
                                                 child: Text(
-                                                  columnPratosRow.nome!,
+                                                  columnProdutosRow
+                                                      .nomeProduto!,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelLarge
@@ -267,7 +272,7 @@ class _ComidasWidgetState extends State<ComidasWidget> {
                                             children: [
                                               Expanded(
                                                 child: Text(
-                                                  columnPratosRow.descricao!
+                                                  columnProdutosRow.descricao!
                                                       .maybeHandleOverflow(
                                                     maxChars: 40,
                                                     replacement: '…',
@@ -297,7 +302,12 @@ class _ComidasWidgetState extends State<ComidasWidget> {
                                             ),
                                       ),
                                       Text(
-                                        columnPratosRow.valor!.toString(),
+                                        formatNumber(
+                                          columnProdutosRow.valorPromo!,
+                                          formatType: FormatType.decimal,
+                                          decimalType:
+                                              DecimalType.periodDecimal,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(

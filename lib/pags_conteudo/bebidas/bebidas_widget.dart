@@ -133,9 +133,12 @@ class _BebidasWidgetState extends State<BebidasWidget> {
           top: true,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 10.0),
-            child: FutureBuilder<List<BebidasRow>>(
-              future: BebidasTable().queryRows(
-                queryFn: (q) => q,
+            child: FutureBuilder<List<ProdutosRow>>(
+              future: ProdutosTable().queryRows(
+                queryFn: (q) => q.eq(
+                  'categoria',
+                  'bebidas',
+                ),
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
@@ -152,14 +155,14 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                     ),
                   );
                 }
-                List<BebidasRow> columnBebidasRowList = snapshot.data!;
+                List<ProdutosRow> columnProdutosRowList = snapshot.data!;
                 return SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
-                    children: List.generate(columnBebidasRowList.length,
+                    children: List.generate(columnProdutosRowList.length,
                         (columnIndex) {
-                      final columnBebidasRow =
-                          columnBebidasRowList[columnIndex];
+                      final columnProdutosRow =
+                          columnProdutosRowList[columnIndex];
                       return Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
@@ -187,12 +190,12 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                                     child: Container(
                                       height: 550.0,
                                       child: DetalhesProdutoWidget(
-                                        nome: columnBebidasRow.nome!,
-                                        descricao: columnBebidasRow.descricao!,
-                                        img: columnBebidasRow.img!,
-                                        valor: columnBebidasRow.valor!,
-                                        id: columnBebidasRow.id.toString(),
-                                        data: columnBebidasRow.createdAt,
+                                        nome: columnProdutosRow.nomeProduto!,
+                                        descricao: columnProdutosRow.descricao!,
+                                        img: columnProdutosRow.img!,
+                                        valor: columnProdutosRow.valorPromo!,
+                                        id: columnProdutosRow.id.toString(),
+                                        data: columnProdutosRow.createdAt,
                                       ),
                                     ),
                                   ),
@@ -224,7 +227,7 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                                             BorderRadius.circular(8.0),
                                         child: Image.network(
                                           valueOrDefault<String>(
-                                            columnBebidasRow.img,
+                                            columnProdutosRow.img,
                                             'https://www.imigrantesbebidas.com.br/bebida/images/products/full/1984-refrigerante-coca-cola-lata-350ml.jpg',
                                           ),
                                           width: 100.0,
@@ -246,7 +249,8 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                                             children: [
                                               Expanded(
                                                 child: Text(
-                                                  columnBebidasRow.nome!,
+                                                  columnProdutosRow
+                                                      .nomeProduto!,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelLarge
@@ -268,7 +272,7 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                                             children: [
                                               Expanded(
                                                 child: Text(
-                                                  columnBebidasRow.descricao!
+                                                  columnProdutosRow.descricao!
                                                       .maybeHandleOverflow(
                                                     maxChars: 40,
                                                     replacement: '…',
@@ -298,7 +302,12 @@ class _BebidasWidgetState extends State<BebidasWidget> {
                                             ),
                                       ),
                                       Text(
-                                        columnBebidasRow.valor!.toString(),
+                                        formatNumber(
+                                          columnProdutosRow.valorPromo!,
+                                          formatType: FormatType.decimal,
+                                          decimalType:
+                                              DecimalType.periodDecimal,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(

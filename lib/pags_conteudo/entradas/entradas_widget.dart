@@ -133,9 +133,12 @@ class _EntradasWidgetState extends State<EntradasWidget> {
           top: true,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 10.0),
-            child: FutureBuilder<List<EntradasRow>>(
-              future: EntradasTable().queryRows(
-                queryFn: (q) => q,
+            child: FutureBuilder<List<ProdutosRow>>(
+              future: ProdutosTable().queryRows(
+                queryFn: (q) => q.eq(
+                  'categoria',
+                  'entradas',
+                ),
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
@@ -152,14 +155,14 @@ class _EntradasWidgetState extends State<EntradasWidget> {
                     ),
                   );
                 }
-                List<EntradasRow> columnEntradasRowList = snapshot.data!;
+                List<ProdutosRow> columnProdutosRowList = snapshot.data!;
                 return SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
-                    children: List.generate(columnEntradasRowList.length,
+                    children: List.generate(columnProdutosRowList.length,
                         (columnIndex) {
-                      final columnEntradasRow =
-                          columnEntradasRowList[columnIndex];
+                      final columnProdutosRow =
+                          columnProdutosRowList[columnIndex];
                       return Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
@@ -187,12 +190,12 @@ class _EntradasWidgetState extends State<EntradasWidget> {
                                     child: Container(
                                       height: 550.0,
                                       child: DetalhesProdutoWidget(
-                                        nome: columnEntradasRow.nome!,
-                                        descricao: columnEntradasRow.descricao!,
-                                        img: columnEntradasRow.img!,
-                                        valor: columnEntradasRow.valor!,
-                                        id: columnEntradasRow.id.toString(),
-                                        data: columnEntradasRow.createdAt,
+                                        nome: columnProdutosRow.nomeProduto!,
+                                        descricao: columnProdutosRow.descricao!,
+                                        img: columnProdutosRow.img!,
+                                        valor: columnProdutosRow.valorPromo!,
+                                        id: columnProdutosRow.id.toString(),
+                                        data: columnProdutosRow.createdAt,
                                       ),
                                     ),
                                   ),
@@ -224,7 +227,7 @@ class _EntradasWidgetState extends State<EntradasWidget> {
                                             BorderRadius.circular(8.0),
                                         child: Image.network(
                                           valueOrDefault<String>(
-                                            columnEntradasRow.img,
+                                            columnProdutosRow.img,
                                             'https://ogimg.infoglobo.com.br/in/21351234-ba3-299/FT631A/2012-08-03-mcdocurlyfries.jpg',
                                           ),
                                           width: 100.0,
@@ -246,7 +249,8 @@ class _EntradasWidgetState extends State<EntradasWidget> {
                                             children: [
                                               Expanded(
                                                 child: Text(
-                                                  columnEntradasRow.nome!,
+                                                  columnProdutosRow
+                                                      .nomeProduto!,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelLarge
@@ -268,7 +272,7 @@ class _EntradasWidgetState extends State<EntradasWidget> {
                                             children: [
                                               Expanded(
                                                 child: Text(
-                                                  columnEntradasRow.descricao!
+                                                  columnProdutosRow.descricao!
                                                       .maybeHandleOverflow(
                                                     maxChars: 40,
                                                     replacement: '…',
@@ -298,7 +302,12 @@ class _EntradasWidgetState extends State<EntradasWidget> {
                                             ),
                                       ),
                                       Text(
-                                        columnEntradasRow.valor!.toString(),
+                                        formatNumber(
+                                          columnProdutosRow.valorPromo!,
+                                          formatType: FormatType.decimal,
+                                          decimalType:
+                                              DecimalType.periodDecimal,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
