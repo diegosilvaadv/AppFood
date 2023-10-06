@@ -1254,9 +1254,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                       .valorPromo!,
                                                                   formatType:
                                                                       FormatType
-                                                                          .custom,
-                                                                  format: 'R\$',
-                                                                  locale: '',
+                                                                          .decimal,
+                                                                  decimalType:
+                                                                      DecimalType
+                                                                          .periodDecimal,
+                                                                  currency:
+                                                                      'R\$',
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
