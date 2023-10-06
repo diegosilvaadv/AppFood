@@ -839,7 +839,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                             height:
                                                                                 MediaQuery.sizeOf(context).height * 0.9,
                                                                             fit:
-                                                                                BoxFit.fitHeight,
+                                                                                BoxFit.fitWidth,
                                                                           ),
                                                                         ),
                                                                       ),
