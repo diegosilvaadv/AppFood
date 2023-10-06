@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,7 +33,7 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
     super.initState();
     _model = createModel(context, () => PagPesquisaModel());
 
-    _model.textController ??= TextEditingController();
+    _model.textController ??= TextEditingController(text: widget.nomepesquisa);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -102,8 +101,15 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                           child: TextFormField(
                             controller: _model.textController,
                             onFieldSubmitted: (_) async {
-                              setState(() => _model.requestCompleter = null);
-                              await _model.waitForRequestCompleted();
+                              context.goNamed(
+                                'pagPesquisa',
+                                queryParameters: {
+                                  'nomepesquisa': serializeParam(
+                                    widget.nomepesquisa,
+                                    ParamType.String,
+                                  ),
+                                }.withoutNulls,
+                              );
                             },
                             obscureText: false,
                             decoration: InputDecoration(
@@ -161,17 +167,14 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 0.0, 0.0),
                   child: FutureBuilder<List<ProdutosRow>>(
-                    future: (_model.requestCompleter ??=
-                            Completer<List<ProdutosRow>>()
-                              ..complete(ProdutosTable().queryRows(
-                                queryFn: (q) => q
-                                    .eq(
-                                      'nome_produto',
-                                      '',
-                                    )
-                                    .order('nome_produto'),
-                              )))
-                        .future,
+                    future: ProdutosTable().queryRows(
+                      queryFn: (q) => q
+                          .eq(
+                            'nome_produto',
+                            _model.textController.text,
+                          )
+                          .order('nome_produto'),
+                    ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
