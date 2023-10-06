@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -91,6 +92,12 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 0.0),
                   child: TextFormField(
                     controller: _model.textController,
+                    onChanged: (_) => EasyDebounce.debounce(
+                      '_model.textController',
+                      Duration(milliseconds: 2000),
+                      () => setState(() {}),
+                    ),
+                    autofillHints: [AutofillHints.name],
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Pesquisar',
@@ -129,6 +136,20 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                         Icons.search_outlined,
                         color: FlutterFlowTheme.of(context).secondaryText,
                       ),
+                      suffixIcon: _model.textController!.text.isNotEmpty
+                          ? InkWell(
+                              onTap: () async {
+                                _model.textController?.clear();
+                                setState(() {});
+                              },
+                              child: Icon(
+                                Icons.clear,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 22.0,
+                              ),
+                            )
+                          : null,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                     maxLines: null,
