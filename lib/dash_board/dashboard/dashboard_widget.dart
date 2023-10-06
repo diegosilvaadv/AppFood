@@ -620,6 +620,15 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                     .secondaryBackground,
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.network(
+                                  'https://img.freepik.com/fotos-gratis/composicao-de-comida-brasileira-deliciosa-de-alto-angulo_23-2148739223.jpg',
+                                  width: 300.0,
+                                  height: 200.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
                           ),
                         ],
