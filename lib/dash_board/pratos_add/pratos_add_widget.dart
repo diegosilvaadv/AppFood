@@ -46,6 +46,13 @@ class _PratosAddWidgetState extends State<PratosAddWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            print('FloatingActionButton pressed ...');
+          },
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          elevation: 8.0,
+        ),
         body: SafeArea(
           top: true,
           child: Padding(
@@ -622,7 +629,7 @@ class _PratosAddWidgetState extends State<PratosAddWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(
-                                            'TODOS OS PEDIDOS DE HOJE',
+                                            'PRATOS ',
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineLarge
                                                 .override(
