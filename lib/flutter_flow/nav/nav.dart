@@ -107,6 +107,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'pratos_add',
           path: '/pratosAdd',
           builder: (context, params) => PratosAddWidget(),
+        ),
+        FFRoute(
+          name: 'pagPesquisa',
+          path: '/pagPesquisa',
+          builder: (context, params) => PagPesquisaWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

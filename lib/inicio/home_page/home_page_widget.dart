@@ -889,6 +889,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 8.0, 0.0, 8.0, 0.0),
                             child: TextFormField(
                               controller: _model.textController,
+                              onFieldSubmitted: (_) async {
+                                context.pushNamed('pagPesquisa');
+                              },
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Pesquisar',
@@ -1565,14 +1568,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             ),
                           );
                         }
-                        List<ProdutosRow> columnProdutosRowList =
+                        List<ProdutosRow> listaComidaProdutosRowList =
                             snapshot.data!;
                         return Column(
                           mainAxisSize: MainAxisSize.max,
-                          children: List.generate(columnProdutosRowList.length,
-                              (columnIndex) {
-                            final columnProdutosRow =
-                                columnProdutosRowList[columnIndex];
+                          children:
+                              List.generate(listaComidaProdutosRowList.length,
+                                  (listaComidaIndex) {
+                            final listaComidaProdutosRow =
+                                listaComidaProdutosRowList[listaComidaIndex];
                             return Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 6.0, 0.0, 0.0),
@@ -1602,16 +1606,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           child: Container(
                                             height: 550.0,
                                             child: DetalhesProdutoWidget(
-                                              nome: columnProdutosRow
+                                              nome: listaComidaProdutosRow
                                                   .nomeProduto!,
-                                              descricao:
-                                                  columnProdutosRow.descricao!,
-                                              img: columnProdutosRow.img!,
-                                              valor:
-                                                  columnProdutosRow.valorPromo!,
-                                              id: columnProdutosRow.id
+                                              descricao: listaComidaProdutosRow
+                                                  .descricao!,
+                                              img: listaComidaProdutosRow.img!,
+                                              valor: listaComidaProdutosRow
+                                                  .valorPromo!,
+                                              id: listaComidaProdutosRow.id
                                                   .toString(),
-                                              data: columnProdutosRow.createdAt,
+                                              data: listaComidaProdutosRow
+                                                  .createdAt,
                                             ),
                                           ),
                                         ),
@@ -1648,7 +1653,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     Duration(milliseconds: 500),
                                                 imageUrl:
                                                     valueOrDefault<String>(
-                                                  columnProdutosRow.img,
+                                                  listaComidaProdutosRow.img,
                                                   'https://cdn.deliway.com.br/blog/base/e27/c04/53b/bife-parmegiana.jpg',
                                                 ),
                                                 width: 100.0,
@@ -1672,7 +1677,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   children: [
                                                     Expanded(
                                                       child: Text(
-                                                        columnProdutosRow
+                                                        listaComidaProdutosRow
                                                             .nomeProduto!,
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -1697,7 +1702,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   children: [
                                                     Expanded(
                                                       child: Text(
-                                                        columnProdutosRow
+                                                        listaComidaProdutosRow
                                                             .descricao!
                                                             .maybeHandleOverflow(
                                                           maxChars: 40,
@@ -1717,7 +1722,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   children: [
                                                     Expanded(
                                                       child: Text(
-                                                        columnProdutosRow.id
+                                                        listaComidaProdutosRow
+                                                            .id
                                                             .toString()
                                                             .maybeHandleOverflow(
                                                               maxChars: 40,
@@ -1751,7 +1757,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             ),
                                             Text(
                                               formatNumber(
-                                                columnProdutosRow.valorPromo!,
+                                                listaComidaProdutosRow
+                                                    .valorPromo!,
                                                 formatType: FormatType.decimal,
                                                 decimalType:
                                                     DecimalType.periodDecimal,
