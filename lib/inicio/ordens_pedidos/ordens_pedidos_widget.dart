@@ -87,10 +87,7 @@ class _OrdensPedidosWidgetState extends State<OrdensPedidosWidget> {
                       builder: (context) {
                         final ordensPedidos = FFAppState()
                             .ordensPedidos
-                            .where((e) => valueOrDefault<bool>(
-                                  e.hasData(),
-                                  false,
-                                ))
+                            .take(ordensPedidos.length)
                             .toList();
                         return ListView.builder(
                           padding: EdgeInsets.zero,
