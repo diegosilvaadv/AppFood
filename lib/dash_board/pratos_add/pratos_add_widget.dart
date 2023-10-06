@@ -5,25 +5,25 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'pedidos_web_model.dart';
-export 'pedidos_web_model.dart';
+import 'pratos_add_model.dart';
+export 'pratos_add_model.dart';
 
-class PedidosWebWidget extends StatefulWidget {
-  const PedidosWebWidget({Key? key}) : super(key: key);
+class PratosAddWidget extends StatefulWidget {
+  const PratosAddWidget({Key? key}) : super(key: key);
 
   @override
-  _PedidosWebWidgetState createState() => _PedidosWebWidgetState();
+  _PratosAddWidgetState createState() => _PratosAddWidgetState();
 }
 
-class _PedidosWebWidgetState extends State<PedidosWebWidget> {
-  late PedidosWebModel _model;
+class _PratosAddWidgetState extends State<PratosAddWidget> {
+  late PratosAddModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PedidosWebModel());
+    _model = createModel(context, () => PratosAddModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -215,7 +215,8 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                   .height *
                                               0.05,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFF13DC0C),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
                                           ),
@@ -308,67 +309,56 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 6.0, 0.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed('pratos_add');
-                                    },
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Material(
-                                          color: Colors.transparent,
-                                          elevation: 5.0,
-                                          shape: RoundedRectangleBorder(
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Material(
+                                        color: Colors.transparent,
+                                        elevation: 5.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.17,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.05,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFF13DC0C),
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
                                           ),
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.17,
-                                            height: MediaQuery.sizeOf(context)
-                                                    .height *
-                                                0.05,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'Pratos',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          fontSize: 25.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                  ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'Pratos',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        fontSize: 25.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                                 Padding(
@@ -671,10 +661,8 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 12.0, 0.0, 0.0),
-                                        child: FutureBuilder<
-                                            List<PedidosClienteRow>>(
-                                          future:
-                                              PedidosClienteTable().queryRows(
+                                        child: FutureBuilder<List<PratosRow>>(
+                                          future: PratosTable().queryRows(
                                             queryFn: (q) => q.order(
                                                 'created_at',
                                                 ascending: true),
@@ -699,8 +687,8 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                 ),
                                               );
                                             }
-                                            List<PedidosClienteRow>
-                                                listViewPedidosClienteRowList =
+                                            List<PratosRow>
+                                                listViewPratosRowList =
                                                 snapshot.data!;
                                             return ListView.builder(
                                               padding: EdgeInsets.zero,
@@ -708,12 +696,11 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                               shrinkWrap: true,
                                               scrollDirection: Axis.vertical,
                                               itemCount:
-                                                  listViewPedidosClienteRowList
-                                                      .length,
+                                                  listViewPratosRowList.length,
                                               itemBuilder:
                                                   (context, listViewIndex) {
-                                                final listViewPedidosClienteRow =
-                                                    listViewPedidosClienteRowList[
+                                                final listViewPratosRow =
+                                                    listViewPratosRowList[
                                                         listViewIndex];
                                                 return Padding(
                                                   padding: EdgeInsetsDirectional
@@ -756,7 +743,8 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                         children: [
                                                           Hero(
                                                             tag:
-                                                                'ControllerImage',
+                                                                listViewPratosRow
+                                                                    .img!,
                                                             transitionOnUserGestures:
                                                                 true,
                                                             child: ClipRRect(
@@ -766,7 +754,8 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                           12.0),
                                                               child:
                                                                   Image.network(
-                                                                'https://www.receitas.eduguedes.com.br/wp-content/uploads/2019/05/Edu-Guedes-bolinho-de-carne-seca.jpg',
+                                                                listViewPratosRow
+                                                                    .img!,
                                                                 width: 80.0,
                                                                 height: 80.0,
                                                                 fit: BoxFit
@@ -802,8 +791,8 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                             0.0,
                                                                             8.0),
                                                                     child: Text(
-                                                                      listViewPedidosClienteRow
-                                                                          .pedido!
+                                                                      listViewPratosRow
+                                                                          .nome!
                                                                           .maybeHandleOverflow(
                                                                         maxChars:
                                                                             35,
@@ -829,7 +818,16 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                             0.0,
                                                                             2.0),
                                                                     child: Text(
-                                                                      '${listViewPedidosClienteRow.valor?.toString()} X ${listViewPedidosClienteRow.quanty?.toString()}',
+                                                                      formatNumber(
+                                                                        listViewPratosRow
+                                                                            .valor!,
+                                                                        formatType:
+                                                                            FormatType.decimal,
+                                                                        decimalType:
+                                                                            DecimalType.periodDecimal,
+                                                                        currency:
+                                                                            'R\$',
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .labelMedium
@@ -845,20 +843,6 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                           ),
                                                                     ),
                                                                   ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            2.0),
-                                                                    child: Text(
-                                                                      'Nome:  ${listViewPedidosClienteRow.nomeCliente}',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium,
-                                                                    ),
-                                                                  ),
                                                                   Expanded(
                                                                     child:
                                                                         Padding(
@@ -869,7 +853,8 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                           2.0),
                                                                       child:
                                                                           Text(
-                                                                        'Forma de Pagamento: ${listViewPedidosClienteRow.pagamento}',
+                                                                        listViewPratosRow
+                                                                            .descricao!,
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium,
                                                                       ),
@@ -885,13 +870,31 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                           2.0),
                                                                       child:
                                                                           Text(
-                                                                        'Data: ${dateTimeFormat(
-                                                                          'M/d h:mm a',
-                                                                          listViewPedidosClienteRow
+                                                                        listViewPratosRow
+                                                                            .id
+                                                                            .toString(),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          2.0),
+                                                                      child:
+                                                                          Text(
+                                                                        dateTimeFormat(
+                                                                          'd/M/y',
+                                                                          listViewPratosRow
                                                                               .createdAt,
                                                                           locale:
                                                                               FFLocalizations.of(context).languageCode,
-                                                                        )}',
+                                                                        ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium,
                                                                       ),
