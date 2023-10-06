@@ -82,84 +82,84 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 0.0),
-                child: TextFormField(
-                  controller: _model.textController,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    labelText: 'Pesquisar',
-                    labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 1.0,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 0.0),
+                  child: TextFormField(
+                    controller: _model.textController,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      labelText: 'Pesquisar',
+                      labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(30.0),
                       ),
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 1.0,
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(30.0),
                       ),
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 1.0,
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(30.0),
                       ),
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 1.0,
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(30.0),
                       ),
-                      borderRadius: BorderRadius.circular(30.0),
+                      filled: true,
+                      fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                      prefixIcon: Icon(
+                        Icons.search_outlined,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                      ),
                     ),
-                    filled: true,
-                    fillColor: FlutterFlowTheme.of(context).primaryBackground,
-                    prefixIcon: Icon(
-                      Icons.search_outlined,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    maxLines: null,
+                    validator:
+                        _model.textControllerValidator.asValidator(context),
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                  maxLines: null,
-                  validator:
-                      _model.textControllerValidator.asValidator(context),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 0.0, 0.0),
-                child: FutureBuilder<List<ProdutosRow>>(
-                  future: ProdutosTable().queryRows(
-                    queryFn: (q) => q.order('nome_produto'),
-                  ),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
-                          child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                              FlutterFlowTheme.of(context).primary,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 0.0, 0.0),
+                  child: FutureBuilder<List<ProdutosRow>>(
+                    future: ProdutosTable().queryRows(
+                      queryFn: (q) => q.order('nome_produto'),
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                FlutterFlowTheme.of(context).primary,
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    }
-                    List<ProdutosRow> listaComidaProdutosRowList =
-                        snapshot.data!;
-                    return SingleChildScrollView(
-                      child: Column(
+                        );
+                      }
+                      List<ProdutosRow> listaComidaProdutosRowList =
+                          snapshot.data!;
+                      return Column(
                         mainAxisSize: MainAxisSize.max,
                         children:
                             List.generate(listaComidaProdutosRowList.length,
@@ -361,12 +361,12 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                             ),
                           );
                         }),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
