@@ -11,7 +11,7 @@ class PedidoStruct extends BaseStruct {
     double? preco,
     double? quantidade,
     String? img,
-    double? id,
+    String? id,
   })  : _nome = nome,
         _preco = preco,
         _quantidade = quantidade,
@@ -45,10 +45,9 @@ class PedidoStruct extends BaseStruct {
   bool hasImg() => _img != null;
 
   // "id" field.
-  double? _id;
-  double get id => _id ?? 0.0;
-  set id(double? val) => _id = val;
-  void incrementId(double amount) => _id = id + amount;
+  String? _id;
+  String get id => _id ?? '';
+  set id(String? val) => _id = val;
   bool hasId() => _id != null;
 
   static PedidoStruct fromMap(Map<String, dynamic> data) => PedidoStruct(
@@ -56,7 +55,7 @@ class PedidoStruct extends BaseStruct {
         preco: castToType<double>(data['Preco']),
         quantidade: castToType<double>(data['quantidade']),
         img: data['img'] as String?,
-        id: castToType<double>(data['id']),
+        id: data['id'] as String?,
       );
 
   static PedidoStruct? maybeFromMap(dynamic data) =>
@@ -90,7 +89,7 @@ class PedidoStruct extends BaseStruct {
         ),
         'id': serializeParam(
           _id,
-          ParamType.double,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -118,7 +117,7 @@ class PedidoStruct extends BaseStruct {
         ),
         id: deserializeParam(
           data['id'],
-          ParamType.double,
+          ParamType.String,
           false,
         ),
       );
@@ -146,7 +145,7 @@ PedidoStruct createPedidoStruct({
   double? preco,
   double? quantidade,
   String? img,
-  double? id,
+  String? id,
 }) =>
     PedidoStruct(
       nome: nome,

@@ -9,22 +9,22 @@ class OrdensPedidosStruct extends BaseStruct {
   OrdensPedidosStruct({
     String? nomeCliente,
     String? pedido,
-    String? nPedido,
     double? valor,
     double? quantidade,
     String? formaPag,
     String? mesa,
     String? img,
     DateTime? data,
+    String? nPedido,
   })  : _nomeCliente = nomeCliente,
         _pedido = pedido,
-        _nPedido = nPedido,
         _valor = valor,
         _quantidade = quantidade,
         _formaPag = formaPag,
         _mesa = mesa,
         _img = img,
-        _data = data;
+        _data = data,
+        _nPedido = nPedido;
 
   // "Nome_Cliente" field.
   String? _nomeCliente;
@@ -37,12 +37,6 @@ class OrdensPedidosStruct extends BaseStruct {
   String get pedido => _pedido ?? '';
   set pedido(String? val) => _pedido = val;
   bool hasPedido() => _pedido != null;
-
-  // "n_pedido" field.
-  String? _nPedido;
-  String get nPedido => _nPedido ?? '';
-  set nPedido(String? val) => _nPedido = val;
-  bool hasNPedido() => _nPedido != null;
 
   // "Valor" field.
   double? _valor;
@@ -82,17 +76,23 @@ class OrdensPedidosStruct extends BaseStruct {
   set data(DateTime? val) => _data = val;
   bool hasData() => _data != null;
 
+  // "n_pedido" field.
+  String? _nPedido;
+  String get nPedido => _nPedido ?? '';
+  set nPedido(String? val) => _nPedido = val;
+  bool hasNPedido() => _nPedido != null;
+
   static OrdensPedidosStruct fromMap(Map<String, dynamic> data) =>
       OrdensPedidosStruct(
         nomeCliente: data['Nome_Cliente'] as String?,
         pedido: data['Pedido'] as String?,
-        nPedido: data['n_pedido'] as String?,
         valor: castToType<double>(data['Valor']),
         quantidade: castToType<double>(data['Quantidade']),
         formaPag: data['Forma_pag'] as String?,
         mesa: data['Mesa'] as String?,
         img: data['img'] as String?,
         data: data['data'] as DateTime?,
+        nPedido: data['n_pedido'] as String?,
       );
 
   static OrdensPedidosStruct? maybeFromMap(dynamic data) =>
@@ -101,13 +101,13 @@ class OrdensPedidosStruct extends BaseStruct {
   Map<String, dynamic> toMap() => {
         'Nome_Cliente': _nomeCliente,
         'Pedido': _pedido,
-        'n_pedido': _nPedido,
         'Valor': _valor,
         'Quantidade': _quantidade,
         'Forma_pag': _formaPag,
         'Mesa': _mesa,
         'img': _img,
         'data': _data,
+        'n_pedido': _nPedido,
       }.withoutNulls;
 
   @override
@@ -118,10 +118,6 @@ class OrdensPedidosStruct extends BaseStruct {
         ),
         'Pedido': serializeParam(
           _pedido,
-          ParamType.String,
-        ),
-        'n_pedido': serializeParam(
-          _nPedido,
           ParamType.String,
         ),
         'Valor': serializeParam(
@@ -148,6 +144,10 @@ class OrdensPedidosStruct extends BaseStruct {
           _data,
           ParamType.DateTime,
         ),
+        'n_pedido': serializeParam(
+          _nPedido,
+          ParamType.String,
+        ),
       }.withoutNulls;
 
   static OrdensPedidosStruct fromSerializableMap(Map<String, dynamic> data) =>
@@ -159,11 +159,6 @@ class OrdensPedidosStruct extends BaseStruct {
         ),
         pedido: deserializeParam(
           data['Pedido'],
-          ParamType.String,
-          false,
-        ),
-        nPedido: deserializeParam(
-          data['n_pedido'],
           ParamType.String,
           false,
         ),
@@ -197,6 +192,11 @@ class OrdensPedidosStruct extends BaseStruct {
           ParamType.DateTime,
           false,
         ),
+        nPedido: deserializeParam(
+          data['n_pedido'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -207,48 +207,48 @@ class OrdensPedidosStruct extends BaseStruct {
     return other is OrdensPedidosStruct &&
         nomeCliente == other.nomeCliente &&
         pedido == other.pedido &&
-        nPedido == other.nPedido &&
         valor == other.valor &&
         quantidade == other.quantidade &&
         formaPag == other.formaPag &&
         mesa == other.mesa &&
         img == other.img &&
-        data == other.data;
+        data == other.data &&
+        nPedido == other.nPedido;
   }
 
   @override
   int get hashCode => const ListEquality().hash([
         nomeCliente,
         pedido,
-        nPedido,
         valor,
         quantidade,
         formaPag,
         mesa,
         img,
-        data
+        data,
+        nPedido
       ]);
 }
 
 OrdensPedidosStruct createOrdensPedidosStruct({
   String? nomeCliente,
   String? pedido,
-  String? nPedido,
   double? valor,
   double? quantidade,
   String? formaPag,
   String? mesa,
   String? img,
   DateTime? data,
+  String? nPedido,
 }) =>
     OrdensPedidosStruct(
       nomeCliente: nomeCliente,
       pedido: pedido,
-      nPedido: nPedido,
       valor: valor,
       quantidade: quantidade,
       formaPag: formaPag,
       mesa: mesa,
       img: img,
       data: data,
+      nPedido: nPedido,
     );
