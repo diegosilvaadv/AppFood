@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -102,15 +103,8 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                           child: TextFormField(
                             controller: _model.textController,
                             onFieldSubmitted: (_) async {
-                              context.goNamed(
-                                'pagPesquisa',
-                                queryParameters: {
-                                  'nomepesquisa': serializeParam(
-                                    widget.nomepesquisa,
-                                    ParamType.String,
-                                  ),
-                                }.withoutNulls,
-                              );
+                              setState(() => _model.requestCompleter = null);
+                              await _model.waitForRequestCompleted();
                             },
                             obscureText: false,
                             decoration: InputDecoration(
@@ -168,12 +162,20 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 0.0, 0.0),
                   child: FutureBuilder<List<ProdutosRow>>(
-                    future: ProdutosTable().queryRows(
-                      queryFn: (q) => q.gte(
-                        'id',
-                        1,
-                      ),
-                    ),
+                    future: (_model.requestCompleter ??=
+                            Completer<List<ProdutosRow>>()
+                              ..complete(ProdutosTable().queryRows(
+                                queryFn: (q) => q
+                                    .gte(
+                                      'id',
+                                      1,
+                                    )
+                                    .eq(
+                                      'nome_produto',
+                                      _model.textController.text,
+                                    ),
+                              )))
+                        .future,
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
