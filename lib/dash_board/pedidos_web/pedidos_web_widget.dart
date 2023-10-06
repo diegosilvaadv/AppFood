@@ -946,29 +946,28 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                             ),
                                                                           ],
                                                                         ),
-                                                                        Expanded(
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
-                                                                                child: Icon(
-                                                                                  Icons.person,
-                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                  size: 24.0,
-                                                                                ),
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
+                                                                              child: Icon(
+                                                                                Icons.person,
+                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                size: 24.0,
                                                                               ),
-                                                                              Padding(
+                                                                            ),
+                                                                            Expanded(
+                                                                              child: Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
                                                                                 child: Text(
                                                                                   'Nome:  ${listViewPedidosClienteRow.nomeCliente}',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                 ),
                                                                               ),
-                                                                            ],
-                                                                          ),
+                                                                            ),
+                                                                          ],
                                                                         ),
                                                                         Row(
                                                                           mainAxisSize:
