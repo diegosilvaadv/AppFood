@@ -1026,15 +1026,17 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                                 size: 24.0,
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
-                                                                              child: Text(
-                                                                                'Data: ${dateTimeFormat(
-                                                                                  'M/d h:mm a',
-                                                                                  listViewPedidosClienteRow.createdAt,
-                                                                                  locale: FFLocalizations.of(context).languageCode,
-                                                                                )}',
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                            Expanded(
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+                                                                                child: Text(
+                                                                                  'Data: ${dateTimeFormat(
+                                                                                    'M/d h:mm a',
+                                                                                    listViewPedidosClienteRow.createdAt,
+                                                                                    locale: FFLocalizations.of(context).languageCode,
+                                                                                  )}',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                ),
                                                                               ),
                                                                             ),
                                                                           ],
