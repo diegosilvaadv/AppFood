@@ -903,17 +903,19 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                                 size: 24.0,
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                                                                              child: Text(
-                                                                                listViewPedidosClienteRow.pedido!.maybeHandleOverflow(
-                                                                                  maxChars: 35,
-                                                                                  replacement: '…',
+                                                                            Expanded(
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                child: Text(
+                                                                                  listViewPedidosClienteRow.pedido!.maybeHandleOverflow(
+                                                                                    maxChars: 35,
+                                                                                    replacement: '…',
+                                                                                  ),
+                                                                                  style: FlutterFlowTheme.of(context).titleLarge.override(
+                                                                                        fontFamily: 'Outfit',
+                                                                                        fontSize: 23.0,
+                                                                                      ),
                                                                                 ),
-                                                                                style: FlutterFlowTheme.of(context).titleLarge.override(
-                                                                                      fontFamily: 'Outfit',
-                                                                                      fontSize: 25.0,
-                                                                                    ),
                                                                               ),
                                                                             ),
                                                                           ],
@@ -1338,17 +1340,19 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                                     size: 24.0,
                                                                                   ),
                                                                                 ),
-                                                                                Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                                                                                  child: Text(
-                                                                                    listViewPedidosClienteRow.pedido!.maybeHandleOverflow(
-                                                                                      maxChars: 35,
-                                                                                      replacement: '…',
+                                                                                Expanded(
+                                                                                  child: Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                                                                                    child: Text(
+                                                                                      listViewPedidosClienteRow.pedido!.maybeHandleOverflow(
+                                                                                        maxChars: 35,
+                                                                                        replacement: '…',
+                                                                                      ),
+                                                                                      style: FlutterFlowTheme.of(context).titleLarge.override(
+                                                                                            fontFamily: 'Outfit',
+                                                                                            fontSize: 23.0,
+                                                                                          ),
                                                                                     ),
-                                                                                    style: FlutterFlowTheme.of(context).titleLarge.override(
-                                                                                          fontFamily: 'Outfit',
-                                                                                          fontSize: 25.0,
-                                                                                        ),
                                                                                   ),
                                                                                 ),
                                                                               ],
