@@ -714,7 +714,7 @@ class _PratosAddWidgetState extends State<PratosAddWidget> {
                                                           16.0, 8.0, 16.0, 0.0),
                                                   child: Container(
                                                     width: double.infinity,
-                                                    height: 180.0,
+                                                    height: 200.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -747,33 +747,79 @@ class _PratosAddWidgetState extends State<PratosAddWidget> {
                                                             MainAxisAlignment
                                                                 .spaceBetween,
                                                         children: [
-                                                          Container(
-                                                            width: 250.0,
-                                                            height: 250.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
+                                                          Material(
+                                                            color: Colors
+                                                                .transparent,
+                                                            elevation: 5.0,
+                                                            shape:
+                                                                RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
                                                             ),
-                                                            child: Hero(
-                                                              tag:
-                                                                  listViewPratosRow
-                                                                      .img!,
-                                                              transitionOnUserGestures:
-                                                                  true,
-                                                              child: ClipRRect(
+                                                            child: Container(
+                                                              width: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .width *
+                                                                  0.15,
+                                                              height: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .height *
+                                                                  0.2,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            12.0),
-                                                                child:
-                                                                    Image.asset(
-                                                                  'assets/images/kisspng-catering-food-computer-icons-logo-event-management-catering-5abf487cd18447.7546290415224853728582.png',
-                                                                  width: 80.0,
-                                                                  height: 80.0,
-                                                                  fit: BoxFit
-                                                                      .fitHeight,
+                                                                            8.0),
+                                                              ),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            8.0,
+                                                                            8.0,
+                                                                            8.0),
+                                                                child: Hero(
+                                                                  tag: valueOrDefault<
+                                                                      String>(
+                                                                    listViewPratosRow
+                                                                        .img,
+                                                                    'https://img.freepik.com/fotos-gratis/composicao-de-comida-brasileira-deliciosa-de-alto-angulo_23-2148739223.jpg' +
+                                                                        '$listViewIndex',
+                                                                  ),
+                                                                  transitionOnUserGestures:
+                                                                      true,
+                                                                  child:
+                                                                      ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                    child: Image
+                                                                        .network(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        listViewPratosRow
+                                                                            .img,
+                                                                        'https://img.freepik.com/fotos-gratis/composicao-de-comida-brasileira-deliciosa-de-alto-angulo_23-2148739223.jpg',
+                                                                      ),
+                                                                      width: MediaQuery.sizeOf(context)
+                                                                              .width *
+                                                                          0.9,
+                                                                      height:
+                                                                          MediaQuery.sizeOf(context).height *
+                                                                              0.9,
+                                                                      fit: BoxFit
+                                                                          .fitHeight,
+                                                                    ),
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ),
