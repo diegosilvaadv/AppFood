@@ -10,4 +10,5 @@ export 'tables/sobremesa.dart';
 export 'tables/bebidas.dart';
 export 'tables/empromo.dart';
 export 'tables/pratos.dart';
+export 'tables/produtos.dart';
 export 'tables/pedidos_cliente.dart';

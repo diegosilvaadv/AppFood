@@ -1533,9 +1533,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 0.0, 0.0),
-                    child: FutureBuilder<List<PratosRow>>(
-                      future: PratosTable().queryRows(
-                        queryFn: (q) => q,
+                    child: FutureBuilder<List<ProdutosRow>>(
+                      future: ProdutosTable().queryRows(
+                        queryFn: (q) => q
+                            .eq(
+                              'categoria',
+                              'pratos',
+                            )
+                            .order('nome_produto'),
                       ),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
@@ -1552,13 +1557,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             ),
                           );
                         }
-                        List<PratosRow> columnPratosRowList = snapshot.data!;
+                        List<ProdutosRow> columnProdutosRowList =
+                            snapshot.data!;
                         return Column(
                           mainAxisSize: MainAxisSize.max,
-                          children: List.generate(columnPratosRowList.length,
+                          children: List.generate(columnProdutosRowList.length,
                               (columnIndex) {
-                            final columnPratosRow =
-                                columnPratosRowList[columnIndex];
+                            final columnProdutosRow =
+                                columnProdutosRowList[columnIndex];
                             return Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 6.0, 0.0, 0.0),
@@ -1588,13 +1594,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           child: Container(
                                             height: 550.0,
                                             child: DetalhesProdutoWidget(
-                                              nome: columnPratosRow.nome!,
+                                              nome: columnProdutosRow
+                                                  .nomeProduto!,
                                               descricao:
-                                                  columnPratosRow.descricao!,
-                                              img: columnPratosRow.img!,
-                                              valor: columnPratosRow.valor!,
-                                              id: columnPratosRow.id.toString(),
-                                              data: columnPratosRow.createdAt,
+                                                  columnProdutosRow.descricao!,
+                                              img: columnProdutosRow.img!,
+                                              valor: columnProdutosRow.valor!,
+                                              id: columnProdutosRow.id
+                                                  .toString(),
+                                              data: columnProdutosRow.createdAt,
                                             ),
                                           ),
                                         ),
@@ -1631,7 +1639,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     Duration(milliseconds: 500),
                                                 imageUrl:
                                                     valueOrDefault<String>(
-                                                  columnPratosRow.img,
+                                                  columnProdutosRow.img,
                                                   'https://cdn.deliway.com.br/blog/base/e27/c04/53b/bife-parmegiana.jpg',
                                                 ),
                                                 width: 100.0,
@@ -1655,7 +1663,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   children: [
                                                     Expanded(
                                                       child: Text(
-                                                        columnPratosRow.nome!,
+                                                        columnProdutosRow
+                                                            .nomeProduto!,
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1679,7 +1688,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   children: [
                                                     Expanded(
                                                       child: Text(
-                                                        columnPratosRow
+                                                        columnProdutosRow
                                                             .descricao!
                                                             .maybeHandleOverflow(
                                                           maxChars: 40,
@@ -1699,7 +1708,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   children: [
                                                     Expanded(
                                                       child: Text(
-                                                        columnPratosRow.id
+                                                        columnProdutosRow.id
                                                             .toString()
                                                             .maybeHandleOverflow(
                                                               maxChars: 40,
@@ -1732,7 +1741,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   ),
                                             ),
                                             Text(
-                                              columnPratosRow.valor!.toString(),
+                                              formatNumber(
+                                                columnProdutosRow.valor!,
+                                                formatType: FormatType.decimal,
+                                                decimalType:
+                                                    DecimalType.periodDecimal,
+                                              ),
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
