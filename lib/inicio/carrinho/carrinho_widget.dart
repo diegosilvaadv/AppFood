@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -551,13 +550,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                           children: [
                             Expanded(
                               child: FutureBuilder<List<PedidosClienteRow>>(
-                                future: (_model.requestCompleter ??=
-                                        Completer<List<PedidosClienteRow>>()
-                                          ..complete(PedidosClienteTable()
-                                              .querySingleRow(
-                                            queryFn: (q) => q,
-                                          )))
-                                    .future,
+                                future: PedidosClienteTable().querySingleRow(
+                                  queryFn: (q) => q,
+                                ),
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
@@ -716,10 +711,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 .img,
                                           });
                                           _shouldSetState = true;
-                                          setState(() =>
-                                              _model.requestCompleter = null);
-                                          await _model.waitForRequestCompleted(
-                                              minWait: 10, maxWait: 20);
 
                                           context.pushNamed('home_or_pedidos');
                                         }

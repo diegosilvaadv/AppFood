@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:shake/shake.dart';
 import 'pedidos_web_model.dart';
 export 'pedidos_web_model.dart';
 
@@ -21,6 +22,8 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
   late PedidosWebModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  late ShakeDetector shakeDetector;
+  var shakeActionInProgress = false;
 
   @override
   void initState() {
@@ -29,11 +32,26 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() => _model.requestCompleter2 = null);
-      await _model.waitForRequestCompleted2(minWait: 10, maxWait: 10);
-      setState(() => _model.requestCompleter1 = null);
-      await _model.waitForRequestCompleted1(minWait: 10, maxWait: 10);
+      setState(() => _model.requestCompleter = null);
+      await _model.waitForRequestCompleted(minWait: 10, maxWait: 10);
     });
+
+    // On shake action.
+    shakeDetector = ShakeDetector.autoStart(
+      onPhoneShake: () async {
+        if (shakeActionInProgress) {
+          return;
+        }
+        shakeActionInProgress = true;
+        try {
+          setState(() => _model.requestCompleter = null);
+          await _model.waitForRequestCompleted(minWait: 10, maxWait: 20);
+        } finally {
+          shakeActionInProgress = false;
+        }
+      },
+      shakeThresholdGravity: 1.5,
+    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -42,6 +60,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
   void dispose() {
     _model.dispose();
 
+    shakeDetector.stopListening();
     super.dispose();
   }
 
@@ -696,7 +715,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                               child: FutureBuilder<
                                                   List<PedidosClienteRow>>(
                                                 future: (_model
-                                                            .requestCompleter2 ??=
+                                                            .requestCompleter ??=
                                                         Completer<
                                                             List<
                                                                 PedidosClienteRow>>()
@@ -1112,19 +1131,11 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                         0.0, 12.0, 0.0, 0.0),
                                                 child: FutureBuilder<
                                                     List<PedidosClienteRow>>(
-                                                  future: (_model
-                                                              .requestCompleter1 ??=
-                                                          Completer<
-                                                              List<
-                                                                  PedidosClienteRow>>()
-                                                            ..complete(
-                                                                PedidosClienteTable()
-                                                                    .queryRows(
-                                                              queryFn: (q) =>
-                                                                  q.order(
-                                                                      'created_at'),
-                                                            )))
-                                                      .future,
+                                                  future: PedidosClienteTable()
+                                                      .queryRows(
+                                                    queryFn: (q) =>
+                                                        q.order('created_at'),
+                                                  ),
                                                   builder: (context, snapshot) {
                                                     // Customize what your widget looks like when it's loading.
                                                     if (!snapshot.hasData) {
