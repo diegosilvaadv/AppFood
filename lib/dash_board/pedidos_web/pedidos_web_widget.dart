@@ -30,9 +30,9 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() => _model.requestCompleter2 = null);
-      await _model.waitForRequestCompleted2(minWait: 100, maxWait: 100);
+      await _model.waitForRequestCompleted2(minWait: 10, maxWait: 10);
       setState(() => _model.requestCompleter1 = null);
-      await _model.waitForRequestCompleted1(minWait: 100, maxWait: 100);
+      await _model.waitForRequestCompleted1(minWait: 10, maxWait: 10);
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -891,7 +891,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
                                                                               child: Icon(
                                                                                 Icons.food_bank,
                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
@@ -918,7 +918,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
                                                                               child: Icon(
                                                                                 Icons.price_change_sharp,
                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
@@ -939,14 +939,38 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                             ),
                                                                           ],
                                                                         ),
+                                                                        Expanded(
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
+                                                                                child: Icon(
+                                                                                  Icons.person,
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  size: 24.0,
+                                                                                ),
+                                                                              ),
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+                                                                                child: Text(
+                                                                                  'Nome:  ${listViewPedidosClienteRow.nomeCliente}',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
                                                                         Row(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
                                                                               child: Icon(
-                                                                                Icons.person,
+                                                                                Icons.payment,
                                                                                 color: FlutterFlowTheme.of(context).secondaryText,
                                                                                 size: 24.0,
                                                                               ),
@@ -954,63 +978,36 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                             Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
                                                                               child: Text(
-                                                                                'Nome:  ${listViewPedidosClienteRow.nomeCliente}',
+                                                                                'Forma de Pagamento: ${listViewPedidosClienteRow.pagamento}',
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium,
                                                                               ),
                                                                             ),
                                                                           ],
                                                                         ),
-                                                                        Expanded(
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
-                                                                                child: Icon(
-                                                                                  Icons.payment,
-                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                  size: 24.0,
-                                                                                ),
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
+                                                                              child: Icon(
+                                                                                Icons.date_range,
+                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                size: 24.0,
                                                                               ),
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
-                                                                                child: Text(
-                                                                                  'Forma de Pagamento: ${listViewPedidosClienteRow.pagamento}',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+                                                                              child: Text(
+                                                                                'Data: ${dateTimeFormat(
+                                                                                  'M/d h:mm a',
+                                                                                  listViewPedidosClienteRow.createdAt,
+                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                )}',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
                                                                               ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                        Expanded(
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
-                                                                                child: Icon(
-                                                                                  Icons.date_range,
-                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                  size: 24.0,
-                                                                                ),
-                                                                              ),
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
-                                                                                child: Text(
-                                                                                  'Data: ${dateTimeFormat(
-                                                                                    'M/d h:mm a',
-                                                                                    listViewPedidosClienteRow.createdAt,
-                                                                                    locale: FFLocalizations.of(context).languageCode,
-                                                                                  )}',
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
+                                                                            ),
+                                                                          ],
                                                                         ),
                                                                       ],
                                                                     ),
