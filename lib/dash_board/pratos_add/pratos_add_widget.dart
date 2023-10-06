@@ -767,10 +767,9 @@ class _PratosAddWidgetState extends State<PratosAddWidget> {
                                                                     BorderRadius
                                                                         .circular(
                                                                             12.0),
-                                                                child: Image
-                                                                    .network(
-                                                                  listViewPratosRow
-                                                                      .img!,
+                                                                child:
+                                                                    Image.asset(
+                                                                  'assets/images/kisspng-catering-food-computer-icons-logo-event-management-catering-5abf487cd18447.7546290415224853728582.png',
                                                                   width: 80.0,
                                                                   height: 80.0,
                                                                   fit: BoxFit
