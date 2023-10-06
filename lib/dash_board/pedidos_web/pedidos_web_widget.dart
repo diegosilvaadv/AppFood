@@ -753,23 +753,80 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                             MainAxisAlignment
                                                                 .spaceBetween,
                                                         children: [
-                                                          Hero(
-                                                            tag:
-                                                                'ControllerImage',
-                                                            transitionOnUserGestures:
-                                                                true,
-                                                            child: ClipRRect(
+                                                          Material(
+                                                            color: Colors
+                                                                .transparent,
+                                                            elevation: 5.0,
+                                                            shape:
+                                                                RoundedRectangleBorder(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          12.0),
-                                                              child:
-                                                                  Image.network(
-                                                                'https://www.receitas.eduguedes.com.br/wp-content/uploads/2019/05/Edu-Guedes-bolinho-de-carne-seca.jpg',
-                                                                width: 80.0,
-                                                                height: 80.0,
-                                                                fit: BoxFit
-                                                                    .fitHeight,
+                                                                          8.0),
+                                                            ),
+                                                            child: Container(
+                                                              width: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .width *
+                                                                  0.15,
+                                                              height: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .height *
+                                                                  0.2,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                              ),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            8.0,
+                                                                            8.0,
+                                                                            8.0),
+                                                                child: Hero(
+                                                                  tag: valueOrDefault<
+                                                                      String>(
+                                                                    listViewPedidosClienteRow
+                                                                        .img,
+                                                                    'https://img.freepik.com/fotos-gratis/composicao-de-comida-brasileira-deliciosa-de-alto-angulo_23-2148739223.jpg' +
+                                                                        '$listViewIndex',
+                                                                  ),
+                                                                  transitionOnUserGestures:
+                                                                      true,
+                                                                  child:
+                                                                      ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                    child: Image
+                                                                        .network(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        listViewPedidosClienteRow
+                                                                            .img,
+                                                                        'https://img.freepik.com/fotos-gratis/composicao-de-comida-brasileira-deliciosa-de-alto-angulo_23-2148739223.jpg',
+                                                                      ),
+                                                                      width: MediaQuery.sizeOf(context)
+                                                                              .width *
+                                                                          0.9,
+                                                                      height:
+                                                                          MediaQuery.sizeOf(context).height *
+                                                                              0.9,
+                                                                      fit: BoxFit
+                                                                          .fitHeight,
+                                                                    ),
+                                                                  ),
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
@@ -816,7 +873,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                             fontFamily:
                                                                                 'Outfit',
                                                                             fontSize:
-                                                                                18.0,
+                                                                                25.0,
                                                                           ),
                                                                     ),
                                                                   ),
