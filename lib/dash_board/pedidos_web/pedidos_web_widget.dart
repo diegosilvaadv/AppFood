@@ -4,10 +4,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:shake/shake.dart';
 import 'pedidos_web_model.dart';
 export 'pedidos_web_model.dart';
 
@@ -22,36 +20,11 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
   late PedidosWebModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  late ShakeDetector shakeDetector;
-  var shakeActionInProgress = false;
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => PedidosWebModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() => _model.requestCompleter = null);
-      await _model.waitForRequestCompleted(minWait: 10, maxWait: 10);
-    });
-
-    // On shake action.
-    shakeDetector = ShakeDetector.autoStart(
-      onPhoneShake: () async {
-        if (shakeActionInProgress) {
-          return;
-        }
-        shakeActionInProgress = true;
-        try {
-          setState(() => _model.requestCompleter = null);
-          await _model.waitForRequestCompleted(minWait: 10, maxWait: 20);
-        } finally {
-          shakeActionInProgress = false;
-        }
-      },
-      shakeThresholdGravity: 1.5,
-    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -60,7 +33,6 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
   void dispose() {
     _model.dispose();
 
-    shakeDetector.stopListening();
     super.dispose();
   }
 
@@ -75,6 +47,19 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            setState(() => _model.requestCompleter = null);
+            await _model.waitForRequestCompleted();
+          },
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          elevation: 8.0,
+          child: Icon(
+            Icons.refresh,
+            color: Colors.white,
+            size: 24.0,
+          ),
+        ),
         body: SafeArea(
           top: true,
           child: Padding(
@@ -714,21 +699,12 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                       0.0, 12.0, 0.0, 0.0),
                                               child: FutureBuilder<
                                                   List<PedidosClienteRow>>(
-                                                future: (_model
-                                                            .requestCompleter ??=
-                                                        Completer<
-                                                            List<
-                                                                PedidosClienteRow>>()
-                                                          ..complete(
-                                                              PedidosClienteTable()
-                                                                  .queryRows(
-                                                            queryFn: (q) =>
-                                                                q.order(
-                                                                    'created_at',
-                                                                    ascending:
-                                                                        true),
-                                                          )))
-                                                    .future,
+                                                future: PedidosClienteTable()
+                                                    .queryRows(
+                                                  queryFn: (q) => q.order(
+                                                      'created_at',
+                                                      ascending: true),
+                                                ),
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
                                                   if (!snapshot.hasData) {
@@ -1131,11 +1107,19 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                         0.0, 12.0, 0.0, 0.0),
                                                 child: FutureBuilder<
                                                     List<PedidosClienteRow>>(
-                                                  future: PedidosClienteTable()
-                                                      .queryRows(
-                                                    queryFn: (q) =>
-                                                        q.order('created_at'),
-                                                  ),
+                                                  future: (_model
+                                                              .requestCompleter ??=
+                                                          Completer<
+                                                              List<
+                                                                  PedidosClienteRow>>()
+                                                            ..complete(
+                                                                PedidosClienteTable()
+                                                                    .queryRows(
+                                                              queryFn: (q) =>
+                                                                  q.order(
+                                                                      'created_at'),
+                                                            )))
+                                                      .future,
                                                   builder: (context, snapshot) {
                                                     // Customize what your widget looks like when it's loading.
                                                     if (!snapshot.hasData) {
