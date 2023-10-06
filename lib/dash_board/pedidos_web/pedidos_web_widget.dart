@@ -627,7 +627,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 10.0, 0.0),
+                                    0.0, 0.0, 6.0, 0.0),
                                 child: Material(
                                   color: Colors.transparent,
                                   elevation: 5.0,
@@ -635,8 +635,8 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.38,
+                                    width: MediaQuery.sizeOf(context).width *
+                                        0.368,
                                     height:
                                         MediaQuery.sizeOf(context).height * 0.9,
                                     decoration: BoxDecoration(
@@ -758,14 +758,14 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     8.0,
-                                                                    16.0,
+                                                                    6.0,
                                                                     0.0),
                                                         child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
                                                                           context)
                                                                       .width *
-                                                                  0.4,
+                                                                  0.5,
                                                           height: 202.0,
                                                           decoration:
                                                               BoxDecoration(
@@ -818,9 +818,9 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                     width: MediaQuery.sizeOf(context)
                                                                             .width *
                                                                         0.15,
-                                                                    height:
-                                                                        MediaQuery.sizeOf(context).height *
-                                                                            0.2,
+                                                                    height: MediaQuery.sizeOf(context)
+                                                                            .height *
+                                                                        0.213,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       color: FlutterFlowTheme.of(
@@ -859,9 +859,9 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                               'https://img.freepik.com/fotos-gratis/composicao-de-comida-brasileira-deliciosa-de-alto-angulo_23-2148739223.jpg',
                                                                             ),
                                                                             width:
-                                                                                MediaQuery.sizeOf(context).width * 0.9,
+                                                                                MediaQuery.sizeOf(context).width * 1.0,
                                                                             height:
-                                                                                MediaQuery.sizeOf(context).height * 0.9,
+                                                                                MediaQuery.sizeOf(context).height * 1.0,
                                                                             fit:
                                                                                 BoxFit.fitWidth,
                                                                           ),
@@ -913,7 +913,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).titleLarge.override(
                                                                                         fontFamily: 'Outfit',
-                                                                                        fontSize: 23.0,
+                                                                                        fontSize: 20.0,
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -1084,7 +1084,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            6.0, 6.0, 6.0, 6.0),
+                                            16.0, 16.0, 16.0, 16.0),
                                         child: SingleChildScrollView(
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -1347,7 +1347,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).titleLarge.override(
                                                                                           fontFamily: 'Outfit',
-                                                                                          fontSize: 23.0,
+                                                                                          fontSize: 20.0,
                                                                                         ),
                                                                                   ),
                                                                                 ),
