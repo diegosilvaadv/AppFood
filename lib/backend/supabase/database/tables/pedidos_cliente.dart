@@ -38,4 +38,7 @@ class PedidosClienteRow extends SupabaseDataRow {
 
   double? get quanty => getField<double>('quanty');
   set quanty(double? value) => setField<double>('quanty', value);
+
+  String? get img => getField<String>('img');
+  set img(String? value) => setField<String>('img', value);
 }

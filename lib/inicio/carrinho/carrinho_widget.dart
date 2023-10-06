@@ -670,6 +670,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                             .preco,
                                         'created_at': supaSerialize<DateTime>(
                                             getCurrentTimestamp),
+                                        'img': FFAppState()
+                                            .Pedido[FFAppState().contador]
+                                            .img,
                                       });
                                       _shouldSetState = true;
 
@@ -682,7 +685,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
 
                                   if (_shouldSetState) setState(() {});
                                 },
-                                text: 'ENVIAR',
+                                text: 'FINALIZAR PEDIDO',
                                 options: FFButtonOptions(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                   height: 40.0,

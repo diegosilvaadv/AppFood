@@ -46,13 +46,6 @@ class _PratosAddWidgetState extends State<PratosAddWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            print('FloatingActionButton pressed ...');
-          },
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          elevation: 8.0,
-        ),
         body: SafeArea(
           top: true,
           child: Padding(
@@ -637,6 +630,8 @@ class _PratosAddWidgetState extends State<PratosAddWidget> {
                                     children: [
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
                                             'PRATOS ',
@@ -646,6 +641,46 @@ class _PratosAddWidgetState extends State<PratosAddWidget> {
                                                   fontFamily: 'Outfit',
                                                   fontWeight: FontWeight.bold,
                                                 ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 10.0, 0.0),
+                                            child: FFButtonWidget(
+                                              onPressed: () {
+                                                print('Button pressed ...');
+                                              },
+                                              text: 'Adicionar',
+                                              options: FFButtonOptions(
+                                                height: 40.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: Colors.white,
+                                                          fontSize: 20.0,
+                                                        ),
+                                                elevation: 3.0,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),
