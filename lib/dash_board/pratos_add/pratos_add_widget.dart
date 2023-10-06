@@ -670,9 +670,8 @@ class _PratosAddWidgetState extends State<PratosAddWidget> {
                                             0.0, 12.0, 0.0, 0.0),
                                         child: FutureBuilder<List<PratosRow>>(
                                           future: PratosTable().queryRows(
-                                            queryFn: (q) => q.order(
-                                                'created_at',
-                                                ascending: true),
+                                            queryFn: (q) =>
+                                                q.order('created_at'),
                                           ),
                                           builder: (context, snapshot) {
                                             // Customize what your widget looks like when it's loading.

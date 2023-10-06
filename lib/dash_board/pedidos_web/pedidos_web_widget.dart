@@ -675,9 +675,8 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                             List<PedidosClienteRow>>(
                                           future:
                                               PedidosClienteTable().queryRows(
-                                            queryFn: (q) => q.order(
-                                                'created_at',
-                                                ascending: true),
+                                            queryFn: (q) =>
+                                                q.order('created_at'),
                                           ),
                                           builder: (context, snapshot) {
                                             // Customize what your widget looks like when it's loading.
