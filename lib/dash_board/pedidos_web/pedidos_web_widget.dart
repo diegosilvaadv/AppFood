@@ -2,7 +2,9 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'pedidos_web_model.dart';
@@ -24,6 +26,14 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PedidosWebModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() => _model.requestCompleter2 = null);
+      await _model.waitForRequestCompleted2(minWait: 100, maxWait: 100);
+      setState(() => _model.requestCompleter1 = null);
+      await _model.waitForRequestCompleted1(minWait: 100, maxWait: 100);
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -685,12 +695,21 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                       0.0, 12.0, 0.0, 0.0),
                                               child: FutureBuilder<
                                                   List<PedidosClienteRow>>(
-                                                future: PedidosClienteTable()
-                                                    .queryRows(
-                                                  queryFn: (q) => q.order(
-                                                      'created_at',
-                                                      ascending: true),
-                                                ),
+                                                future: (_model
+                                                            .requestCompleter2 ??=
+                                                        Completer<
+                                                            List<
+                                                                PedidosClienteRow>>()
+                                                          ..complete(
+                                                              PedidosClienteTable()
+                                                                  .queryRows(
+                                                            queryFn: (q) =>
+                                                                q.order(
+                                                                    'created_at',
+                                                                    ascending:
+                                                                        true),
+                                                          )))
+                                                    .future,
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
                                                   if (!snapshot.hasData) {
@@ -1096,11 +1115,19 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                         0.0, 12.0, 0.0, 0.0),
                                                 child: FutureBuilder<
                                                     List<PedidosClienteRow>>(
-                                                  future: PedidosClienteTable()
-                                                      .queryRows(
-                                                    queryFn: (q) =>
-                                                        q.order('created_at'),
-                                                  ),
+                                                  future: (_model
+                                                              .requestCompleter1 ??=
+                                                          Completer<
+                                                              List<
+                                                                  PedidosClienteRow>>()
+                                                            ..complete(
+                                                                PedidosClienteTable()
+                                                                    .queryRows(
+                                                              queryFn: (q) =>
+                                                                  q.order(
+                                                                      'created_at'),
+                                                            )))
+                                                      .future,
                                                   builder: (context, snapshot) {
                                                     // Customize what your widget looks like when it's loading.
                                                     if (!snapshot.hasData) {
@@ -1243,7 +1270,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                               ),
                                                                               width: MediaQuery.sizeOf(context).width * 0.9,
                                                                               height: MediaQuery.sizeOf(context).height * 0.9,
-                                                                              fit: BoxFit.fitHeight,
+                                                                              fit: BoxFit.fitWidth,
                                                                             ),
                                                                           ),
                                                                         ),
