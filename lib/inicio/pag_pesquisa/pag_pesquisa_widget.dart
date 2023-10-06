@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'pag_pesquisa_model.dart';
@@ -168,19 +169,21 @@ class _PagPesquisaWidgetState extends State<PagPesquisaWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 0.0, 0.0),
                   child: FutureBuilder<List<ProdutosRow>>(
                     future: ProdutosTable().queryRows(
-                      queryFn: (q) => q,
+                      queryFn: (q) => q.eq(
+                        'nome_produto',
+                        _model.textController.text,
+                      ),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
-                              ),
+                            width: 40.0,
+                            height: 40.0,
+                            child: SpinKitRing(
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 40.0,
                             ),
                           ),
                         );
