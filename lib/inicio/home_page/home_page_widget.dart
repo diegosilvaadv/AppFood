@@ -1745,14 +1745,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   .titleLarge
                                                   .override(
                                                     fontFamily: 'Outfit',
-                                                    color: colorFromCssString(
-                                                      columnProdutosRow.ePromo!
-                                                          .toString(),
-                                                      defaultColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                    ),
+                                                    color: Color(0xFF0D820A),
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                             ),
