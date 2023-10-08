@@ -705,8 +705,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                                 .Pedido[FFAppState().contador]
                                                 .img,
                                             'numero_pedido': random_data
-                                                .randomInteger(1, 10000)
-                                                .toDouble(),
+                                                .randomDouble(0.0, 1000.0),
                                           });
                                           _shouldSetState = true;
 
