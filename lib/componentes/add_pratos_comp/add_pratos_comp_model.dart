@@ -24,7 +24,6 @@ class AddPratosCompModel extends FlutterFlowModel<AddPratosCompWidget> {
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
 
   // State field(s) for projectName widget.
   TextEditingController? projectNameController;

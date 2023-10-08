@@ -278,11 +278,10 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     final selectedMedia =
-                                                        await selectMediaWithSourceBottomSheet(
-                                                      context: context,
-                                                      storageFolderPath: _model
-                                                          .uploadedFileUrl,
-                                                      allowPhoto: true,
+                                                        await selectMedia(
+                                                      mediaSource: MediaSource
+                                                          .photoGallery,
+                                                      multiImage: false,
                                                     );
                                                     if (selectedMedia != null &&
                                                         selectedMedia.every((m) =>
@@ -295,8 +294,6 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
 
-                                                      var downloadUrls =
-                                                          <String>[];
                                                       try {
                                                         selectedUploadedFiles =
                                                             selectedMedia
@@ -319,31 +316,17 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                                           m.blurHash,
                                                                     ))
                                                                 .toList();
-
-                                                        downloadUrls =
-                                                            await uploadSupabaseStorageFiles(
-                                                          bucketName: _model
-                                                              .uploadedFileUrl,
-                                                          selectedFiles:
-                                                              selectedMedia,
-                                                        );
                                                       } finally {
                                                         _model.isDataUploading =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
-                                                                  .length ==
-                                                              selectedMedia
-                                                                  .length &&
-                                                          downloadUrls.length ==
-                                                              selectedMedia
-                                                                  .length) {
+                                                              .length ==
+                                                          selectedMedia
+                                                              .length) {
                                                         setState(() {
                                                           _model.uploadedLocalFile =
                                                               selectedUploadedFiles
-                                                                  .first;
-                                                          _model.uploadedFileUrl =
-                                                              downloadUrls
                                                                   .first;
                                                         });
                                                       } else {
@@ -361,8 +344,7 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                           milliseconds: 500),
                                                       fadeOutDuration: Duration(
                                                           milliseconds: 500),
-                                                      imageUrl: _model
-                                                          .uploadedFileUrl,
+                                                      imageUrl: '',
                                                       width: double.infinity,
                                                       height: double.infinity,
                                                       fit: BoxFit.cover,
@@ -754,7 +736,9 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                       .text),
                                               'descricao': _model
                                                   .descriptionController.text,
-                                              'img': _model.uploadedFileUrl,
+                                              'img': _model
+                                                  .uploadedLocalFile.height
+                                                  .toString(),
                                               'e_promo':
                                                   _model.switchListTileValue,
                                               'categoria': _model.dropDownValue,
