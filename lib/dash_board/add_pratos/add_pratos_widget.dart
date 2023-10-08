@@ -83,8 +83,7 @@ class _AddPratosWidgetState extends State<AddPratosWidget> {
               ).then((value) => safeSetState(() {}));
 
               setState(() => _model.requestCompleter = null);
-              await _model.waitForRequestCompleted(
-                  minWait: 1, maxWait: 1000000000);
+              await _model.waitForRequestCompleted();
             },
             child: Icon(
               Icons.add,
