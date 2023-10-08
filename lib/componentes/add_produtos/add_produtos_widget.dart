@@ -774,6 +774,8 @@ class _AddProdutosWidgetState extends State<AddProdutosWidget>
                                                   _model.switchListTileValue,
                                               'categoria': _model.dropDownValue,
                                             });
+                                            await Future.delayed(const Duration(
+                                                milliseconds: 1000));
                                             context.safePop();
                                           },
                                           text: 'Adicionar  Produtos',

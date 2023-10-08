@@ -49,10 +49,8 @@ class _AddBebidasWidgetState extends State<AddBebidasWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            setState(() => _model.requestCompleter = null);
-            await _model.waitForRequestCompleted(minWait: 1000, maxWait: 2000);
-            setState(() => _model.requestCompleter = null);
+          onPressed: () {
+            print('FloatingActionButton pressed ...');
           },
           backgroundColor: FlutterFlowTheme.of(context).primary,
           elevation: 8.0,
