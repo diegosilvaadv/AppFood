@@ -1208,10 +1208,7 @@ class _AddPratosWidgetState extends State<AddPratosWidget> {
                                                                           await ProdutosTable()
                                                                               .delete(
                                                                             matchingRows: (rows) =>
-                                                                                rows.eq(
-                                                                              'categoria',
-                                                                              'pratos',
-                                                                            ),
+                                                                                rows,
                                                                           );
                                                                           setState(() =>
                                                                               _model.requestCompleter = null);

@@ -1179,6 +1179,55 @@ class _AddBebidasWidgetState extends State<AddBebidasWidget> {
                                                                     ),
                                                                   ),
                                                                 ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0),
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    children: [
+                                                                      InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          await ProdutosTable()
+                                                                              .delete(
+                                                                            matchingRows: (rows) =>
+                                                                                rows,
+                                                                          );
+                                                                          setState(() =>
+                                                                              _model.requestCompleter = null);
+                                                                          await _model
+                                                                              .waitForRequestCompleted();
+                                                                        },
+                                                                        child:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .delete,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).error,
+                                                                          size:
+                                                                              50.0,
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
                                                               ],
                                                             ),
                                                           ),
