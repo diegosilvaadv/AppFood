@@ -281,6 +281,7 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                         await selectMedia(
                                                       storageFolderPath:
                                                           'fotos',
+                                                      imageQuality: 70,
                                                       mediaSource: MediaSource
                                                           .photoGallery,
                                                       multiImage: false,
@@ -299,6 +300,11 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                       var downloadUrls =
                                                           <String>[];
                                                       try {
+                                                        showUploadMessage(
+                                                          context,
+                                                          'Uploading file...',
+                                                          showLoading: true,
+                                                        );
                                                         selectedUploadedFiles =
                                                             selectedMedia
                                                                 .map((m) =>
@@ -328,6 +334,9 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                               selectedMedia,
                                                         );
                                                       } finally {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .hideCurrentSnackBar();
                                                         _model.isDataUploading =
                                                             false;
                                                       }
@@ -346,8 +355,14 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                               downloadUrls
                                                                   .first;
                                                         });
+                                                        showUploadMessage(
+                                                            context,
+                                                            'Success!');
                                                       } else {
                                                         setState(() {});
+                                                        showUploadMessage(
+                                                            context,
+                                                            'Failed to upload data');
                                                         return;
                                                       }
                                                     }
@@ -361,7 +376,8 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                           milliseconds: 500),
                                                       fadeOutDuration: Duration(
                                                           milliseconds: 500),
-                                                      imageUrl: '',
+                                                      imageUrl: _model
+                                                          .uploadedFileUrl,
                                                       width: double.infinity,
                                                       height: double.infinity,
                                                       fit: BoxFit.cover,
