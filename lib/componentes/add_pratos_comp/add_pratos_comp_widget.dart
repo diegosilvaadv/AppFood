@@ -279,6 +279,8 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                   onTap: () async {
                                                     final selectedMedia =
                                                         await selectMedia(
+                                                      storageFolderPath: _model
+                                                          .uploadedFileUrl,
                                                       mediaSource: MediaSource
                                                           .photoGallery,
                                                       multiImage: false,
@@ -294,6 +296,8 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
 
+                                                      var downloadUrls =
+                                                          <String>[];
                                                       try {
                                                         selectedUploadedFiles =
                                                             selectedMedia
@@ -316,17 +320,31 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                                           m.blurHash,
                                                                     ))
                                                                 .toList();
+
+                                                        downloadUrls =
+                                                            await uploadSupabaseStorageFiles(
+                                                          bucketName: _model
+                                                              .uploadedFileUrl,
+                                                          selectedFiles:
+                                                              selectedMedia,
+                                                        );
                                                       } finally {
                                                         _model.isDataUploading =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
-                                                              .length ==
-                                                          selectedMedia
-                                                              .length) {
+                                                                  .length ==
+                                                              selectedMedia
+                                                                  .length &&
+                                                          downloadUrls.length ==
+                                                              selectedMedia
+                                                                  .length) {
                                                         setState(() {
                                                           _model.uploadedLocalFile =
                                                               selectedUploadedFiles
+                                                                  .first;
+                                                          _model.uploadedFileUrl =
+                                                              downloadUrls
                                                                   .first;
                                                         });
                                                       } else {
@@ -736,9 +754,7 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                       .text),
                                               'descricao': _model
                                                   .descriptionController.text,
-                                              'img': _model
-                                                  .uploadedLocalFile.height
-                                                  .toString(),
+                                              'img': _model.uploadedFileUrl,
                                               'e_promo':
                                                   _model.switchListTileValue,
                                               'categoria': _model.dropDownValue,
