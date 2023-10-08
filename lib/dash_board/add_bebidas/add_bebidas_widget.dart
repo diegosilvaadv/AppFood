@@ -1208,7 +1208,10 @@ class _AddBebidasWidgetState extends State<AddBebidasWidget> {
                                                                           await ProdutosTable()
                                                                               .delete(
                                                                             matchingRows: (rows) =>
-                                                                                rows,
+                                                                                rows.eq(
+                                                                              'id',
+                                                                              listViewProdutosRow.id,
+                                                                            ),
                                                                           );
                                                                           setState(() =>
                                                                               _model.requestCompleter = null);
