@@ -12,3 +12,4 @@ export '/inicio/home_or_pedidos/home_or_pedidos_widget.dart'
 export '/dash_board/pedidos_web/pedidos_web_widget.dart' show PedidosWebWidget;
 export '/inicio/pag_pesquisa/pag_pesquisa_widget.dart' show PagPesquisaWidget;
 export '/dash_board/dashboard/dashboard_widget.dart' show DashboardWidget;
+export '/dash_board/add_pratos/add_pratos_widget.dart' show AddPratosWidget;

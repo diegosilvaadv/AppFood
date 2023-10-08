@@ -109,6 +109,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'dashboard',
           path: '/dashboard',
           builder: (context, params) => DashboardWidget(),
+        ),
+        FFRoute(
+          name: 'add_pratos',
+          path: '/addPratos',
+          builder: (context, params) => AddPratosWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
