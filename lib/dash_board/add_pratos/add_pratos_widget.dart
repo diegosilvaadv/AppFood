@@ -56,7 +56,7 @@ class _AddPratosWidgetState extends State<AddPratosWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           elevation: 8.0,
           child: Icon(
-            Icons.refresh,
+            Icons.add,
             color: Colors.white,
             size: 24.0,
           ),
@@ -1032,11 +1032,13 @@ class _AddPratosWidgetState extends State<AddPratosWidget> {
                                                                                   size: 24.0,
                                                                                 ),
                                                                               ),
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
-                                                                                child: Text(
-                                                                                  listViewProdutosRow.descricao!,
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              Expanded(
+                                                                                child: Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+                                                                                  child: Text(
+                                                                                    listViewProdutosRow.descricao!,
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                  ),
                                                                                 ),
                                                                               ),
                                                                             ],
