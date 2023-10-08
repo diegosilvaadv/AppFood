@@ -279,8 +279,8 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                                   onTap: () async {
                                                     final selectedMedia =
                                                         await selectMedia(
-                                                      storageFolderPath: _model
-                                                          .uploadedFileUrl,
+                                                      storageFolderPath:
+                                                          'fotos',
                                                       mediaSource: MediaSource
                                                           .photoGallery,
                                                       multiImage: false,
@@ -323,8 +323,7 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
 
                                                         downloadUrls =
                                                             await uploadSupabaseStorageFiles(
-                                                          bucketName: _model
-                                                              .uploadedFileUrl,
+                                                          bucketName: 'foto',
                                                           selectedFiles:
                                                               selectedMedia,
                                                         );
