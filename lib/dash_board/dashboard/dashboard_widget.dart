@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'dashboard_model.dart';
 export 'dashboard_model.dart';
@@ -46,6 +45,18 @@ class _DashboardWidgetState extends State<DashboardWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            print('FloatingActionButton pressed ...');
+          },
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          elevation: 8.0,
+          child: Icon(
+            Icons.refresh,
+            color: Colors.white,
+            size: 24.0,
+          ),
+        ),
         body: SafeArea(
           top: true,
           child: Padding(
@@ -60,7 +71,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                   children: [
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
-                          25.0, 25.0, 25.0, 25.0),
+                          16.0, 16.0, 16.0, 16.0),
                       child: Material(
                         color: Colors.transparent,
                         elevation: 5.0,
@@ -68,7 +79,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Container(
-                          width: MediaQuery.sizeOf(context).width * 0.2,
+                          width: MediaQuery.sizeOf(context).width * 0.194,
                           height: MediaQuery.sizeOf(context).height * 0.9,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
@@ -308,67 +319,57 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 6.0, 0.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed('pratos_add');
-                                    },
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Material(
-                                          color: Colors.transparent,
-                                          elevation: 5.0,
-                                          shape: RoundedRectangleBorder(
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Material(
+                                        color: Colors.transparent,
+                                        elevation: 5.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.17,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.05,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
                                           ),
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.17,
-                                            height: MediaQuery.sizeOf(context)
-                                                    .height *
-                                                0.05,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'Pratos',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          fontSize: 25.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                  ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'Pratos',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        fontSize: 25.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                                 Padding(
@@ -602,63 +603,175 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          15.0, 25.0, 25.0, 25.0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(6.0, 25.0, 25.0, 25.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Material(
-                            color: Colors.transparent,
-                            elevation: 5.0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 0.73,
-                              height: MediaQuery.sizeOf(context).height * 0.9,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Container(
-                                        width: 100.0,
-                                        height: 146.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: LinearPercentIndicator(
-                                          percent: 0.5,
-                                          width: 200.0,
-                                          lineHeight: 15.0,
-                                          animation: true,
-                                          animateFromLastPercent: true,
-                                          progressColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .accent4,
-                                          center: Text(
-                                            '40%',
-                                            style: FlutterFlowTheme.of(context)
-                                                .headlineSmall,
-                                          ),
-                                          padding: EdgeInsets.zero,
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 6.0, 0.0),
+                                child: Material(
+                                  color: Colors.transparent,
+                                  elevation: 5.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Container(
+                                    width: MediaQuery.sizeOf(context).width *
+                                        0.368,
+                                    height:
+                                        MediaQuery.sizeOf(context).height * 0.9,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 16.0, 16.0, 16.0),
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'PEDIDOS  COM PRIORIDADES',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineLarge
+                                                      .override(
+                                                        fontFamily: 'Outfit',
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    dateTimeFormat(
+                                                      'MMMMEEEEd',
+                                                      getCurrentTimestamp,
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily: 'Outfit',
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                    ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Material(
+                                    color: Colors.transparent,
+                                    elevation: 5.0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.38,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.9,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 16.0, 16.0, 16.0),
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    'PEDIDOS  MAIS RECENTES',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .headlineLarge
+                                                        .override(
+                                                          fontFamily: 'Outfit',
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 8.0, 0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Text(
+                                                      dateTimeFormat(
+                                                        'MMMMEEEEd',
+                                                        getCurrentTimestamp,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleLarge
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Outfit',
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
-                            ),
+                            ],
                           ),
                         ],
                       ),

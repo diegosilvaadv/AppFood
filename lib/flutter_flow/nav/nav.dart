@@ -94,19 +94,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => HomeOrPedidosWidget(),
         ),
         FFRoute(
-          name: 'dashboard',
-          path: '/dashboard',
-          builder: (context, params) => DashboardWidget(),
-        ),
-        FFRoute(
           name: 'Pedidos_web',
           path: '/pedidosWeb',
           builder: (context, params) => PedidosWebWidget(),
-        ),
-        FFRoute(
-          name: 'pratos_add',
-          path: '/pratosAdd',
-          builder: (context, params) => PratosAddWidget(),
         ),
         FFRoute(
           name: 'pagPesquisa',
@@ -114,6 +104,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => PagPesquisaWidget(
             nomepesquisa: params.getParam('nomepesquisa', ParamType.String),
           ),
+        ),
+        FFRoute(
+          name: 'dashboard',
+          path: '/dashboard',
+          builder: (context, params) => DashboardWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
