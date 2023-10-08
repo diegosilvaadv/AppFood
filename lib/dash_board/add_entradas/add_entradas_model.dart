@@ -3,13 +3,13 @@ import '/componentes/add_produtos/add_produtos_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'add_pratos_widget.dart' show AddPratosWidget;
+import 'add_entradas_widget.dart' show AddEntradasWidget;
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class AddPratosModel extends FlutterFlowModel<AddPratosWidget> {
+class AddEntradasModel extends FlutterFlowModel<AddEntradasWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

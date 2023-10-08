@@ -3,17 +3,17 @@ import '/componentes/add_produtos/add_produtos_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'add_pratos_widget.dart' show AddPratosWidget;
 import 'dart:async';
+import 'pedidos_fechados_widget.dart' show PedidosFechadosWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class AddPratosModel extends FlutterFlowModel<AddPratosWidget> {
+class PedidosFechadosModel extends FlutterFlowModel<PedidosFechadosWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  Completer<List<ProdutosRow>>? requestCompleter;
+  Completer<List<PedidosFinalizadoRow>>? requestCompleter;
 
   /// Initialization and disposal methods.
 

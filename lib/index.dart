@@ -13,3 +13,11 @@ export '/dash_board/pedidos_web/pedidos_web_widget.dart' show PedidosWebWidget;
 export '/inicio/pag_pesquisa/pag_pesquisa_widget.dart' show PagPesquisaWidget;
 export '/dash_board/dashboard/dashboard_widget.dart' show DashboardWidget;
 export '/dash_board/add_pratos/add_pratos_widget.dart' show AddPratosWidget;
+export '/dash_board/add_bebidas/add_bebidas_widget.dart' show AddBebidasWidget;
+export '/dash_board/add_sobremesa/add_sobremesa_widget.dart'
+    show AddSobremesaWidget;
+export '/dash_board/add_entradas/add_entradas_widget.dart'
+    show AddEntradasWidget;
+export '/dash_board/add_promo/add_promo_widget.dart' show AddPromoWidget;
+export '/dash_board/pedidos_fechados/pedidos_fechados_widget.dart'
+    show PedidosFechadosWidget;

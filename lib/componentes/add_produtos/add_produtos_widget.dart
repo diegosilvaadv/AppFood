@@ -15,19 +15,19 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
-import 'add_pratos_comp_model.dart';
-export 'add_pratos_comp_model.dart';
+import 'add_produtos_model.dart';
+export 'add_produtos_model.dart';
 
-class AddPratosCompWidget extends StatefulWidget {
-  const AddPratosCompWidget({Key? key}) : super(key: key);
+class AddProdutosWidget extends StatefulWidget {
+  const AddProdutosWidget({Key? key}) : super(key: key);
 
   @override
-  _AddPratosCompWidgetState createState() => _AddPratosCompWidgetState();
+  _AddProdutosWidgetState createState() => _AddProdutosWidgetState();
 }
 
-class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
+class _AddProdutosWidgetState extends State<AddProdutosWidget>
     with TickerProviderStateMixin {
-  late AddPratosCompModel _model;
+  late AddProdutosModel _model;
 
   final animationsMap = {
     'containerOnPageLoadAnimation1': AnimationInfo(
@@ -67,7 +67,7 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AddPratosCompModel());
+    _model = createModel(context, () => AddProdutosModel());
 
     _model.projectNameController ??= TextEditingController();
     _model.descriptionController ??= TextEditingController();

@@ -114,6 +114,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'add_pratos',
           path: '/addPratos',
           builder: (context, params) => AddPratosWidget(),
+        ),
+        FFRoute(
+          name: 'add_bebidas',
+          path: '/addBebidas',
+          builder: (context, params) => AddBebidasWidget(),
+        ),
+        FFRoute(
+          name: 'add_sobremesa',
+          path: '/addSobremesa',
+          builder: (context, params) => AddSobremesaWidget(),
+        ),
+        FFRoute(
+          name: 'add_entradas',
+          path: '/addEntradas',
+          builder: (context, params) => AddEntradasWidget(),
+        ),
+        FFRoute(
+          name: 'add_promo',
+          path: '/addPromo',
+          builder: (context, params) => AddPromoWidget(),
+        ),
+        FFRoute(
+          name: 'pedidos_fechados',
+          path: '/pedidosFechados',
+          builder: (context, params) => PedidosFechadosWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
