@@ -672,7 +672,7 @@ class _AddPratosCompWidgetState extends State<AddPratosCompWidget>
                                     Expanded(
                                       child: SwitchListTile.adaptive(
                                         value: _model.switchListTileValue ??=
-                                            true,
+                                            false,
                                         onChanged: (newValue) async {
                                           setState(() => _model
                                               .switchListTileValue = newValue!);
