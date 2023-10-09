@@ -1205,14 +1205,37 @@ class _AddBebidasWidgetState extends State<AddBebidasWidget> {
                                                                             Colors.transparent,
                                                                         onTap:
                                                                             () async {
-                                                                          await ProdutosTable()
-                                                                              .delete(
-                                                                            matchingRows: (rows) =>
-                                                                                rows.eq(
-                                                                              'id',
-                                                                              listViewProdutosRow.id,
-                                                                            ),
-                                                                          );
+                                                                          var confirmDialogResponse = await showDialog<bool>(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return AlertDialog(
+                                                                                    title: Text('Deseja Realmente Excluir  esse item?'),
+                                                                                    content: Text('Depois de excluido não será mas possivel recuperar.'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                        child: Text('Cancel'),
+                                                                                      ),
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                        child: Text('Confirm'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  );
+                                                                                },
+                                                                              ) ??
+                                                                              false;
+                                                                          if (confirmDialogResponse) {
+                                                                            await ProdutosTable().delete(
+                                                                              matchingRows: (rows) => rows.eq(
+                                                                                'id',
+                                                                                listViewProdutosRow.id,
+                                                                              ),
+                                                                            );
+                                                                          } else {
+                                                                            Navigator.pop(context);
+                                                                          }
+
                                                                           setState(() =>
                                                                               _model.requestCompleter = null);
                                                                           await _model
