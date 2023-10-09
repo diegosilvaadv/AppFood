@@ -1209,7 +1209,10 @@ class _AddPratosWidgetState extends State<AddPratosWidget> {
                                                                           await ProdutosTable()
                                                                               .delete(
                                                                             matchingRows: (rows) =>
-                                                                                rows,
+                                                                                rows.eq(
+                                                                              'id',
+                                                                              listViewProdutosRow.id,
+                                                                            ),
                                                                           );
                                                                           setState(() =>
                                                                               _model.requestCompleter = null);
