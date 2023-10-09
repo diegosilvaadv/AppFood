@@ -49,10 +49,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            while (getCurrentTimestamp ==
-                DateTime.fromMicrosecondsSinceEpoch(
-                    getCurrentTimestamp.secondsSinceEpoch)) {
-              await Future.delayed(const Duration(milliseconds: 1000));
+            while (FFAppState().contador == -1) {
               setState(() => _model.requestCompleter = null);
               await _model.waitForRequestCompleted();
             }
