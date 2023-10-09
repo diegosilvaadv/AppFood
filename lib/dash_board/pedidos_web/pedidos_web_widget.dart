@@ -49,9 +49,13 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            setState(() => _model.requestCompleter2 = null);
-            await _model.waitForRequestCompleted2(minWait: 1000, maxWait: 2000);
-            setState(() => _model.requestCompleter1 = null);
+            while (getCurrentTimestamp ==
+                DateTime.fromMicrosecondsSinceEpoch(
+                    getCurrentTimestamp.secondsSinceEpoch)) {
+              await Future.delayed(const Duration(milliseconds: 1000));
+              setState(() => _model.requestCompleter = null);
+              await _model.waitForRequestCompleted();
+            }
           },
           backgroundColor: FlutterFlowTheme.of(context).primary,
           elevation: 8.0,
@@ -819,7 +823,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                               child: FutureBuilder<
                                                   List<PedidosClienteRow>>(
                                                 future: (_model
-                                                            .requestCompleter2 ??=
+                                                            .requestCompleter ??=
                                                         Completer<
                                                             List<
                                                                 PedidosClienteRow>>()
@@ -1269,19 +1273,11 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                         0.0, 12.0, 0.0, 0.0),
                                                 child: FutureBuilder<
                                                     List<PedidosClienteRow>>(
-                                                  future: (_model
-                                                              .requestCompleter1 ??=
-                                                          Completer<
-                                                              List<
-                                                                  PedidosClienteRow>>()
-                                                            ..complete(
-                                                                PedidosClienteTable()
-                                                                    .queryRows(
-                                                              queryFn: (q) =>
-                                                                  q.order(
-                                                                      'created_at'),
-                                                            )))
-                                                      .future,
+                                                  future: PedidosClienteTable()
+                                                      .queryRows(
+                                                    queryFn: (q) =>
+                                                        q.order('created_at'),
+                                                  ),
                                                   builder: (context, snapshot) {
                                                     // Customize what your widget looks like when it's loading.
                                                     if (!snapshot.hasData) {
