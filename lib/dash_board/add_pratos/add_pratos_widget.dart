@@ -1234,7 +1234,7 @@ class _AddPratosWidgetState extends State<AddPratosWidget> {
                                                                               ),
                                                                             );
                                                                           } else {
-                                                                            Navigator.pop(context);
+                                                                            return;
                                                                           }
 
                                                                           setState(() =>

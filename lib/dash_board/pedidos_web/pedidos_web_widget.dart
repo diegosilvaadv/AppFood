@@ -1222,7 +1222,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
                                                                               ),
                                                                             );
                                                                           } else {
-                                                                            Navigator.pop(context);
+                                                                            return;
                                                                           }
 
                                                                           setState(() =>

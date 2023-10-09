@@ -1234,7 +1234,7 @@ class _AddEntradasWidgetState extends State<AddEntradasWidget> {
                                                                               ),
                                                                             );
                                                                           } else {
-                                                                            Navigator.pop(context);
+                                                                            return;
                                                                           }
 
                                                                           setState(() =>

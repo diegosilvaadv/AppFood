@@ -804,7 +804,7 @@ class _AddPromoWidgetState extends State<AddPromoWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  'Lista de Pratos',
+                                                  'Lista de Promoções',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .headlineLarge

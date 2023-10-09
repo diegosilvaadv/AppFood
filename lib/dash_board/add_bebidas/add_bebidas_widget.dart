@@ -1233,7 +1233,7 @@ class _AddBebidasWidgetState extends State<AddBebidasWidget> {
                                                                               ),
                                                                             );
                                                                           } else {
-                                                                            Navigator.pop(context);
+                                                                            return;
                                                                           }
 
                                                                           setState(() =>

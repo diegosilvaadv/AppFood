@@ -1234,7 +1234,7 @@ class _AddSobremesaWidgetState extends State<AddSobremesaWidget> {
                                                                               ),
                                                                             );
                                                                           } else {
-                                                                            Navigator.pop(context);
+                                                                            return;
                                                                           }
 
                                                                           setState(() =>
