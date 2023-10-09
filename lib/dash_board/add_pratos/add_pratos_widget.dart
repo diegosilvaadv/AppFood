@@ -1226,14 +1226,17 @@ class _AddPratosWidgetState extends State<AddPratosWidget> {
                                                                                 },
                                                                               ) ??
                                                                               false;
-                                                                          await ProdutosTable()
-                                                                              .delete(
-                                                                            matchingRows: (rows) =>
-                                                                                rows.eq(
-                                                                              'id',
-                                                                              listViewProdutosRow.id,
-                                                                            ),
-                                                                          );
+                                                                          if (confirmDialogResponse) {
+                                                                            await ProdutosTable().delete(
+                                                                              matchingRows: (rows) => rows.eq(
+                                                                                'id',
+                                                                                listViewProdutosRow.id,
+                                                                              ),
+                                                                            );
+                                                                          } else {
+                                                                            context.safePop();
+                                                                          }
+
                                                                           setState(() =>
                                                                               _model.requestCompleter = null);
                                                                           await _model
