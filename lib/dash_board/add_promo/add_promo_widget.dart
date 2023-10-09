@@ -1235,6 +1235,7 @@ class _AddPromoWidgetState extends State<AddPromoWidget> {
                                                                             );
                                                                           } else {
                                                                             Navigator.pop(context);
+                                                                            return;
                                                                           }
 
                                                                           setState(() =>
