@@ -83,7 +83,6 @@ class _AddBebidasWidgetState extends State<AddBebidasWidget> {
               ).then((value) => safeSetState(() {}));
 
               setState(() => _model.requestCompleter = null);
-              await _model.waitForRequestCompleted();
             },
             child: Icon(
               Icons.add,
