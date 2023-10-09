@@ -1206,6 +1206,26 @@ class _AddPratosWidgetState extends State<AddPratosWidget> {
                                                                             Colors.transparent,
                                                                         onTap:
                                                                             () async {
+                                                                          var confirmDialogResponse = await showDialog<bool>(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return AlertDialog(
+                                                                                    title: Text('Deseja Realmente Excluir  esse item?'),
+                                                                                    content: Text('Depois de excluido não será mas possivel recuperar.'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                        child: Text('Cancel'),
+                                                                                      ),
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                        child: Text('Confirm'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  );
+                                                                                },
+                                                                              ) ??
+                                                                              false;
                                                                           await ProdutosTable()
                                                                               .delete(
                                                                             matchingRows: (rows) =>
