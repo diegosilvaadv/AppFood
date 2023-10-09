@@ -49,10 +49,7 @@ class _PedidosWebWidgetState extends State<PedidosWebWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            while (isWeb == true) {
-              setState(() => _model.requestCompleter = null);
-              await _model.waitForRequestCompleted();
-            }
+            setState(() => _model.requestCompleter = null);
           },
           backgroundColor: FlutterFlowTheme.of(context).primary,
           elevation: 8.0,
