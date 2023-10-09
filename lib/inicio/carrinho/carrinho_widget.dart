@@ -707,6 +707,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                             'numero_pedido': random_data
                                                 .randomInteger(0, 100000)
                                                 .toDouble(),
+                                            'id_produto':
+                                                buttonPedidosClienteRow
+                                                    ?.idProduto,
                                           });
                                           _shouldSetState = true;
 

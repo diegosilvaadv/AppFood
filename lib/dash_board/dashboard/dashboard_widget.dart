@@ -848,8 +848,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                           PedidosClienteTable()
                                                               .queryRows(
                                                         queryFn: (q) => q.order(
-                                                            'pedido',
-                                                            ascending: true),
+                                                            'id_produto'),
                                                       ),
                                                       builder:
                                                           (context, snapshot) {

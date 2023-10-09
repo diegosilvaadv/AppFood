@@ -44,4 +44,7 @@ class PedidosClienteRow extends SupabaseDataRow {
 
   double? get numeroPedido => getField<double>('numero_pedido');
   set numeroPedido(double? value) => setField<double>('numero_pedido', value);
+
+  int? get idProduto => getField<int>('id_produto');
+  set idProduto(int? value) => setField<int>('id_produto', value);
 }
